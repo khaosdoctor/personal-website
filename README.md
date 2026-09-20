@@ -1,24 +1,12 @@
-# personal-website
+# Lucas' personal website
 
-My personal website. Plain HTML/CSS/JS, no framework.
+> My personal website. Plain HTML/CSS/JS, like the aztecs used to do. Check it out at https://lsantos.dev
 
 ## Stack
 
-- IBM Plex Mono, black/white ASCII aesthetic
-- Native web components for sidebar/footer reuse
-- Bun script (`sync.js`) to sync blog posts from RSS and gear notes from Obsidian vault
-
-## Dev
-
-```bash
-bun install
-bun run sync.js
-# serve on localhost:3456 with any static server
-```
-
-Set `VAULT_DIR` to override the default Obsidian vault path.
-
-Manual gear entries go in `data/gear/*.md` with frontmatter (see `data/gear/gear.template.md`).
+- IBM Plex Mono for all fonts
+- HTML, CSS, JS... That's really it. Some native webcomponents as well
+- I do have a script to sync some files from my obsidian vault to here to add gear and other stuff, but it's support content
 
 ## License
 
