@@ -32,6 +32,8 @@ function toggleTheme() {
 
 applyTheme(getTheme());
 
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+
 document.addEventListener('DOMContentLoaded', () => {
   const raw = location.pathname.replace(/\/$/, '').replace(/\.html$/, '').replace(/\/index$/, '');
   const path = raw || '/';
