@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucas Santos</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23000'/%3E%3Ctext x='4' y='22' font-family='monospace' font-size='18' fill='%23d6d2c9'%3E%3E_%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/theme.js"></script>
+  <script src="/js/components.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <site-sidebar class="sidebar"></site-sidebar>
+
+    <main class="content">
+      <div class="content-inner">
+        <div class="intro-name">Lucas Santos</div>
+        <div class="intro-sub">software engineer :: content creator :: stockholm</div>
+        <div class="section-label">// ABOUT</div>
+        <p class="bio">
+          <!-- Replace with your own bio -->
+          Software engineer working with distributed systems and cloud infrastructure.
+          I write about technology, open source, and developer experience.
+          Currently building things at Hemnet.
+        </p>
+
+        <div class="section-label">// LATEST</div>
+        <ul class="post-list" id="latest-posts">
+          <li class="muted">loading...</li>
+        </ul>
+
+        <div class="section-label">// WORK</div>
+        <div class="timeline">
+          <!-- Update with your actual timeline -->
+          <div class="timeline-item">
+            <span class="timeline-period">2023-now</span>
+            <span>Hemnet &middot; Software Engineer</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-period">2020-2023</span>
+            <span><!-- Previous role --></span>
+          </div>
+        </div>
+
+        <site-footer class="socials"></site-footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const el = document.getElementById('latest-posts');
+      try {
+        const res = await fetch('/data/posts.json');
+        if (!res.ok) throw 0;
+        const posts = await res.json();
+        el.innerHTML = posts.slice(0, 3).map(p => {
+          const d = document.createElement('div');
+          d.textContent = p.title;
+          const safe = d.innerHTML;
+          return `<li><span class="post-date">${p.date}</span><a href="${p.link}" target="_blank" rel="noopener">${safe}</a></li>`;
+        }).join('');
+      } catch {
+        el.innerHTML = '<li class="muted">no posts yet - run sync.js</li>';
+      }
+    });
+  </script>
+</body>
+</html>

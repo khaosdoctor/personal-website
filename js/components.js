@@ -1,0 +1,39 @@
+class SiteSidebar extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
+      <div class="sidebar-inner">
+        <div class="photo-wrap">
+          <img src="https://gravatar.com/avatar/2d07ec9ba9566dedfbb1a4ce2a3bcc6e?s=260" alt="Lucas Santos" class="photo">
+        </div>
+        <div class="sidebar-name">Lucas Santos</div>
+        <nav>
+          <a href="/">/about</a>
+          <a href="/uses">/uses</a>
+          <a href="/now">/now</a>
+          <a href="/projects">/projects</a>
+          <a href="mailto:hello@lsantos.dev?subject=Contact%20through%20your%20website" target="_blank" rel="noopener">/contact <span class="external-icon">&#x2197;</span></a>
+          <a href="https://personality.lsantos.dev" target="_blank" rel="noopener">/personality <span class="external-icon">&#x2197;</span></a>
+        </nav>
+        <div class="theme-toggle">
+          <button onclick="toggleTheme()">[light]</button>
+        </div>
+      </div>
+    `;
+  }
+}
+
+class SiteFooter extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
+      <a href="https://github.lsantos.dev" target="_blank" rel="noopener">[github]</a>
+      <a href="https://blog.lsantos.dev" target="_blank" rel="noopener">[blog]</a>
+      <a href="https://twitter.lsantos.dev" target="_blank" rel="noopener">[twitter (x)]</a>
+      <a href="https://linkedin.lsantos.dev" target="_blank" rel="noopener">[linkedin]</a>
+      <a href="https://youtube.lsantos.dev" target="_blank" rel="noopener">[youtube]</a>
+      <a href="https://telegram.lsantos.dev" target="_blank" rel="noopener">[telegram]</a>
+    `;
+  }
+}
+
+customElements.define('site-sidebar', SiteSidebar);
+customElements.define('site-footer', SiteFooter);

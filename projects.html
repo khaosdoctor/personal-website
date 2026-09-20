@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Lucas Santos</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23000'/%3E%3Ctext x='4' y='22' font-family='monospace' font-size='18' fill='%23d6d2c9'%3E%3E_%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/theme.js"></script>
+  <script src="/js/components.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <site-sidebar class="sidebar"></site-sidebar>
+
+    <main class="content">
+      <div class="content-inner">
+        <div class="section-label">// PROJECTS</div>
+        <p class="page-desc">Things I've built or maintain.</p>
+        <ul class="project-list" id="project-list">
+          <li class="muted">loading...</li>
+        </ul>
+
+        <site-footer class="socials"></site-footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const el = document.getElementById('project-list');
+      try {
+        const res = await fetch('/data/projects.json');
+        if (!res.ok) throw 0;
+        const projects = await res.json();
+        el.innerHTML = projects.map(p => {
+          const d = document.createElement('div');
+          d.textContent = p.description;
+          const safe = d.innerHTML;
+          const link = p.url ? `<a href="${p.url}" target="_blank" rel="noopener" class="project-name">${p.name}</a>` : `<span class="project-name">${p.name}</span>`;
+          return `<li class="project-item">
+            <div class="project-header">
+              ${link}
+              <span class="project-status">${p.status}</span>
+            </div>
+            <div class="project-desc">${safe}</div>
+          </li>`;
+        }).join('');
+      } catch {
+        el.innerHTML = '<li class="muted">edit data/projects.json to add projects</li>';
+      }
+    });
+  </script>
+</body>
+</html>
