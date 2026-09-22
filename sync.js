@@ -1,15 +1,19 @@
-import { readFile, writeFile, readdir, mkdir } from 'fs/promises';
+import { readFile, writeFile, readdir, mkdir, copyFile } from 'fs/promises';
 import { existsSync } from 'fs';
-import { join, basename } from 'path';
+import { join, basename, extname } from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
+import sharp from 'sharp';
 
 const VAULT_DIR = process.env.VAULT_DIR || join(process.env.HOME, 'Documents/Obsidian/Vaults/Default/notes');
+const VAULT_ASSETS = process.env.VAULT_ASSETS || join(process.env.HOME, 'Documents/Obsidian/Vaults/Default/internal/assets');
 const RSS_URL = 'https://blog.lsantos.dev/en/rss.xml';
 const GEAR_DIR = './gear';
+const GEAR_IMG = './img/gear';
 const DATA_DIR = './data';
 const GEAR_DATA = './data/gear';
 const GEAR_JSON = GEAR_DATA + '/gear.json';
+const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
 const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23000'/%3E%3Ctext x='4' y='22' font-family='monospace' font-size='18' fill='%23d6d2c9'%3E%3E_%3C/text%3E%3C/svg%3E";
 
 const STATE_COLORS = {
@@ -20,9 +24,9 @@ const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
 const ENTITY_MAP = { '&apos;': "'", '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"' };
 const RE_ESC = /[&<>"]/g;
 const RE_SLUG = /[^a-z0-9]+/g, RE_SLUG_TRIM = /^-|-$/g;
-const RE_WIKILINK = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
-const RE_UNRESOLVED_LI = /^[ \t]*[-*]\s*<!--unresolved:[^>]*-->\s*$/gm;
-const RE_UNRESOLVED_INLINE = /<!--unresolved:([^>]*)-->/g;
+const RE_WIKILINK = /(!?)\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
+const RE_UNRESOLVED_LI = /^[ \t]*[-*]\s*<!--unresolved:[\s\S]*?-->\s*$/gm;
+const RE_UNRESOLVED_INLINE = /<!--unresolved:([\s\S]*?)-->/g;
 const RE_RSS_ITEM = /<item>([\s\S]*?)<\/item>/g;
 const RE_ENTITY = /&(?:apos|amp|lt|gt|quot);/g;
 const RSS_RE = Object.fromEntries(['title', 'link', 'pubDate'].map(t =>
@@ -42,13 +46,25 @@ function inferCategory(tags) {
   return 'other';
 }
 
+const pendingImages = [];
+
 function resolveWikilinks(content, slugs) {
   return content
-    .replace(RE_WIKILINK, (_, target, alias) => {
+    .replace(RE_WIKILINK, (_, bang, target, alias) => {
+      if (bang && IMG_EXTS.has(extname(target).toLowerCase())) {
+        const src = join(VAULT_ASSETS, target);
+        if (existsSync(src)) {
+          const dest = slugify(target.replace(extname(target), '')) + extname(target).toLowerCase();
+          pendingImages.push({ src, dest });
+          const webpDest = dest.replace(/\.[^.]+$/, '.webp');
+          const alt = alias && !/^\d+$/.test(alias) ? alias : target;
+          return `![${alt}](/img/gear/${webpDest})`;
+        }
+        return '';
+      }
       const slug = slugify(target);
-      return slugs.has(slug)
-        ? `<a href="/gear/${slug}.html">${alias || target}</a>`
-        : `<!--unresolved:${alias || target}-->`;
+      if (slugs.has(slug)) return `<a href="/gear/${slug}.html">${alias || target}</a>`;
+      return bang ? '' : `<!--unresolved:${alias || target}-->`;
     })
     .replace(RE_UNRESOLVED_LI, '')
     .replace(RE_UNRESOLVED_INLINE, '$1');
@@ -72,6 +88,27 @@ async function readMdFiles(dir, skip = []) {
     } catch { continue; }
   }
   return out;
+}
+
+const COVER_DIR = './img/gear/covers';
+
+async function optimizeImage(input, outputPath) {
+  try {
+    await sharp(input).resize({ width: 600, withoutEnlargement: true }).webp({ quality: 80 }).toFile(outputPath);
+    return true;
+  } catch { return false; }
+}
+
+async function fetchCover(url, slug) {
+  const dest = join(COVER_DIR, `${slug}.webp`);
+  if (existsSync(dest)) return `/img/gear/covers/${slug}.webp`;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) return url;
+    const buf = Buffer.from(await res.arrayBuffer());
+    await optimizeImage(buf, dest);
+    return `/img/gear/covers/${slug}.webp`;
+  } catch { return url; }
 }
 
 function gearPage(n, body) {
@@ -133,7 +170,7 @@ async function syncPosts() {
 
 async function syncGear() {
   console.log('Syncing gear notes...');
-  for (const d of [GEAR_DIR, GEAR_DATA]) if (!existsSync(d)) await mkdir(d, { recursive: true });
+  for (const d of [GEAR_DIR, GEAR_DATA, GEAR_IMG, COVER_DIR]) if (!existsSync(d)) await mkdir(d, { recursive: true });
 
   const vault = await readMdFiles(VAULT_DIR);
   const local = await readMdFiles(GEAR_DATA, ['gear.template.md']);
@@ -141,10 +178,18 @@ async function syncGear() {
   const notes = [...vault, ...local.filter(n => !vaultSlugs.has(n.slug))];
   const allSlugs = new Set(notes.map(n => n.slug));
 
+  let coverCount = 0;
   const index = await Promise.all(notes.map(async n => {
+    if (n.coverUrl) {
+      const localCover = await fetchCover(n.coverUrl, n.slug);
+      if (localCover !== n.coverUrl) coverCount++;
+      n.coverUrl = localCover;
+    }
     const hasPage = n.body.trim().length > 0;
     if (hasPage) {
-      const html = await marked(n.isVault ? resolveWikilinks(n.body, allSlugs) : n.body);
+      let html = await marked(n.isVault ? resolveWikilinks(n.body, allSlugs) : n.body);
+      const namePattern = n.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      html = html.replace(new RegExp(`^\\s*<h1>${namePattern}</h1>\\s*`), '');
       await writeFile(join(GEAR_DIR, `${n.slug}.html`), gearPage(n, html));
     }
     return {
@@ -153,6 +198,16 @@ async function syncGear() {
       coverUrl: n.coverUrl, externalLink: n.externalLink, hasPage,
     };
   }));
+  if (coverCount) console.log(`  ${coverCount} covers downloaded`);
+
+  for (const img of pendingImages) {
+    const destPath = join(GEAR_IMG, img.dest);
+    const webpDest = destPath.replace(/\.[^.]+$/, '.webp');
+    const ok = await optimizeImage(img.src, webpDest);
+    if (!ok) await copyFile(img.src, destPath);
+  }
+  if (pendingImages.length) console.log(`  ${pendingImages.length} images optimized`);
+  pendingImages.length = 0;
 
   await writeFile(GEAR_JSON, JSON.stringify(index, null, 2));
   const lc = notes.filter(n => !n.isVault).length;

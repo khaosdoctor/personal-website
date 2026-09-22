@@ -5,8 +5,15 @@ class SiteSidebar extends HTMLElement {
         <div class="photo-wrap">
           <img src="https://gravatar.com/avatar/2d07ec9ba9566dedfbb1a4ce2a3bcc6e?s=260" alt="Lucas Santos" class="photo">
         </div>
-        <div class="sidebar-name">Lucas Santos</div>
+        <div class="sidebar-name">$ Lucas Santos</div>
+        <div class="mobile-actions">
+          <div class="theme-toggle">
+            <button onclick="toggleTheme()">[light]</button>
+          </div>
+          <button class="hamburger" aria-label="Menu" onclick="this.closest('.sidebar-inner').classList.toggle('menu-open')">&#9776;</button>
+        </div>
         <nav>
+
           <a href="/">/about</a>
           <a href="/uses">/uses</a>
           <a href="/now">/now</a>
@@ -14,7 +21,7 @@ class SiteSidebar extends HTMLElement {
           <a href="mailto:hello@lsantos.dev?subject=Contact%20through%20your%20website" target="_blank" rel="noopener">/contact <span class="external-icon">&#x2197;</span></a>
           <a href="https://personality.lsantos.dev" target="_blank" rel="noopener">/personality <span class="external-icon">&#x2197;</span></a>
         </nav>
-        <div class="theme-toggle">
+        <div class="theme-toggle desktop-only">
           <button onclick="toggleTheme()">[light]</button>
         </div>
       </div>
@@ -31,6 +38,7 @@ class SiteFooter extends HTMLElement {
       <a href="https://linkedin.lsantos.dev" target="_blank" rel="noopener">[linkedin]</a>
       <a href="https://youtube.lsantos.dev" target="_blank" rel="noopener">[youtube]</a>
       <a href="https://telegram.lsantos.dev" target="_blank" rel="noopener">[telegram]</a>
+      <p class="copyright">&copy; ${new Date().getFullYear()} Lucas Santos</p>
     `;
   }
 }

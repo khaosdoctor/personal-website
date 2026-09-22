@@ -20,8 +20,8 @@ function getTheme() {
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   document.documentElement.style.setProperty('--accent', ACCENTS[theme][getDayIndex()]);
-  const btn = document.querySelector('.theme-toggle button');
-  if (btn) btn.textContent = theme === 'dark' ? '[light]' : '[dark]';
+  for (const btn of document.querySelectorAll('.theme-toggle button'))
+    btn.textContent = theme === 'dark' ? '[light]' : '[dark]';
 }
 
 function toggleTheme() {
