@@ -23,41 +23,32 @@
         <p class="page-desc">
           What I'm doing now. Inspired by <a href="https://nownownow.com" target="_blank" rel="noopener">nownownow.com</a>.
         </p>
-        <p class="now-date">Last updated: September 2026</p>
+        <p class="now-date">Last updated: <span id="now-date">September 2026</span></p>
 
-        <!-- Edit this section directly when you want to update -->
-        <div class="now-section">
-          <h2>Work</h2>
-          <ul>
-            <li>Building things at Hemnet in Stockholm</li>
-          </ul>
-        </div>
-
-        <div class="now-section">
-          <h2>Side projects</h2>
-          <ul>
-            <li>This website</li>
-            <li>Blog at blog.lsantos.dev</li>
-          </ul>
-        </div>
-
-        <div class="now-section">
-          <h2>Learning</h2>
-          <ul>
-            <li><!-- What you're currently learning --></li>
-          </ul>
-        </div>
-
-        <div class="now-section">
-          <h2>Life</h2>
-          <ul>
-            <li>Living in Stockholm, Sweden</li>
-          </ul>
+        <div id="now-content">
+          <p class="muted">loading...</p>
         </div>
 
         <site-footer class="socials"></site-footer>
       </div>
     </main>
   </div>
+
+  <script type="module">
+    import { marked } from 'https://cdn.jsdelivr.net/npm/marked@15/lib/marked.esm.js';
+    const el = document.getElementById('now-content');
+    try {
+      const res = await fetch('/data/now.md');
+      if (!res.ok) throw 0;
+      const md = await res.text();
+      el.innerHTML = marked(md);
+      const lastMod = new Date(res.headers.get('last-modified') || Date.now());
+      const d = lastMod.getDate().toString().padStart(2, '0');
+      const m = (lastMod.getMonth() + 1).toString().padStart(2, '0');
+      document.getElementById('now-date').textContent = `${lastMod.getFullYear()}-${m}-${d}`;
+    } catch {
+      el.innerHTML = '<p class="muted">nothing here yet</p>';
+    }
+  </script>
 </body>
 </html>

@@ -143,10 +143,6 @@ function gearPage(n, body) {
       </div>
     </main>
   </div>
-  <script>
-    for (const a of document.querySelectorAll('.gear-body a'))
-      if (a.hostname && a.hostname !== location.hostname) { a.target = '_blank'; a.rel = 'noopener'; }
-  </script>
 </body>
 </html>`;
 }

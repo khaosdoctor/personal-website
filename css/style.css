@@ -111,6 +111,7 @@ nav {
 .sidebar-name {
   font-weight: 600;
   font-size: 1rem;
+  margin-top: 0.75rem;
   margin-bottom: 0.25rem;
 }
 
@@ -478,6 +479,8 @@ nav a.active { color: var(--accent); }
 }
 
 .project-item:last-child { border-bottom: none; }
+.project-item[data-status="archived"],
+.project-item[data-status="inactive"] { opacity: 0.5; }
 
 .project-header {
   display: flex;
@@ -492,11 +495,13 @@ nav a.active { color: var(--accent); }
 
 .project-status {
   font-size: 0.75rem;
-  color: var(--muted);
-  border: 1px solid var(--border);
   padding: 0.05rem 0.35rem;
   border-radius: 2px;
 }
+
+.project-status[data-status="active"] { color: #39936c; border: 1px solid #39936c; }
+.project-status[data-status="inactive"] { color: #d50612; border: 1px solid #d50612; }
+.project-status[data-status="archived"] { color: var(--muted); border: 1px solid var(--border); opacity: 0.6; }
 
 .project-desc {
   color: var(--muted);
@@ -512,26 +517,31 @@ nav a.active { color: var(--accent); }
   margin-bottom: 1.5rem;
 }
 
-.now-section {
+.now-section, #now-content {
   margin-bottom: 1.25rem;
 }
 
-.now-section h2 {
-  font-size: 0.95rem;
+.now-section h2, #now-content h2 {
+  font-size: 1.3rem;
   font-weight: 600;
+  margin-top: 1.25rem;
   margin-bottom: 0.35rem;
 }
 
-.now-section p, .now-section ul {
+.now-section h2:first-child, #now-content h2:first-child {
+  margin-top: 0;
+}
+
+.now-section p, .now-section ul, #now-content p, #now-content ul {
   font-size: 0.9rem;
 }
 
-.now-section ul {
+.now-section ul, #now-content ul {
   list-style: none;
-  padding: 0;
+  padding-left: 1rem;
 }
 
-.now-section li::before {
+.now-section li::before, #now-content li::before {
   content: '> ';
   color: var(--muted);
 }

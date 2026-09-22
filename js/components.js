@@ -45,3 +45,8 @@ class SiteFooter extends HTMLElement {
 
 customElements.define('site-sidebar', SiteSidebar);
 customElements.define('site-footer', SiteFooter);
+
+document.addEventListener('DOMContentLoaded', () => {
+  for (const a of document.querySelectorAll('a[href]'))
+    if (a.hostname && a.hostname !== location.hostname) { a.target = '_blank'; a.rel = 'noopener'; }
+});
