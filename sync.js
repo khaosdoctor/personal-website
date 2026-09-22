@@ -36,15 +36,6 @@ const esc = s => s.replace(RE_ESC, c => ESC_MAP[c]);
 const slugify = s => s.toLowerCase().replace(RE_SLUG, '-').replace(RE_SLUG_TRIM, '');
 const rssTag = (b, tag) => { const m = b.match(RSS_RE[tag]); return m?.[1] ?? m?.[2] ?? ''; };
 
-function inferCategory(tags) {
-  if (!Array.isArray(tags)) return 'other';
-  for (const t of tags) {
-    if (t.includes('music')) return 'music';
-    if (t.includes('electronics')) return 'electronics';
-    if (t.includes('computer') || t.includes('tech')) return 'tech';
-  }
-  return 'other';
-}
 
 const pendingImages = [];
 
@@ -82,7 +73,7 @@ async function readMdFiles(dir, skip = []) {
       out.push({
         name, slug, rating, body: content, isVault: dir === VAULT_DIR,
         oneliner: data.oneliner || '', coverUrl: data.coverUrl || '',
-        state: data.state || [], category: data.category || inferCategory(data.tags),
+        state: data.state || [], category: data['x-personal-site-category'] || 'other',
         externalLink: data.externalLink || '',
       });
     } catch { continue; }

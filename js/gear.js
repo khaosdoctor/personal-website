@@ -1,10 +1,3 @@
-const CATEGORY_LABELS = {
-  music: 'Music',
-  electronics: 'Electronics',
-  tech: 'Tech',
-  other: 'Other',
-};
-
 document.addEventListener('DOMContentLoaded', async () => {
   const container = document.getElementById('gear-container');
   try {
@@ -18,14 +11,19 @@ document.addEventListener('DOMContentLoaded', async () => {
       (grouped[cat] ||= []).push(item);
     }
 
-    const order = ['music', 'electronics', 'tech', 'other'];
+    const categories = Object.keys(grouped).sort((a, b) => {
+      if (a === 'other') return 1;
+      if (b === 'other') return -1;
+      return a.localeCompare(b);
+    });
+
     let html = '';
-    for (const cat of order) {
+    for (const cat of categories) {
       const group = grouped[cat];
-      if (!group) continue;
       group.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+      const label = cat.split(/[\s-]+/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
       html += `<div class="gear-category">
-        <h2>${CATEGORY_LABELS[cat] || cat}</h2>
+        <h2>${label}</h2>
         <ul class="gear-list">
           ${group.map(g => {
             const d = document.createElement('div');
