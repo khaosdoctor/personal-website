@@ -14,13 +14,13 @@
   {
     "name": "blog.lsantos.dev",
     "url": "https://blog.lsantos.dev",
-    "description": "Personal tech blog with a retro 8-bit aesthetic",
+    "description": "My personal tech blog, maintained since 2015",
     "status": "active"
   },
   {
     "name": "dontquotetheai",
     "url": "https://github.com/khaosdoctor/dontquotetheai",
-    "description": "Don't paste the AI response at me, please",
+    "description": "Satire website that mocks the AI hype",
     "status": "active"
   },
   {
@@ -32,7 +32,7 @@
   {
     "name": "my-notes",
     "url": "https://github.com/khaosdoctor/my-notes",
-    "description": "A repo with my study notes",
+    "description": "A repo with my study notes, this was my way in to OSS",
     "status": "archived"
   },
   {
@@ -68,7 +68,7 @@
   {
     "name": "netkill",
     "url": "https://github.com/khaosdoctor/netkill",
-    "description": "Kills the Internet connection of LAN devices using ARP spoofing",
+    "description": "Kills the Internet connection of LAN devices using ARP spoofing, ideal for ADHD",
     "status": "archived"
   }
 ]
