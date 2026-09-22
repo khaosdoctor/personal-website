@@ -9,7 +9,7 @@
 
 ## Reading
 
-- [Pebble in the Sky](https://www.goodreads.com/book/show/41820.Pebble_in_the_Sky) by Asimov
+- [The Stars, Like Dust](https://www.goodreads.com/en/book/show/41822.The_Stars_Like_Dust) by Asimov
 - [Practical Electronics for Inventors](https://www.goodreads.com/book/show/687619.Practical_Electronics_for_Inventors_2_E)
 
 ## Playing

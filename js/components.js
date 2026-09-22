@@ -18,8 +18,8 @@ class SiteSidebar extends HTMLElement {
           <a href="/uses">/uses</a>
           <a href="/now">/now</a>
           <a href="/projects">/projects</a>
-          <a href="mailto:hello@lsantos.dev?subject=Contact%20through%20your%20website" target="_blank" rel="noopener">/contact <span class="external-icon">&#x2197;</span></a>
-          <a href="https://personality.lsantos.dev" target="_blank" rel="noopener">/personality <span class="external-icon">&#x2197;</span></a>
+          <a href="mailto:hello@lsantos.dev?subject=Contact%20through%20your%20website" target="_blank" rel="noopener">/contact</a>
+          <a href="https://personality.lsantos.dev">/personality</a>
         </nav>
         <div class="theme-toggle desktop-only">
           <button onclick="toggleTheme()">[light]</button>
@@ -46,7 +46,12 @@ class SiteFooter extends HTMLElement {
 customElements.define('site-sidebar', SiteSidebar);
 customElements.define('site-footer', SiteFooter);
 
-document.addEventListener('DOMContentLoaded', () => {
-  for (const a of document.querySelectorAll('a[href]'))
-    if (a.hostname && a.hostname !== location.hostname) { a.target = '_blank'; a.rel = 'noopener'; }
-});
+new MutationObserver(() => {
+  for (const a of document.querySelectorAll('a[href]:not(.ext)')) {
+    if (a.hostname && a.hostname !== location.hostname) {
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.classList.add('ext');
+    }
+  }
+}).observe(document.documentElement, { childList: true, subtree: true });

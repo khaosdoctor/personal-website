@@ -127,10 +127,12 @@ nav a {
 nav a:hover { color: var(--accent); }
 nav a.active { color: var(--accent); }
 
-.external-icon {
+a.ext::after {
+  content: '\2197';
   font-size: 0.65em;
   vertical-align: super;
   opacity: 0.5;
+  margin-left: 0.15em;
 }
 
 .gear-body a[target="_blank"]::after {
