@@ -108,6 +108,12 @@ nav {
   padding-top: 0.75rem;
 }
 
+a.photo-wrap, a.sidebar-name {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 .sidebar-name {
   font-weight: 600;
   font-size: 1rem;

@@ -2,10 +2,10 @@ class SiteSidebar extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <div class="sidebar-inner">
-        <div class="photo-wrap">
+        <a href="/" class="photo-wrap">
           <img src="https://gravatar.com/avatar/2d07ec9ba9566dedfbb1a4ce2a3bcc6e?s=260" alt="Lucas Santos" class="photo">
-        </div>
-        <div class="sidebar-name">$ Lucas Santos</div>
+        </a>
+        <a href="/" class="sidebar-name">$ Lucas Santos</a>
         <div class="mobile-actions">
           <div class="theme-toggle">
             <button onclick="toggleTheme()">[light]</button>

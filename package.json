@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "sync": "bun sync.js",
-    "dev": "bunx serve ."
+    "dev": "bunx browser-sync start --config bs-config.cjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",
