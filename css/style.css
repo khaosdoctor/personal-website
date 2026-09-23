@@ -217,6 +217,7 @@ a.ext::after {
 }
 
 .bio { font-size: 0.9rem; }
+.bio p + p { margin-top: 1rem; }
 
 /* ═══ Post list ═══ */
 

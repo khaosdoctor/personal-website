@@ -5,65 +5,64 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!res.ok) throw 0;
     const items = await res.json();
 
+    // Group by the category set in each note's x-personal-site-category
     const grouped = {};
-    for (const item of items) {
-      const cat = item.category || 'other';
-      (grouped[cat] ||= []).push(item);
-    }
+    for (const item of items) (grouped[item.category || 'other'] ||= []).push(item);
 
+    // Alphabetical, with "other" always last
     const categories = Object.keys(grouped).sort((a, b) => {
       if (a === 'other') return 1;
       if (b === 'other') return -1;
       return a.localeCompare(b);
     });
 
-    let html = '';
+    const sections = [];
     for (const cat of categories) {
-      const group = grouped[cat];
-      group.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+      // "flight-sim" -> "Flight Sim"
       const label = cat.split(/[\s-]+/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-      html += `<div class="gear-category">
-        <h2>${label}</h2>
-        <ul class="gear-list">
-          ${group.map(g => {
-            const d = document.createElement('div');
-            d.textContent = g.oneliner;
-            const safe = d.innerHTML;
-            const inner = `<span class="gear-name">${g.name}</span>
-              <span class="gear-desc">${safe}</span>
-              <span class="gear-rating">${g.rating}/10</span>`;
-            if (g.externalLink) {
-              return `<li><a href="${g.externalLink}" target="_blank" rel="noopener" class="gear-link">${inner}</a></li>`;
-            } else if (g.hasPage) {
-              return `<li><a href="/gear/${g.slug}.html" class="gear-link">${inner}</a></li>`;
-            }
-            return `<li>${inner}</li>`;
-          }).join('')}
-        </ul>
-      </div>`;
-    }
-    container.innerHTML = html;
+      const list = el('ul', 'gear-list');
+      const section = el('div', 'gear-category');
+      section.append(el('h2', null, label), list);
 
-    const tip = document.createElement('div');
-    tip.className = 'gear-tip';
-    document.body.appendChild(tip);
-
-    for (const el of container.querySelectorAll('.gear-desc')) {
-      if (el.scrollWidth > el.clientWidth) {
-        el.classList.add('truncated');
-        el.addEventListener('mouseenter', () => {
-          const r = el.getBoundingClientRect();
-          tip.textContent = el.textContent;
-          tip.style.left = r.left + 'px';
-          tip.style.top = (r.bottom + 4) + 'px';
-          tip.classList.add('visible');
-        });
-        el.addEventListener('mouseleave', () => {
-          tip.classList.remove('visible');
-        });
+      // Highest rated first
+      grouped[cat].sort((a, b) => (b.rating || 0) - (a.rating || 0));
+      for (const g of grouped[cat]) {
+        // The row links to the external page or the gear detail page; without either, the cells go straight into the <li>
+        const li = el('li');
+        const href = g.externalLink || (g.hasPage ? `/gear/${g.slug}.html` : '');
+        const row = href ? el('a', 'gear-link') : li;
+        if (href) {
+          row.href = href;
+          li.append(row);
+        }
+        row.append(
+          el('span', 'gear-name', g.name),
+          el('span', 'gear-desc', g.oneliner),
+          el('span', 'gear-rating', `${g.rating}/10`),
+        );
+        list.append(li);
       }
+      sections.push(section);
+    }
+    container.replaceChildren(...sections);
+
+    // Descriptions cut off by the ellipsis show their full text in a tooltip on hover
+    const tip = el('div', 'gear-tip');
+    document.body.append(tip);
+
+    for (const desc of container.querySelectorAll('.gear-desc')) {
+      if (desc.scrollWidth <= desc.clientWidth) continue;
+      desc.classList.add('truncated');
+      desc.addEventListener('mouseenter', () => {
+        const r = desc.getBoundingClientRect();
+        tip.textContent = desc.textContent;
+        tip.style.left = r.left + 'px';
+        tip.style.top = (r.bottom + 4) + 'px';
+        tip.classList.add('visible');
+      });
+      desc.addEventListener('mouseleave', () => tip.classList.remove('visible'));
     }
   } catch {
-    container.innerHTML = '<p class="muted">no gear yet - run sync.js</p>';
+    container.replaceChildren(el('p', 'muted', 'no gear yet - run sync.js'));
   }
 });

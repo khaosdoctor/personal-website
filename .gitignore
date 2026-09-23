@@ -3,3 +3,4 @@ node_modules/
 /gear/
 data/posts.json
 data/gear/gear.json
+.serena/

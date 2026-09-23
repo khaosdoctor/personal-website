@@ -13,8 +13,14 @@ Currently finishing my book on Node Anti Patterns and coming back to my [blog](h
 - [The Stars, Like Dust](https://www.goodreads.com/en/book/show/41822.The_Stars_Like_Dust), by Isaac Asimov
 - [Practical Electronics for Inventors](https://www.goodreads.com/book/show/687619.Practical_Electronics_for_Inventors_2_E), by Paul Scherz and Simon Monk
 
-## Playing
+## Music
+
+- Learning
+  - Pride and Joy, __by Steve Ray Vaughan__, on the Bass.
+  - Square Hammer, __by Ghost__, on the Guitar
+- Currently looping _Stela Cole_ on Spotify
+
+## Games
 
 - [No Man's Sky](https://www.nomanssky.com/)
-- [Tibia](https://www.tibia.com/)
 - [Elite Dangerous](https://www.elitedangerous.com/)

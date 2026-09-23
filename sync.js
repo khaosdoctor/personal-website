@@ -18,7 +18,7 @@ const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' vi
 
 const STATE_COLORS = {
   'broken': 'tag-red', 'actively-used': 'tag-green', 'owned': 'tag-green',
-  'previously-owned': 'tag-yellow', 'second-hand': 'tag-blue', 'not-activelly-used': 'tag-orange',
+  'previously-owned': 'tag-yellow', 'second-hand': 'tag-blue', 'not-actively-used': 'tag-orange',
 };
 const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
 const ENTITY_MAP = { '&apos;': "'", '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"' };

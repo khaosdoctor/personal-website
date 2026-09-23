@@ -1,25 +1,31 @@
+// Project list from data/projects.json, sorted active -> inactive -> archived (unknown statuses go last)
+const STATUS_ORDER = { active: 0, inactive: 1, archived: 2 };
+
 document.addEventListener('DOMContentLoaded', async () => {
-  const el = document.getElementById('project-list');
+  const list = document.getElementById('project-list');
   try {
     const res = await fetch('/data/projects.json');
     if (!res.ok) throw 0;
     const projects = await res.json();
-    const order = { active: 0, inactive: 1, archived: 2 };
-    projects.sort((a, b) => (order[a.status] ?? 3) - (order[b.status] ?? 3));
-    el.innerHTML = projects.map(p => {
-      const d = document.createElement('div');
-      d.textContent = p.description;
-      const safe = d.innerHTML;
-      const link = p.url ? `<a href="${p.url}" target="_blank" rel="noopener" class="project-name">${p.name}</a>` : `<span class="project-name">${p.name}</span>`;
-      return `<li class="project-item" data-status="${p.status}">
-        <div class="project-header">
-          ${link}
-          <span class="project-status" data-status="${p.status}">${p.status}</span>
-        </div>
-        <div class="project-desc">${safe}</div>
-      </li>`;
-    }).join('');
+    projects.sort((a, b) => (STATUS_ORDER[a.status] ?? 3) - (STATUS_ORDER[b.status] ?? 3));
+
+    list.replaceChildren(...projects.map(p => {
+      // data-status drives the label color and the dimming in CSS
+      const name = el(p.url ? 'a' : 'span', 'project-name', p.name);
+      if (p.url) name.href = p.url;
+
+      const status = el('span', 'project-status', p.status);
+      status.dataset.status = p.status;
+
+      const header = el('div', 'project-header');
+      header.append(name, status);
+
+      const li = el('li', 'project-item');
+      li.dataset.status = p.status;
+      li.append(header, el('div', 'project-desc', p.description));
+      return li;
+    }));
   } catch {
-    el.innerHTML = '<li class="muted">edit data/projects.json to add projects</li>';
+    list.replaceChildren(el('li', 'muted', 'edit data/projects.json to add projects'));
   }
 });

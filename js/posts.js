@@ -1,16 +1,18 @@
+// Latest 3 blog posts on the homepage, from data/posts.json (written by sync.js from the blog RSS)
 document.addEventListener('DOMContentLoaded', async () => {
-  const el = document.getElementById('latest-posts');
+  const list = document.getElementById('latest-posts');
   try {
     const res = await fetch('/data/posts.json');
     if (!res.ok) throw 0;
     const posts = await res.json();
-    el.innerHTML = posts.slice(0, 3).map(p => {
-      const d = document.createElement('div');
-      d.textContent = p.title;
-      const safe = d.innerHTML;
-      return `<li><span class="post-date">${p.date}</span><a href="${p.link}" target="_blank" rel="noopener">${safe}</a></li>`;
-    }).join('');
+    list.replaceChildren(...posts.slice(0, 3).map(p => {
+      const link = el('a', null, p.title);
+      link.href = p.link;
+      const li = el('li');
+      li.append(el('span', 'post-date', p.date), link);
+      return li;
+    }));
   } catch {
-    el.innerHTML = '<li class="muted">no posts yet - run sync.js</li>';
+    list.replaceChildren(el('li', 'muted', 'no posts yet - run sync.js'));
   }
 });

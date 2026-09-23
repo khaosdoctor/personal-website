@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lucas Santos</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23000'/%3E%3Ctext x='4' y='22' font-family='monospace' font-size='18' fill='%23d6d2c9'%3E%3E_%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23000'/%3E%3Ctext x='4' y='22' font-family='monospace' font-size='18' fill='%23d6d2c9'%3E%3E_%3C/text%3E%3C/svg%3E">
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
@@ -13,6 +15,7 @@
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
+
 <body>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
@@ -22,7 +25,9 @@
         <div class="intro-name">Lucas Santos</div>
         <div class="intro-sub">software engineer :: content creator :: stockholm</div>
         <div class="section-label">// ABOUT</div>
-        <p class="bio">I'm a Brazilian software engineer living in Stockholm, where I work as a Staff Engineer at Hemnet. Most of my time goes into backend systems and infrastructure, but I also contribute to Node.js core and care a lot about open source. I've been recognized as a Microsoft MVP, Google Developer Expert, and Docker Captain over the years. I write and speak about TypeScript, distributed systems, and cryptography, and I've published a book and courses along the way. When I'm not coding I'm probably playing guitar, soldering a guitar pedal from scratch, or reading Asimov with a cat on my lap.</p>
+        <div class="bio" data-md="/data/bio.md">
+          <p class="muted">loading...</p>
+        </div>
 
         <div class="section-label">// LATEST</div>
         <ul class="post-list" id="latest-posts">
@@ -41,11 +46,13 @@
           </div>
           <div class="timeline-item">
             <span class="timeline-period">2021-2024</span>
-            <span><a href="https://klarna.se" target="_blank" rel="noopener">Klarna</a> &middot; Senior Software Engineer & JS Community Lead</span>
+            <span><a href="https://klarna.se" target="_blank" rel="noopener">Klarna</a> &middot; Senior Software
+              Engineer & JS Community Lead</span>
           </div>
           <div class="timeline-item">
             <span class="timeline-period">2020-2021</span>
-            <span><a href="https://microsoft.com" target="_blank" rel="noopener">Microsoft</a> &middot; Cloud Developer Advocate</span>
+            <span><a href="https://microsoft.com" target="_blank" rel="noopener">Microsoft</a> &middot; Cloud Developer
+              Advocate</span>
           </div>
           <div class="timeline-item">
             <span class="timeline-period">2019-2020</span>
@@ -53,7 +60,8 @@
           </div>
           <div class="timeline-item">
             <span class="timeline-period">2012-2019</span>
-            <span><a href="https://linkedin.com/in/lsantosdev" target="_blank" rel="noopener">full history on linkedin</a></span>
+            <span><a href="https://linkedin.com/in/lsantosdev" target="_blank" rel="noopener">full history on
+                linkedin</a></span>
           </div>
         </div>
 
@@ -62,6 +70,8 @@
     </main>
   </div>
 
+  <script type="module" src="/js/md.js"></script>
   <script src="/js/posts.js"></script>
 </body>
+
 </html>

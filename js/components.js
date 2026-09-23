@@ -1,3 +1,4 @@
+// <site-sidebar>: photo, name, nav and theme toggles, shared by every page
 class SiteSidebar extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -29,6 +30,7 @@ class SiteSidebar extends HTMLElement {
   }
 }
 
+// <site-footer>: social links and copyright
 class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -43,9 +45,18 @@ class SiteFooter extends HTMLElement {
   }
 }
 
+// Small createElement helper used by the page scripts; text goes in as textContent, so it's never parsed as HTML
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text != null) node.textContent = text;
+  return node;
+}
+
 customElements.define('site-sidebar', SiteSidebar);
 customElements.define('site-footer', SiteFooter);
 
+// Any link to another host opens in a new tab and gets the .ext arrow; the observer also catches links rendered after load
 new MutationObserver(() => {
   for (const a of document.querySelectorAll('a[href]:not(.ext)')) {
     if (a.hostname && a.hostname !== location.hostname) {
