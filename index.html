@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lucas Santos</title>
+  <meta name="description" content="Lucas Santos, Brazilian software engineer in Stockholm and Staff Engineer at Hemnet. Backend, Node.js, open source, and building stuff.">
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23000'/%3E%3Ctext x='4' y='22' font-family='monospace' font-size='18' fill='%23d6d2c9'%3E%3E_%3C/text%3E%3C/svg%3E">
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
@@ -25,13 +27,24 @@
         <div class="intro-name">Lucas Santos</div>
         <div class="intro-sub">software engineer :: content creator :: stockholm</div>
         <div class="section-label">// ABOUT</div>
-        <div class="bio" data-md="/data/bio.md">
-          <p class="muted">loading...</p>
+        <div class="bio">
+          <!-- bake:bio -->
+<p>Brazilian software engineer in Stockholm since 2021, Staff Engineer at <a href="https://hemnet.se">Hemnet</a>.</p>
+<p>I&#39;ve been messing with computers since I was 5 and writing software since 2012. Mostly backend and architecture these days, plus some Node.js core contributions, but I&#39;ll happily poke at any part of the stack, and I have a lot of love for <a href="https://github.lsantos.dev">open source</a>.</p>
+<p>I like sharing what I learn, so I wrote a book (soon books), courses <a href="https://formacaots.com.br">on my own</a> and for companies, and a <a href="https://blog.lsantos.dev">blog</a>. That got me Microsoft MVP, Google Developer Expert and Docker Captain for many years.</p>
+<p>Mostly, I <strong>really</strong> like to <em>build stuff</em>. LEGOs, a homelab slowly turning into a personal cloud, a 3D printer that never stops, an electronics workbench in progress, and whatever else I can get my hands dirty with. If I can build instead of buy, I will. Not because it&#39;s easier, but because it&#39;s harder (and often more expensive).</p>
+<p>Off the computer, I&#39;m a <strong>huge cat guy</strong> and love music. I play guitar and bass, but mostly I build gear for them, pedals, cables and completely useless but super cool gimmicks.</p>
+
+<!-- /bake:bio -->
         </div>
 
         <div class="section-label">// LATEST</div>
         <ul class="post-list" id="latest-posts">
-          <li class="muted">loading...</li>
+          <!-- bake:posts -->
+<li><span class="post-date">2026-09-11</span><a href="https://blog.lsantos.dev/en/i-m-back/">I'm back!</a></li>
+<li><span class="post-date">2025-03-20</span><a href="https://blog.lsantos.dev/en/backlog-10-slopware-the-end-of-well-made-code/">Slopware: The End of Well-Made Code</a></li>
+<li><span class="post-date">2025-03-06</span><a href="https://blog.lsantos.dev/en/backlog-9-what-happened-to-the-devs/">What happened to devs?</a></li>
+<!-- /bake:posts -->
         </ul>
 
         <div class="section-label">// WORK</div>
@@ -70,8 +83,6 @@
     </main>
   </div>
 
-  <script type="module" src="/js/md.js"></script>
-  <script src="/js/posts.js"></script>
 </body>
 
 </html>

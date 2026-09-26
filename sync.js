@@ -1,4 +1,4 @@
-import { readFile, writeFile, readdir, mkdir, copyFile } from 'fs/promises';
+import { readFile, writeFile, readdir, mkdir, copyFile, stat } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join, basename, extname } from 'path';
 import matter from 'gray-matter';
@@ -12,7 +12,7 @@ const GEAR_DIR = './gear';
 const GEAR_IMG = './img/gear';
 const DATA_DIR = './data';
 const GEAR_DATA = './data/gear';
-const GEAR_JSON = GEAR_DATA + '/gear.json';
+const STATUS_ORDER = { active: 0, inactive: 1, archived: 2 };
 const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
 const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23000'/%3E%3Ctext x='4' y='22' font-family='monospace' font-size='18' fill='%23d6d2c9'%3E%3E_%3C/text%3E%3C/svg%3E";
 
@@ -70,11 +70,14 @@ async function readMdFiles(dir, skip = []) {
       const rating = data.personalRating ?? data.rating;
       if (rating == null) continue;
       const name = basename(f, '.md'), slug = slugify(name);
+      // gray-matter parses ISO timestamps into Date objects; an invalid or missing value leaves it blank
+      const updatedAt = new Date(data.updatedAt ?? NaN);
       out.push({
         name, slug, rating, body: content, isVault: dir === VAULT_DIR,
         oneliner: data.oneliner || '', coverUrl: data.coverUrl || '',
         state: data.state || [], category: data['x-personal-site-category'] || 'other',
         externalLink: data.externalLink || '',
+        updated: isNaN(updatedAt) ? '' : updatedAt.toISOString().slice(0, 10),
       });
     } catch { continue; }
   }
@@ -110,6 +113,8 @@ function gearPage(n, body) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${esc(n.name)} - Lucas Santos</title>
+  <meta name="description" content="${esc(n.oneliner || `${n.name}, rated ${n.rating}/10 by Lucas Santos`)}">
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="${FAVICON}">
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.json">
@@ -127,7 +132,7 @@ function gearPage(n, body) {
         <a href="/uses" class="back-link">&lt; uses</a>
         ${n.coverUrl ? `<img src="${esc(n.coverUrl)}" alt="${esc(n.name)}" class="gear-cover">` : ''}
         <h1 class="gear-detail">${esc(n.name)}</h1>
-        <p class="gear-meta"><span class="rating">${n.rating}/10</span> ${tags}</p>
+        <p class="gear-meta"><span class="rating">${n.rating}/10</span> ${tags}${n.updated ? ` <span class="gear-updated">updated ${n.updated}</span>` : ''}</p>
         ${n.oneliner ? `<p class="oneliner">${esc(n.oneliner)}</p>` : ''}
         <div class="gear-body">${body}</div>
         <site-footer class="socials"></site-footer>
@@ -151,13 +156,13 @@ async function syncPosts() {
       date: d ? new Date(d).toISOString().split('T')[0] : '',
     };
   });
-  await writeFile(join(DATA_DIR, 'posts.json'), JSON.stringify(items.slice(0, 3), null, 2));
-  console.log(`  ${Math.min(items.length, 3)} posts saved`);
+  console.log(`  ${Math.min(items.length, 3)} posts fetched`);
+  return items.slice(0, 3);
 }
 
 async function syncGear() {
   console.log('Syncing gear notes...');
-  for (const d of [GEAR_DIR, GEAR_DATA, GEAR_IMG, COVER_DIR]) if (!existsSync(d)) await mkdir(d, { recursive: true });
+  for (const d of [GEAR_DIR, GEAR_IMG, COVER_DIR]) if (!existsSync(d)) await mkdir(d, { recursive: true });
 
   const vault = await readMdFiles(VAULT_DIR);
   const local = await readMdFiles(GEAR_DATA, ['gear.template.md']);
@@ -196,12 +201,74 @@ async function syncGear() {
   if (pendingImages.length) console.log(`  ${pendingImages.length} images optimized`);
   pendingImages.length = 0;
 
-  await writeFile(GEAR_JSON, JSON.stringify(index, null, 2));
   const lc = notes.filter(n => !n.isVault).length;
   console.log(`  ${index.length} gear entries (${index.length - lc} vault, ${lc} manual)`);
+  return index;
 }
 
-if (!existsSync(DATA_DIR)) await mkdir(DATA_DIR, { recursive: true });
-await syncPosts();
-await syncGear();
+function postsHtml(posts) {
+  return posts.map(p => `<li><span class="post-date">${p.date}</span><a href="${esc(p.link)}">${esc(p.title)}</a></li>`).join('\n');
+}
+
+// Grouped by x-personal-site-category, alphabetical with "other" last; items by rating (desc), then name
+function gearHtml(items) {
+  const grouped = {};
+  for (const item of items) (grouped[item.category || 'other'] ||= []).push(item);
+  const categories = Object.keys(grouped).sort((a, b) => {
+    if (a === 'other') return 1;
+    if (b === 'other') return -1;
+    return a.localeCompare(b);
+  });
+
+  const sections = [];
+  for (const cat of categories) {
+    const label = cat.split(/[\s-]+/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+    const rows = grouped[cat].sort((a, b) => (b.rating || 0) - (a.rating || 0) || a.name.localeCompare(b.name)).map(g => {
+      const cells = `<span class="gear-name">${esc(g.name)}</span><span class="gear-desc">${esc(g.oneliner)}</span><span class="gear-rating">${g.rating}/10</span>`;
+      const href = g.externalLink || (g.hasPage ? `/gear/${g.slug}.html` : '');
+      return href ? `<li><a class="gear-link" href="${esc(href)}">${cells}</a></li>` : `<li>${cells}</li>`;
+    });
+    sections.push(`<div class="gear-category"><h2>${label}</h2><ul class="gear-list">\n${rows.join('\n')}\n</ul></div>`);
+  }
+  return sections.join('\n');
+}
+
+// Sorted active -> inactive -> archived; data-status drives label color and dimming in CSS
+function projectsHtml(projects) {
+  const sorted = [...projects].sort((a, b) => (STATUS_ORDER[a.status] ?? 3) - (STATUS_ORDER[b.status] ?? 3));
+  return sorted.map(p => {
+    const name = p.url ? `<a href="${esc(p.url)}" class="project-name">${esc(p.name)}</a>` : `<span class="project-name">${esc(p.name)}</span>`;
+    return `<li class="project-item" data-status="${esc(p.status)}"><div class="project-header">${name}<span class="project-status" data-status="${esc(p.status)}">${esc(p.status)}</span></div><div class="project-desc">${esc(p.description)}</div></li>`;
+  }).join('\n');
+}
+
+// Replaces whatever sits between <!-- bake:name --> and <!-- /bake:name --> in an HTML page
+async function bake(file, blocks) {
+  let html = await readFile(file, 'utf-8');
+  for (const [name, content] of Object.entries(blocks)) {
+    const re = new RegExp(`(<!-- bake:${name} -->)[\\s\\S]*?(<!-- /bake:${name} -->)`);
+    if (!re.test(html)) {
+      console.warn(`  ${file}: no bake:${name} marker, skipped`);
+      continue;
+    }
+    html = html.replace(re, (_, open, close) => `${open}\n${content}\n${close}`);
+  }
+  await writeFile(file, html);
+}
+
+async function bakePages(posts, gear) {
+  console.log('Baking pages...');
+  const md = async f => marked(await readFile(join(DATA_DIR, f), 'utf-8'));
+  const nowUpdated = (await stat(join(DATA_DIR, 'now.md'))).mtime.toISOString().slice(0, 10);
+  const projects = JSON.parse(await readFile(join(DATA_DIR, 'projects.json'), 'utf-8'));
+
+  await bake('index.html', { bio: await md('bio.md'), posts: postsHtml(posts) });
+  await bake('now.html', { now: await md('now.md'), 'now-date': nowUpdated });
+  await bake('projects.html', { projects: projectsHtml(projects) });
+  await bake('uses.html', { gear: gearHtml(gear) });
+}
+
+const posts = await syncPosts();
+const gear = await syncGear();
+await bakePages(posts, gear);
 console.log('Done.');

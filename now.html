@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Now - Lucas Santos</title>
+  <meta name="description" content="What Lucas Santos is doing now: side projects, books, music and games.">
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23000'/%3E%3Ctext x='4' y='22' font-family='monospace' font-size='18' fill='%23d6d2c9'%3E%3E_%3C/text%3E%3C/svg%3E">
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.json">
@@ -23,10 +25,42 @@
         <p class="page-desc">
           What I'm doing now. Inspired by <a href="https://nownownow.com" target="_blank" rel="noopener">nownownow.com</a>.
         </p>
-        <p class="now-date">Last updated: <span id="now-date">September 2026</span></p>
+        <p class="now-date">Last updated: <span id="now-date"><!-- bake:now-date -->
+2026-09-23
+<!-- /bake:now-date --></span></p>
 
         <div id="now-content">
-          <p class="muted">loading...</p>
+          <!-- bake:now -->
+<p>Currently finishing my book on Node Anti Patterns and coming back to my <a href="https://blog.lsantos.dev">blog</a> after a long break.</p>
+<h2>Hobbies</h2>
+<ul>
+<li>I do photos from time to time, I post most of them in <a href="https://unsplash.com">Unsplash</a></li>
+<li>I recently got into listening to Vinyl again, I have a small collection of records and I am trying to get more, mostly 70s rock (Toto is one of my favorites) and metal, but I do love blues</li>
+<li>I&#39;m Learning electronics by myself, building guitar pedals and designing some <a href="https://github.com/khaosdoctor/kicad-fume-extractor-5v">PCBs</a> in KiCad</li>
+<li>Learning CAD so I can enclose these PCBs into something 3D printed, which, I am also a noob at</li>
+<li>Continuing my studies on music, trying to understand how this whole thing works</li>
+</ul>
+<h2>Books</h2>
+<ul>
+<li><a href="https://www.goodreads.com/en/book/show/41822.The_Stars_Like_Dust">The Stars, Like Dust</a>, by Isaac Asimov</li>
+<li><a href="https://www.goodreads.com/book/show/687619.Practical_Electronics_for_Inventors_2_E">Practical Electronics for Inventors</a>, by Paul Scherz and Simon Monk</li>
+</ul>
+<h2>Music</h2>
+<ul>
+<li>Learning<ul>
+<li>Pride and Joy, <strong>by Steve Ray Vaughan</strong>, on the Bass.</li>
+<li>Square Hammer, <strong>by Ghost</strong>, on the Guitar</li>
+</ul>
+</li>
+<li>Currently looping <em>Stela Cole</em> on Spotify</li>
+</ul>
+<h2>Games</h2>
+<ul>
+<li><a href="https://www.nomanssky.com/">No Man&#39;s Sky</a></li>
+<li><a href="https://www.elitedangerous.com/">Elite Dangerous</a></li>
+</ul>
+
+<!-- /bake:now -->
         </div>
 
         <site-footer class="socials"></site-footer>
@@ -34,6 +68,5 @@
     </main>
   </div>
 
-  <script type="module" src="/js/now.js"></script>
 </body>
 </html>

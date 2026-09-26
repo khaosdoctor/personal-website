@@ -4,7 +4,7 @@ class SiteSidebar extends HTMLElement {
     this.innerHTML = `
       <div class="sidebar-inner">
         <a href="/" class="photo-wrap">
-          <img src="https://gravatar.com/avatar/2d07ec9ba9566dedfbb1a4ce2a3bcc6e?s=260" alt="Lucas Santos" class="photo">
+          <img src="/img/avatar.webp" alt="Lucas Santos" class="photo" width="130" height="130">
         </a>
         <a href="/" class="sidebar-name">$ Lucas Santos</a>
         <div class="mobile-actions">
@@ -43,14 +43,6 @@ class SiteFooter extends HTMLElement {
       <p class="copyright">&copy; ${new Date().getFullYear()} Lucas Santos</p>
     `;
   }
-}
-
-// Small createElement helper used by the page scripts; text goes in as textContent, so it's never parsed as HTML
-function el(tag, className, text) {
-  const node = document.createElement(tag);
-  if (className) node.className = className;
-  if (text != null) node.textContent = text;
-  return node;
 }
 
 customElements.define('site-sidebar', SiteSidebar);
