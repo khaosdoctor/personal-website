@@ -1,4 +1,4 @@
-import { readFile, writeFile, readdir, mkdir, copyFile, stat } from 'fs/promises';
+import { readFile, writeFile, readdir, mkdir, copyFile, rm, stat } from 'fs/promises';
 import { existsSync, readFileSync, watch } from 'fs';
 import { join, basename, extname } from 'path';
 import chalk from 'chalk';
@@ -282,6 +282,14 @@ async function syncGear() {
   const notes = [...vault, ...local.filter(n => !vaultSlugs.has(n.slug))];
   const allSlugs = new Set(notes.map(n => n.slug));
 
+  // Every page is rewritten below, so clear the old ones and a deleted note stops leaving its page
+  // behind. Skipped when nothing was found, so a missing vault cannot wipe the published pages.
+  if (notes.length) {
+    const stale = (await readdir(GEAR_DIR)).filter(f => f.endsWith('.html') && !allSlugs.has(basename(f, '.html')));
+    for (const f of stale) await rm(join(GEAR_DIR, f));
+    if (stale.length) log.info(`${stale.length} pages removed for notes that no longer qualify`);
+  }
+
   const missingCovers = notes.filter(n => n.coverUrl && !existsSync(join(COVER_DIR, `${n.slug}.webp`))).length;
   if (missingCovers) log.info(`downloading ${missingCovers} covers, ${FETCH_TIMEOUT_MS}ms timeout each`);
 
@@ -296,7 +304,8 @@ async function syncGear() {
     }
     const hasPage = n.body.trim().length > 0;
     if (hasPage) {
-      let html = await marked(n.isVault ? resolveWikilinks(n.body, allSlugs) : n.body);
+      // data/gear notes are verbatim copies of vault notes in CI, so they carry wikilinks too
+      let html = await marked(resolveWikilinks(n.body, allSlugs));
       const namePattern = n.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       html = html.replace(new RegExp(`^\\s*<h1>${namePattern}</h1>\\s*`), '');
       await writeFile(join(GEAR_DIR, `${n.slug}.html`), gearPage(n, html));
@@ -405,7 +414,8 @@ async function bakePages(posts, gear) {
   const nowUpdated = (await stat(join(DATA_DIR, 'now.md'))).mtime.toISOString().slice(0, 10);
   const projects = JSON.parse(await readFile(join(DATA_DIR, 'projects.json'), 'utf-8'));
 
-  await bake('index.html', { bio: await md('bio.md'), posts: postsHtml(posts) });
+  // No posts means the feed was unreachable; leaving the block out keeps whatever was baked last time
+  await bake('index.html', { bio: await md('bio.md'), ...(posts && { posts: postsHtml(posts) }) });
   await bake('now.html', { now: await md('now.md'), 'now-date': nowUpdated });
   await bake('projects.html', { projects: projectsHtml(projects) });
   await bake('uses.html', { gear: gearHtml(gear) });
@@ -415,9 +425,10 @@ async function bakePages(posts, gear) {
   await writeFile('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemap}\n</urlset>\n`);
 }
 
+// A blog outage must not block a gear update, so the posts block keeps its previous content
 const posts = await syncPosts().catch(err => {
-  log.error(err.name === 'TimeoutError' ? `RSS timed out after ${FETCH_TIMEOUT_MS}ms` : `RSS unavailable: ${err.message}`);
-  process.exit(1);
+  log.warn(`${err.name === 'TimeoutError' ? `RSS timed out after ${FETCH_TIMEOUT_MS}ms` : `RSS unavailable: ${err.message}`}, keeping the posts already on the page`);
+  return null;
 });
 await bakePages(posts, await syncGear());
 log.step('✅ Done');
