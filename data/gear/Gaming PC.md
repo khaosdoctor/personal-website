@@ -14,7 +14,7 @@ type:
   - desktop
   - gaming
   - computer
-updatedAt: 2026-09-27T02:33:44Z
+updatedAt: 2026-09-27T21:44:05Z
 x-personal-site-category: computers
 ---
 
@@ -30,8 +30,6 @@ x-personal-site-category: computers
 | Item                                                 | Store | Price    | Checked    |
 | ---------------------------------------------------- | ----- | -------- | ---------- |
 | AMD Ryzen 5 5600X                                    | Inet  | 2 690 kr | 2022-04-08 |
-| Corsair RM850                                        | Inet  | 949 kr   | 2022-04-08 |
-| Samsung 980 PRO 500 GB                               | Inet  | 1 299 kr | 2022-04-08 |
 | [[DeepCool CH560 Digital]]                           | Inet  | 499 kr   | 2026-08-17 |
 | [[Thermalright Peerless Assassin 120 SE White ARGB]] | Inet  | 599 kr   | 2026-08-17 |
 
