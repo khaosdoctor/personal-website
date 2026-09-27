@@ -7,7 +7,8 @@ import sharp from 'sharp';
 
 const VAULT_DIR = process.env.VAULT_DIR || join(process.env.HOME, 'Documents/Obsidian/Vaults/Default/notes');
 const VAULT_ASSETS = process.env.VAULT_ASSETS || join(process.env.HOME, 'Documents/Obsidian/Vaults/Default/internal/assets');
-const RSS_URL = 'https://blog.lsantos.dev/en/rss.xml';
+const SITE = 'https://lsantos.dev';
+const RSS_URL ='https://blog.lsantos.dev/en/rss.xml';
 const GEAR_DIR = './gear';
 const GEAR_IMG = './img/gear';
 const DATA_DIR = './data';
@@ -117,6 +118,16 @@ function gearPage(n, body) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${esc(n.name)} - Lucas Santos</title>
   <meta name="description" content="${esc(n.oneliner || `${n.name}, rated ${n.rating}/10 by Lucas Santos`)}">
+  <link rel="canonical" href="${SITE}/gear/${n.slug}.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Lucas Santos">
+  <meta property="og:title" content="${esc(n.name)} - Lucas Santos">
+  <meta property="og:description" content="${esc(n.oneliner || `${n.name}, rated ${n.rating}/10 by Lucas Santos`)}">
+  <meta property="og:url" content="${SITE}/gear/${n.slug}.html">
+  <meta property="og:image" content="${SITE}/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="${FAVICON}">
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
@@ -294,6 +305,10 @@ async function bakePages(posts, gear) {
   await bake('now.html', { now: await md('now.md'), 'now-date': nowUpdated });
   await bake('projects.html', { projects: projectsHtml(projects) });
   await bake('uses.html', { gear: gearHtml(gear) });
+
+  const urls = ['/', '/now', '/projects', '/uses', ...gear.filter(g => g.hasPage).map(g => `/gear/${g.slug}.html`)];
+  const sitemap = urls.map(u => `  <url><loc>${SITE}${u}</loc></url>`).join('\n');
+  await writeFile('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemap}\n</urlset>\n`);
 }
 
 const posts = await syncPosts();

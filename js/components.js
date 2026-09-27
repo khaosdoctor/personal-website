@@ -19,6 +19,7 @@ class SiteSidebar extends HTMLElement {
           <a href="/uses">/uses</a>
           <a href="/now">/now</a>
           <a href="/projects">/projects</a>
+          <a href="https://blog.lsantos.dev">/blog</a>
           <a href="mailto:hello@lsantos.dev?subject=Contact%20through%20your%20website" target="_blank" rel="noopener">/contact</a>
           <a href="https://personality.lsantos.dev">/personality</a>
         </nav>
