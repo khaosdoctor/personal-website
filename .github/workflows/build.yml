@@ -1,0 +1,48 @@
+name: build
+
+# Gear notes arrive in data/gear from the second-brain repo, which pushes only the notes
+# meant to be public. Nothing here ever reads the vault.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'sync.js'
+      - 'package.json'
+      - 'bun.lock'
+      - 'index.html'
+      - 'now.html'
+      - 'projects.html'
+      - 'uses.html'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build
+  cancel-in-progress: false
+
+jobs:
+  bake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install --frozen-lockfile
+
+      - name: Bake the pages
+        run: bun sync.js --debug --vault-assets=data/gear/assets
+
+      - name: Commit the generated pages
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add gear img/gear uses.html index.html now.html projects.html sitemap.xml
+          git diff --cached --quiet && echo 'nothing to commit' && exit 0
+          git commit -m 'chore: bake content [skip ci]'
+          git push
