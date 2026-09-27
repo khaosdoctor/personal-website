@@ -4,7 +4,7 @@ coverUrl: https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Canon_EF_8-15
 createdAt: 2026-09-21T00:00:00Z
 icon: 📷
 oneliner: "Full-frame L-series fisheye zoom, circular at 8mm and diagonal at 15mm. Used it a few times on super rare occasions when there's a large landscape"
-personalRating: 5
+personalRating: 4
 state:
   - owned
   - not-actively-used
@@ -48,7 +48,9 @@ The fisheye of my Canon kit. I've used it only a few times, on the super rare oc
 
 ## Impressions
 
-## Final thoughts
+The fisheye is unique because it's even more niche than all the others. I've used it just a handful of times because it's very wide, so wide that sometimes if you pull the entire focal length back to eight, it'll show your own feet. It has quite a big field of view. The only thing I actually used that for was to take a huge landscape picture once that basically had the entire thing, but I really don't use it too much. Plus, the aperture of four doesn't really let you take pictures in very dark places, so it needs to be outside, needs to be quite light as well, and clear.
+
+If you remove the lock that prevents you from going below 10, it's even less useful unless you want to do some really experimental kind of stuff, because it becomes one of those MTV skateboard recordings with a round fisheye lens.
 
 ## Related
 
