@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "sync": "bun sync.js",
-    "sync:debug": "bun sync.js --debug",
+    "sync": "bun sync.js --debug",
+    "sync:quiet": "bun sync.js",
     "sync:watch": "bun sync.js --watch",
     "dev": "bunx browser-sync start --config bs-config.cjs"
   },

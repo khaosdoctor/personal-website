@@ -21,11 +21,23 @@ After changing any of these, run `bun run sync`. It fetches the latest 3 posts f
 
 ```sh
 bun install
-bun run dev    # browser-sync on http://localhost:3456 with hot reload
-bun run sync   # bake content into the pages
+bun run dev         # browser-sync on http://localhost:3456 with hot reload
+bun run sync        # bake content into the pages, verbose
+bun run sync:quiet  # same, summary lines only
+bun run sync:watch  # rebuild on every vault or data change
 ```
 
-`sync.js` reads the vault from `~/Documents/Obsidian/Vaults/Default`, override it with `VAULT_DIR` (notes) and `VAULT_ASSETS` (images).
+`sync.js` finds the vault through Obsidian's own registry (`obsidian.json`), picking the first vault whose folder name contains `--vault=<name>`, so the path can differ between machines. `bun sync.js --help` lists every flag; each one also reads an environment variable, and the flag wins:
+
+| Flag | Environment variable | Default |
+|---|---|---|
+| `--vault=<name>` | `VAULT_NAME` | `default` |
+| `--vault-dir=<path>` | `VAULT_DIR` | `<vault>/notes` |
+| `--vault-assets=<path>` | `VAULT_ASSETS` | `<vault>/internal/assets` |
+| `--timeout=<ms>` | `FETCH_TIMEOUT_MS` | `15000` |
+| `--debug` | `DEBUG=sync:*` | off |
+
+Verbose output goes through the `debug` package on stderr, split into `sync:vault`, `sync:covers`, `sync:gear` and `sync:bake`, so `DEBUG=sync:covers bun sync.js` narrows it to one stage.
 
 ## License
 
