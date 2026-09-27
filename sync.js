@@ -137,7 +137,9 @@ async function readMdFiles(dir, skip = []) {
     return [];
   }
   const out = [], unreadable = [];
-  const files = (await readdir(dir)).filter(f => f.endsWith('.md') && !skip.includes(f));
+  // Sorted because readdir order is filesystem-dependent, and an unsorted sitemap would flip
+  // on every build that ran on a different machine than the last one
+  const files = (await readdir(dir)).filter(f => f.endsWith('.md') && !skip.includes(f)).sort();
   log.info(`${dir}: ${files.length} markdown files`);
   for (const f of files) {
     try {
