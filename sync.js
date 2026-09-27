@@ -418,6 +418,14 @@ async function bakePages(posts, gear) {
   await bake('index.html', { bio: await md('bio.md'), ...(posts && { posts: postsHtml(posts) }) });
   await bake('now.html', { now: await md('now.md'), 'now-date': nowUpdated });
   await bake('projects.html', { projects: projectsHtml(projects) });
+
+  // No gear means no source was readable, not that the gear is gone. Rewriting /uses and the
+  // sitemap here would publish an empty list, so both keep what they already have.
+  if (!gear.length) {
+    log.warn('no gear notes found, leaving /uses and the sitemap untouched');
+    return;
+  }
+
   await bake('uses.html', { gear: gearHtml(gear) });
 
   const urls = ['/', '/now', '/projects', '/uses', ...gear.filter(g => g.hasPage).map(g => `/gear/${g.slug}.html`)];
