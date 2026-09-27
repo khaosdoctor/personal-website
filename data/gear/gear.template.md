@@ -2,7 +2,7 @@
 rating:
 oneliner: ""
 state: []
-category: ""
+x-personal-site-category: ""
 externalLink: ""
 coverUrl: ""
 ---

@@ -21,7 +21,9 @@ const STATE_COLORS = {
   'broken': 'tag-red', 'actively-used': 'tag-green', 'owned': 'tag-green',
   'previously-owned': 'tag-yellow', 'second-hand': 'tag-blue', 'not-actively-used': 'tag-orange',
 };
-const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
+// Shown on the gear detail page but left off the /uses list
+const LIST_HIDDEN_STATES = new Set(['owned', 'actively-used']);
+const ESC_MAP ={ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
 const ENTITY_MAP = { '&apos;': "'", '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"' };
 const RE_ESC = /[&<>"]/g;
 const RE_SLUG = /[^a-z0-9]+/g, RE_SLUG_TRIM = /^-|-$/g;
@@ -69,14 +71,15 @@ async function readMdFiles(dir, skip = []) {
     try {
       const { data, content } = matter(await readFile(join(dir, f), 'utf-8'), { engines: {} });
       const rating = data.personalRating ?? data.rating;
-      if (rating == null) continue;
+      const category = data['x-personal-site-category'];
+      if (rating == null || !category) continue;
       const name = basename(f, '.md'), slug = slugify(name);
       // gray-matter parses ISO timestamps into Date objects; an invalid or missing value leaves it blank
       const updatedAt = new Date(data.updatedAt ?? NaN);
       out.push({
         name, slug, rating, body: content, isVault: dir === VAULT_DIR,
         oneliner: data.oneliner || '', coverUrl: data.coverUrl || '',
-        state: data.state || [], category: data['x-personal-site-category'] || 'other',
+        state: data.state || [], category,
         externalLink: data.externalLink || '',
         updated: isNaN(updatedAt) ? '' : updatedAt.toISOString().slice(0, 10),
         // "[[Canon EOS 6D Mark II]]" (or a list of links); unquoted YAML turns [[x]] into nested arrays, hence flat()
@@ -110,7 +113,7 @@ async function fetchCover(url, slug) {
 }
 
 function gearPage(n, body) {
-  const tags = n.state.map(s => `<span class="tag ${STATE_COLORS[s] || ''}">${s}</span>`).join(' ');
+  const tags = stateTags(n.state);
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -226,8 +229,10 @@ function postsHtml(posts) {
 
 const byRatingThenName = (a, b) => (b.rating || 0) - (a.rating || 0) || a.name.localeCompare(b.name);
 
+const stateTags = states => states.map(s => `<span class="tag ${STATE_COLORS[s] || ''}">${esc(s)}</span>`).join(' ');
+
 function gearRow(g, isChild) {
-  const cells = `<span class="gear-name">${esc(g.name)}</span><span class="gear-desc">${esc(g.oneliner)}</span><span class="gear-rating">${g.rating}/10</span>`;
+  const cells = `<span class="gear-name">${esc(g.name)}</span><span class="gear-desc">${esc(g.oneliner)}</span><span class="gear-states">${stateTags(g.state.filter(s => !LIST_HIDDEN_STATES.has(s)))}</span><span class="gear-rating">${g.rating}/10</span>`;
   const href = g.externalLink || (g.hasPage ? `/gear/${g.slug}.html` : '');
   const li = isChild ? '<li class="gear-child">' : '<li>';
   return href ? `${li}<a class="gear-link" href="${esc(href)}">${cells}</a></li>` : `${li}${cells}</li>`;
@@ -243,7 +248,7 @@ function gearHtml(items) {
     const parents = item.parents.filter(p => bySlug.has(p) && p !== item.slug);
     if (item.parents.length && !parents.length) console.warn(`  ${item.name}: parent ${item.parents.join(', ')} not found, listed on its own`);
     if (!parents.length) {
-      (grouped[item.category || 'other'] ||= []).push(item);
+      (grouped[item.category] ||= []).push(item);
       continue;
     }
     for (const p of parents) (children[p] ||= []).push(item);
@@ -257,11 +262,7 @@ function gearHtml(items) {
     return [gearRow(g, isChild), ...kids.flatMap(k => rowsFor(k, true, seen))];
   };
 
-  const categories = Object.keys(grouped).sort((a, b) => {
-    if (a === 'other') return 1;
-    if (b === 'other') return -1;
-    return a.localeCompare(b);
-  });
+  const categories = Object.keys(grouped).sort((a, b) => a.localeCompare(b));
 
   const sections = [];
   for (const cat of categories) {

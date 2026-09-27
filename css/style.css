@@ -294,6 +294,9 @@ a.ext::after {
   margin-bottom: 2rem;
 }
 
+/* /uses gets a wider column than the other pages for the gear tables */
+.content-inner:has(.gear-category) { max-width: 820px; }
+
 .gear-category h2,
 .gear-body h2 {
   font-size: 1.15rem;
@@ -313,16 +316,18 @@ a.ext::after {
 .gear-list {
   list-style: none;
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: baseline;
+  /* Fixed state and rating widths so the columns line up across category lists */
+  grid-template-columns: minmax(0, 1fr) 18rem 4.5rem;
 }
 
 .gear-list li {
   display: contents;
 }
 
-.gear-list li > *,
+.gear-list li > span,
 .gear-list .gear-link > * {
+  display: flex;
+  align-items: center;
   padding: 0.4rem 0.5rem;
   border-bottom: 1px solid color-mix(in srgb, var(--border) 25%, transparent);
 }
@@ -342,7 +347,7 @@ a.ext::after {
 
 .gear-link:hover .gear-name { color: var(--accent); }
 
-.gear-list .gear-name { font-weight: 500; font-size: 0.9rem; white-space: nowrap; }
+.gear-list .gear-name { font-weight: 500; font-size: 0.9rem; }
 
 /* Items with x-personal-site-parent, listed under their parent */
 .gear-list .gear-child .gear-name { padding-left: 1.25rem; font-weight: 400; }
@@ -350,6 +355,9 @@ a.ext::after {
 
 /* The oneliner shows as a hover tooltip on desktop (js/gear.js) and under the name on mobile */
 .gear-list .gear-desc { display: none; }
+
+.gear-list .gear-states { gap: 0.3rem; }
+.gear-list .gear-states .tag { white-space: nowrap; }
 
 .gear-tip {
   position: fixed;
@@ -369,7 +377,7 @@ a.ext::after {
 .gear-list .gear-rating {
   color: var(--accent);
   font-size: 0.8rem;
-  text-align: right;
+  justify-content: flex-end;
 }
 
 /* ═══ Gear detail ═══ */
@@ -711,7 +719,7 @@ a.ext::after {
   .gear-list li {
     display: grid;
     grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto;
     width: 100%;
     padding: 0.5rem;
     border-bottom: 1px solid color-mix(in srgb, var(--border) 25%, transparent);
@@ -737,6 +745,8 @@ a.ext::after {
     padding-top: 0.15rem;
   }
   .gear-list .gear-desc:empty { display: none; }
+  .gear-list .gear-states { grid-column: 1; grid-row: 3; padding-top: 0.3rem; }
+  .gear-list .gear-states:empty { display: none; }
 
   .gear-cover { display: block; margin-left: auto; margin-right: auto; }
 }
