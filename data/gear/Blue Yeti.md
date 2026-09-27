@@ -15,7 +15,7 @@ type:
   - multi-pattern
   - usb
   - microphone
-updatedAt: 2026-09-27T17:58:22Z
+updatedAt: 2026-09-27T19:44:46Z
 x-personal-site-category: audio
 x-personal-site-parent: "[[MacBook Pro M1 Max|Macbook]]"
 ---
