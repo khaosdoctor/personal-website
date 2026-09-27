@@ -48,7 +48,9 @@ Canon's "nifty fifty", and I use it a lot for street photography.
 
 ## Impressions
 
-## Final thoughts
+This is one of the best lenses I've ever used. It's a fixed lens, so it's very niche, but it's really good for street photography. The 1.8 aperture is very nice for portraits and for taking pictures inside very dark spaces.
+
+I usually go with it when I'm touristing in a new city or something, because it's a very small lens and it's not very expensive either. It's very easy to get and very easy to use. I really like it, and I really think it's a lens that everyone should have.
 
 ## Related
 
