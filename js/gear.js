@@ -1,18 +1,19 @@
-// The gear list is baked into uses.html by sync.js; this only adds a hover tooltip
-// for descriptions cut off by the ellipsis
+// The gear list is baked into uses.html by sync.js; this shows each row's oneliner
+// as a tooltip when hovering the row (mobile shows it under the name instead, via CSS)
 const tip = document.createElement('div');
 tip.className = 'gear-tip';
 document.body.append(tip);
 
-for (const desc of document.querySelectorAll('.gear-desc')) {
-  if (desc.scrollWidth <= desc.clientWidth) continue;
-  desc.classList.add('truncated');
-  desc.addEventListener('mouseenter', () => {
-    const r = desc.getBoundingClientRect();
-    tip.textContent = desc.textContent;
+for (const row of document.querySelectorAll('.gear-list li')) {
+  const desc = row.querySelector('.gear-desc')?.textContent.trim();
+  if (!desc) continue;
+  const name = row.querySelector('.gear-name');
+  row.addEventListener('mouseenter', () => {
+    const r = name.getBoundingClientRect();
+    tip.textContent = desc;
     tip.style.left = r.left + 'px';
     tip.style.top = (r.bottom + 4) + 'px';
     tip.classList.add('visible');
   });
-  desc.addEventListener('mouseleave', () => tip.classList.remove('visible'));
+  row.addEventListener('mouseleave', () => tip.classList.remove('visible'));
 }

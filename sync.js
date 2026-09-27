@@ -1,5 +1,5 @@
 import { readFile, writeFile, readdir, mkdir, copyFile, stat } from 'fs/promises';
-import { existsSync } from 'fs';
+import { existsSync, watch } from 'fs';
 import { join, basename, extname } from 'path';
 import matter from 'gray-matter';
 import { marked } from 'marked';
@@ -297,6 +297,24 @@ async function bakePages(posts, gear) {
 }
 
 const posts = await syncPosts();
-const gear = await syncGear();
-await bakePages(posts, gear);
+await bakePages(posts, await syncGear());
 console.log('Done.');
+
+// --watch: rebuild gear and pages when a vault note or data file changes (posts stay from the first fetch)
+if (process.argv.includes('--watch')) {
+  let timer;
+  const rebuild = (_, file) => {
+    if (!/\.(md|json)$/.test(file ?? '')) return;
+    clearTimeout(timer);
+    timer = setTimeout(async () => {
+      try {
+        await bakePages(posts, await syncGear());
+        console.log(`Rebuilt (${file}).`);
+      } catch (err) {
+        console.error('Rebuild failed:', err.message);
+      }
+    }, 500);
+  };
+  for (const dir of [VAULT_DIR, DATA_DIR]) watch(dir, { recursive: true }, rebuild);
+  console.log('Watching for changes...');
+}

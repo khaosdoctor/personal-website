@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "sync": "bun sync.js",
+    "sync:watch": "bun sync.js --watch",
     "dev": "bunx browser-sync start --config bs-config.cjs"
   },
   "dependencies": {
