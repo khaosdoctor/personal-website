@@ -78,6 +78,9 @@ async function readMdFiles(dir, skip = []) {
         state: data.state || [], category: data['x-personal-site-category'] || 'other',
         externalLink: data.externalLink || '',
         updated: isNaN(updatedAt) ? '' : updatedAt.toISOString().slice(0, 10),
+        // "[[Canon EOS 6D Mark II]]" (or a list of links); unquoted YAML turns [[x]] into nested arrays, hence flat()
+        parents: [data['x-personal-site-parent'] ?? []].flat(Infinity)
+          .map(p => slugify(String(p).replace(/^\[\[|\]\]$/g, '').split('|')[0])),
       });
     } catch { continue; }
   }
@@ -187,7 +190,7 @@ async function syncGear() {
     return {
       name: n.name, slug: n.slug, oneliner: n.oneliner, rating: n.rating,
       state: n.state, category: n.category,
-      coverUrl: n.coverUrl, externalLink: n.externalLink, hasPage,
+      coverUrl: n.coverUrl, externalLink: n.externalLink, hasPage, parents: n.parents,
     };
   }));
   if (coverCount) console.log(`  ${coverCount} covers downloaded`);
@@ -210,10 +213,39 @@ function postsHtml(posts) {
   return posts.map(p => `<li><span class="post-date">${p.date}</span><a href="${esc(p.link)}">${esc(p.title)}</a></li>`).join('\n');
 }
 
-// Grouped by x-personal-site-category, alphabetical with "other" last; items by rating (desc), then name
+const byRatingThenName = (a, b) => (b.rating || 0) - (a.rating || 0) || a.name.localeCompare(b.name);
+
+function gearRow(g, isChild) {
+  const cells = `<span class="gear-name">${esc(g.name)}</span><span class="gear-desc">${esc(g.oneliner)}</span><span class="gear-rating">${g.rating}/10</span>`;
+  const href = g.externalLink || (g.hasPage ? `/gear/${g.slug}.html` : '');
+  const li = isChild ? '<li class="gear-child">' : '<li>';
+  return href ? `${li}<a class="gear-link" href="${esc(href)}">${cells}</a></li>` : `${li}${cells}</li>`;
+}
+
+// Grouped by x-personal-site-category, alphabetical with "other" last; items by rating (desc), then name.
+// Items with x-personal-site-parent render right below their parent (in the parent's category) instead of in their own
 function gearHtml(items) {
+  const bySlug = new Map(items.map(g => [g.slug, g]));
+  const children = {};
   const grouped = {};
-  for (const item of items) (grouped[item.category || 'other'] ||= []).push(item);
+  for (const item of items) {
+    const parents = item.parents.filter(p => bySlug.has(p) && p !== item.slug);
+    if (item.parents.length && !parents.length) console.warn(`  ${item.name}: parent ${item.parents.join(', ')} not found, listed on its own`);
+    if (!parents.length) {
+      (grouped[item.category || 'other'] ||= []).push(item);
+      continue;
+    }
+    for (const p of parents) (children[p] ||= []).push(item);
+  }
+
+  // Depth-first so children of children also follow their parent; `seen` stops parent loops
+  const rowsFor = (g, isChild, seen) => {
+    if (seen.has(g.slug)) return [];
+    seen.add(g.slug);
+    const kids = (children[g.slug] || []).sort(byRatingThenName);
+    return [gearRow(g, isChild), ...kids.flatMap(k => rowsFor(k, true, seen))];
+  };
+
   const categories = Object.keys(grouped).sort((a, b) => {
     if (a === 'other') return 1;
     if (b === 'other') return -1;
@@ -223,11 +255,7 @@ function gearHtml(items) {
   const sections = [];
   for (const cat of categories) {
     const label = cat.split(/[\s-]+/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-    const rows = grouped[cat].sort((a, b) => (b.rating || 0) - (a.rating || 0) || a.name.localeCompare(b.name)).map(g => {
-      const cells = `<span class="gear-name">${esc(g.name)}</span><span class="gear-desc">${esc(g.oneliner)}</span><span class="gear-rating">${g.rating}/10</span>`;
-      const href = g.externalLink || (g.hasPage ? `/gear/${g.slug}.html` : '');
-      return href ? `<li><a class="gear-link" href="${esc(href)}">${cells}</a></li>` : `<li>${cells}</li>`;
-    });
+    const rows = grouped[cat].sort(byRatingThenName).flatMap(g => rowsFor(g, false, new Set()));
     sections.push(`<div class="gear-category"><h2>${label}</h2><ul class="gear-list">\n${rows.join('\n')}\n</ul></div>`);
   }
   return sections.join('\n');

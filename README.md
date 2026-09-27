@@ -13,7 +13,7 @@
 - `data/bio.md` is the about text on the homepage
 - `data/now.md` is the /now page, the "last updated" date is the file's modified date
 - `data/projects.json` is the /projects list, sorted by `status` (`active`, `inactive`, `archived`)
-- Gear comes from the vault notes that have a `personalRating`. The /uses category is `x-personal-site-category` (falls back to `other`), and `updatedAt` shows up on the gear detail page
+- Gear comes from the vault notes that have a `personalRating`. The /uses category is `x-personal-site-category` (falls back to `other`), and `updatedAt` shows up on the gear detail page. To list an item under another one (a lens under its camera), add `x-personal-site-parent: "[[Parent Note]]"` to the child; it can also be a list of links
 
 After changing any of these, run `bun run sync`. It fetches the latest 3 posts from the blog RSS, generates the gear pages in `gear/` (with covers converted to WebP), and replaces everything between the `<!-- bake:name -->` and `<!-- /bake:name -->` markers in the pages.
 

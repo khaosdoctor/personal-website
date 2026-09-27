@@ -342,6 +342,10 @@ a.ext::after {
 
 .gear-list .gear-name { font-weight: 500; font-size: 0.9rem; white-space: nowrap; }
 
+/* Items with x-personal-site-parent, listed under their parent */
+.gear-list .gear-child .gear-name { padding-left: 1.25rem; font-weight: 400; }
+.gear-list .gear-child .gear-name::before { content: '\2514\00a0'; color: var(--muted); }
+
 .gear-list .gear-desc {
   color: var(--muted);
   font-size: 0.85rem;
