@@ -1,12 +1,79 @@
 import { readFile, writeFile, readdir, mkdir, copyFile, stat } from 'fs/promises';
-import { existsSync, watch } from 'fs';
+import { existsSync, readFileSync, watch } from 'fs';
 import { join, basename, extname } from 'path';
+import chalk from 'chalk';
+import createDebug from 'debug';
 import matter from 'gray-matter';
 import { marked } from 'marked';
 import sharp from 'sharp';
 
-const VAULT_DIR = process.env.VAULT_DIR || join(process.env.HOME, 'Documents/Obsidian/Vaults/Default/notes');
-const VAULT_ASSETS = process.env.VAULT_ASSETS || join(process.env.HOME, 'Documents/Obsidian/Vaults/Default/internal/assets');
+const argv = process.argv.slice(2);
+const flag = name => argv.includes(`--${name}`);
+// --name=value wins over the env var, so a one-off run needs no exported variable
+const opt = (name, env, fallback = '') =>
+  argv.find(a => a.startsWith(`--${name}=`))?.slice(name.length + 3).trim() || process.env[env]?.trim() || fallback;
+
+// --debug turns on every sync namespace; DEBUG=sync:covers still narrows it to one
+if (flag('debug')) createDebug.enable(process.env.DEBUG || 'sync:*');
+const debug = {
+  vault: createDebug('sync:vault'),
+  covers: createDebug('sync:covers'),
+  gear: createDebug('sync:gear'),
+  bake: createDebug('sync:bake'),
+};
+
+// chalk already drops the escape codes on a non-TTY stream, on NO_COLOR and on TERM=dumb,
+// so CI logs stay plain; the emoji prefixes are the fallback marker when the color is gone
+const log = {
+  step: msg => console.log(chalk.bold.cyan(`\n▶ ${msg}`)),
+  info: msg => console.log(chalk.dim(`  · ${msg}`)),
+  ok: msg => console.log(chalk.green(`  ✔ ${msg}`)),
+  warn: msg => console.warn(chalk.yellow(`  ⚠ ${msg}`)),
+  error: msg => console.error(chalk.red(`  ✖ ${msg}`)),
+};
+
+if (flag('help')) {
+  console.log(`Usage: bun sync.js [options]
+
+  --watch              rebuild when a vault note or data file changes
+  --debug              verbose per-file logging (same as DEBUG=sync:*)
+  --vault=<name>       vault folder name to match (env VAULT_NAME, default "default")
+  --vault-dir=<path>   notes directory, skips vault lookup (env VAULT_DIR)
+  --vault-assets=<path>  attachments directory (env VAULT_ASSETS)
+  --timeout=<ms>       per-request fetch timeout (env FETCH_TIMEOUT_MS, default 15000)
+  --help               this text`);
+  process.exit(0);
+}
+
+// Obsidian has no CLI, but it registers every vault here, so the path can move between machines
+const OBSIDIAN_CONFIG = process.platform === 'darwin'
+  ? join(process.env.HOME, 'Library/Application Support/obsidian/obsidian.json')
+  : join(process.env.APPDATA || join(process.env.HOME, '.config'), 'obsidian/obsidian.json');
+const VAULT_NAME = opt('vault', 'VAULT_NAME', 'default');
+
+// First registered vault whose folder name contains VAULT_NAME
+function findVault() {
+  if (!existsSync(OBSIDIAN_CONFIG)) {
+    debug.vault('no Obsidian config at %s', OBSIDIAN_CONFIG);
+    return '';
+  }
+  try {
+    const { vaults = {} } = JSON.parse(readFileSync(OBSIDIAN_CONFIG, 'utf-8'));
+    const paths = Object.values(vaults).map(v => v.path).filter(Boolean);
+    debug.vault('registered vaults: %o', paths);
+    const match = paths.find(p => basename(p).toLowerCase().includes(VAULT_NAME.toLowerCase()));
+    debug.vault('matched "%s" -> %s', VAULT_NAME, match || 'nothing');
+    return match || '';
+  } catch (err) {
+    debug.vault('unreadable Obsidian config: %s', err.message);
+    return '';
+  }
+}
+
+const VAULT = findVault();
+const VAULT_DIR = opt('vault-dir', 'VAULT_DIR') || (VAULT && join(VAULT, 'notes'));
+const VAULT_ASSETS = opt('vault-assets', 'VAULT_ASSETS') || (VAULT && join(VAULT, 'internal/assets'));
+if (!VAULT_DIR) log.warn(`no vault matching "${VAULT_NAME}" in ${OBSIDIAN_CONFIG}, using only data/gear`);
 const SITE = 'https://lsantos.dev';
 const RSS_URL ='https://blog.lsantos.dev/en/rss.xml';
 const GEAR_DIR = './gear';
@@ -65,9 +132,14 @@ function resolveWikilinks(content, slugs) {
 }
 
 async function readMdFiles(dir, skip = []) {
-  if (!existsSync(dir)) return [];
-  const out = [];
-  for (const f of (await readdir(dir)).filter(f => f.endsWith('.md') && !skip.includes(f))) {
+  if (!existsSync(dir)) {
+    log.warn(`${dir}: not found, skipped`);
+    return [];
+  }
+  const out = [], unreadable = [];
+  const files = (await readdir(dir)).filter(f => f.endsWith('.md') && !skip.includes(f));
+  log.info(`${dir}: ${files.length} markdown files`);
+  for (const f of files) {
     try {
       const { data, content } = matter(await readFile(join(dir, f), 'utf-8'), { engines: {} });
       const rating = data.personalRating ?? data.rating;
@@ -86,12 +158,21 @@ async function readMdFiles(dir, skip = []) {
         parents: [data['x-personal-site-parent'] ?? []].flat(Infinity)
           .map(p => slugify(String(p).replace(/^\[\[|\]\]$/g, '').split('|')[0])),
       });
-    } catch { continue; }
+    } catch (err) {
+      // Most of these are ordinary vault notes with loose YAML, not gear, so only --debug names them
+      unreadable.push(f);
+      debug.vault('%s: unreadable frontmatter (%s)', f, err.message);
+    }
   }
+  if (unreadable.length) log.warn(`${unreadable.length} files with unreadable frontmatter skipped (--debug to list them)`);
+  log.ok(`${out.length} gear notes with a rating and a category`);
   return out;
 }
 
 const COVER_DIR = './img/gear/covers';
+const FETCH_TIMEOUT_MS = Number(opt('timeout', 'FETCH_TIMEOUT_MS')) || 15000;
+
+const fetchWithTimeout = url => fetch(url, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
 
 async function optimizeImage(input, outputPath) {
   try {
@@ -102,14 +183,28 @@ async function optimizeImage(input, outputPath) {
 
 async function fetchCover(url, slug) {
   const dest = join(COVER_DIR, `${slug}.webp`);
-  if (existsSync(dest)) return `/img/gear/covers/${slug}.webp`;
-  try {
-    const res = await fetch(url);
-    if (!res.ok) return url;
-    const buf = Buffer.from(await res.arrayBuffer());
-    await optimizeImage(buf, dest);
+  if (existsSync(dest)) {
+    debug.covers('%s: cached', slug);
     return `/img/gear/covers/${slug}.webp`;
-  } catch { return url; }
+  }
+  try {
+    debug.covers('%s: fetching %s', slug, url);
+    const res = await fetchWithTimeout(url);
+    if (!res.ok) {
+      log.warn(`${slug}: cover HTTP ${res.status}, keeping remote URL`);
+      return url;
+    }
+    const buf = Buffer.from(await res.arrayBuffer());
+    if (!await optimizeImage(buf, dest)) {
+      log.warn(`${slug}: cover could not be converted, keeping remote URL`);
+      return url;
+    }
+    debug.covers('%s: saved %d bytes source -> %s', slug, buf.length, dest);
+    return `/img/gear/covers/${slug}.webp`;
+  } catch (err) {
+    log.warn(`${slug}: cover ${err.name === 'TimeoutError' ? `timed out after ${FETCH_TIMEOUT_MS}ms` : err.message}, keeping remote URL`);
+    return url;
+  }
 }
 
 function gearPage(n, body) {
@@ -161,8 +256,8 @@ function gearPage(n, body) {
 }
 
 async function syncPosts() {
-  console.log('Fetching RSS...');
-  const res = await fetch(RSS_URL);
+  log.step('📡 Fetching blog RSS');
+  const res = await fetchWithTimeout(RSS_URL);
   if (!res.ok) throw new Error(`RSS fetch failed: ${res.status}`);
   const xml = await res.text();
   const items = [...xml.matchAll(RE_RSS_ITEM)].map(([, b]) => {
@@ -173,12 +268,12 @@ async function syncPosts() {
       date: d ? new Date(d).toISOString().split('T')[0] : '',
     };
   });
-  console.log(`  ${Math.min(items.length, 3)} posts fetched`);
+  log.ok(`${Math.min(items.length, 3)} posts fetched`);
   return items.slice(0, 3);
 }
 
 async function syncGear() {
-  console.log('Syncing gear notes...');
+  log.step('🎛  Syncing gear notes');
   for (const d of [GEAR_DIR, GEAR_IMG, COVER_DIR]) if (!existsSync(d)) await mkdir(d, { recursive: true });
 
   const vault = await readMdFiles(VAULT_DIR);
@@ -187,11 +282,16 @@ async function syncGear() {
   const notes = [...vault, ...local.filter(n => !vaultSlugs.has(n.slug))];
   const allSlugs = new Set(notes.map(n => n.slug));
 
+  const missingCovers = notes.filter(n => n.coverUrl && !existsSync(join(COVER_DIR, `${n.slug}.webp`))).length;
+  if (missingCovers) log.info(`downloading ${missingCovers} covers, ${FETCH_TIMEOUT_MS}ms timeout each`);
+
   let coverCount = 0;
   const index = await Promise.all(notes.map(async n => {
     if (n.coverUrl) {
+      // Counted before the call, otherwise an already-cached cover looks like a fresh download
+      const wasMissing = !existsSync(join(COVER_DIR, `${n.slug}.webp`));
       const localCover = await fetchCover(n.coverUrl, n.slug);
-      if (localCover !== n.coverUrl) coverCount++;
+      if (wasMissing && localCover !== n.coverUrl) coverCount++;
       n.coverUrl = localCover;
     }
     const hasPage = n.body.trim().length > 0;
@@ -200,14 +300,16 @@ async function syncGear() {
       const namePattern = n.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       html = html.replace(new RegExp(`^\\s*<h1>${namePattern}</h1>\\s*`), '');
       await writeFile(join(GEAR_DIR, `${n.slug}.html`), gearPage(n, html));
+      debug.gear('%s: page written, category=%s rating=%s state=%o', n.slug, n.category, n.rating, n.state);
     }
+    if (!hasPage) debug.gear('%s: empty body, list row only', n.slug);
     return {
       name: n.name, slug: n.slug, oneliner: n.oneliner, rating: n.rating,
       state: n.state, category: n.category,
       coverUrl: n.coverUrl, externalLink: n.externalLink, hasPage, parents: n.parents,
     };
   }));
-  if (coverCount) console.log(`  ${coverCount} covers downloaded`);
+  if (coverCount) log.ok(`${coverCount} covers downloaded`);
 
   for (const img of pendingImages) {
     const destPath = join(GEAR_IMG, img.dest);
@@ -215,11 +317,11 @@ async function syncGear() {
     const ok = await optimizeImage(img.src, webpDest);
     if (!ok) await copyFile(img.src, destPath);
   }
-  if (pendingImages.length) console.log(`  ${pendingImages.length} images optimized`);
+  if (pendingImages.length) log.ok(`${pendingImages.length} images optimized`);
   pendingImages.length = 0;
 
   const lc = notes.filter(n => !n.isVault).length;
-  console.log(`  ${index.length} gear entries (${index.length - lc} vault, ${lc} manual)`);
+  log.ok(`${index.length} gear entries (${index.length - lc} vault, ${lc} manual)`);
   return index;
 }
 
@@ -246,7 +348,7 @@ function gearHtml(items) {
   const grouped = {};
   for (const item of items) {
     const parents = item.parents.filter(p => bySlug.has(p) && p !== item.slug);
-    if (item.parents.length && !parents.length) console.warn(`  ${item.name}: parent ${item.parents.join(', ')} not found, listed on its own`);
+    if (item.parents.length && !parents.length) log.warn(`${item.name}: parent ${item.parents.join(', ')} not found, listed on its own`);
     if (!parents.length) {
       (grouped[item.category] ||= []).push(item);
       continue;
@@ -288,16 +390,17 @@ async function bake(file, blocks) {
   for (const [name, content] of Object.entries(blocks)) {
     const re = new RegExp(`(<!-- bake:${name} -->)[\\s\\S]*?(<!-- /bake:${name} -->)`);
     if (!re.test(html)) {
-      console.warn(`  ${file}: no bake:${name} marker, skipped`);
+      log.warn(`${file}: no bake:${name} marker, skipped`);
       continue;
     }
     html = html.replace(re, (_, open, close) => `${open}\n${content}\n${close}`);
+    debug.bake('%s: replaced bake:%s (%d chars)', file, name, content.length);
   }
   await writeFile(file, html);
 }
 
 async function bakePages(posts, gear) {
-  console.log('Baking pages...');
+  log.step('🥐 Baking pages');
   const md = async f => marked(await readFile(join(DATA_DIR, f), 'utf-8'));
   const nowUpdated = (await stat(join(DATA_DIR, 'now.md'))).mtime.toISOString().slice(0, 10);
   const projects = JSON.parse(await readFile(join(DATA_DIR, 'projects.json'), 'utf-8'));
@@ -312,12 +415,15 @@ async function bakePages(posts, gear) {
   await writeFile('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemap}\n</urlset>\n`);
 }
 
-const posts = await syncPosts();
+const posts = await syncPosts().catch(err => {
+  log.error(err.name === 'TimeoutError' ? `RSS timed out after ${FETCH_TIMEOUT_MS}ms` : `RSS unavailable: ${err.message}`);
+  process.exit(1);
+});
 await bakePages(posts, await syncGear());
-console.log('Done.');
+log.step('✅ Done');
 
 // --watch: rebuild gear and pages when a vault note or data file changes (posts stay from the first fetch)
-if (process.argv.includes('--watch')) {
+if (flag('watch')) {
   let timer;
   const rebuild = (_, file) => {
     if (!/\.(md|json)$/.test(file ?? '')) return;
@@ -325,12 +431,12 @@ if (process.argv.includes('--watch')) {
     timer = setTimeout(async () => {
       try {
         await bakePages(posts, await syncGear());
-        console.log(`Rebuilt (${file}).`);
+        log.ok(`rebuilt after ${file}`);
       } catch (err) {
-        console.error('Rebuild failed:', err.message);
+        log.error(`rebuild failed: ${err.message}`);
       }
     }, 500);
   };
-  for (const dir of [VAULT_DIR, DATA_DIR]) watch(dir, { recursive: true }, rebuild);
-  console.log('Watching for changes...');
+  for (const dir of [VAULT_DIR, DATA_DIR].filter(existsSync)) watch(dir, { recursive: true }, rebuild);
+  log.step('👀 Watching for changes');
 }
