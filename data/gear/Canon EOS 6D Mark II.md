@@ -50,7 +50,11 @@ My go-to camera when I go out to take pictures, which happens less than I'd like
 
 ## Impressions
 
-## Final thoughts
+This is my second camera, the first one was a T7i, but it's my first full-frame camera and the only one I use for most stuff. I really like it and it's really versatile. When I originally bought it in 2021 it was a bit better, now we have the R mirrorless series which I think is even better than this one.
+
+The photos are quite good, the battery lasts almost a week on normal shooting (but it drains quite fast if you use bulb mode), and it's resistant to a lot of climates. I've taken it from hot places to freezing cold in Lapland and it went on perfectly.
+
+The downside though is that it only has one SD card, even though I don't really need it because I never even capped one. The other thing I really hate is the weight, the camera is heavy and bulky, so there's really no way to just take it wherever you want, because especially after you put on the bulky lenses like the [[Canon EF 24-70mm|24-70]] it gets well over 1kg. But overall it's the camera I recommend for most people.
 
 ## Related
 
