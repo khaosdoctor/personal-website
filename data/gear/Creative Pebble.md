@@ -4,7 +4,7 @@ coverUrl: https://img.creative.com/images/products/hero/creative-pebble/hero-peb
 createdAt: 2026-09-21T00:00:00Z
 icon: 🎵
 oneliner: Small 2.0 desktop speakers. They're my main gaming setup speakers because mostly of real estate on the table.
-personalRating: 7
+personalRating: 7.5
 state:
   - owned
   - actively-used
@@ -44,11 +44,19 @@ x-personal-site-parent: "[[Gaming PC]]"
 
 ## Description
 
-The speakers on my gaming setup, mostly because of how little room they take on the table.
+The speakers on my gaming setup, mostly because of how little room they take on the table. I originally bought them because I was getting headaches from using my other headphones, a Razer, whatever model, I don't remember. They're also very simple to set up, it's just one USB wire that goes into the computer and that's basically it.
 
 ## Impressions
 
+They are surprisingly interesting speakers, small, quite nice, and they look really cool on the table. They also come with a ton of other features I don't use, like an auxiliary in, backlights, RGB, and a bunch of stuff.
+
+For the price, the sound is surprisingly good. Obviously it's not amazing, it's filled with bass and doesn't have a lot of clarity, but it's good, unless you try to crank the volume up too much, then it gets really bad and distorted.
+
+The other thing that's good about it is the volume knob that integrates with the computer, it's pretty interesting how it's set up, and I really like analog buttons in my stuff. I really don't like digital buttons.
+
 ## Final thoughts
+
+It's a good purchase. It's okay on every aspect, and I really recommend it. It's a very good value for the money, it's small, and it's very easy to set up.
 
 ## Related
 
