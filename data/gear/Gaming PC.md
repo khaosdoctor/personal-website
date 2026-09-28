@@ -53,6 +53,12 @@ I built it myself back in 2022 and I've been swapping parts ever since, the late
 
 ## Impressions
 
+This one is a story of its own. Even though it's relatively new, and most of the parts are from 2021 onwards, some of them were as old as the moment I got into programming and computing. A few years ago I still had parts from 2015 and 2016 in here that I brought with me from Brazil, including a graphics card from around 2016. I've sold those since, and I have another card now, but the parts have been swapped one by one over time, so it's as if this computer has been the same computer since something like 2010. I still have a hard drive I've been using for 10 years, it came with the original machine and it's still going strong.
+
+I like to joke that this is the ship of Theseus computer, because none of its parts are original, but the brain of it, the files that live in it, the drives and all that, those are the originals. Same brain in different bodies over time. I've also changed the operating system on this machine so many times I don't think you could count them. I've put practically every Linux distro I wanted to test on it, I've put Windows on it, I've tried putting a Mac on it, and on it went.
+
+Today I think I've reached the limit of what I can upgrade without replacing the motherboard, because it's an AM4 socket and most things are coming out on AM5 now. My next upgrade would mean changing the motherboard, the processor and the memory all at once, which would be a pretty expensive upgrade, especially now that memory is extremely expensive. So for now it's working super well and it's going super well, and I don't intend to replace it any time soon.
+
 ## Related
 
 - [[Samsung Odyssey G8 OLED]]
