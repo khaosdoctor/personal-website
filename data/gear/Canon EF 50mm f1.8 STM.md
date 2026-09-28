@@ -1,15 +1,18 @@
 ---
-aliases: [Canon EF 50mm 1.8]
+aliases:
+  - Canon EF 50mm 1.8
 coverUrl: https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Ef_50mm_stm.JPG/1280px-Ef_50mm_stm.JPG
 createdAt: 2026-09-21T00:00:00Z
 icon: 📷
-oneliner: "Canon's 160 g full-frame nifty fifty for EF mount. Use it a lot on street photo."
+oneliner: Canon's 160 g full-frame nifty fifty for EF mount. Use it a lot on street photo.
 personalRating: 9.8
 state:
   - owned
   - actively-used
-tags: [topic/photography/gear, type/equipment/lens]
-title: "Canon EF 50mm f1.8 STM"
+tags:
+  - topic/photography/gear
+  - type/equipment/lens
+title: Canon EF 50mm f1.8 STM
 type:
   - prime
   - standard
