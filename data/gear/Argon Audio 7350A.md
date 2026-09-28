@@ -1,15 +1,19 @@
 ---
-aliases: [Argon 7350A]
+aliases:
+  - Argon 7350A
 coverUrl: https://raw.githubusercontent.com/khaosdoctor/blog-assets/master/images/gear/argon-audio-7350a.webp
 createdAt: 2026-09-21T00:00:00Z
 icon: 🎵
-oneliner: 'Danish active bookshelf speakers with a 30 W class AB amp in the left unit. I use it mainly to drive the Fluance Turntable and sometimes with cellphones in my "audio room"'
+oneliner: Danish active bookshelf speakers with a 30 W class AB amp in the left unit. I use it mainly to drive the Fluance Turntable and sometimes with cellphones in my "audio room"
 personalRating: 8
 state:
   - owned
   - actively-used
-tags: [topic/music/gear/speakers, type/equipment/speakers]
-title: "Argon Audio 7350A"
+  - second-hand
+tags:
+  - topic/music/gear/speakers
+  - type/equipment/speakers
+title: Argon Audio 7350A
 type:
   - bookshelf
   - active

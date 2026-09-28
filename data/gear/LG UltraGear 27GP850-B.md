@@ -1,15 +1,19 @@
 ---
-aliases: [27GP850-B]
+aliases:
+  - 27GP850-B
 coverUrl: https://www.lg.com/content/dam/channel/wcms/in/images/monitors/27gp850-b_atr_eail_in_c/gallery/27GP850-B-D01.jpg
 createdAt: 2026-09-27T01:09:04Z
 icon: 🖥️
-oneliner: "27-inch QHD Nano IPS at 165 Hz, my second screen next to the Odyssey"
+oneliner: 27-inch QHD Nano IPS at 165 Hz, my second screen next to the Odyssey
 personalRating: 8.6
 state:
   - owned
   - actively-used
-tags: [topic/computing/hardware/monitors, type/equipment/monitor]
-title: "LG UltraGear 27GP850-B"
+  - second-hand
+tags:
+  - topic/computing/hardware/monitors
+  - type/equipment/monitor
+title: LG UltraGear 27GP850-B
 type:
   - ips
   - 1440p

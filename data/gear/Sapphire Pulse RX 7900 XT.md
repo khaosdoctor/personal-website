@@ -9,6 +9,7 @@ personalRating: 9.8
 state:
   - owned
   - actively-used
+  - second-hand
 tags:
   - type/equipment/gpu
 title: Sapphire Pulse RX 7900 XT
