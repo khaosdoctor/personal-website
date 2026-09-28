@@ -56,7 +56,7 @@ The big difference for me is that it's a 100% keyboard that's still small, with 
 
 ## Impressions
 
-I liked it a lot. It has a really nice little sound and a really nice feel to it, and it comes with a fairly light switch. Being a silent switch it still feels a bit too heavy, even while being lighter than the Ace. I used it for a long time with the original switch and recently I replaced them with the Clears, which are much lighter, though it does lose a bit of the sound it had, which was characteristic.
+I liked it a lot. It has a really nice little sound and a really nice feel to it, and it comes with a fairly light switch. Being a silent switch it still feels a bit too heavy, even while being lighter than the Ace. I used it for a long time with the original switch and recently I replaced them with Gateron Clears, which are much lighter at 35 g, though it does lose a bit of the sound it had, which was characteristic.
 
 It was an excellent keyboard to take places, because it's very quiet, and the fact that it's small and still has the numpad is very good too. I also liked the build a lot. It's plastic, but it's very well built and it feels a lot more resistant than that.
 

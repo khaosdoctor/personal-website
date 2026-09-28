@@ -54,7 +54,7 @@ I didn't know much about magnetic switches yet, the whole Hall effect thing. Par
 
 I swear to you it made no difference at all to me. These fast action switches with a short response time are aimed at people who play fast reaction games, FPS, Counter Strike, Call of Duty, Battlefield, that sort of thing. I've never liked FPS games so I simply don't play them, I'm not the target audience for this switch. But it was the only switch that came with the thing, so I couldn't really choose another one, it was either this or another one that was also Hall effect. I was kind of stuck with it.
 
-What I thought was that it would give me a lighter typing experience, lighter even than the Gateron Silvers or those switches with a really low actuation force.
+What I thought was that it would give me a lighter typing experience, lighter even than the Gateron Silvers, or the Gateron Clears, which have a really low actuation force at 35 g.
 
 It's a good keyboard, I'd say. It's a 65%, which only confirms that I don't like small layouts. It's a bit better than the [[Keychron K12|K12]] though, because the software is better defined.
 
