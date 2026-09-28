@@ -1,15 +1,18 @@
 ---
-aliases: [iPhone 15 Pro]
+aliases:
+  - iPhone 15 Pro
 coverUrl: https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/iphone_15_pro.png
 createdAt: 2026-09-27T00:00:00Z
 icon: 📱
-oneliner: "Apple's 6.1-inch titanium phone with the A17 Pro chip, 256 GB"
+oneliner: Apple's 6.1-inch titanium phone with the A17 Pro chip, 256 GB
 personalRating: 8
 state:
   - owned
   - actively-used
-tags: [topic/computing/hardware, type/equipment/smartphone]
-title: "iPhone 15 Pro"
+tags:
+  - topic/computing/hardware
+  - type/equipment/smartphone
+title: iPhone 15 Pro
 type:
   - phone
   - apple

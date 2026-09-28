@@ -1,15 +1,19 @@
 ---
-aliases: [KRK RP5, KRK RKT5]
+aliases:
+  - KRK RP5
+  - KRK RKT5
 coverUrl: https://www.krkmusic.com/cdn/shop/files/1-KRK-Rokit-5-F.jpg
 createdAt: 2026-09-21T00:00:00Z
 icon: 🎵
-oneliner: "5-inch bi-amplified near-field studio monitor with onboard DSP room EQ. Use it as my main monitor and audio out on the work setup. The sound is amazing and also has a super high fidelity audio."
+oneliner: 5-inch bi-amplified near-field studio monitor with onboard DSP room EQ. Use it as my main monitor and audio out on the work setup. The sound is amazing and also has a super high fidelity audio.
 personalRating: 9.8
 state:
   - owned
   - actively-used
-tags: [topic/music/gear/monitors, type/equipment/studio-monitor]
-title: "KRK Rokit 5"
+tags:
+  - topic/music/gear/monitors
+  - type/equipment/studio-monitor
+title: KRK Rokit 5
 type:
   - active
   - near-field

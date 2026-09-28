@@ -3,13 +3,15 @@ aliases: []
 coverUrl: https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/_24/244983/7669868_800.jpg
 createdAt: 2026-06-16T00:00:00Z
 icon: 🎸
-oneliner: "Noise reduction pedal"
+oneliner: Noise reduction pedal
 personalRating: 7
 state:
   - owned
   - actively-used
-tags: [topic/music/gear/pedals, type/equipment/guitar-pedal]
-title: "Behringer NR300 Noise Reducer"
+tags:
+  - topic/music/gear/pedals
+  - type/equipment/guitar-pedal
+title: Behringer NR300 Noise Reducer
 type:
   - noise-reduction
   - guitar-pedal

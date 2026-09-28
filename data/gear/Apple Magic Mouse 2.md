@@ -3,13 +3,15 @@ aliases: []
 coverUrl: https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111885_SP730_magic_mouse_2.png
 createdAt: 2026-09-21T00:00:00Z
 icon: 🖱️
-oneliner: "Apple's infamous Bluetooth mouse with a Lightning charging port. Probably one of the worst UX's I ever had. I still use it when I travel though, hard to find something so small"
+oneliner: Apple's infamous Bluetooth mouse with a Lightning charging port. Probably one of the worst UX's I ever had. I still use it when I travel though, hard to find something so small
 personalRating: 4
 state:
   - owned
   - not-actively-used
-tags: [topic/computing/hardware/mice, type/equipment/mouse]
-title: "Apple Magic Mouse 2"
+tags:
+  - topic/computing/hardware/mice
+  - type/equipment/mouse
+title: Apple Magic Mouse 2
 type:
   - wireless
   - multi-touch

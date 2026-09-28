@@ -3,14 +3,16 @@ aliases: []
 coverUrl: https://static.roland.com/assets/images/products/gallery/pw_3_top_gal.jpg
 createdAt: 2026-06-16T00:00:00Z
 icon: 🎸
-oneliner: "Boss wah pedal"
+oneliner: Boss wah pedal
 personalRating: 6
 state:
   - owned
   - actively-used
   - second-hand
-tags: [topic/music/gear/pedals, type/equipment/guitar-pedal]
-title: "Boss PW-3 Wah"
+tags:
+  - topic/music/gear/pedals
+  - type/equipment/guitar-pedal
+title: Boss PW-3 Wah
 type:
   - wah
   - guitar-pedal

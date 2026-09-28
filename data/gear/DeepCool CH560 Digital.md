@@ -8,8 +8,9 @@ personalRating: 9.7
 state:
   - owned
   - actively-used
-tags: [type/equipment/case]
-title: "DeepCool CH560 Digital"
+tags:
+  - type/equipment/case
+title: DeepCool CH560 Digital
 type:
   - pc-case
 updatedAt: 2026-09-27T02:37:40Z

@@ -3,13 +3,15 @@ aliases: []
 coverUrl: https://www.m-audio.com/assets/images/pdp/ex-p/ex_p_v2008_00.jpg
 createdAt: 2026-06-16T00:00:00Z
 icon: 🎛️
-oneliner: "Universal expression pedal"
+oneliner: Universal expression pedal
 personalRating: 7
 state:
   - owned
   - not-actively-used
-tags: [topic/music/gear, type/equipment/midi-controller]
-title: "M-Audio EX-P Expression Pedal"
+tags:
+  - topic/music/gear
+  - type/equipment/midi-controller
+title: M-Audio EX-P Expression Pedal
 type:
   - expression-pedal
   - midi

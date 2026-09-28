@@ -3,13 +3,15 @@ aliases: []
 coverUrl: https://img.creative.com/images/products/hero/creative-pebble/hero-pebble.jpg
 createdAt: 2026-09-21T00:00:00Z
 icon: 🎵
-oneliner: "Small 2.0 desktop speakers. They're my main gaming setup speakers because mostly of real estate on the table."
+oneliner: Small 2.0 desktop speakers. They're my main gaming setup speakers because mostly of real estate on the table.
 personalRating: 7
 state:
   - owned
   - actively-used
-tags: [topic/computing/hardware/audio, type/equipment/speakers]
-title: "Creative Pebble"
+tags:
+  - topic/computing/hardware/audio
+  - type/equipment/speakers
+title: Creative Pebble
 type:
   - desktop
   - usb-powered

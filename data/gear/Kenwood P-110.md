@@ -3,13 +3,15 @@ aliases: []
 coverUrl: https://kasc-cdn.novena.hr/files/images/products/product_id_460/category_8/1020x700-5/p110s1.jpg
 createdAt: 2026-09-19T19:39:00Z
 icon: 🎵
-oneliner: "My first turntable, a compact belt-drive automatic"
+oneliner: My first turntable, a compact belt-drive automatic
 personalRating: 4
 state:
   - second-hand
   - previously-owned
-tags: [topic/music/gear/turntables, type/equipment/turntable]
-title: "Kenwood P-110"
+tags:
+  - topic/music/gear/turntables
+  - type/equipment/turntable
+title: Kenwood P-110
 type:
   - belt-drive
   - automatic

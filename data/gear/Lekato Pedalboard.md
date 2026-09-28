@@ -3,13 +3,15 @@ aliases: []
 coverUrl: https://lekatodeal.com/cdn/shop/files/M02978LEKATOGuitarPedalBoardwithPowerSupplyCablesBag19x5.1x1_2.jpg
 createdAt: 2026-06-16T00:00:00Z
 icon: 🎸
-oneliner: "A pedalboard with 12 outputs, 10 being 9V, one as 12V and one 18V, along with a 5V USB-A"
+oneliner: A pedalboard with 12 outputs, 10 being 9V, one as 12V and one 18V, along with a 5V USB-A
 personalRating: 6
 state:
   - owned
   - actively-used
-tags: [topic/music/gear/pedals, type/equipment/guitar-pedal]
-title: "Lekato Pedalboard Power Supply"
+tags:
+  - topic/music/gear/pedals
+  - type/equipment/guitar-pedal
+title: Lekato Pedalboard Power Supply
 type:
   - guitar-pedal
   - power-supply

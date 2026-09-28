@@ -1,15 +1,19 @@
 ---
-aliases: [Spark 40, Positive Grid Spark]
+aliases:
+  - Spark 40
+  - Positive Grid Spark
 coverUrl: https://cdn.shopify.com/s/files/1/1094/6716/products/spark-shopify-hero.png?v=1664261701&width=1280
 createdAt: 2026-09-27T02:22:11Z
 icon: 🎸
-oneliner: "40 W smart practice amp with app-controlled amp models and effects, doubles as a Bluetooth speaker."
+oneliner: 40 W smart practice amp with app-controlled amp models and effects, doubles as a Bluetooth speaker.
 personalRating: 9
 state:
   - owned
   - actively-used
-tags: [topic/music/gear/amps, type/equipment/guitar-amp]
-title: "Positive Grid Spark 40"
+tags:
+  - topic/music/gear/amps
+  - type/equipment/guitar-amp
+title: Positive Grid Spark 40
 type:
   - modeling
   - practice

@@ -52,9 +52,7 @@ I use this one a lot, for macro and for landscapes, and the quality is outstandi
 
 ## Impressions
 
-This is a very good lens. I really like it for photography because it's a macro lens and it's super well defined, and it's also really good for portrait and for landscape photography, so it's kind of an all-rounder. It's quite light as well.
-
-The only thing is that it's pretty long, so it's difficult to carry around, and it's a fixed lens, so it's not like the [[Canon EF 24-70mm|24-70]] that I have, which really does a lot of stuff. But if you're on a hike or something, you can really use it. I've done quite a lot of pictures with it: 100 millimeters with a 30 centimeter minimum focus distance means you can get pretty defined pictures of pretty small stuff.
+## Final thoughts
 
 ## Related
 

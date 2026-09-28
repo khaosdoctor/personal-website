@@ -1,15 +1,18 @@
 ---
-aliases: [Unbox Therapy UT98]
+aliases:
+  - Unbox Therapy UT98
 coverUrl: https://www.mchose.store/cdn/shop/files/mchose-official-keyboard-mchose-x-unbox-therapy-ut98-mechanical-keyboard-1200359961.png
 createdAt: 2026-09-21T00:00:00Z
 icon: ⌨️
-oneliner: "MCHOSE x Unbox Therapy 98-key tri-mode gasket keyboard. This is the current default on my work setup"
+oneliner: MCHOSE x Unbox Therapy 98-key tri-mode gasket keyboard. This is the current default on my work setup
 personalRating: 8.9
 state:
   - owned
   - actively-used
-tags: [topic/computing/hardware/keyboards, type/equipment/keyboard]
-title: "MCHOSE UT98"
+tags:
+  - topic/computing/hardware/keyboards
+  - type/equipment/keyboard
+title: MCHOSE UT98
 type:
   - mechanical
   - 1800-layout

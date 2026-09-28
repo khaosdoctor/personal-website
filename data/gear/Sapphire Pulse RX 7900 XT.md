@@ -1,5 +1,6 @@
 ---
-aliases: [RX 7900 XT]
+aliases:
+  - RX 7900 XT
 coverUrl: https://media.cdn.sapphiretech.com.cn/-/media/sites/sapphire/pim/product-images/11323_02_rx7900xt_pulse_20ggddr6/11323_02_rx7900xt_pulse_20ggddr6_c01_800x500.ashx?v=edfc3c4ed51f4bf589737a9ed7f1f8ca
 createdAt: 2026-09-27T01:09:04Z
 icon: 🎮
@@ -8,8 +9,9 @@ personalRating: 9.8
 state:
   - owned
   - actively-used
-tags: [type/equipment/gpu]
-title: "Sapphire Pulse RX 7900 XT"
+tags:
+  - type/equipment/gpu
+title: Sapphire Pulse RX 7900 XT
 type:
   - gpu
 updatedAt: 2026-09-27T02:35:21Z

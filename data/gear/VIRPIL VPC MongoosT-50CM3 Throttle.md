@@ -1,15 +1,19 @@
 ---
-aliases: [MT-50CM3, Virpil Throttle]
+aliases:
+  - MT-50CM3
+  - Virpil Throttle
 coverUrl: https://virpil-controls.eu/media/catalog/product/cache/df9b8d76dadf1b8f7e03cd1673a28b76/v/p/vpc-201-23_1.jpg
 createdAt: 2026-09-21T00:00:00Z
 icon: 🕹️
-oneliner: "Dual-axis HOTAS throttle with contactless sensors, swappable detents and 30+ inputs, I don't even use them all"
+oneliner: Dual-axis HOTAS throttle with contactless sensors, swappable detents and 30+ inputs, I don't even use them all
 personalRating: 10
 state:
   - owned
   - actively-used
-tags: [topic/games/flight-sim/gear, type/equipment/flight-controls]
-title: "VIRPIL VPC MongoosT-50CM3 Throttle"
+tags:
+  - topic/games/flight-sim/gear
+  - type/equipment/flight-controls
+title: VIRPIL VPC MongoosT-50CM3 Throttle
 type:
   - throttle
   - hotas

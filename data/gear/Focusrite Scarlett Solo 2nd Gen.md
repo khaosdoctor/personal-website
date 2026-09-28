@@ -1,16 +1,19 @@
 ---
-aliases: [Scarlett Solo]
+aliases:
+  - Scarlett Solo
 coverUrl: https://downloads.focusrite.com/sites/downloads/files/2021-10/scarlett_solo_2nd_gen.png
 createdAt: 2026-09-21T00:00:00Z
 icon: 🎵
-oneliner: "2-in / 2-out bus-powered USB audio interface with one mic preamp and one instrument input. Old and discontinued, but works for what I do."
+oneliner: 2-in / 2-out bus-powered USB audio interface with one mic preamp and one instrument input. Old and discontinued, but works for what I do.
 personalRating: 7.8
 state:
   - owned
   - actively-used
   - second-hand
-tags: [topic/music/gear/audio-interfaces, type/equipment/audio-interface]
-title: "Focusrite Scarlett Solo 2nd Gen"
+tags:
+  - topic/music/gear/audio-interfaces
+  - type/equipment/audio-interface
+title: Focusrite Scarlett Solo 2nd Gen
 type:
   - usb
   - bus-powered
