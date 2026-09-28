@@ -82,7 +82,7 @@ const DATA_DIR = './data';
 const GEAR_DATA = './data/gear';
 const STATUS_ORDER = { active: 0, inactive: 1, archived: 2 };
 const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
-const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23000'/%3E%3Ctext x='4' y='22' font-family='monospace' font-size='18' fill='%23d6d2c9'%3E%3E_%3C/text%3E%3C/svg%3E";
+const FAVICON = "/favicon.svg";
 
 const STATE_COLORS = {
   'broken': 'tag-red', 'actively-used': 'tag-green', 'owned': 'tag-green',

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>lsantos.dev</title>
+  <!--
+    Traced from the favicon the Ghost site used (blog-assets 2020/12/Favicon-64.png),
+    which was a 64px raster and could not be scaled. The mark is four flat
+    rectangles, so it reproduces exactly as vector: an L in red, with a green,
+    yellow and blue accent. Coordinates are the pixel bounds of the original, and
+    the composition deliberately bleeds off all four edges as it did before.
+  -->
+  <rect x="0" y="0" width="14" height="31" fill="#e30613" />
+  <rect x="0" y="31" width="37" height="15" fill="#e30613" />
+  <rect x="26" y="5" width="38" height="14" fill="#45b384" />
+  <rect x="53" y="31" width="11" height="15" fill="#f5b200" />
+  <rect x="11" y="59" width="53" height="5" fill="#0578be" />
+</svg>
