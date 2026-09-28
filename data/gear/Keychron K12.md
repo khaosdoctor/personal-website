@@ -7,6 +7,7 @@ oneliner: 60% wireless mechanical keyboard I used to keep as travel board. But c
 personalRating: 5
 state:
   - previously-owned
+  - second-hand
 tags:
   - topic/computing/hardware/keyboards
   - type/equipment/keyboard

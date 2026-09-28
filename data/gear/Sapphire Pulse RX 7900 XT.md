@@ -4,7 +4,7 @@ aliases:
 coverUrl: https://media.cdn.sapphiretech.com.cn/-/media/sites/sapphire/pim/product-images/11323_02_rx7900xt_pulse_20ggddr6/11323_02_rx7900xt_pulse_20ggddr6_c01_800x500.ashx?v=edfc3c4ed51f4bf589737a9ed7f1f8ca
 createdAt: 2026-09-27T01:09:04Z
 icon: 🎮
-oneliner: ""
+oneliner:
 personalRating: 9.8
 state:
   - owned
