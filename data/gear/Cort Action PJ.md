@@ -37,11 +37,19 @@ x-personal-site-category: music production
 
 ## Description
 
-My only bass, the one I play in the band.
+This is my only bass, the one I play in the band. It wasn't a purchase where I said, okay, I'm going to buy the best bass guitar I can, I wanted to play bass in the band and I've always loved playing bass, so I just needed a practicing bass. I got the cheapest one I could find that was still a good brand and somewhat within my style, and it is actually really cool.
 
 ## Impressions
 
+It's got a matte finish and it doesn't get dirty very easily. It has three knobs, one for each of the pickups and the other one for tone. The sound is really good, honestly speaking.
+
+I do find it a bit difficult to hold the strings when I'm putting my finger on top of the neck pickup, because it's quite small. Other than that, it's fine. It's not the best bass for slaps, but it really does help a lot, especially because it's very light and it doesn't get super tiring when I'm playing it. And it's not super expensive either, so it's quite a good purchase, good value for the money.
+
+One of the things I really like about it is that the jack for the input is on the bottom of the bass, so it's not like those jacks where there's a carving in the body, and the cables fit in more easily. You do have to be careful not to use straight cables though, because otherwise you can barge into something or hit something and the cable gets destroyed.
+
 ## Final thoughts
+
+I really like this bass and I don't think it was a bad purchase at all. I keep trying to find new reasons to upgrade or buy another one, but I really don't know what I would upgrade on this. It's a very comfortable bass to play and it has a great sound.
 
 ## Related
 
