@@ -4,7 +4,7 @@ coverUrl: https://resource.logitech.com/content/dam/logitech/en/products/mice/mx
 createdAt: 2026-09-21T00:00:00Z
 icon: 🖱️
 oneliner: "Flagship mouse from Logi, I am ambidextrous with mouses but I really needed something with side scrolls and this was the best option."
-personalRating: 7
+personalRating: 7.8
 state:
   - owned
   - actively-used
