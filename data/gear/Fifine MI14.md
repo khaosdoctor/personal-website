@@ -5,7 +5,7 @@ coverUrl: https://m.media-amazon.com/images/I/61Z1Y7-9GYL._AC_SL1500_.jpg
 createdAt: 2026-09-27T00:00:00Z
 icon: 🎙️
 oneliner: Dual USB-C / XLR dynamic mic that ships with its own boom arm. Cardioid, so it keeps the room out of the recording.
-personalRating: 6
+personalRating: 7
 state:
   - owned
   - actively-used
@@ -39,7 +39,7 @@ x-personal-site-parent: "[[Gaming PC]]"
 
 ## Description
 
-The mic on the [[Gaming PC]]. Dynamic, so it picks up what is in front of it and leaves most of the room out. Two outputs: USB-C straight into the machine, or XLR into the [[Behringer Xenyx 802|Xenyx]] and the [[Focusrite Scarlett Solo 2nd Gen|Scarlett]] when I want the mixer in the chain.
+The mic on the [[Gaming PC]], running straight into the machine over USB-C.
 
 I bought it because I already had a mic on the work setup and on this machine I was using only my [[SteelSeries Arctis 7+|SteelSeries Arctis]] headset, all the time. I don't like using headsets that much, they squeeze my ear and they get very hot. You can tell from the number of headphones I own that I still haven't found one I can wear for a relatively long time without it bothering me, the closest are the [[Beyerdynamics DT 990 Pro|DT 990]] and the [[Zaylli Lyrö|Lyrö]]. Ever since I found out you could have a microphone separate from the speakers, I've kept the two lines apart.
 
