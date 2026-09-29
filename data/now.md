@@ -1,12 +1,16 @@
 This is a [now](https://nownownow.com/) page, which is a way to share what you are currently doing, thinking about, and focusing on. Think of it as a snapshot of my life at this very moment in time.
 
-## Current focus
+All of this is happening __now__, which means it's not static and will probably change over time. We are not static beings, and our interests and focus change over time. This page is a reflection of that.
+
+> I don't keep a history, but you can check the [commit history](https://github.com/khaosdoctor/personal-website/commits/main/data/now.md) on this page's Git repo.
+
+## Focus
 
 - Electronics, learning how to design and build guitar pedals and other small electronics
 - My Node.js book, I am currently finishing it and will be publishing it soon
 - My [blog](https://blog.lsantos.dev), I am trying to post more often, but I have been busy with other things
 
-## Current philosophy
+## Philosophy
 
 - Pondering about my relationship with technology and AI recently. And rethinking my entire career and what I really liked to do since I was a kid.
 
