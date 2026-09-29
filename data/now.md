@@ -1,4 +1,14 @@
-Currently finishing my book on Node Anti Patterns and coming back to my [blog](https://blog.lsantos.dev) after a long break.
+This is a [now](https://nownownow.com/) page, which is a way to share what you are currently doing, thinking about, and focusing on. Think of it as a snapshot of my life at this very moment in time.
+
+## Current focus
+
+- Electronics, learning how to design and build guitar pedals and other small electronics
+- My Node.js book, I am currently finishing it and will be publishing it soon
+- My [blog](https://blog.lsantos.dev), I am trying to post more often, but I have been busy with other things
+
+## Current philosophy
+
+- Pondering about my relationship with technology and AI recently. And rethinking my entire career and what I really liked to do since I was a kid.
 
 ## Hobbies
 
