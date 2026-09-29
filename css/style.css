@@ -298,14 +298,18 @@ a.ext::after {
 .content-inner:has(.gear-category) { max-width: 820px; }
 
 .gear-category h2,
-.gear-body h2 {
+.gear-body h2,
+.now-section h2,
+#now-content h2 {
   font-size: 1.15rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
 }
 
 .gear-category h2::after,
-.gear-body h2::after {
+.gear-body h2::after,
+.now-section h2::after,
+#now-content h2::after {
   content: '';
   display: block;
   height: 1px;
@@ -565,6 +569,8 @@ a.ext::after {
   font-size: 0.9rem;
 }
 
+#now-content p + p { margin-top: 1rem; }
+
 .now-section ul, #now-content ul {
   list-style: none;
   padding-left: 1rem;
@@ -572,6 +578,13 @@ a.ext::after {
 
 .now-section li::before, #now-content li::before {
   content: '> ';
+  color: var(--muted);
+}
+
+.bio blockquote, #now-content blockquote {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--border);
   color: var(--muted);
 }
 

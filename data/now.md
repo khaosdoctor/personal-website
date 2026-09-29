@@ -1,8 +1,6 @@
-This is a [now](https://nownownow.com/) page, which is a way to share what you are currently doing, thinking about, and focusing on. Think of it as a snapshot of my life at this very moment in time.
+This is a [now](https://nownownow.com/) page, a snapshot of what I'm up to and what's on my mind right __now__. We are not static beings and our interests shift over time, this page is a reflection of that.
 
-All of this is happening __now__, which means it's not static and will probably change over time. We are not static beings, and our interests and focus change over time. This page is a reflection of that.
-
-> I don't keep a history, but you can check the [commit history](https://github.com/khaosdoctor/personal-website/commits/main/data/now.md) on this page's Git repo.
+> You can check [how I change over time](https://github.com/khaosdoctor/personal-website/commits/main/data/now.md) on this page's Git repo.
 
 ## Focus
 
