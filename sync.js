@@ -1,6 +1,7 @@
 import { readFile, writeFile, readdir, mkdir, copyFile, rm, stat } from 'fs/promises';
 import { existsSync, readFileSync, watch } from 'fs';
 import { join, basename, extname } from 'path';
+import { execFileSync } from 'child_process';
 import chalk from 'chalk';
 import createDebug from 'debug';
 import matter from 'gray-matter';
@@ -82,7 +83,6 @@ const DATA_DIR = './data';
 const GEAR_DATA = './data/gear';
 const STATUS_ORDER = { active: 0, inactive: 1, archived: 2 };
 const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
-const FAVICON = "/favicon.svg";
 
 const STATE_COLORS = {
   'broken': 'tag-red', 'actively-used': 'tag-green', 'owned': 'tag-green',
@@ -229,7 +229,7 @@ function gearPage(n, body) {
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="icon" type="image/svg+xml" href="${FAVICON}">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
@@ -410,10 +410,19 @@ async function bake(file, blocks) {
   await writeFile(file, html);
 }
 
+// A fresh CI checkout stamps every file with the checkout time, so mtime can't be trusted there
+function lastCommitDate(file) {
+  try {
+    return execFileSync('git', ['log', '-1', '--format=%cs', '--', file], { encoding: 'utf-8' }).trim();
+  } catch {
+    return '';
+  }
+}
+
 async function bakePages(posts, gear) {
   log.step('🥐 Baking pages');
   const md = async f => marked(await readFile(join(DATA_DIR, f), 'utf-8'));
-  const nowUpdated = (await stat(join(DATA_DIR, 'now.md'))).mtime.toISOString().slice(0, 10);
+  const nowUpdated = lastCommitDate(join(DATA_DIR, 'now.md')) || (await stat(join(DATA_DIR, 'now.md'))).mtime.toISOString().slice(0, 10);
   const projects = JSON.parse(await readFile(join(DATA_DIR, 'projects.json'), 'utf-8'));
 
   // No posts means the feed was unreachable; leaving the block out keeps whatever was baked last time
