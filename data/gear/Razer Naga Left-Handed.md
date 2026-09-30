@@ -64,6 +64,8 @@ Right now I use keyd to translate the buttons, taking one and swapping it for a 
 
 None of that gets in my way much, since I don't lean on those features. I have the mouse, I use the buttons, and it's very good for Tibia, Path of Exile, or any MMO where you need a lot of skills on hand.
 
+Worth saying again: Razer is the only brand with a gaming mouse like this for left-handers. I looked a lot and I've never found another one. Logitech makes left-handed mice, but nothing with this many buttons. So if you're reading this and you work at one of those companies, or you know someone who does, please pass the feedback along.
+
 ## Related
 
 - [[Apple Magic Mouse 2]]
