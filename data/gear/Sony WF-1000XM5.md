@@ -1,23 +1,20 @@
 ---
-aliases:
-  - Sony WF1000XM5
+aliases: [Sony WF1000XM5]
 coverUrl: https://m.media-amazon.com/images/P/B0C33XXS56.01._SCLZZZZZZZ_.jpg
 createdAt: 2026-09-21T00:00:00Z
 icon: 🎧
-oneliner: Sony's fifth-gen true wireless ANC earbuds. I changed to these after my Airpods died. Not disappointed.
+oneliner: "Sony's fifth-gen true wireless ANC earbuds. I changed to these after my Airpods died. Not disappointed."
 personalRating: 8.7
 state:
   - owned
   - actively-used
-tags:
-  - topic/music/gear/headphones
-  - type/equipment/earbuds
-title: Sony WF-1000XM5
+tags: [topic/music/gear/headphones, type/equipment/earbuds]
+title: "Sony WF-1000XM5"
 type:
   - noise-cancelling
   - true-wireless
   - in-ear
-updatedAt: 2026-09-24T20:36:02Z
+updatedAt: 2026-09-30T19:22:57Z
 x-personal-site-category: audio
 ---
 
