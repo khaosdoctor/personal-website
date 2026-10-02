@@ -19,9 +19,9 @@ type:
   - usb
   - xlr
   - microphone
-updatedAt: 2026-09-27T00:00:00Z
+updatedAt: 2026-10-02T20:40:45Z
 x-personal-site-category: audio
-x-personal-site-parent: "[[Gaming PC]]"
+x-personal-site-parent: "[[MacBook Pro M1 Max|Macbook]]"
 ---
 
 # Fifine MI14
@@ -39,17 +39,19 @@ x-personal-site-parent: "[[Gaming PC]]"
 
 ## Description
 
-The mic on the [[Gaming PC]], running straight into the machine over USB-C.
+The mic on the [[MacBook Pro M1 Max|Macbook]], it is connected through a [[XLR]] cable to the [[Focusrite Scarlett Solo 2nd Gen|Scarlett Solo]], which itself is connected to the AUX return of the [[Behringer Xenyx 802]].
 
-I bought it because I already had a mic on the work setup and on this machine I was using only my [[SteelSeries Arctis 7+|SteelSeries Arctis]] headset, all the time. I don't like using headsets that much, they squeeze my ear and they get very hot. You can tell from the number of headphones I own that I still haven't found one I can wear for a relatively long time without it bothering me, the closest are the [[Beyerdynamics DT 990 Pro|DT 990]] and the [[Zaylli Lyrö|Lyrö]]. Ever since I found out you could have a microphone separate from the speakers, I've kept the two lines apart.
+I bought it because, before this became my work mic, the [[Blue Yeti|Yeti]] was connected on the [[MacBook Pro M1 Max|Macbook]], so I already had a mic on the work setup and on the [[Gaming PC]] I was using only my [[SteelSeries Arctis 7+|SteelSeries Arctis]] headset, all the time. 
+
+I don't like using headsets that much, they squeeze my ear and they get very hot. You can tell from the number of headphones I own that I still haven't found one I can wear for a relatively long time without it bothering me, the closest are the [[Beyerdynamics DT 990 Pro|DT 990]] and the [[Zaylli Lyrö|Lyrö]]. Ever since I found out you could have a microphone separate from the speakers, I've kept the two lines apart because, _usually_, headphones that focus on the "headphoning" only are usually more comfortable than full headsets.
 
 Besides the two outputs, it has a headphone jack for monitoring, like the [[Blue Yeti|Yeti]], with a decent analog to digital converter behind it. It has two knobs, one for the mic volume and one for the headphone volume, a touch button on the back to mute it, and an LED you can recolour or turn off. It ships as a kit with a boom arm and a pop filter.
 
 ## Impressions
 
-An external mic is clearly much better than the mic a speaker has, or the one built into a headset, even when it's not that good for games or whatever.
+The MI14 is not extremely sensitive. In theory it's a directional mic, but I notice it picks up quite a lot from the sides even with the mic facing forward, it's not quite loud, though even in the highest gain. 
 
-The MI14 is extremely sensitive. In theory it's a directional mic, but I notice it picks up quite a lot from the sides even with the mic facing forward. The sound is pretty raw and it can't distinguish anything, so it will pick up everything, which means you need a relatively quiet room. The other way around it is to turn the mic gain well down so you can speak very close to it, like an actual podcast mic, and then it works a lot better.
+The sound is pretty raw and it can't distinguish anything, and it's quite sensitive to bumps and pops. The other way around it is to turn the mic gain down so you can speak very close to it, like an actual podcast mic, and then it works a lot better. Even though the gain is not really that much, it really seems they used a linear [[Potentiometer]] here rather than a logarithmic because the actual gain will only come in the final quarter turn
 
 The converter is interesting enough that I use the mic as a sound output when I need to listen to something and I have nowhere to plug my headphones, because I don't have an external amplifier and I'd have to plug straight into the case, which is a bit far away. My case also doesn't have good isolation on the 3.5 mm jack, so I get noise, there's a lot going on inside that thing. It's rare that I do this, but it's there.
 
