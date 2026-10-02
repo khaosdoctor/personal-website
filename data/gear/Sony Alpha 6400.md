@@ -48,9 +48,17 @@ x-personal-site-category: photography
 
 The camera I use mostly as a webcam and for content creation. It's totally stock, I never changed anything on it.
 
+I bought it purely to record video. Back then I was recording a lot for YouTube and the a6400 does 4K, which is very good. It's a mirrorless and it's APS-C, so no full frame, and it came with the kit lens, the 16-50 power zoom.
+
 ## Impressions
 
-## Final thoughts
+The quality is very good, so my videos got better, but the files also got much heavier and I had to get used to that.
+
+The kit lens is great for recording. You can zoom and I don't need much more than that, since the camera stays close to me anyway. You can also take the output straight into a capture card, an Elgato Cam Link in my case, which is what I use today.
+
+It's extremely small, it fits in a pocket and I've taken it to plenty of places.
+
+What I can't do is get used to taking photos with it. I don't know exactly what it is, being mirrorless, something about it feels strange and I feel weird shooting with it. The pictures don't feel like the ones from the [[Canon EOS 6D Mark II|Canon]].
 
 ## Related
 

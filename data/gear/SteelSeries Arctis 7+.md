@@ -44,9 +44,21 @@ x-personal-site-parent: "[[Gaming PC]]"
 
 A gaming headset, wireless over-ear that connects through a compact 2.4 GHz USB-C dongle instead of Bluetooth. I originally got these because I wanted something more convenient than the [[AKG K72]] that I was using before and had some sort of microphone as well.
 
+I wanted more comfort while gaming, and the K72 got really hot. I also wanted a headset with the mic built in so I could mute it, and fewer cables, since I had a single setup back then. It has a volume wheel on one side, a ChatMix wheel on the other, a mute button on the back and a retractable mic.
+
 ## Impressions
 
+The good part first. It's very comfortable and it sounds very good. The ChatMix wheel is great: on Windows, and I think on Mac too, it splits the audio into two channels, you send each program to one of them and then balance between the two from the headset. It was the first time I'd seen a headset do that. Having the volume right on the headset helps a lot too.
+
+The mute button on the back makes muting much easier, and the retractable mic takes up less space and is much simpler to use. The mic sounds very good and it's quite sensitive, it picks up a lot, sometimes even breathing when it's off to the side, so you sometimes have to keep it further away.
+
+The bad parts. It isn't that comfortable for long sessions, it's a bit heavy, and the battery doesn't last much. If you use it all day it runs out pretty fast, especially if you're talking the whole time.
+
+The other thing that really annoys me is how you adjust the fit. It uses an elastic strap with velcro, and over time the elastic loosens and stretches out and the velcro starts to come off too. Sooner or later it loses all its stretch and becomes a pain to put on.
+
 ## Final thoughts
+
+I really don't recommend it. I'd recommend other SteelSeries models, which I also think are nice, because this one is ok, but it isn't excellent at anything. There's a version with a removable rechargeable battery that I like, because you can keep two charged batteries and swap them, but they all have the same velcro problem.
 
 ## Related
 

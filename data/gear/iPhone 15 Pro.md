@@ -45,11 +45,23 @@ x-personal-site-category: phones
 
 ## Description
 
-The iPhone 15 Pro is Apple's 6.1-inch model from the 2023 line, built around the A17 Pro chip and a titanium frame instead of the stainless steel used on earlier Pro models. It was the first iPhone to ship with USB-C in place of the Lightning port. The ring/silent switch was replaced by the configurable Action button.
+A love and hate relationship, more hate than love. I've had it for about two years. I bought it because my previous phone, an iPhone 12 Pro, stopped working, and I managed to trade it in for this one. My first iPhone was a 7, which I bought just to test. It has a titanium frame with a glass back, and I use it without a case.
 
 ## Impressions
 
+I've never liked the iPhone, I've never liked iOS, and honestly I don't like the software Apple makes in general. It's built assuming you have the brain of an earthworm. The Mac I forgive, because it's an excellent computer and macOS is Unix underneath, so I can do a lot more with it. The iPhone doesn't have that good side.
+
+The battery is one of the worst I've had. The iPhone 7 lasted something like three hours, and this one I have to charge four or five times a day. Fair enough, it's a couple of years old now, but still.
+
+It's very beautiful and very well built, I think it's one of the best looking phones out there, but it's very fragile, that glass back especially.
+
+The operating system is very bad too. Whenever something breaks you have no idea what happened, it just stops working and gets hot as hell. Lately it can't keep up with some things either, it gets really slow and a lot of apps freeze.
+
+A lot of people only buy an iPhone because the apps really are better than on Android, they feel better made, and the integration with the rest of the Apple ecosystem is much better. I already have the [[iPad Air|iPad]], the [[MacBook Pro M1 Max|Mac]] and an Apple TV, so being able to copy things from one to the other, AirDrop and so on, does help.
+
 ## Final thoughts
+
+I don't think it's worth the investment. There are much better phones in terms of features for a fraction of the price, so I don't recommend any iPhone unless you already have a pile of Apple stuff or you're a big Apple fan. I only use it because there aren't many options, it's either this or Android, and I still haven't found an Android phone with a set of features that works for me.
 
 ## Related
 

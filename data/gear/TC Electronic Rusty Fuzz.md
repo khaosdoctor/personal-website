@@ -4,7 +4,7 @@ coverUrl: https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/_40/40
 createdAt: 2026-06-16T00:00:00Z
 icon: 🎸
 oneliner: TC Electronic fuzz pedal
-personalRating: 7
+personalRating: 5
 state:
   - previously-owned
   - second-hand
@@ -34,11 +34,15 @@ x-personal-site-category: pedalboard
 
 ## Description
 
-A fuzz pedal I had on my board for a while. I've retired it and sold it since.
+A fuzz pedal I had on my board for a while. I've retired it and sold it since. It was a cheap pedal I bought to test.
 
 ## Impressions
 
+I used it about twice, since I already had the [[Electro-Harmonix Big Muff Pi|Big Muff]], which is my favourite fuzz, so I don't have much to say about it. It's a normal fuzz pedal and it sounds nice, but it doesn't come close to the Big Muff's sustain or to that warm sound the Big Muff has.
+
 ## Final thoughts
+
+I don't recommend buying it, I don't think it's worth it. It's nice if you want one for a collection, because it's pretty cute, but other than that, no.
 
 ## Related
 

@@ -5,8 +5,8 @@ aliases:
 coverUrl: https://media.accobrands.com/media/560-560/368565.jpg
 createdAt: 2026-09-28T00:00:00Z
 icon: 🖱️
-oneliner: Wireless trackball with a scroll ring, a red ball, and a detachable wrist rest.
-personalRating: 7
+oneliner: Big red-ball trackball with a scroll ring. Got me through a bad tendinitis, weird looking but super comfortable
+personalRating: 7.8
 state:
   - owned
   - not-actively-used
@@ -45,11 +45,19 @@ x-personal-site-category: peripherals
 
 ## Description
 
-The Kensington Expert Mouse Wireless Trackball is an ambidextrous trackball built around a large 55 mm red ball, tracked with Kensington's DiamondEye optical sensor. A scroll ring surrounds the ball for moving through pages and documents, and four buttons around the base are programmable through KensingtonWorks software. It pairs over Bluetooth 4.0 LE or a 2.4GHz USB nano receiver, and comes with a detachable wrist rest.
+I used this one for a long time when I had very bad tendinitis, as I told in the [[Logitech Lift Left-Handed|Lift]] note. It's a square with four big buttons on the sides, a giant ball in the middle and a scroll ring around it, and it runs on AA batteries. I think I've changed them once in four years.
 
 ## Impressions
 
+I always thought this mouse was really weird. I used to think it must be super strange to use, but it's actually extremely comfortable and extremely precise. When you're working with it you can keep your hand open and make much simpler, more natural movements, so there's a lot less pain. You press the buttons with separate fingers, and you can spin the scroll ring while you move the ball, which is very cool. The connection is very good too, and it's small enough to carry around.
+
+The bad parts. You have to keep cleaning the ball, because a lot of dirt builds up on it. The wrist rest just clips on, so every time you lift the mouse it falls off. And when you take it somewhere the ball comes loose and falls out, so you have to carry it separately.
+
+The bigger one is precision work. Even though it's precise and makes very fine movements, you can't select text very well, because you have to hold the button and roll the ball at the same time. There are settings to help lock the ball to 100% horizontal or 100% vertical, but it's still hard to get right. That bothered me a lot, since I sometimes needed to copy and paste code quickly, and it ended up being the reason I switched to something else. I think that's a problem with every trackball though.
+
 ## Final thoughts
+
+Other than that it's very good, it works really well and the battery lasts a long time, so I strongly recommend it.
 
 ## Related
 

@@ -40,9 +40,19 @@ It's a space-sim oriented grip with a dual-stage trigger, a hinged second trigge
 
 It's quite versatile because I use it to play [[Elite Dangerous (game)|Elite Dangerous]] and [[Euro Truck Simulator 2]], which are wildly different games, as you can imagine.
 
+Before this I had a Thrustmaster, a T.16000M I think. It was very good and I liked it a lot, but it was a bit bulky. You can swap the springs and the cams in the base to suit the kind of game you play. Mine came from the factory with flight sim springs, and I still need to swap them for space sim ones, which is simple, VIRPIL has a tutorial for it on their site along with a lot of other good stuff.
+
 ## Impressions
 
+The VIRPIL HOTAS is without a doubt one of the best things I've bought over the years. The WarBRD base has a much smaller footprint than the Thrustmaster, it takes up practically no space, and the grip is very comfortable and has a lot of buttons, so you can map everything you want.
+
+I don't regret buying it at all, and I've had it for a long time now. It was extremely expensive, but it was very much worth it. It's super well built, with parts in metal and aluminium, so it's really well made.
+
+The bad part is the software, which is terrible. It only really works on Windows, and you have to do a whole hack to make it work on Linux, and even then it doesn't end up good. So sometimes I keep Windows around just to configure and calibrate the HOTAS. Sure, you only need to do that once every 50 years, but it's still a pain. There's practically no documentation on how the program works either, so you figure things out over time, and it's extremely slow too.
+
 ## Final thoughts
+
+Apart from that, everything else is wonderful. But the software is really, really bad.
 
 ## Related
 

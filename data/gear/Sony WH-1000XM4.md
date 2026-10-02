@@ -48,9 +48,19 @@ x-personal-site-category: audio
 
 Probably the best noise cancelling I've ever had.
 
+Someone recommended them to me, I bought them and loved them straight away. They're my main headphones for travelling, I always take them on the plane.
+
 ## Impressions
 
+I really don't have many complaints. They're very comfortable, the sound is wonderful and the noise cancelling is very good. Lately I've been flying more with the [[Sony WF-1000XM5|buds]], because they cancel about as well and they're a lot smaller, so I can actually sleep on the plane.
+
+The battery lasts an absurdly long time. It goes over a week with me listening basically every day with the noise cancelling on, which is one of the most interesting things about them, you can leave them on for ages and they just keep going.
+
+They're all plastic, which might look a bit cheap, but the build isn't cheap at all. They come in a really nice case, so you get that premium experience even though the headphones themselves are made of plastic. They also fold, which is great because they take up very little space.
+
 ## Final thoughts
+
+I'd definitely recommend these, and I prefer them to the bigger XM5. The XM6 is better than the XM4 though, so if you're buying, get the XM4 or the XM6 and skip the XM5.
 
 ## Related
 
