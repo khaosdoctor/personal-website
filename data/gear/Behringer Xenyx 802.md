@@ -3,21 +3,19 @@ aliases: []
 coverUrl: https://www.thomann.de/thumb/opengraph/pics/prod/191246.jpg
 createdAt: 2026-09-21T00:00:00Z
 icon: 🎵
-oneliner: Compact 8-input analog mixer with 3-band EQ. I use it with the Scarlett to mix the computer and mic audio
+oneliner: "Compact 8-input analog mixer with 3-band EQ. I use it with the Scarlett to mix the computer and mic audio"
 personalRating: 8
 state:
   - owned
   - actively-used
   - second-hand
-tags:
-  - topic/music/gear/mixers
-  - type/equipment/mixer
-title: Behringer Xenyx 802
+tags: [topic/music/gear/mixers, type/equipment/mixer]
+title: "Behringer Xenyx 802"
 type:
   - analog
   - compact
   - mixer
-updatedAt: 2026-09-27T02:10:38Z
+updatedAt: 2026-10-02T22:08:50Z
 x-personal-site-category: music production
 ---
 
