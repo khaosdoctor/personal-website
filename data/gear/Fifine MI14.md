@@ -19,7 +19,7 @@ type:
   - usb
   - xlr
   - microphone
-updatedAt: 2026-10-02T21:28:22Z
+updatedAt: 2026-10-02T21:33:04Z
 x-personal-site-category: audio
 x-personal-site-parent: "[[MacBook Pro M1 Max|Macbook]]"
 ---
@@ -46,21 +46,19 @@ I bought it because, before this became my work mic, the [[Blue Yeti|Yeti]] was 
 I don't like using headsets that much, they squeeze my ear and they get very hot. You can tell from the number of headphones I own that I still haven't found one I can wear for a relatively long time without it bothering me, the closest are the [[Beyerdynamics DT 990 Pro|DT 990]] and the [[Zaylli Lyrö|Lyrö]]. Ever since I found out you could have a microphone separate from the speakers, I've kept the two lines apart because, _usually_, headphones that focus on the "headphoning" only are usually more comfortable than full headsets.
 
 Besides the two outputs, it has a headphone jack for monitoring, like the [[Blue Yeti|Yeti]], with a decent analog to digital converter behind it. It has two knobs, one for the mic volume and one for the headphone volume, a touch button on the back to mute it, and an LED you can recolour or turn off. It ships as a kit with a boom arm and a pop filter.
-
 ## Impressions
 
 The MI14 is not extremely sensitive. In theory it's a directional mic, but I notice it picks up quite a lot from the sides even with the mic facing forward, it's not quite loud, though even in the highest gain. 
 
-The sound is pretty raw and it can't distinguish anything, and it's quite sensitive to bumps and pops. The other way around it is to turn the mic gain down so you can speak very close to it, like an actual podcast mic, and then it works a lot better. Even though the gain is not really that much, it really seems they used a linear [[Potentiometer]] here rather than a logarithmic because the actual gain will only come in the final quarter turn
+The capture is pretty raw and it's quite sensitive to bumps and pops. The way around it is to turn the mic gain down so you can speak very close to it, like an actual podcast mic, and then it works a lot better. Even though the gain is not really that much, it really seems they used a linear [[Potentiometer]] here rather than a logarithmic because the actual gain will only come in the final quarter turn
 
-There are two knobs. The Yeti only has the headphone adjustment and the mic gain is on the back, which is very annoying to do. On the MI14 you get the audio return in the front as well as the mic gain.
+The boom arm is relatively bad, but it works, I still prefer the Elgato low profile, but one advantage is that it doesn't pick up desk vibration or things you knock into, so you don't need a shock mount. My cats keep eating the pop filter, so I don't know if that's relatively good or bad, but I haven't seen any big difference with or without it.
+
+There are two knobs. The [[Blue Yeti|Yeti]] only has the headphone adjustment and the mic gain is on the back, which is very annoying to do. On the MI14 you get the audio return in the front as well as the mic gain.
 
 What bothers me a lot is that the mute button is on the back and it's a touch button. Since this is a mic that stays horizontal, every time you try to move it you end up brushing against the mute button, and you can't see that it's muted until you look at the back. Even turning it around doesn't really work. I'd call that a design mistake, though it doesn't get in the way that much.
 
-It's a great mic and the sound quality is quite good, though it's not excellent. Between having this mic or finding a better one, I'd rather buy a Shure MV7, but that one is about five times the price of this one. 
-
-The boom arm it comes with is relatively bad, but it's an arm and it works. One advantage is that it doesn't pick up desk vibration or things you knock into, so you don't need a shock mount. It also comes with a pop filter, although my cats keep eating the pop filter, so I don't know if that's relatively good or bad.
-
+It's a great mic and the sound quality is quite good, though it's not excellent. This is definitely not the best one, the Shure MV7 is probably the best "podcaster" mic, but it's like 5x the price of this one.
 ## Final thoughts
 
 It's an excellent buy for anyone looking for a mic that's budget but still has relatively professional quality, mostly for recording videos and that sort of thing.
