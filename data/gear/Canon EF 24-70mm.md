@@ -51,7 +51,7 @@ The original 24-70 f/2.8L. It's heavy, and it zooms backwards compared to most l
 
 ## Impressions
 
-This is really, really good. I think it's the best lens I've ever gotten. It's a used lens and I've had it since, I don't know, 2017, but I've used it in so many occasions and so many different environments. I've used it in very hot places, in very cold places, and it just works. It has amazing picture quality, a very versatile zoom, and a very easy to use interface. It also has autofocus and has the stabilizer too. It's quite an interesting lens, and a very expensive one as well.
+This is really, really good. I think it's the best lens I've ever gotten. It's a used lens and I've had it since, I don't know, 2017, but I've used it in so many occasions and so many different environments. I've used it in very hot places, in very cold places, and it just works. It has amazing picture quality, a very versatile zoom, and a very easy to use interface. It also has autofocus. It's quite an interesting lens, and a very expensive one as well.
 
 The downside is that it's very bulky and very heavy. I use it as my main lens, it almost never leaves the body of the camera. It does almost everything good: it's very good for landscape, very good for portraits, and the 2.8 aperture gives basically the best bokeh you can get after the 50 millimeters. It's quite a handy one. If I could, I'd only have this lens.
 

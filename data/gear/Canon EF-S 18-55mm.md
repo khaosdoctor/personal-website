@@ -49,7 +49,7 @@ The kit lens that came with my old T7i. I never used it with the [[Canon EOS 6D 
 
 This is the normal kit lens that comes with the camera. It's an APS-C one, so it's a cropped sensor lens. I still have it from my old camera, but it is what it is, it's something you use when you don't have anything else to use. I'd say it's a pretty solid lens when you're using it, but it's not something you're going to use for a long time because the focal length goes just a bit after the 50 millimeter, so you get almost what a 50 millimeter would give you. The 18 millimeter is okay for most types of stuff. I usually had it on the 24 or 26.
 
-The problem though is that it's a 4.5 aperture, so very dark, and it also changes depending on the zoom level. So it's kind of the worst possible scenario, but it comes with the camera itself, so it really doesn't cost you anything other than the camera, and probably it's already in the price.
+The problem though is that it's an f/3.5-5.6, so very dark, and it also changes depending on the zoom level. So it's kind of the worst possible scenario, but it comes with the camera itself, so it really doesn't cost you anything other than the camera, and probably it's already in the price.
 
 ## Related
 
