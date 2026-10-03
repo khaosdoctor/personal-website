@@ -15,7 +15,7 @@ type:
   - multi-pattern
   - usb
   - microphone
-updatedAt: 2026-10-02T20:35:14Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: audio
 x-personal-site-parent: "[[Gaming PC]]"
 ---
@@ -35,11 +35,11 @@ x-personal-site-parent: "[[Gaming PC]]"
 
 ## Description
 
-The mic on the [[Gaming PC]]. It's a condenser mic I got in 2018 or 2019 when pandemic hit. It's been alive and well for all this time. It's quite sensitive to all the room, especially in the current cardioid mode, which is the trade-off against the [[Fifine MI14|MI14]]. It's extremely easy to set up and has four patterns: cardioid for me alone, bidirectional for two people across the desk, stereo for recording an instrument.
+The mic on the [[Gaming PC]]. It's a condenser mic I got in 2020 when the pandemic hit. It's been alive and well for all this time. It's quite sensitive to all the room, especially in the current cardioid mode, which is the trade-off against the [[Fifine MI14|MI14]]. It's extremely easy to set up and has four patterns: cardioid for me alone, bidirectional for two people across the desk, stereo for recording an instrument.
 
-I use it just for chatting, so not really a power user of it. It's an outstanding mic, all the videos I ever recorded in Youtube, all the courses and everything was done with this not-so-little guy.
+I use it just for chatting, so not really a power user of it. It's an outstanding mic, all the videos I ever recorded on YouTube, all the courses and everything was done with this not-so-little guy.
 
-The problem, though, is that it's only a USB input, so I can't plug it in the [[Behringer Xenyx 802]] or the [[Focusrite Scarlett Solo 2nd Gen|Scarlett Solo]] which take XLR inputs. This is why I recently swapped the places with the [[Fifine MI14|MI14]] and it's now in my gaming setup.
+The problem, though, is that it's only a USB input, so I can't plug it in the [[Behringer Xenyx 802]] or the [[Focusrite Scarlett Solo 2nd Gen|Scarlett Solo]] which take XLR inputs. This is why I recently swapped places with the [[Fifine MI14|MI14]] and it's now in my gaming setup.
 
 ## Impressions
 
@@ -47,9 +47,9 @@ The sound quality of the Yeti is really nice, possibly one of the best in this p
 
 The good thing is that it has a gain and a pattern knob behind it. For now I'm just setting it towards myself. The other nice thing is that it has a return output, so it actually has a DAC in it, and I can plug a 3.5 mm TRS jack into it, so I can have different headphones plugged in and control them differently. The only problem is that there is no way to remove the sound of the microphone from it, so you will always hear yourself when you are plugged into the microphone directly, it's basically a return.
 
-And the nicest thing I about this is that it has a **physical** **mute** **button** with an LED that keeps blinking (which annoys me quite a lot), so it is really nice for meetings. The bad thing about it is that it's really heavy and it's quite big. The newer versions that are smaller, I've heard they are worse, so this is one reason why I don't sell it.
+And the nicest thing about this is that it has a **physical** **mute** **button** with an LED that keeps blinking (which annoys me quite a lot), so it is really nice for meetings. The bad thing about it is that it's really heavy and it's quite big. The newer versions that are smaller, I've heard they are worse, so this is one reason why I don't sell it.
 
-I have had this since [[2018]], I think, and it is extremely good. It is as new and I used it every day, entirely, so it has seen some stuff. I brought it from Brazil with me, and it is quite sturdy. I don't know how it is after Logitech purchased the brand, because this one is from before that time.
+I have had this since [[2018]], I think, and it is extremely good. It is like new and I use it every day, entirely, so it has seen some stuff. I brought it from Brazil with me, and it is quite sturdy. I don't know how it is after Logitech purchased the brand, because this one is from before that time.
 
 One thing that bothers me quite a lot, though, is that it uses a mini-USB input cable (the ones that old cameras used to have, and some still use). This thing is ancient and it has a lot of problems. First, it's very difficult to find one at the right length, second, it disconnects _very_ easily, so you have to be careful when pulling the mic around.
 

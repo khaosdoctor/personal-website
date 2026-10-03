@@ -19,7 +19,7 @@ type:
   - active
   - speaker
   - hifi
-updatedAt: 2026-09-27T02:10:22Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: audio
 ---
 
@@ -47,7 +47,7 @@ x-personal-site-category: audio
 
 ## Description
 
-I got them recently, when I got my first turntable and I needed some speakers other than my [[KRK Rokit 5|KRK monitors]] in the office, because I was using those and I cannot fit the speakers and the turntable in the same place. I got these really dirt cheap because they were used and they were quite in a bad shape, so I had to open them, clean them on the outside and also on the inside, fix a few electronic components and also a potentiometer that was failing. But it is a remarkably good speaker. They are now plugged into my [[Fluance RT81+|Fluance turntable]] and I listen to them quite often.
+I got them recently, when I got my first turntable and I needed some speakers other than my [[KRK Rokit 5|KRK monitors]] in the office, because I was using those and I cannot fit the speakers and the turntable in the same place. I got these really dirt cheap because they were used and they were in quite a bad shape, so I had to open them, clean them on the outside and also on the inside, fix a few electronic components and also a potentiometer that was failing. But it is a remarkably good speaker. They are now plugged into my [[Fluance RT81+|Fluance turntable]] and I listen to them quite often.
 
 ## Impressions
 

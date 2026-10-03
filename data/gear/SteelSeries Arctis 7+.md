@@ -14,7 +14,7 @@ type:
   - over-ear
   - wireless
   - gaming
-updatedAt: 2026-09-27T01:58:23Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: gaming
 x-personal-site-parent: "[[Gaming PC]]"
 ---
@@ -42,7 +42,7 @@ x-personal-site-parent: "[[Gaming PC]]"
 
 ## Description
 
-A gaming headset, wireless over-ear that connects through a compact 2.4 GHz USB-C dongle instead of Bluetooth. I originally got these because I wanted something more convenient than the [[AKG K72]] that I was using before and had some sort of microphone as well.
+A gaming headset, wireless over-ear that connects through a compact 2.4 GHz USB-C dongle instead of Bluetooth. I originally got these because I wanted something more convenient than the [[AKG K72]] that I was using before and that had some sort of microphone as well.
 
 I wanted more comfort while gaming, and the K72 got really hot. I also wanted a headset with the mic built in so I could mute it, and fewer cables, since I had a single setup back then. It has a volume wheel on one side, a ChatMix wheel on the other, a mute button on the back and a retractable mic.
 

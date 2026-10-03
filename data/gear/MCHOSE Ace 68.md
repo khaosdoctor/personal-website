@@ -16,7 +16,7 @@ type:
   - hall-effect
   - 65-percent
   - wired
-updatedAt: 2026-09-21T01:29:12Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: keyboards
 ---
 
@@ -46,13 +46,13 @@ x-personal-site-category: keyboards
 
 The keyboard that replaced the [[Keychron K12|K12]] as my travel board.
 
-The Ace 68 was an impulse buy. I had no use for it, I just thought it was extremely beautiful. I'd seen this brand's pedals on Kickstarter, mostly the T98, which came out there first, and I thought it was very cool, so I looked at the rest of their product lineup and ended up liking this keyboard.
+The Ace 68 was an impulse buy. I had no use for it, I just thought it was extremely beautiful. I'd seen this brand's keyboards on Kickstarter, mostly the [[MCHOSE UT98|UT98]], which came out there first, and I thought it was very cool, so I looked at the rest of their product lineup and ended up liking this keyboard.
 
 I didn't know much about magnetic switches yet, the whole Hall effect thing. Part of why I bought it was to find out what these famous magnetic switches were like. The switches have an adjustable actuation point, from 0.1 to 3.4 mm, and you can set what each key does at different actuation depths, including macros.
 
 ## Impressions
 
-I swear to you it made no difference at all to me. These fast action switches with a short response time are aimed at people who play fast reaction games, FPS, Counter Strike, Call of Duty, Battlefield, that sort of thing. I've never liked FPS games so I simply don't play them, I'm not the target audience for this switch. But it was the only switch that came with the thing, so I couldn't really choose another one, it was either this or another one that was also Hall effect. I was kind of stuck with it.
+I swear to you it made no difference at all to me. These fast action switches with a short response time are aimed at people who play fast reaction games, FPS, Counter-Strike, Call of Duty, Battlefield, that sort of thing. I've never liked FPS games so I simply don't play them, I'm not the target audience for this switch. But it was the only switch that came with the thing, so I couldn't really choose another one, it was either this or another one that was also Hall effect. I was kind of stuck with it.
 
 What I thought was that it would give me a lighter typing experience, lighter even than the Gateron Silvers, or the Gateron Clears, which have a really low actuation force at 35 g.
 

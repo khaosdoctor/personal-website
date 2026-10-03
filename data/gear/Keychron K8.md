@@ -16,7 +16,7 @@ type:
   - mechanical
   - tenkeyless
   - wireless
-updatedAt: 2026-09-21T01:28:02Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: keyboards
 ---
 
@@ -31,7 +31,7 @@ x-personal-site-category: keyboards
 
 | Store | Price | Checked |
 | --- | --- | --- |
-| Keychron | $136.30 USD | 2020-09-22 |
+| Keychron | $136.30 USD | 2026-09-22 |
 
 ## Specs
 

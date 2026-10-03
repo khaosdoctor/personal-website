@@ -17,7 +17,7 @@ type:
   - closed-back
   - over-ear
   - monitor
-updatedAt: 2026-09-21T01:09:27Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: audio
 ---
 
@@ -40,15 +40,15 @@ My old and reliable headphones. Right now I use them for monitoring and mixing.
 
 ## Impressions
 
-I originally bought these headphones because I wanted something that had a longer cable, and somewhat a better sound quality than my previous Edifier headphones (which I don't remember the model). This was in [[2017]], so it's been a long time from the date I'm writing this article in [[2026]]. In 9 years I only had to swap the pads once, and I switched it to a bigger one which isolates a bit more than the original.
+I originally bought these headphones because I wanted something that had a longer cable, and somewhat better sound quality than my previous Edifier headphones (which I don't remember the model). This was in [[2017]], so it's been a long time since the date I'm writing this article in [[2026]]. In 9 years I only had to swap the pads once, and I switched it to a bigger one which isolates a bit more than the original.
 
 I particularly liked the headphones, they're quite comfortable, they're not heavy, they also don't press a lot on my head and they're pretty comfortable to use for extended periods of time, which is one of AKG's key ideas.
 
-The isolation is not really good (even with the new pads), but I don't think these headphones are made for that, however, they do have a very nice sound, at least for me, this is so true that I didn't even have to set up any EQ's for it, and, if I try to set EQ's for it, they just sound horrible… I think that's because the sound curve he has is very wonky…
+The isolation is not really good (even with the new pads), but I don't think these headphones are made for that, however, they do have a very nice sound, at least for me, this is so true that I didn't even have to set up any EQ's for it, and, if I try to set EQ's for it, they just sound horrible… I think that's because the sound curve it has is very wonky…
 
 ![[AKG K72_response_curve.png|The <<Frequency Response Chart>> for the AKG K72 made by Sound Guys]]
 
-You can see it's kinda all over the place, maybe because it's tuned to be more of a final-user friendly sound. In any case, I think it's a pretty ok sound for the price, which was cheap as hell.
+You can see it's kinda all over the place, maybe because it's tuned to be more of a end-user friendly sound. In any case, I think it's a pretty ok sound for the price, which was cheap as hell.
 
 I mainly use it as a monitoring headphone for music and casual listening anyways.
 

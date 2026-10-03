@@ -17,9 +17,9 @@ type:
   - mechanical
   - 1800-layout
   - wireless
-updatedAt: 2026-09-27T02:36:30Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: keyboards
-x-personal-site-parent: "[[MacBook Pro M1 Max|Macbook]]"
+x-personal-site-parent: "[[MacBook Pro M1 Max|MacBook]]"
 ---
 
 # MCHOSE UT98
@@ -48,7 +48,7 @@ x-personal-site-parent: "[[MacBook Pro M1 Max|Macbook]]"
 
 The current default keyboard on my work setup.
 
-The UT98 is a different story from the [[MCHOSE Ace 68|Ace 68]]. I was actually looking for a keyboard to replace the [[KBDCraft Adam80|Adam]], because its keys had gone bad, and that's when I swapped the Keychron for this one. So the Adam went to the work PC and the [[Keychron Q3 Max|Q3]], which was on the work PC, went to the gaming PC.
+The UT98 is a different story from the [[MCHOSE Ace 68|Ace 68]]. I was actually looking for a keyboard to replace the [[KBDCraft Adam80|Adam]], because its keys had gone bad, and that's when I swapped the Keychron for this one. So the UT98 went to the work PC and the [[Keychron Q3 Max|Q3]], which was on the work PC, went to the gaming PC.
 
 I was going to buy another Q3 Max, but I decided to vary a bit and went looking for interesting keyboards, and I found this one on Kickstarter. I didn't even go after it much, I got an email and heard them talking about this keyboard.
 

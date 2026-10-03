@@ -3,7 +3,7 @@ aliases: []
 coverUrl: https://resource.logitech.com/content/dam/logitech/en/products/mice/mx-master-4/gallery/mx-master-4-pale-grey-top-angle-gallery-1.png
 createdAt: 2026-09-21T00:00:00Z
 icon: 🖱️
-oneliner: "Flagship mouse from Logi, I am ambidextrous with mouses but I really needed something with side scrolls and this was the best option."
+oneliner: "Flagship mouse from Logi, I am ambidextrous with mice but I really needed something with side scrolls and this was the best option."
 personalRating: 7.8
 state:
   - owned
@@ -14,9 +14,9 @@ type:
   - wireless
   - productivity
   - right-handed
-updatedAt: 2026-09-27T02:37:16Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: peripherals
-x-personal-site-parent: "[[MacBook Pro M1 Max|Macbook]]"
+x-personal-site-parent: "[[MacBook Pro M1 Max|MacBook]]"
 ---
 
 # Logitech MX Master 4
@@ -44,7 +44,7 @@ x-personal-site-parent: "[[MacBook Pro M1 Max|Macbook]]"
 
 I'm left-handed but ambidextrous with mice, and I really needed something with a side scroll, so this was the best option. It replaced the [[Logitech Lift Left-Handed|Lift]] as my main mouse.
 
-I bought it recently, after visiting a friend in Madrid who had one of these, with the Mac version that has everything adapted for macOS. I thought it was fantastic. Back when I worked at [[Klarna]] you could choose between the [[Apple Magic Mouse 2|Magic Mouse]] and the MX Master 3, and I ended up choosing the Magic Mouse, because the MX only comes right-handed. If you read my note on the [[Logitech Lift Left-Handed|Lift]] you'll see what my problems with right-handed mice are, but I can use one normally. So I took the chance at my friend's place and tested it for a while.
+I bought it quite recently, after visiting a friend in Madrid who had one of these, with the Mac version that has everything adapted for macOS. I thought it was fantastic. Back when I worked at [[Klarna]] you could choose between the [[Apple Magic Mouse 2|Magic Mouse]] and the MX Master 3, and I ended up choosing the Magic Mouse, because the MX only comes right-handed. If you read my note on the [[Logitech Lift Left-Handed|Lift]] you'll see what my problems with right-handed mice are, but I can use one normally. So I took the chance at my friend's place and tested it for a while.
 
 The main reason I bought it is that I was, and still am, using it for CAD and for music production. It charges over USB-C and lasts up to 70 days on a charge, its Bolt receiver is USB-C too, and it pairs with three devices over Bluetooth. The thumb button opens the Actions Ring, which is the haptic shortcut overlay, and there's a separate gesture button. All of it is configured through Logi Options+.
 

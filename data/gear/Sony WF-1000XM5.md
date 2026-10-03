@@ -3,7 +3,7 @@ aliases: [Sony WF1000XM5]
 coverUrl: https://m.media-amazon.com/images/P/B0C33XXS56.01._SCLZZZZZZZ_.jpg
 createdAt: 2026-09-21T00:00:00Z
 icon: 🎧
-oneliner: "Sony's fifth-gen true wireless ANC earbuds. I changed to these after my Airpods died. Not disappointed."
+oneliner: "Sony's fifth-gen true wireless ANC earbuds. I changed to these after my AirPods died. Not disappointed."
 personalRating: 8.7
 state:
   - owned
@@ -14,7 +14,7 @@ type:
   - noise-cancelling
   - true-wireless
   - in-ear
-updatedAt: 2026-09-30T19:22:57Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: audio
 ---
 

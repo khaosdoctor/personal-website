@@ -18,7 +18,7 @@ type:
   - prime
   - pancake
   - ef-mount
-updatedAt: 2026-09-27T03:24:28Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: photography
 x-personal-site-parent: "[[Canon EOS 6D Mark II]]"
 ---
@@ -47,7 +47,7 @@ x-personal-site-parent: "[[Canon EOS 6D Mark II]]"
 
 ## Description
 
-It's more of a collection item than a lens I actually use. It's worse than the [[Canon EF 50mm f1.8 STM|50mm]] and worse than the [[Canon EF 24-70mm|24-70]], since the 24-70 already covers 40mm anyway. The only real difference is that this one is very small and still has a f/2.8 aperture.
+It's more of a collection item than a lens I actually use. It's worse than the [[Canon EF 50mm f1.8 STM|50mm]] and worse than the [[Canon EF 24-70mm|24-70]], since the 24-70 already covers 40mm anyway. The only real difference is that this one is very small and still has an f/2.8 aperture.
 
 ## Impressions
 

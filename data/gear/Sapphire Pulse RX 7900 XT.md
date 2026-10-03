@@ -15,7 +15,7 @@ tags:
 title: Sapphire Pulse RX 7900 XT
 type:
   - gpu
-updatedAt: 2026-09-27T02:35:21Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: gaming
 x-personal-site-parent: "[[Gaming PC]]"
 ---
@@ -37,7 +37,7 @@ x-personal-site-parent: "[[Gaming PC]]"
 
 This is the graphics card inside my [[Gaming PC]], the part that does the heavy lifting when I'm playing something. It's an AMD card, on Linux that's the best option because I don't need to manually compile the drivers again anymore.
 
-I bought it right after my previous card, an NVIDIA GeForce 3070 that I brought over from Brazil and that was getting obsolete over time. A friend of mine was moving to a newer AMD card, so I bought his.
+I bought it right after my previous card, an NVIDIA GeForce RTX 3070 that I brought over from Brazil and that was getting obsolete over time. A friend of mine was moving to a newer AMD card, so I bought his.
 
 This is my first AMD card since I was a kid. I remember AMD had an update tool called Catalyst that was horrible to use, and after that I never bought anything from them again, I always thought it was rubbish. The only AMD things I kept buying were processors, and for graphics I stayed on NVIDIA. Then the whole AI thing happened, NVIDIA cards got much more expensive than AMD ones for roughly the same benefit, and I decided to buy this.
 

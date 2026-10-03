@@ -15,7 +15,7 @@ title: DYMO Omega Embosser
 type:
   - labelling
   - embosser
-updatedAt: 2026-09-20T00:54:22Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: tools
 ---
 
@@ -40,7 +40,7 @@ An old-school manual embossing label maker, the kind with a dial. It's broken, s
 
 Initially, it was really awesome. The whole thing was super cool with a super nice retro style and so on, but after 3 days the embossing wheel simply stopped "embossing". It would constantly jam, go out of alignment, fail, etc. Then the cutting mechanism stopped working too.
 
-I tried to fix it, but it kept problematic, eventually I just threw the whole thing away because it wasn't working anymore.
+I tried to fix it, but it kept being problematic, eventually I just threw the whole thing away because it wasn't working anymore.
 
 ## Final thoughts
 

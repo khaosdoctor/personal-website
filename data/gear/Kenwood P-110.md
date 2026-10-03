@@ -17,7 +17,7 @@ type:
   - automatic
   - turntable
   - vinyl
-updatedAt: 2026-09-27T02:34:11Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: audio
 ---
 
@@ -49,7 +49,7 @@ My first turntable, the one the [[Fluance RT81+]] replaced. I've sold it since.
 
 ## Impressions
 
-I bought this as an used turntable to see if I would get into the vinyl thing. The
+I bought this as a used turntable to see if I would get into the vinyl thing. The
 
 ## Final thoughts
 

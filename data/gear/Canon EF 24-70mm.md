@@ -18,7 +18,7 @@ type:
   - zoom
   - standard
   - ef-mount
-updatedAt: 2026-09-27T03:24:15Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: photography
 x-personal-site-parent: "[[Canon EOS 6D Mark II]]"
 ---
@@ -51,9 +51,9 @@ The original 24-70 f/2.8L. It's heavy, and it zooms backwards compared to most l
 
 ## Impressions
 
-This is really, really good. I think it's the best lens I've ever gotten. It's a used lens and I've had it since, I don't know, 2017, but I've used it in so many occasions and so many different environments. I've used it in very hot places, in very cold places, and it just works. It has amazing picture quality, a very versatile zoom, and a very easy to use interface. It also has autofocus. It's quite an interesting lens, and a very expensive one as well.
+This is really, really good. I think it's the best lens I've ever gotten. It's a used lens and I've had it since, I don't know, 2017, but I've used it on so many occasions and so many different environments. I've used it in very hot places, in very cold places, and it just works. It has amazing picture quality, a very versatile zoom, and a very easy to use interface. It also has autofocus. It's quite an interesting lens, and a very expensive one as well.
 
-The downside is that it's very bulky and very heavy. I use it as my main lens, it almost never leaves the body of the camera. It does almost everything good: it's very good for landscape, very good for portraits, and the 2.8 aperture gives basically the best bokeh you can get after the 50 millimeters. It's quite a handy one. If I could, I'd only have this lens.
+The downside is that it's very bulky and very heavy. I use it as my main lens, it almost never leaves the body of the camera. It does almost everything well: it's very good for landscape, very good for portraits, and the 2.8 aperture gives basically the best bokeh you can get after the 50 millimeters. It's quite a handy one. If I could, I'd only have this lens.
 
 The problem is that the zoom, especially on a full frame camera, isn't that good, because 70 millimeters isn't that much. Then I have the [[Canon EF 100mm f2.8 Macro USM|100 millimeters]], which goes a bit beyond that, but I'd really like to have a 250, except that one's way beyond my pay grade.
 

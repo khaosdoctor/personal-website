@@ -14,7 +14,7 @@ title: "Boss TU-2 Tuner"
 type:
   - tuner
   - guitar-pedal
-updatedAt: 2026-09-27T02:46:27Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: pedalboard
 x-personal-site-parent: "[[Lekato Pedalboard]]"
 ---
@@ -45,7 +45,7 @@ This pedal is pretty precise, compared to the [[Donner DT-1 Tuner]] it's a _lot_
 
 This alone beats everything else. It has some extra modes, so you can tune directly in chromatic mode, guitar/bass, etc but I find this really useless.
 
-However, the size is a big problem for it. Since the pedalboard is quite small, it's something I have to take a great care, but highly recommend as a tuner pedal, even though it's _basically the same_ as **every other** tuner pedal out there.
+However, the size is a big problem for it. Since the pedalboard is quite small, it's something I have to take great care, but I highly recommend as a tuner pedal, even though it's _basically the same_ as **every other** tuner pedal out there.
 
 ## Related
 

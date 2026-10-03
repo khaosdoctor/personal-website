@@ -16,7 +16,7 @@ title: Boss PW-3 Wah
 type:
   - wah
   - guitar-pedal
-updatedAt: 2026-09-27T02:39:05Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: pedalboard
 x-personal-site-parent: "[[Lekato Pedalboard]]"
 ---
@@ -36,7 +36,7 @@ x-personal-site-parent: "[[Lekato Pedalboard]]"
 
 ## Description
 
-The wah on my pedalboard. This one I use quite less than all the others, because I don't have the coordination needed to play and also operate the pedal, but that's mostly a skill issue.
+The wah on my pedalboard. This one I use quite a bit less than all the others, because I don't have the coordination needed to play and also operate the pedal, but that's mostly a skill issue.
 
 ## Impressions
 
@@ -46,7 +46,7 @@ So if it is on the end of the chain, you will get a lot of modulation. But if yo
 
 ## Final thoughts
 
-I hardly use it and I don't have a lot to say about it, other than that it's just a huge pedal, and I'm thinking about just putting it aside on the pedalboard because I rarely use it. But it's really fun to use when you need one. I'm thinking if I should actually get an auto wah on the pedalboard instead of this one.
+I hardly use it and I don't have a lot to say about it, other than that it's just a huge pedal, and I'm thinking about just putting it aside on the pedalboard because I rarely use it. But it's really fun to use when you need one. I'm thinking about whether I should actually get an auto wah on the pedalboard instead of this one.
 
 ## Related
 

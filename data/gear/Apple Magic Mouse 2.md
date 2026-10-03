@@ -16,7 +16,7 @@ type:
   - wireless
   - multi-touch
   - ambidextrous
-updatedAt: 2026-09-27T02:05:08Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: peripherals
 ---
 
@@ -48,7 +48,7 @@ Probably one of the worst UX's I've ever had, but I still use it when I travel, 
 
 ## Impressions
 
-This is the worst mouse I've ever used. However, it's the only one that is small enough to carry without any issues that still has a pretty decent battery life and also works flawlessly with macOS, so it's kind of like I'm stuck to it, because I usually try to take it with me when I travel. The mice that are this small usually only have the two buttons and the scroll wheel, this one has side scroll and a bunch of stuff, but it is extremely bad, ergonomically speaking.
+This is the worst mouse I've ever used. However, it's the only one that is small enough to carry without any issues that still has a pretty decent battery life and also works flawlessly with macOS, so it's kind of like I'm stuck with it, because I usually try to take it with me when I travel. The mice that are this small usually only have the two buttons and the scroll wheel, this one has side scroll and a bunch of stuff, but it is extremely bad, ergonomically speaking.
 
 There is also this infamous thing about not being able to use it while you're charging it. The good thing is that if you charge it, it's going to last you three months, maybe more. And the other thing is that it doesn't really show you when the battery is gone, so you need to rely on your computer. This is the same for every magic thing that Apple does, I think that is the magical part of it.
 

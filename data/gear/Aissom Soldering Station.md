@@ -14,7 +14,7 @@ tags:
 title: Soldering Station
 type:
   - soldering
-updatedAt: 2026-09-20T01:33:22Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: tools
 ---
 
@@ -39,7 +39,7 @@ A pretty standard soldering station, and my first real one, because all the othe
 
 It performs really well. It's very quick to heat up, so no complaints there. It's stable in the temperature, even though I think it varies a lot, especially when you are soldering large components like voltage regulators or heat sinks. The tips are kind of weird, because the ones that come with the package don't really convey the heat so well, so I needed to get another set for those.
 
-The big issue I have with it is that it doesn't come with a wire holder, so the wire that connects the soldering iron to it keeps getting in the way. I did a DIY solution there, which is quite hacky, but it works. The other thing is that you cannot really hold it very strong against anything because it will get crooked, so the one I have now is like a crooked hook, but it still works.
+The big issue I have with it is that it doesn't come with a wire holder, so the wire that connects the soldering iron to it keeps getting in the way. I did a DIY solution there, which is quite hacky, but it works. The other thing is that you cannot really hold it very hard against anything because it will get crooked, so the one I have now is like a crooked hook, but it still works.
 
 ## Final thoughts
 

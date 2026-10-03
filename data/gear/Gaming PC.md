@@ -14,7 +14,7 @@ type:
   - desktop
   - gaming
   - computer
-updatedAt: 2026-09-27T21:44:05Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: computers
 ---
 
@@ -47,7 +47,7 @@ x-personal-site-category: computers
 
 ## Description
 
-This is my main computer, the one I use for pretty much everything, from side projects to gaming. It's supposed to be a "one-size fits all" kinda thing
+This is my main computer, the one I use for pretty much everything, from side projects to gaming. It's supposed to be a "one-size-fits-all" kinda thing.
 
 I built it myself back in 2022 and I've been swapping parts ever since, the latest round was a new case and a new CPU cooler in 2026. It runs Arch Linux with Hyprland, so yes, I game on Linux, and it drives both monitors on my desk.
 

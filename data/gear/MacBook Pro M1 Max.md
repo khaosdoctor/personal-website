@@ -4,7 +4,7 @@ aliases:
 coverUrl: https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111902_mbp14-silver2.png
 createdAt: 2026-09-21T00:00:00Z
 icon: 💻
-oneliner: After the iPad I got this one. At the time, this was the flagship of Apple, I got the highest spec'd Macbook I could because I knew this would outlast generations.
+oneliner: After the iPad I got this one. At the time, this was the flagship of Apple, I got the highest spec'd MacBook I could because I knew this would outlast generations.
 personalRating: 9.4
 state:
   - owned
@@ -15,7 +15,7 @@ tags:
 title: MacBook Pro M1 Max
 type:
   - workstation
-updatedAt: 2026-09-21T01:28:04Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: computers
 ---
 

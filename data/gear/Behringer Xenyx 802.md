@@ -15,7 +15,7 @@ type:
   - analog
   - compact
   - mixer
-updatedAt: 2026-10-02T22:08:50Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: music production
 ---
 
@@ -42,7 +42,7 @@ x-personal-site-category: music production
 
 I use this little mixer together with the [[Focusrite Scarlett Solo 2nd Gen|Scarlett]] to keep my mic and my guitar apart.
 
-It's an older model and I don't think it's made anymore. I bought it used and paid very little because it came without the power brick. The power supply only arrived today, which is when I finally got to figure out how it works.
+It's an older model and I don't think it's made anymore. I bought it used and paid very little because it came without the power brick. The power supply only arrived later, which is when I finally got to figure out how it works.
 
 Channels 1 and 2 are mono mic/line inputs with XLR and +48 V phantom power, and 3/4 and 5/6 are stereo line inputs. It has an FX send and a stereo aux return, a headphone output with its own volume, a control room output and the main out.
 

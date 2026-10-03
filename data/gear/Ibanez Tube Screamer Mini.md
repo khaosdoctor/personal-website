@@ -15,7 +15,7 @@ title: Ibanez Tube Screamer Mini
 type:
   - overdrive
   - guitar-pedal
-updatedAt: 2026-09-20T23:31:45Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: pedalboard
 ---
 
@@ -38,7 +38,7 @@ A mini Tube Screamer overdrive I had on my board. I've sold it since.
 
 ## Impressions
 
-It's a very characteristic sound. The whole pedal is a legend, however, I think it's a big too "bright" for my taste. It adds a lot of [[High frequencies (sound)]] and overall the sound seems kinda digitized, not very natural.
+It's a very characteristic sound. The whole pedal is a legend. However, I think it's a bit too "bright" for my taste. It adds a lot of [[High frequencies (sound)]] and overall the sound seems kinda digitized, not very natural.
 
 The pedal itself is super well built and super small, maybe that was even the reason why it wasn't that good (people say the original big one is better). I prefer the Klon Centaur or the [[Boss OD-3 Overdrive]], it sounds a bit warmer. This one sounds a bit more like the [[ProCo Rat]].
 

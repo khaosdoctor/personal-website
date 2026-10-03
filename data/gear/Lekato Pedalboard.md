@@ -15,7 +15,7 @@ title: Lekato Pedalboard Power Supply
 type:
   - guitar-pedal
   - power-supply
-updatedAt: 2026-09-27T02:38:05Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: pedalboard
 ---
 
@@ -42,7 +42,7 @@ It's a very budget pedalboard. Does what it needs to do, has a built in power su
 
 ## Final thoughts
 
-It's an average thing. I know that I am most likely asking too much of it by putting 12 different pedals on top of it, but it does the job. If I knew it before, I would have bought a bigger one, now I have to make some juggling, but since I don't do public gigs or anything, that's super fine.
+It's an average thing. I know that I am most likely asking too much of it by putting 12 different pedals on top of it, but it does the job. If I had known before, I would have bought a bigger one, now I have to do some juggling, but since I don't do public gigs or anything, that's super fine.
 
 ## Related
 

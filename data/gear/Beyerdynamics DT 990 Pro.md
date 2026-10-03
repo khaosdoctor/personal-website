@@ -19,7 +19,7 @@ type:
   - hifi
   - monitor
   - mixing
-updatedAt: 2026-09-21T00:07:37Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: audio
 ---
 
@@ -54,11 +54,11 @@ It's very sturdy, mostly made of metal with the cups being plastic. The wire is 
 
 ### Audio Quality
 
-For the sound quality, out of the box it depends on what place you're using it, for example, I used it on Windows, Mac and [[Linux]], on [[Windows]] and [[MacOS]] had to EQ it using PEACE (on Windows) and eqMac (on Mac) and the sound was better than without it. This headphone has a massive increase in [[High frequencies (sound)]] and some bump to the [[Middle frequencies (sound)]], more specifically a small bump to frequencies from 50-300Hz and 2kHz-20kHz
+For the sound quality, out of the box it depends on what place you're using it, for example, I used it on Windows, Mac and [[Linux]], on [[Windows]] and [[MacOS]] I had to EQ it using PEACE (on Windows) and eqMac (on Mac) and the sound was better than without it. This headphone has a massive increase in [[High frequencies (sound)]] and some bump to the [[Middle frequencies (sound)]], more specifically a small bump to frequencies from 50-300Hz and 2kHz-20kHz
 
 ![[DT-990-Pro-frequency-response.png|DT 990 Frequency Response Curve]]
 
-According to the [[Frequency Response Chart]], this headphone has a **very high** boost to the treble and all the high frequencies. Which is kinda of expected for a mixing headphone since **it's meant to be a mixing headphone, not a monitoring one** (hence the open back). So this needed equalization in both Windows and Mac, however, in Linux I found that the EQ with EasyEffects is almost the same as without it, I still applied a [[Limiter (audio effect)]] and a [[Crossfeed (audio effect)|Crossfeed]] to the line so I get a better signal response, but the overall EQ was not super life changing.
+According to the [[Frequency Response Chart]], this headphone has a **very high** boost to the treble and all the high frequencies. Which is kinda expected for a mixing headphone since **it's meant to be a mixing headphone, not a monitoring one** (hence the open back). So this needed equalization in both Windows and Mac, however, in Linux I found that the EQ with EasyEffects is almost the same as without it, I still applied a [[Limiter (audio effect)]] and a [[Crossfeed (audio effect)|Crossfeed]] to the line so I get a better signal response, but the overall EQ was not super life changing.
 
 ## EQ Presets
 
@@ -105,7 +105,7 @@ Filter 10: ON HS Fc 9000 Hz Gain -6,0 dB Q 0,71
 
 ## Final impressions
 
-For my first open-back headphones I thought they are pretty good. They're comfortable, good audio quality, and good price. Obviously there are others which are better and more expensive, but I think this is a good allrounder for both studio mixing and home listening. Definitely worth it.
+For my first open-back headphones I think they are pretty good. They're comfortable, good audio quality, and good price. Obviously there are others which are better and more expensive, but I think this is a good allrounder for both studio mixing and home listening. Definitely worth it.
 
 ## Related
 

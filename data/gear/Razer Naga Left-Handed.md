@@ -3,7 +3,7 @@ aliases: []
 coverUrl: https://medias-p1.phoenix.razer.com/sys-master-phoenix-images-container/hff/h63/9081450889246/Razer-Naga-Left-Handed-Edition-Gallery0.jpg
 createdAt: 2026-09-21T00:00:00Z
 icon: 🖱️
-oneliner: Razer's wired left-handed MMO mouse with a 12-button thumb grid. The ONLY company that makes left-handed mouses for MMO
+oneliner: Razer's wired left-handed MMO mouse with a 12-button thumb grid. The ONLY company that makes left-handed mice for MMO
 personalRating: 7
 state:
   - owned
@@ -16,7 +16,7 @@ type:
   - wired
   - gaming
   - left-handed
-updatedAt: 2026-09-21T01:28:03Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: gaming
 x-personal-site-parent: "[[Gaming PC]]"
 ---

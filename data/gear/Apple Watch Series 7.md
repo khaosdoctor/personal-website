@@ -3,7 +3,7 @@ aliases: [Apple Watch 7]
 coverUrl: https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111909_series7-480.png
 createdAt: 2026-09-21T00:00:00Z
 icon: ⌚
-oneliner: "Good watch, not much to say. I have it for over 5 years, don't really use it the way it should be used"
+oneliner: "Good watch, not much to say. I've had it for over 5 years, don't really use it the way it should be used"
 personalRating: 7
 state:
   - owned
@@ -13,7 +13,7 @@ title: "Apple Watch Series 7"
 type:
   - watch
   - apple
-updatedAt: 2026-09-27T03:22:20Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: wearables
 ---
 

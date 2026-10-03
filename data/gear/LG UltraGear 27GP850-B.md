@@ -17,7 +17,7 @@ title: LG UltraGear 27GP850-B
 type:
   - ips
   - 1440p
-updatedAt: 2026-09-27T02:34:58Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: gaming
 x-personal-site-parent: "[[Gaming PC]]"
 ---
@@ -37,7 +37,7 @@ x-personal-site-parent: "[[Gaming PC]]"
 
 ## Description
 
-This is my second monitor, right next to the big [[Samsung Odyssey G8 OLED]] on my desk. It's a 27-inch screen, smaller and lower resolution than the Samsung, but still fast enough for games. Even though I am not really using it for games.
+This is my second monitor, right next to the big [[Samsung Odyssey G8 OLED]] on my desk. It's a 27-inch screen, smaller and lower resolution than the Samsung, but still fast enough for games, even though I am not really using it for games.
 
 I bought it because back then I had a monitor that [[Klarna]] had given me, and I used the same setup for both gaming and work. For work that monitor was fantastic, no problems at all, but it had very few outputs for other things. So I ended up putting a USB hub on it and connecting everything to the hub, except some things somehow didn't work through the hub and only worked plugged straight into the monitor, so I was constantly juggling cables. On top of that I wanted a monitor with at least 144 Hz, because the one the company gave me was a normal 75 Hz one. A game at 60 FPS looked fine on it, but not as good as a game at 120 or 144.
 

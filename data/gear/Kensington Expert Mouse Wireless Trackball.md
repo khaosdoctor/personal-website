@@ -17,7 +17,7 @@ title: Kensington Expert Mouse Wireless Trackball
 type:
   - trackball
   - wireless
-updatedAt: 2026-09-28T00:00:00Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: peripherals
 ---
 
@@ -45,13 +45,13 @@ x-personal-site-category: peripherals
 
 ## Description
 
-I used this one for a long time when I had very bad tendinitis, as I told in the [[Logitech Lift Left-Handed|Lift]] note. It's a square with four big buttons on the sides, a giant ball in the middle and a scroll ring around it, and it runs on AA batteries. I think I've changed them once in four years.
+I used this one for a long time when I had very bad tendinitis, as I said in the [[Logitech Lift Left-Handed|Lift]] note. It's a square with four big buttons on the sides, a giant ball in the middle and a scroll ring around it, and it runs on AA batteries. I think I've changed them once in four years.
 
 ## Impressions
 
 I always thought this mouse was really weird. I used to think it must be super strange to use, but it's actually extremely comfortable and extremely precise. When you're working with it you can keep your hand open and make much simpler, more natural movements, so there's a lot less pain. You press the buttons with separate fingers, and you can spin the scroll ring while you move the ball, which is very cool. The connection is very good too, and it's small enough to carry around.
 
-The bad parts. You have to keep cleaning the ball, because a lot of dirt builds up on it. The wrist rest just clips on, so every time you lift the mouse it falls off. And when you take it somewhere the ball comes loose and falls out, so you have to carry it separately.
+The bad parts: you have to keep cleaning the ball, because a lot of dirt builds up on it. The wrist rest just clips on, so every time you lift the mouse it falls off. And when you take it somewhere the ball comes loose and falls out, so you have to carry it separately.
 
 The bigger one is precision work. Even though it's precise and makes very fine movements, you can't select text very well, because you have to hold the button and roll the ball at the same time. There are settings to help lock the ball to 100% horizontal or 100% vertical, but it's still hard to get right. That bothered me a lot, since I sometimes needed to copy and paste code quickly, and it ended up being the reason I switched to something else. I think that's a problem with every trackball though.
 

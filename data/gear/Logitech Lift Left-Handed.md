@@ -3,7 +3,7 @@ aliases: []
 coverUrl: https://resource.logitech.com/content/dam/logitech/en/products/mice/lift-vertical-ergonomic-mouse/2026-update/gallery/graphite-left/lift-left-mouse-top-angle-graphite-gallery-1.png
 createdAt: 2026-09-21T00:00:00Z
 icon: 🖱️
-oneliner: Originally bought these because Logi is the only company that makes left handed mouses that are vertical. Used for quite a while until I switched to the Master
+oneliner: Originally bought these because Logi is the only company that makes left-handed mice that are vertical. Used for quite a while until I switched to the Master
 personalRating: 7.4
 state:
   - owned
@@ -16,7 +16,7 @@ type:
   - wireless
   - vertical-ergonomic
   - left-handed
-updatedAt: 2026-09-21T01:23:45Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: peripherals
 ---
 

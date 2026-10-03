@@ -17,7 +17,7 @@ type:
   - noise-cancelling
   - true-wireless
   - in-ear
-updatedAt: 2026-09-23T01:56:28Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: audio
 ---
 
@@ -51,7 +51,7 @@ My first-generation AirPods Pro, bought together with the [[Apple Watch Series 7
 
 As you can see, it's not really made for the actual target, so [[Apple Computers|Apple]] doesn't really care that much about if it hits a Harman or Super 22 target curve.
 
-![[graph.png|Frequency response for the Airpods Pro Gen1]]
+![[graph.png|Frequency response for the AirPods Pro Gen1]]
 
 ## Impressions
 
@@ -59,9 +59,9 @@ For a consumer headphone, it's surprisingly good! I originally bought them becau
 
 It has a pretty good audio [[CODEC]] and a decently stable connection if you're using it with Apple products, of course (for all other things it's a bit median). For the price, I think there are **way** better buds in the market with a better audio fidelity than this one. Or even better drive.
 
-Crinacle [says](https://x.com/crinacle/status/1573287788061290501) it's a good thing, I agree, they're good, but not on that level, and honestly not near a WF-1000XM4 (or at least [[Sony WF-1000XM5|Sony WF1000XM5]], which is the one I use and tested because I didn't know there was a XM4).
+Crinacle [says](https://x.com/crinacle/status/1573287788061290501) it's a good thing, I agree, they're good, but not on that level, and honestly not near a WF-1000XM4 (or at least [[Sony WF-1000XM5|Sony WF1000XM5]], which is the one I use and tested because I didn't know there was an XM4).
 
-The main thing about these is that they're very convenient, especially if you have an Apple device, because it seamlessly connect to everything. The problem is the battery that lasts less and less every time, but charging them is super fast.
+The main thing about these is that they're very convenient, especially if you have an Apple device, because it seamlessly connects to everything. The problem is the battery that lasts less and less every time, but charging them is super fast.
 
 The microphone is _extremely bad_, maybe Apple fixed that in the later versions, but this one is quite unusable, for a bunch of things, especially talking outside when wind is coming. ANC is _ok_, it depends a lot on the isolation of your eartips too, but it's not quite like the XM5 for example.
 
