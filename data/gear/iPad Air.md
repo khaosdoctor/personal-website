@@ -16,7 +16,7 @@ title: iPad Air
 type:
   - computer
   - mobile
-updatedAt: 2026-09-26T03:16:38Z
+updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: computers
 ---
 
@@ -54,15 +54,15 @@ All of it changed when I came to Sweden in 2021 because I was working at Microso
 
 One of the first things I bought when I got here was this iPad, along with the [[Apple Watch Series 7]] and the [[AirPods Pro]] all in one go (discounts…), I wasn't sure if this was going to help me, but all the other alternatives were either too expensive, or too shallow for what I needed, which was basically a computer.
 
-At the time IA remember having read some article or something that said the iPad was possibly the next generation's computer because it allowed you to do almost everything you could do on a MacBook at a third of the size and weight and IA decided to actually put the theory to prove because that was the only computer I used for over six months.
+At the time I remember having read some article or something that said the iPad was possibly the next generation's computer because it allowed you to do almost everything you could do on a MacBook at a third of the size and weight and I decided to actually put the theory to the test because that was the only computer I used for over six months.
 
 ## Final thoughts
 
-When IA started using it, it was a lifesaver, but it fell short almost in every aspect of everything IA would do because it was never the right to for the job, and IA had to make it work somehow so usually what I would do is to find some remote desktop solution and hook it up to a real machine that was either in a cloud provider or somewhere else.
+When I started using it, it was a lifesaver, but it fell short almost in every aspect of everything I would do because it was never the right tool for the job, and I had to make it work somehow so usually what I would do is to find some remote desktop solution and hook it up to a real machine that was either in a cloud provider or somewhere else.
 
 The Magic Keyboard is actually a pretty good addition. It will allow you to do a lot more things than what you are used to in an iPad. But it is also not the best solution for any case. Because the touchpad is quite small. But it's a very nice keyboard to type in. The problem is that it only works with an iPad. And that's basically it. So you buy a product that is a single use. I don't know if it works with the newer ones. But I'm pretty sure it does just work with the one that I have. And the versions that came on that same year.
 
-So, overall, while it was needed, it actually did the job. But when I got the first opportunity to switch to something better, I just switched. Because the iPad is still the same thing that bothered me a while ago. It is a machine that is quite average on everything it does, but it never excels on anything, except for maybe drawing. But at least it's not my use case. I even try drawing, I have the pen, But I mostly use it as a mouse. And right now, the use I'm giving it is pretty unique because I don't have enough space to use a full fledged computer on my electronics workbench. So I use it as a manual reader and research tool. And it works quite nice. But I wouldn't recommend an iPad to anyone who's really needing a computer, even thought the UX is hugely better.
+So, overall, while it was needed, it actually did the job. But when I got the first opportunity to switch to something better, I just switched. Because the iPad is still the same thing that bothered me a while ago. It is a machine that is quite average on everything it does, but it never excels on anything, except for maybe drawing. But at least it's not my use case. I even tried drawing, I have the pen, but I mostly use it as a mouse. And right now, the use I'm giving it is pretty unique because I don't have enough space to use a full fledged computer on my electronics workbench. So I use it as a manual reader and research tool. And it works quite nice. But I wouldn't recommend an iPad to anyone who's really needing a computer, even though the UX is hugely better.
 
 ## Related
 
