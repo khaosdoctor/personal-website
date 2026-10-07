@@ -4,7 +4,7 @@ aliases:
 coverUrl: https://media.cdn.sapphiretech.com.cn/-/media/sites/sapphire/pim/product-images/11323_02_rx7900xt_pulse_20ggddr6/11323_02_rx7900xt_pulse_20ggddr6_c01_800x500.ashx?v=edfc3c4ed51f4bf589737a9ed7f1f8ca
 createdAt: 2026-09-27T01:09:04Z
 icon: 🎮
-oneliner:
+oneliner: "20 GB RDNA3 card bought from a friend to replace my RTX 3070, runs heavy games on high and stays cool"
 personalRating: 9.8
 state:
   - owned
@@ -15,7 +15,7 @@ tags:
 title: Sapphire Pulse RX 7900 XT
 type:
   - gpu
-updatedAt: 2026-10-03T00:00:00Z
+updatedAt: 2026-10-07T01:08:13Z
 x-personal-site-category: gaming
 x-personal-site-parent: "[[Gaming PC]]"
 ---
