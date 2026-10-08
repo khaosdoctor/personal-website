@@ -16,12 +16,13 @@ class SiteSidebar extends HTMLElement {
         <nav>
 
           <a href="/">/about</a>
-          <a href="/uses">/uses</a>
-          <a href="/now">/now</a>
-          <a href="/projects">/projects</a>
           <a href="https://blog.lsantos.dev">/blog</a>
           <a href="mailto:hello@lsantos.dev?subject=Contact%20through%20your%20website" target="_blank" rel="noopener">/contact</a>
+          <a href="/friends">/friends</a>
+          <a href="/now">/now</a>
           <a href="https://personality.lsantos.dev">/personality</a>
+          <a href="/projects">/projects</a>
+          <a href="/uses">/uses</a>
         </nav>
         <div class="theme-toggle desktop-only">
           <button onclick="toggleTheme()">[light]</button>

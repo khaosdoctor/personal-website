@@ -12,6 +12,7 @@
 
 - `data/bio.md` is the about text on the homepage
 - `data/now.md` is the /now page, the "last updated" date is the file's modified date
+- `data/friends.md` is the /friends page
 - `data/projects.json` is the /projects list, sorted by `status` (`active`, `inactive`, `archived`)
 - Gear comes from the vault notes that have both a `personalRating` and an `x-personal-site-category` (the /uses section it goes under); notes missing either stay off the site, and `updatedAt` shows up on the gear detail page. To list an item under another one (a lens under its camera), add `x-personal-site-parent: "[[Parent Note]]"` to the child; it can also be a list of links
 
@@ -21,7 +22,7 @@ After changing any of these, run `bun run sync`. It fetches the latest 3 posts f
 
 ```sh
 bun install
-bun run dev         # browser-sync on http://localhost:3456 with hot reload
+bun run dev         # quiet sync, then browser-sync on http://localhost:3456 with hot reload
 bun run sync        # bake content into the pages, verbose
 bun run sync:quiet  # same, summary lines only
 bun run sync:watch  # rebuild on every vault or data change

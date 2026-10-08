@@ -395,6 +395,11 @@ function projectsHtml(projects) {
   }).join('\n');
 }
 
+// Sorts every run of "- " lines by name, so a new friend can go anywhere in the list
+// ponytail: one line per item, a wrapped item would get split apart
+const sortLists = text => text.replace(/(?:^- .*(?:\n|$))+/gm, block =>
+  block.trimEnd().split('\n').sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' })).join('\n') + '\n');
+
 // Replaces whatever sits between <!-- bake:name --> and <!-- /bake:name --> in an HTML page
 async function bake(file, blocks) {
   let html = await readFile(file, 'utf-8');
@@ -429,6 +434,7 @@ async function bakePages(posts, gear) {
   await bake('index.html', { bio: await md('bio.md'), ...(posts && { posts: postsHtml(posts) }) });
   await bake('now.html', { now: await md('now.md'), 'now-date': nowUpdated });
   await bake('projects.html', { projects: projectsHtml(projects) });
+  await bake('friends.html', { friends: marked(sortLists(await readFile(join(DATA_DIR, 'friends.md'), 'utf-8'))) });
 
   // No gear means no source was readable, not that the gear is gone. Rewriting /uses and the
   // sitemap here would publish an empty list, so both keep what they already have.
@@ -439,7 +445,7 @@ async function bakePages(posts, gear) {
 
   await bake('uses.html', { gear: gearHtml(gear) });
 
-  const urls = ['/', '/now', '/projects', '/uses', ...gear.filter(g => g.hasPage).map(g => `/gear/${g.slug}.html`)];
+  const urls = ['/', '/now', '/projects', '/uses', '/friends', ...gear.filter(g => g.hasPage).map(g => `/gear/${g.slug}.html`)];
   const sitemap = urls.map(u => `  <url><loc>${SITE}${u}</loc></url>`).join('\n');
   await writeFile('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemap}\n</urlset>\n`);
 }
