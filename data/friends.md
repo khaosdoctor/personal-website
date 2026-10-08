@@ -13,6 +13,7 @@
 
 ## People I haven't met, but admire
 
+- [Axel Rauschmayer, Ph.D](https://2ality.com), his essays and books are a huge inspiration for me, and I try to read everything he writes. Also, one of the people that made me realize I could write about programming and be taken seriously.
 - [Cyrus Lopez](https://unix.foo), never met him, but his essays are extremely insightful and he has good taste in UIs. My blog design is based on his.
 - [swyx](https://swyx.io), helped me a lot setting up my learn in public style.
 - [Simon Späti](https://www.ssp.sh), absurd insights and a super interesting site with a second brain, I love the content around it.
