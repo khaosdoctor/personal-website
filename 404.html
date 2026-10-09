@@ -7,51 +7,101 @@
   <title>Redirecting - Lucas Santos</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <!-- Short links used to live on lsantos.dev/<slug>; Dub now serves them on go.lsantos.dev.
-       Everything is inline so the page paints at once while the next one loads. -->
-  <script>try { const theme = localStorage.getItem('theme'); if (theme) document.documentElement.setAttribute('data-theme', theme); } catch { /* ok */ }</script>
+       Everything is inline, the font too (Departure Mono cut down to ASCII), so this page is one request. -->
+  <script>
+    location.replace("https://go.lsantos.dev" + location.pathname + location.search + location.hash);
+    try { const theme = localStorage.getItem("theme"); if (theme) document.documentElement.setAttribute("data-theme", theme); } catch { /* ok */ }
+  </script>
   <style>
-    :root { --bg: #f4efe0; --text: #4f493f; --border: #736e62; --accent: #0571b3; }
+    @font-face { font-family: "Departure Mono"; font-display: swap; src: url(data:font/woff2;base64,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) format("woff2"); }
+    :root { --bg: #f4efe0; --text: #4f493f; --border: #736e62; --accent: #0571b3;
+            --red: #d50612; --green: #39936c; --yellow: #ac7d00; --blue: #0571b3; }
     @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) { --bg: #131313; --text: #d6d2c9; --border: #6b627b; --accent: #1480c2; }
+      :root:not([data-theme="light"]) { --bg: #131313; --text: #d6d2c9; --border: #6b627b; --accent: #1480c2;
+                                        --red: #e6242f; --green: #45b384; --yellow: #f5b200; --blue: #1480c2; }
     }
-    :root[data-theme="dark"] { --bg: #131313; --text: #d6d2c9; --border: #6b627b; --accent: #1480c2; }
-    body { margin: 0; min-height: 100vh; display: grid; place-content: center; justify-items: center; gap: 24px;
-           background: var(--bg); color: var(--text); font: 14px 'IBM Plex Mono', ui-monospace, monospace; }
-    .pixels { display: grid; grid-template-columns: repeat(3, 12px); gap: 4px; }
-    .pixels i { width: 12px; height: 12px; background: var(--border); opacity: .25; animation: blink .8s steps(1) infinite; }
+    :root[data-theme="dark"] { --bg: #131313; --text: #d6d2c9; --border: #6b627b; --accent: #1480c2;
+                               --red: #e6242f; --green: #45b384; --yellow: #f5b200; --blue: #1480c2; }
+    * { box-sizing: border-box; }
+    body { margin: 0; height: 100vh; height: 100dvh; display: grid; place-items: center; text-align: center; overflow: hidden;
+           background: var(--bg); color: var(--text); font: 16px "Departure Mono", ui-monospace, monospace; }
+    header { position: absolute; top: 24px; left: 16px; right: 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-size: 24px; }
+    .brand svg { width: 32px; height: 32px; shape-rendering: crispEdges; }
+    p { margin: 0; }
+    .cursor::after { content: "█"; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0 } }
+    /* The spinner sits dead centre; the tip hangs off its bottom edge */
+    main { position: relative; --gap: 150px; --spin: min(30vw, 30vh); }
+    #tip { position: absolute; left: 50%; translate: -50% 0; top: calc(100% + var(--gap)); width: max-content; max-width: calc(100vw - 32px); }
+    @media (max-height: 820px) { main { --gap: 10vh; } }
+    @media (max-width: 600px) {
+      main { --gap: min(10vh, 80px); --spin: min(55vw, 28vh); }
+      .brand { font-size: 20px; }
+      .intro { font-size: 14px; }
+      #tip { font-size: 18px; }
+    }
+    /* 3x3 ring of big pixels; the lit one walks clockwise: 1 2 3 6 9 8 7 4 */
+    .pixels { width: var(--spin); aspect-ratio: 1; display: grid; grid-template: repeat(3, 1fr) / repeat(3, 1fr); gap: 6%; }
+    .pixels i { background: var(--border); opacity: .2; animation: lit 1.6s steps(1) infinite; }
     .pixels i:nth-child(5) { visibility: hidden; }
-    /* clockwise around the ring: 1 2 3 6 9 8 7 4 */
-    .pixels i:nth-child(2) { animation-delay: .1s } .pixels i:nth-child(3) { animation-delay: .2s }
-    .pixels i:nth-child(6) { animation-delay: .3s } .pixels i:nth-child(9) { animation-delay: .4s }
-    .pixels i:nth-child(8) { animation-delay: .5s } .pixels i:nth-child(7) { animation-delay: .6s }
-    .pixels i:nth-child(4) { animation-delay: .7s }
-    @keyframes blink { 0% { background: var(--accent); opacity: 1 } 25% { background: var(--border); opacity: .25 } }
-    a { color: var(--accent); }
-    .tip { margin: 0; font-size: 12px; min-height: 1.5em; }
-    .cursor::after { content: '█'; animation: cursor 1s steps(1) infinite; }
-    @keyframes cursor { 50% { opacity: 0 } }
-    @media (prefers-reduced-motion: reduce) { .pixels i, .cursor::after { animation: none; } }
+    .pixels i:nth-child(1) { --on: var(--red); }
+    .pixels i:nth-child(2) { --on: var(--green); animation-delay: .2s }
+    .pixels i:nth-child(3) { --on: var(--yellow); animation-delay: .4s }
+    .pixels i:nth-child(6) { --on: var(--blue); animation-delay: .6s }
+    .pixels i:nth-child(9) { --on: var(--red); animation-delay: .8s }
+    .pixels i:nth-child(8) { --on: var(--green); animation-delay: 1s }
+    .pixels i:nth-child(7) { --on: var(--yellow); animation-delay: 1.2s }
+    .pixels i:nth-child(4) { --on: var(--blue); animation-delay: 1.4s }
+    @keyframes lit { 0% { background: var(--on); opacity: 1 } 12.5% { background: var(--border); opacity: .2 } }
+    #tip { color: var(--accent); font-size: 20px; display: inline-block; }
+    #tip.glitch { animation: glitch .3s steps(1); }
+    @keyframes glitch {
+      0%   { transform: translate(-3px, 1px); text-shadow: 3px 0 var(--red), -3px 0 var(--blue); clip-path: inset(10% 0 45% 0); }
+      25%  { transform: translate(3px, -1px); text-shadow: -3px 0 var(--green), 3px 0 var(--yellow); clip-path: inset(50% 0 5% 0); }
+      50%  { transform: translate(-2px, 0); text-shadow: 2px 0 var(--blue), -2px 0 var(--red); clip-path: none; }
+      75%  { transform: none; text-shadow: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { .pixels i, .cursor::after, #tip.glitch { animation: none; } }
   </style>
 </head>
 <body>
-  <div class="pixels" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-  <p class="cursor" role="status">redirecting </p>
-  <p class="tip"><a id="tip" href="https://blog.lsantos.dev">while you wait, read the blog</a></p>
-  <noscript><p><a href="https://go.lsantos.dev">go.lsantos.dev</a></p></noscript>
+  <header>
+    <div class="brand">
+      <svg viewBox="0 0 8 8" aria-hidden="true">
+        <rect x="0" y="0" width="2" height="4" fill="var(--red)"/><rect x="0" y="4" width="5" height="2" fill="var(--red)"/>
+        <rect x="3" y="0" width="5" height="3" fill="var(--green)"/><rect x="6" y="4" width="2" height="2" fill="var(--yellow)"/>
+        <rect x="1" y="7" width="7" height="1" fill="var(--blue)"/>
+      </svg>
+      <span>Lucas Santos</span>
+    </div>
+    <div class="intro">
+      <p>It seems like you hit my redirect page</p>
+      <p class="cursor" role="status">taking you there </p>
+    </div>
+  </header>
+  <main>
+    <div class="pixels" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <a id="tip" href="https://lsantos.dev">check my website</a>
+  </main>
   <script>
-    location.replace("https://go.lsantos.dev" + location.pathname + location.search + location.hash);
     const tips = [
-      ["while you wait, read the blog", "https://blog.lsantos.dev"],
-      ["videos on YouTube, every week-ish", "https://youtube.lsantos.dev"],
+      ["check my website", "https://lsantos.dev"],
+      ["check my blog", "https://blog.lsantos.dev"],
+      ["I do open source", "https://oss.lsantos.dev"],
+      ["watch my videos", "https://youtube.lsantos.dev"],
       ["slides from my talks", "https://talks.lsantos.dev"],
-      ["open source I keep around", "https://oss.lsantos.dev"],
       ["what I'm up to now", "https://lsantos.dev/now"],
+      ["talk to me", "https://schedule.lsantos.dev"],
     ];
     const tip = document.getElementById("tip");
-    let index = Math.floor(Math.random() * tips.length);
-    const show = () => { [tip.textContent, tip.href] = tips[index++ % tips.length]; };
-    show();
-    setInterval(show, 2000);
+    let index = 1;
+    setInterval(() => {
+      [tip.textContent, tip.href] = tips[index++ % tips.length];
+      tip.classList.remove("glitch");
+      void tip.offsetWidth; // restart the animation
+      tip.classList.add("glitch");
+    }, 2000);
   </script>
 </body>
 </html>
