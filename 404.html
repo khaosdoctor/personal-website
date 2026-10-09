@@ -2,12 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex">
   <title>Redirecting - Lucas Santos</title>
-  <!-- Short links used to live on lsantos.dev/<slug>; Dub now serves them on go.lsantos.dev -->
-  <script>location.replace("https://go.lsantos.dev" + location.pathname + location.search + location.hash)</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <!-- Short links used to live on lsantos.dev/<slug>; Dub now serves them on go.lsantos.dev.
+       Everything is inline so the page paints at once while the next one loads. -->
+  <script>try { const theme = localStorage.getItem('theme'); if (theme) document.documentElement.setAttribute('data-theme', theme); } catch { /* ok */ }</script>
+  <style>
+    :root { --bg: #f4efe0; --text: #4f493f; --border: #736e62; --accent: #0571b3; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) { --bg: #131313; --text: #d6d2c9; --border: #6b627b; --accent: #1480c2; }
+    }
+    :root[data-theme="dark"] { --bg: #131313; --text: #d6d2c9; --border: #6b627b; --accent: #1480c2; }
+    body { margin: 0; min-height: 100vh; display: grid; place-content: center; justify-items: center; gap: 24px;
+           background: var(--bg); color: var(--text); font: 14px 'IBM Plex Mono', ui-monospace, monospace; }
+    .pixels { display: grid; grid-template-columns: repeat(3, 12px); gap: 4px; }
+    .pixels i { width: 12px; height: 12px; background: var(--border); opacity: .25; animation: blink .8s steps(1) infinite; }
+    .pixels i:nth-child(5) { visibility: hidden; }
+    /* clockwise around the ring: 1 2 3 6 9 8 7 4 */
+    .pixels i:nth-child(2) { animation-delay: .1s } .pixels i:nth-child(3) { animation-delay: .2s }
+    .pixels i:nth-child(6) { animation-delay: .3s } .pixels i:nth-child(9) { animation-delay: .4s }
+    .pixels i:nth-child(8) { animation-delay: .5s } .pixels i:nth-child(7) { animation-delay: .6s }
+    .pixels i:nth-child(4) { animation-delay: .7s }
+    @keyframes blink { 0% { background: var(--accent); opacity: 1 } 25% { background: var(--border); opacity: .25 } }
+    a { color: var(--accent); }
+    .tip { margin: 0; font-size: 12px; min-height: 1.5em; }
+    .cursor::after { content: '█'; animation: cursor 1s steps(1) infinite; }
+    @keyframes cursor { 50% { opacity: 0 } }
+    @media (prefers-reduced-motion: reduce) { .pixels i, .cursor::after { animation: none; } }
+  </style>
 </head>
 <body>
-  <p>Redirecting to <a href="https://go.lsantos.dev">go.lsantos.dev</a>...</p>
+  <div class="pixels" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <p class="cursor" role="status">redirecting </p>
+  <p class="tip"><a id="tip" href="https://blog.lsantos.dev">while you wait, read the blog</a></p>
+  <noscript><p><a href="https://go.lsantos.dev">go.lsantos.dev</a></p></noscript>
+  <script>
+    location.replace("https://go.lsantos.dev" + location.pathname + location.search + location.hash);
+    const tips = [
+      ["while you wait, read the blog", "https://blog.lsantos.dev"],
+      ["videos on YouTube, every week-ish", "https://youtube.lsantos.dev"],
+      ["slides from my talks", "https://talks.lsantos.dev"],
+      ["open source I keep around", "https://oss.lsantos.dev"],
+      ["what I'm up to now", "https://lsantos.dev/now"],
+    ];
+    const tip = document.getElementById("tip");
+    let index = Math.floor(Math.random() * tips.length);
+    const show = () => { [tip.textContent, tip.href] = tips[index++ % tips.length]; };
+    show();
+    setInterval(show, 2000);
+  </script>
 </body>
 </html>
