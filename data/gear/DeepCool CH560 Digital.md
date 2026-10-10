@@ -3,7 +3,7 @@ aliases: []
 coverUrl: https://cdn.deepcool.com/public/ProductFile/DEEPCOOL/Cases/CH560_DIGITAL_WH/Gallery/800X800/01.jpg
 createdAt: 2026-09-27T01:09:04Z
 icon: 🗄️
-oneliner: "White airflow case with a side screen for the CPU and GPU temps, bought out of necessity"
+oneliner: White airflow case with a side screen for the CPU and GPU temps, bought out of necessity
 personalRating: 9.7
 state:
   - owned

@@ -1,15 +1,18 @@
 ---
-aliases: [MI14]
+aliases:
+  - MI14
 coverUrl: https://m.media-amazon.com/images/I/61Z1Y7-9GYL._AC_SL1500_.jpg
 createdAt: 2026-09-27T00:00:00Z
 icon: 🎙️
-oneliner: "Dual USB-C / XLR dynamic mic that ships with its own boom arm. Cardioid, so it keeps the room out of the recording."
+oneliner: Dual USB-C / XLR dynamic mic that ships with its own boom arm. Cardioid, so it keeps the room out of the recording.
 personalRating: 7
 state:
   - owned
   - actively-used
-tags: [topic/music/gear/microphones, type/equipment/microphone]
-title: "Fifine MI14"
+tags:
+  - topic/music/gear/microphones
+  - type/equipment/microphone
+title: Fifine MI14
 type:
   - dynamic
   - cardioid

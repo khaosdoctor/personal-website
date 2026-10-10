@@ -1,15 +1,19 @@
 ---
-aliases: [Yeti, Blue Microphones Yeti]
+aliases:
+  - Yeti
+  - Blue Microphones Yeti
 coverUrl: https://resource.logitechg.com/c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/streaming-gear/yeti-premium-usb-microphone/2025/gallery/yeti-front-angle-blackout-gallery-1.png
 createdAt: 2026-09-27T00:00:00Z
 icon: 🎙️
-oneliner: "A classic, I don't even know if this is sold anymore, but one of the best mics I ever had"
+oneliner: A classic, I don't even know if this is sold anymore, but one of the best mics I ever had
 personalRating: 9.4
 state:
   - owned
   - actively-used
-tags: [topic/music/gear/microphones, type/equipment/microphone]
-title: "Blue Yeti"
+tags:
+  - topic/music/gear/microphones
+  - type/equipment/microphone
+title: Blue Yeti
 type:
   - condenser
   - multi-pattern
