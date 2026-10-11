@@ -6,7 +6,7 @@ class SiteSidebar extends HTMLElement {
         <a href="/" class="photo-wrap">
           <span class="photo-stack">
             <img src="/img/avatar.webp" alt="Lucas Santos" class="photo" width="130" height="130">
-            <!-- 16x16 version of avatar.webp; hover or focus reveals the photo underneath -->
+            <!-- 32x32 sprite of avatar.webp; hover or focus reveals the photo underneath -->
             <img src="/img/avatar-pixel.svg" alt="" class="photo-pixel" width="130" height="130" aria-hidden="true">
           </span>
         </a>

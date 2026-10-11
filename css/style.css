@@ -117,6 +117,8 @@ a:hover { text-decoration: underline; }
 .photo-wrap:hover .photo-pixel,
 .photo-wrap:focus-visible .photo-pixel { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .photo-wrap img.photo-pixel { transition: none; } }
+/* Touch screens can't hover, so they get the photo */
+@media (hover: none) { .photo-wrap img.photo-pixel { display: none; } }
 
 nav {
   padding-top: 0.75rem;
