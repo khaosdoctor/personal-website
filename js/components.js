@@ -4,7 +4,11 @@ class SiteSidebar extends HTMLElement {
     this.innerHTML = `
       <div class="sidebar-inner">
         <a href="/" class="photo-wrap">
-          <img src="/img/avatar.webp" alt="Lucas Santos" class="photo" width="130" height="130">
+          <span class="photo-stack">
+            <img src="/img/avatar.webp" alt="Lucas Santos" class="photo" width="130" height="130">
+            <!-- 16x16 version of avatar.webp; hover or focus reveals the photo underneath -->
+            <img src="/img/avatar-pixel.svg" alt="" class="photo-pixel" width="130" height="130" aria-hidden="true">
+          </span>
         </a>
         <a href="/" class="sidebar-name">$ Lucas Santos</a>
         <div class="mobile-actions">
@@ -26,6 +30,10 @@ class SiteSidebar extends HTMLElement {
           <a href="/uses">/uses</a>
         </nav>
         <div class="theme-toggle desktop-only">
+          <svg class="sidebar-cat" viewBox="0 0 10 10" width="20" height="20" shape-rendering="crispEdges" aria-hidden="true">
+            <path fill="currentColor" d="M0 0h1v1h-1zM6 0h1v1h-1zM0 1h2v1h-2zM5 1h2v1h-2zM0 2h7v1h-7zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM0 4h7v1h-7zM1 5h5v1h-5zM0 6h7v1h-7zM9 6h1v1h-1zM0 7h7v1h-7zM9 7h1v1h-1zM0 8h7v1h-7zM8 8h1v1h-1zM0 9h8v1h-8z"/>
+            <path fill="var(--accent)" d="M1 3h1v1h-1zM5 3h1v1h-1z"/>
+          </svg>
           <button onclick="toggleTheme()">[light]</button>
         </div>
       </div>
