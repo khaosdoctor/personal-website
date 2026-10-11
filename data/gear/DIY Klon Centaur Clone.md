@@ -3,12 +3,14 @@ aliases: []
 coverUrl: https://diymusicgear.dk/wp-content/uploads/2026/05/5401a.png
 createdAt: 2026-06-16T00:00:00Z
 icon: 🎸
+lastEditedByAI: 2026-10-11T19:56:21Z
 oneliner: "Handbuilt Klon Centaur clone, my first DIY pedal build"
 personalRating: 8.8
 state:
   - owned
   - actively-used
-tags: [topic/music/gear/pedals, type/equipment/guitar-pedal]
+status: built
+tags: [topic/music/gear/pedals, type/equipment/guitar-pedal, meta/ai-assisted]
 title: "DIY Klon Centaur Clone"
 type:
   - overdrive
@@ -61,6 +63,18 @@ It's a very versatile pedal and I like it a lot. What I want to do at some point
 I think this is a pedal every guitar player should have at least once, or at least try once, even if you have to build your own or buy one already made. Today it's probably the most cloned pedal in history, which is a funny irony considering that Klon literally means clone.
 
 It's a sound everyone should hear at some point in their life and try to understand how it works, because it says a lot about how pedals, guitars and electric instruments work in general. There's a lot more to it than that thick and direct distortion we're used to from metal and rock. It's a much more winding thing, full of small details, with way more variation than the basics.
+
+## Build log
+
+%% Add dated entries: when the kit arrived, when it was built, when the diodes were swapped. %%
+
+## What broke and what I learned
+
+%% Fill in from the build. %%
+
+## Next
+
+- Recreate this build with all the original components, if I can manage to find them.
 
 ## Related
 
