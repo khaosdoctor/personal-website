@@ -20,6 +20,7 @@ type:
   - rock
 updatedAt: 2026-09-27T02:39:04Z
 x-personal-site-category: pedalboard
+x-personal-site-export-type: uses
 x-personal-site-parent: "[[Lekato Pedalboard]]"
 ---
 

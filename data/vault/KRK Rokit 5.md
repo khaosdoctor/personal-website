@@ -23,6 +23,7 @@ type:
   - mixing
 updatedAt: 2026-09-27T02:10:51Z
 x-personal-site-category: audio
+x-personal-site-export-type: uses
 ---
 
 # KRK Rokit 5

@@ -20,6 +20,7 @@ type:
   - dual-throttle
 updatedAt: 2026-09-27T01:53:42Z
 x-personal-site-category: gaming
+x-personal-site-export-type: uses
 x-personal-site-parent: "[[Gaming PC]]"
 ---
 

@@ -20,6 +20,7 @@ type:
   - wireless
 updatedAt: 2026-09-21T01:41:41Z
 x-personal-site-category: audio
+x-personal-site-export-type: uses
 ---
 
 # Sony WH-1000XM4

@@ -17,6 +17,7 @@ type:
   - midi
 updatedAt: 2026-09-27T02:37:42Z
 x-personal-site-category: music production
+x-personal-site-export-type: uses
 x-personal-site-parent: "[[M-VAVE Chocolate MIDI Controller]]"
 ---
 

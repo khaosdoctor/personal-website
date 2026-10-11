@@ -18,6 +18,7 @@ type:
   - active
 updatedAt: 2026-09-27T02:36:10Z
 x-personal-site-category: audio
+x-personal-site-export-type: uses
 x-personal-site-parent: "[[Gaming PC]]"
 ---
 

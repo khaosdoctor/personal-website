@@ -17,6 +17,7 @@ type:
   - guitar-pedal
 updatedAt: 2026-09-20T01:36:07Z
 x-personal-site-category: pedalboard
+x-personal-site-export-type: uses
 ---
 
 # TC Electronic Rusty Fuzz

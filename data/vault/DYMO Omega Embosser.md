@@ -17,6 +17,7 @@ type:
   - embosser
 updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: tools
+x-personal-site-export-type: uses
 ---
 
 # DYMO Omega Embosser

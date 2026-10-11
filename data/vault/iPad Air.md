@@ -18,6 +18,7 @@ type:
   - mobile
 updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: computers
+x-personal-site-export-type: uses
 ---
 
 # iPad Air

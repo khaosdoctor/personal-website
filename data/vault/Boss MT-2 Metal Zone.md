@@ -18,6 +18,7 @@ type:
   - metal
 updatedAt: 2026-09-27T02:39:00Z
 x-personal-site-category: pedalboard
+x-personal-site-export-type: uses
 x-personal-site-parent: "[[Lekato Pedalboard]]"
 ---
 

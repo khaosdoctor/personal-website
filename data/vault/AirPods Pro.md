@@ -19,6 +19,7 @@ type:
   - in-ear
 updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: audio
+x-personal-site-export-type: uses
 ---
 
 # AirPods Pro

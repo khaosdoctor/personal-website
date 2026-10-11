@@ -20,6 +20,7 @@ type:
   - interface
 updatedAt: 2026-09-27T03:24:07Z
 x-personal-site-category: music production
+x-personal-site-export-type: uses
 ---
 
 # Focusrite Scarlett Solo 2nd Gen

@@ -19,6 +19,7 @@ type:
   - wireless
 updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: peripherals
+x-personal-site-export-type: uses
 ---
 
 # Kensington Expert Mouse Wireless Trackball

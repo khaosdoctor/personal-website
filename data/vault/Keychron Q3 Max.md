@@ -16,6 +16,7 @@ type:
   - aluminium
 updatedAt: 2026-09-27T02:17:04Z
 x-personal-site-category: keyboards
+x-personal-site-export-type: uses
 x-personal-site-parent: "[[Gaming PC]]"
 ---
 

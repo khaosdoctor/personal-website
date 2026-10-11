@@ -19,6 +19,7 @@ type:
   - ef-mount
 updatedAt: 2026-09-21T01:30:38Z
 x-personal-site-category: photography
+x-personal-site-export-type: uses
 ---
 
 # Canon EOS 6D Mark II

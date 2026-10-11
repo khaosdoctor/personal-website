@@ -16,6 +16,7 @@ type:
   - midi
 updatedAt: 2026-07-13T11:45:50Z
 x-personal-site-category: music production
+x-personal-site-export-type: uses
 ---
 
 # M-VAVE Chocolate MIDI Controller

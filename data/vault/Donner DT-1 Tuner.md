@@ -17,6 +17,7 @@ type:
   - guitar-pedal
 updatedAt: 2026-07-13T11:45:18Z
 x-personal-site-category: pedalboard
+x-personal-site-export-type: uses
 ---
 
 # Donner DT-1 Chromatic Tuner

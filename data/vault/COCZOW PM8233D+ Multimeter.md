@@ -16,6 +16,7 @@ type:
   - multimeter
 updatedAt: 2026-09-20T01:32:33Z
 x-personal-site-category: tools
+x-personal-site-export-type: uses
 ---
 
 # PeakMeter PM8233D+ Multimeter

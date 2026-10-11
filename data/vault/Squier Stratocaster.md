@@ -18,6 +18,7 @@ type:
   - instrument
 updatedAt: 2026-09-20T01:34:34Z
 x-personal-site-category: music production
+x-personal-site-export-type: uses
 ---
 
 # Squier Stratocaster

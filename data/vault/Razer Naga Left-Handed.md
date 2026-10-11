@@ -18,6 +18,7 @@ type:
   - left-handed
 updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: gaming
+x-personal-site-export-type: uses
 x-personal-site-parent: "[[Gaming PC]]"
 ---
 

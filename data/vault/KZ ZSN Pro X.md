@@ -20,6 +20,7 @@ type:
   - studio
 updatedAt: 2026-09-21T00:06:44Z
 x-personal-site-category: audio
+x-personal-site-export-type: uses
 ---
 
 # KZ ZSN Pro X

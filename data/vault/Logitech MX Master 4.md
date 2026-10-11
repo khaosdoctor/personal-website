@@ -16,6 +16,7 @@ type:
   - right-handed
 updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: peripherals
+x-personal-site-export-type: uses
 x-personal-site-parent: "[[MacBook Pro M1 Max|MacBook]]"
 ---
 

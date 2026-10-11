@@ -18,6 +18,7 @@ type:
   - brick-built
 updatedAt: 2026-09-21T01:31:54Z
 x-personal-site-category: keyboards
+x-personal-site-export-type: uses
 ---
 
 # KBDCraft Adam80

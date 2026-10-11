@@ -18,6 +18,7 @@ type:
   - wireless
 updatedAt: 2026-07-13T11:45:43Z
 x-personal-site-category: music production
+x-personal-site-export-type: uses
 ---
 
 # Fun Generation Wireless Guitar System

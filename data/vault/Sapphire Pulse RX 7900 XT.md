@@ -17,6 +17,7 @@ type:
   - gpu
 updatedAt: 2026-10-07T01:08:13Z
 x-personal-site-category: gaming
+x-personal-site-export-type: uses
 x-personal-site-parent: "[[Gaming PC]]"
 ---
 

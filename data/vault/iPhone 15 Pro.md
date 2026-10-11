@@ -18,6 +18,7 @@ type:
   - apple
 updatedAt: 2026-09-27T00:00:00Z
 x-personal-site-category: phones
+x-personal-site-export-type: uses
 ---
 
 # iPhone 15 Pro

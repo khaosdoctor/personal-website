@@ -17,6 +17,7 @@ type:
   - power-supply
 updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: pedalboard
+x-personal-site-export-type: uses
 ---
 
 # Lekato Pedalboard Power Supply

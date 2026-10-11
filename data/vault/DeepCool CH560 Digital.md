@@ -15,6 +15,7 @@ type:
   - pc-case
 updatedAt: 2026-09-27T02:37:40Z
 x-personal-site-category: gaming
+x-personal-site-export-type: uses
 x-personal-site-parent: "[[Gaming PC]]"
 ---
 

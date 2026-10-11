@@ -18,6 +18,7 @@ type:
   - compact
 updatedAt: 2026-09-21T01:33:23Z
 x-personal-site-category: keyboards
+x-personal-site-export-type: uses
 ---
 
 # Apple Magic Keyboard 2 (Compact)

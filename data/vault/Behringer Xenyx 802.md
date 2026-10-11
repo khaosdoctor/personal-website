@@ -19,6 +19,7 @@ type:
   - mixer
 updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: music production
+x-personal-site-export-type: uses
 ---
 
 # Behringer Xenyx 802

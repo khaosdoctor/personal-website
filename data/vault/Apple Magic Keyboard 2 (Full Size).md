@@ -18,6 +18,7 @@ type:
   - full-size
 updatedAt: 2026-09-21T01:32:47Z
 x-personal-site-category: keyboards
+x-personal-site-export-type: uses
 ---
 
 # Apple Magic Keyboard 2 (Full Size)

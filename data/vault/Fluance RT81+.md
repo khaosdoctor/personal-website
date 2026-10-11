@@ -20,6 +20,7 @@ type:
   - vinyl
 updatedAt: 2026-09-21T01:45:46Z
 x-personal-site-category: audio
+x-personal-site-export-type: uses
 ---
 
 # Fluance RT81+

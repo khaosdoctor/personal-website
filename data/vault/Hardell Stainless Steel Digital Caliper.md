@@ -16,6 +16,7 @@ type:
   - caliper
 updatedAt: 2026-09-20T01:32:38Z
 x-personal-site-category: tools
+x-personal-site-export-type: uses
 ---
 
 # Digital Caliper

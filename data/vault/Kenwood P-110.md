@@ -19,6 +19,7 @@ type:
   - vinyl
 updatedAt: 2026-10-07T01:13:10Z
 x-personal-site-category: audio
+x-personal-site-export-type: uses
 ---
 
 # Kenwood P-110

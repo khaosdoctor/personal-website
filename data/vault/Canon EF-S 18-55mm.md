@@ -16,6 +16,7 @@ type:
   - ef-s-mount
 updatedAt: 2026-10-03T00:00:00Z
 x-personal-site-category: photography
+x-personal-site-export-type: uses
 x-personal-site-parent: "[[Canon EOS 6D Mark II]]"
 ---
 

@@ -15,6 +15,7 @@ type:
   - dual-tower
 updatedAt: 2026-09-27T01:49:53Z
 x-personal-site-category: computers
+x-personal-site-export-type: uses
 x-personal-site-parent: "[[Gaming PC]]"
 ---
 

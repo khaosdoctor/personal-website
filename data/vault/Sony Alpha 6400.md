@@ -20,6 +20,7 @@ type:
   - e-mount
 updatedAt: 2026-09-21T01:40:29Z
 x-personal-site-category: photography
+x-personal-site-export-type: uses
 ---
 
 # Sony Alpha 6400

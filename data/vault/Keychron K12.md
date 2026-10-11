@@ -18,6 +18,7 @@ type:
   - wireless
 updatedAt: 2026-09-21T01:28:43Z
 x-personal-site-category: keyboards
+x-personal-site-export-type: uses
 ---
 
 # Keychron K12
