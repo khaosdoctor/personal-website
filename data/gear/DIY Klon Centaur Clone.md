@@ -66,11 +66,11 @@ It's a sound everyone should hear at some point in their life and try to underst
 
 ## Build log
 
-%% Add dated entries: when the kit arrived, when it was built, when the diodes were swapped. %%
+
 
 ## What broke and what I learned
 
-%% Fill in from the build. %%
+
 
 ## Next
 
