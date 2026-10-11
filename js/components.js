@@ -51,9 +51,25 @@ class SiteFooter extends HTMLElement {
       <a href="https://linkedin.lsantos.dev" target="_blank" rel="noopener">[linkedin]</a>
       <a href="https://youtube.lsantos.dev" target="_blank" rel="noopener">[youtube]</a>
       <a href="https://telegram.lsantos.dev" target="_blank" rel="noopener">[telegram]</a>
-      <p class="copyright">&copy; ${new Date().getFullYear()} Lucas Santos</p>
+      <p class="copyright">&copy; ${new Date().getFullYear()} Lucas Santos<!-- bake:heartbeat -->
+<span class="heartbeat"> · last pushed <time datetime="2026-10-11T20:52:29Z">2026-10-11</time>, to <a href="https://github.com/khaosdoctor/personal-website">personal-website</a></span>
+<!-- /bake:heartbeat --></p>
     `;
+    const pushed = this.querySelector('.heartbeat time');
+    if (pushed) pushed.textContent = timeAgo(new Date(pushed.dateTime)) || pushed.textContent;
   }
+}
+
+// sync.js bakes the last push time; turning it into "3 days ago" here keeps it right between builds
+const RTF = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+const UNITS = [['year', 31536000], ['month', 2592000], ['day', 86400], ['hour', 3600], ['minute', 60]];
+function timeAgo(date) {
+  if (isNaN(date)) return '';
+  const seconds = (date - Date.now()) / 1000;
+  for (const [unit, size] of UNITS) {
+    if (Math.abs(seconds) >= size) return RTF.format(Math.round(seconds / size), unit);
+  }
+  return 'just now';
 }
 
 customElements.define('site-sidebar', SiteSidebar);

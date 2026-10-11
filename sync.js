@@ -77,6 +77,7 @@ const VAULT_ASSETS = opt('vault-assets', 'VAULT_ASSETS') || (VAULT && join(VAULT
 if (!VAULT_DIR) log.warn(`no vault matching "${VAULT_NAME}" in ${OBSIDIAN_CONFIG}, using only data/vault`);
 const SITE = 'https://lsantos.dev';
 const RSS_URL ='https://blog.lsantos.dev/en/rss.xml';
+const GITHUB_USER = 'khaosdoctor';
 const GEAR_DIR = './gear';
 const BUILD_DIR = './builds';
 const GEAR_IMG = './img/gear';
@@ -193,7 +194,7 @@ async function readMdFiles(dir, skip = []) {
 const COVER_DIR = './img/gear/covers';
 const FETCH_TIMEOUT_MS = Number(opt('timeout', 'FETCH_TIMEOUT_MS')) || 15000;
 
-const fetchWithTimeout = url => fetch(url, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+const fetchWithTimeout = (url, init = {}) => fetch(url, { ...init, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
 
 async function optimizeImage(input, outputPath) {
   try {
@@ -297,6 +298,35 @@ async function syncPosts() {
   });
   log.ok(`${Math.min(items.length, 3)} posts fetched`);
   return items.slice(0, 3);
+}
+
+// The footer's "last pushed 3 days ago, to repo", from the user's public events. The vault sync pushes
+// here with a deploy key, which GitHub credits to the user, so a push whose head commit a bot authored
+// is skipped. GITHUB_TOKEN is optional and only raises the rate limit.
+const HEARTBEAT_PUSHES = 10;
+async function syncHeartbeat() {
+  log.step('💓 Fetching the last push');
+  const token = process.env.GITHUB_TOKEN?.trim();
+  const headers = { Accept: 'application/vnd.github+json', ...(token && { Authorization: `Bearer ${token}` }) };
+  const github = async path => {
+    const res = await fetchWithTimeout(`https://api.github.com/${path}`, { headers });
+    if (!res.ok) throw new Error(`GitHub ${path.split('/')[0]} HTTP ${res.status}`);
+    return res.json();
+  };
+
+  const pushes = (await github(`users/${GITHUB_USER}/events/public?per_page=100`)).filter(e => e.type === 'PushEvent');
+  for (const push of pushes.slice(0, HEARTBEAT_PUSHES)) {
+    const { commit } = await github(`repos/${push.repo.name}/commits/${push.payload.head}`);
+    if (commit.author.name.endsWith('[bot]')) {
+      debug.bake('%s at %s: bot commit, skipped', push.repo.name, push.created_at);
+      continue;
+    }
+    const [owner, repo] = push.repo.name.split('/');
+    const label = owner === GITHUB_USER ? repo : push.repo.name;
+    log.ok(`last push ${push.created_at} to ${push.repo.name}`);
+    return `<span class="heartbeat"> · last pushed <time datetime="${esc(push.created_at)}">${esc(push.created_at.slice(0, 10))}</time>, to <a href="https://github.com/${esc(push.repo.name)}">${esc(label)}</a></span>`;
+  }
+  throw new Error(`no hand-made push in the last ${HEARTBEAT_PUSHES} public pushes`);
 }
 
 async function syncNotes() {
@@ -493,6 +523,12 @@ const posts = await syncPosts().catch(err => {
   log.warn(`${err.name === 'TimeoutError' ? `RSS timed out after ${FETCH_TIMEOUT_MS}ms` : `RSS unavailable: ${err.message}`}, keeping the posts already on the page`);
   return null;
 });
+// Same for GitHub: a failed fetch keeps the push already baked into the footer
+const heartbeat = await syncHeartbeat().catch(err => {
+  log.warn(`${err.name === 'TimeoutError' ? `GitHub timed out after ${FETCH_TIMEOUT_MS}ms` : err.message}, keeping the last push already in the footer`);
+  return null;
+});
+if (heartbeat) await bake('js/components.js', { heartbeat });
 await bakePages(posts, await syncNotes());
 log.step('✅ Done');
 
