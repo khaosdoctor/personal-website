@@ -3,6 +3,9 @@
 @font-face { font-family: 'IBM Plex Mono'; font-style: italic; font-weight: 400; font-display: swap; src: url('/fonts/plex-mono-400-italic.woff2') format('woff2'); }
 @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/plex-mono-500.woff2') format('woff2'); }
 @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/plex-mono-600.woff2') format('woff2'); }
+/* Noto Sans Mono CJK JP, only the kana used on /friends (マリウス). Add new chars to --text and unicode-range:
+   pyftsubset NotoSansCJK-Regular.ttc --font-number=5 --text='マリウス' --flavor=woff2 --layout-features='' --output-file=fonts/noto-mono-jp-subset.woff2 */
+@font-face { font-family: 'Noto Mono JP Subset'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/noto-mono-jp-subset.woff2') format('woff2'); unicode-range: U+30A6, U+30B9, U+30DE, U+30EA; }
 
 :root {
   --bg: #f4efe0;
@@ -10,7 +13,7 @@
   --muted: #6b6353;
   --border: #736e62;
   --accent: #0571b3;
-  --font: 'IBM Plex Mono', monospace;
+  --font: 'IBM Plex Mono', 'Noto Mono JP Subset', monospace;
   --sidebar-w: 240px;
 }
 
