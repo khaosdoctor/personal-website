@@ -14,9 +14,11 @@
 - `data/now.md` is the /now page, the "last updated" date is the file's modified date
 - `data/friends.md` is the /friends page
 - `data/projects.json` is the /projects list, sorted by `status` (`active`, `inactive`, `archived`)
-- Gear comes from the vault notes that have both a `personalRating` and an `x-personal-site-category` (the /uses section it goes under); notes missing either stay off the site, and `updatedAt` shows up on the gear detail page. To list an item under another one (a lens under its camera), add `x-personal-site-parent: "[[Parent Note]]"` to the child; it can also be a list of links
+- Vault notes reach the site through `x-personal-site-export-type`, which is `uses`, `build` or a list of both (`[uses, build]`). Notes with `private: true` stay off the site, and `> [!private]` callouts and `%% %%` comments are stripped from the page
+- Gear (`uses`) also needs an `x-personal-site-category`, the /uses section it goes under; `personalRating` is optional, and `updatedAt` shows up on the gear detail page. To list an item under another one (a lens under its camera), add `x-personal-site-parent: "[[Parent Note]]"` to the child; it can also be a list of links
+- Builds (`build`) are listed on /builds with a `status` badge (`planned`, `in-progress` or `built`). A build that is also gear keeps its page in `gear/`, the others get one in `builds/`
 
-After changing any of these, run `bun run sync`. It fetches the latest 3 posts from the blog RSS, generates the gear pages in `gear/` (with covers converted to WebP), and replaces everything between the `<!-- bake:name -->` and `<!-- /bake:name -->` markers in the pages.
+After changing any of these, run `bun run sync`. It fetches the latest 3 posts from the blog RSS, generates the note pages in `gear/` and `builds/` (with covers converted to WebP), and replaces everything between the `<!-- bake:name -->` and `<!-- /bake:name -->` markers in the pages.
 
 ## Running locally
 
