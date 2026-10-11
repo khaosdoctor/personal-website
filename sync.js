@@ -74,13 +74,13 @@ function findVault() {
 const VAULT = findVault();
 const VAULT_DIR = opt('vault-dir', 'VAULT_DIR') || (VAULT && join(VAULT, 'notes'));
 const VAULT_ASSETS = opt('vault-assets', 'VAULT_ASSETS') || (VAULT && join(VAULT, 'internal/assets'));
-if (!VAULT_DIR) log.warn(`no vault matching "${VAULT_NAME}" in ${OBSIDIAN_CONFIG}, using only data/gear`);
+if (!VAULT_DIR) log.warn(`no vault matching "${VAULT_NAME}" in ${OBSIDIAN_CONFIG}, using only data/vault`);
 const SITE = 'https://lsantos.dev';
 const RSS_URL ='https://blog.lsantos.dev/en/rss.xml';
 const GEAR_DIR = './gear';
 const GEAR_IMG = './img/gear';
 const DATA_DIR = './data';
-const GEAR_DATA = './data/gear';
+const VAULT_DATA = './data/vault';
 const STATUS_ORDER = { active: 0, inactive: 1, archived: 2 };
 const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
 
@@ -279,7 +279,7 @@ async function syncGear() {
   for (const d of [GEAR_DIR, GEAR_IMG, COVER_DIR]) if (!existsSync(d)) await mkdir(d, { recursive: true });
 
   const vault = await readMdFiles(VAULT_DIR);
-  const local = await readMdFiles(GEAR_DATA, ['gear.template.md']);
+  const local = await readMdFiles(VAULT_DATA,['gear.template.md']);
   const vaultSlugs = new Set(vault.map(n => n.slug));
   const notes = [...vault, ...local.filter(n => !vaultSlugs.has(n.slug))];
   const allSlugs = new Set(notes.map(n => n.slug));
@@ -306,7 +306,7 @@ async function syncGear() {
     }
     const hasPage = n.body.trim().length > 0;
     if (hasPage) {
-      // data/gear notes are verbatim copies of vault notes in CI, so they carry wikilinks too
+      // data/vault notes are vault notes exported in CI (private blocks stripped), so they carry wikilinks too
       let html = await marked(resolveWikilinks(n.body, allSlugs));
       const namePattern = n.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       html = html.replace(new RegExp(`^\\s*<h1>${namePattern}</h1>\\s*`), '');
