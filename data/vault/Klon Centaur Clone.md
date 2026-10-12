@@ -3,7 +3,7 @@ aliases: []
 coverUrl: https://diymusicgear.dk/wp-content/uploads/2026/05/5401a.png
 createdAt: 2026-06-16T00:00:00Z
 icon: 🎸
-lastEditedByAI: 2026-10-11T19:56:21Z
+lastEditedByAI: 2026-10-12T00:00:00Z
 oneliner: "Handbuilt Klon Centaur clone, my first DIY pedal build"
 personalRating: 8.8
 state:
@@ -16,7 +16,7 @@ type:
   - overdrive
   - diy
   - guitar-pedal
-updatedAt: 2026-09-27T02:39:06Z
+updatedAt: 2026-10-12T00:18:44Z
 x-personal-site-category: pedalboard
 x-personal-site-export-type: [uses, build]
 x-personal-site-parent: "[[Lekato Pedalboard]]"
@@ -67,11 +67,21 @@ It's a sound everyone should hear at some point in their life and try to underst
 
 ## Build log
 
-
+- **[[2026-05-19]]:** Assembled the first version of the pedalboard and decided the next pedal would be an overdrive, either a Tube Screamer clone or a Centaur clone.
+- **[[2026-06-01]]:** Bought the Klon DIY kit from [DIY Music Gear](https://diymusicgear.dk/product/klon-centaur-overdrive/). It shipped the same day.
+- **[[2026-06-13]]:** Built it in one sitting. It took about 8 hours and I finished around 4 AM. The time kinda flew by because I was talking in Discord with some friends and it was a lovely sunny day
+![[2026-06-14_klon-centaur.png|The finished board|400]]
+- **[[2026-06-15]]:** It took me a while to assemble it because I wanted to see if the board itself was secured, the jacks were hitting the top sides of the board and the knobs were not well fitted so it took me a while to adjust them all.
+![[2026-06-14_klon_assembled.png|Assembled in the enclosure|400]]
+- **[[2026-06-23]]**: I found a [[1N34A Germanium Diode]] swap to replace the current ones in the kit, didn't see much difference honestly.
 
 ## What broke and what I learned
 
-
+- It took so long because there were too many components, and very small ones, with some really tight spaces to fit them.
+- The wires going to the jacks were too short, so I had to solder and desolder them multiple times. Same with several other components.
+- I was soldering at the wrong temperature. Raising it to 375 °C made it work a lot better. I was told 270 °C, which is way too low for my solder.
+- Learned how to use desoldering braid.
+- Burned my fingers multiple times.
 
 ## Next
 
