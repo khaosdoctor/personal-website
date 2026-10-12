@@ -17,5 +17,5 @@ for (const row of document.querySelectorAll('.gear-list li')) {
     tip.style.top = (r.bottom + 4) + 'px';
     tip.classList.add('visible');
   });
-  row.addEventListener('pointerleave',() => tip.classList.remove('visible'));
+  row.addEventListener('pointerleave', () => tip.classList.remove('visible'));
 }
