@@ -6,7 +6,7 @@ oneliner: "Small project I made to test my knowledge in electronics. It's a mini
 status: in-progress
 tags: [topic/electronics, type/idea/project, meta/ai-assisted]
 title: "Fume Extractor"
-updatedAt: 2026-10-12T01:22:37Z
+updatedAt: 2026-10-12T01:31:48Z
 x-personal-site-export-type: build
 ---
 # Fume Extractor
@@ -16,7 +16,9 @@ x-personal-site-export-type: build
 The idea was to make the fume extractor so I wouldn't breathe the fumes from the solder. So I started a small project with a [[Potentiometer]] and a small 6cm 5V DC brushless fan.
 
 ![[DIY Fume Extractor.png|First version on a perfboard|450]]
-The initial version was supposed to use a 6cm fan, however 
+
+The initial version was supposed to use a 6cm fan, however
+
 ## Design
 
 After I tested it in the breadboard, I put a schematic in KiCAD to help me draw a PCB for it:

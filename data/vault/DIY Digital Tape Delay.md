@@ -16,7 +16,7 @@ type:
   - delay
   - diy
   - guitar-pedal
-updatedAt: 2026-10-12T00:41:05Z
+updatedAt: 2026-10-12T01:32:04Z
 x-personal-site-category: pedalboard
 x-personal-site-export-type: uses
 x-personal-site-parent: "[[Lekato Pedalboard]]"
