@@ -6,7 +6,7 @@ oneliner: "Small project I made to test my knowledge in electronics. It's a mini
 status: in-progress
 tags: [topic/electronics, type/idea/project, meta/ai-assisted]
 title: "Fume Extractor"
-updatedAt: 2026-10-12T22:51:39Z
+updatedAt: 2026-10-12T22:58:01Z
 x-personal-site-export-type: build
 ---
 # Fume Extractor
