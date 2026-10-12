@@ -6,7 +6,7 @@ oneliner: "Small project I made to test my knowledge in electronics. It's a mini
 status: in-progress
 tags: [topic/electronics, type/idea/project, meta/ai-assisted]
 title: "Fume Extractor"
-updatedAt: 2026-10-12T22:37:47Z
+updatedAt: 2026-10-12T22:51:39Z
 x-personal-site-export-type: build
 ---
 # Fume Extractor
@@ -60,7 +60,9 @@ The soldered version of it is quite interesting, it's way smaller and I think I 
 
 ![[Pasted image 20261013003613.png|400]]
 
-Here I removed the potentiometer in the back side of the Polyester cap
+Here I removed the potentiometer in the back side of the Polyester cap, I did a small hack using a component leg from one of the caps to bridge the wiper to the VCC here
+
+![[Pasted image 20261013004410.png|You can see the jumper on the back side]]
 
 ### Bill of materials (v1, v2)
 
@@ -83,10 +85,11 @@ Here I removed the potentiometer in the back side of the Polyester cap
 Version 3 is still to come. The idea is a bit ambitious:
 
 1. Make it even smaller with [[SMD (Surface-Mount Device)|SMD]] components
-2. Replace the power regulator by a switching regulator IC based on a [[NE555P|NE555]] timing circuit, which is more efficient
+2. Replace the power regulator by a switching regulator IC based on a [[NE555P|NE555]] timing circuit, which is more efficient, and I lose less with the [[Dropout Voltage]] since the 7805 needs at least 2V more than the output to be able to run, and my fan needs at least 2.7V, so if I run it through an USB cable, I can't power the fan.
 3. Add a rechargeable Li Ion battery that can be charged through a USB port (USB-C would be the best)
-4. Remove the potentiometers because it makes no sense to have a "half step" fume extractor, so it would turn on or off only.
-5. Try to add a smoke detector so I don't have to turn it on manually, and can keep it on
+4. Being able to run it directly through the USB port is also a good idea
+5. Remove the potentiometers because it makes no sense to have a "half step" fume extractor, so it would turn on or off only.
+6. Try to add a smoke detector so I don't have to turn it on manually, and can keep it on
 	1. And figure out a way to not drain the entire battery while keeping this thing on
 ## Build log
 
@@ -96,6 +99,7 @@ Version 3 is still to come. The idea is a bit ambitious:
 - **[[2026-08-02]]:** The original board worked quite ok, I didn't take any pictures of it soldered ready, but I will soon make a v2 with all the other stuff
 - **[[2026-08-10]]:** V2 was made, but I shouldn't have ordered that, I already have ideas for a V3, should have just done the whole thing.
 - **[[2026-10-12]]:** I don't have a new version yet, but I am working on the case, which will dictate the size I can have for it.
+- **[[2026-10-13]]:** Decided to solder the second version of the board to use it while the V3 is not here
 
 ## Lessons learned
 
