@@ -4,19 +4,19 @@ createdAt: 2026-06-28 23:08
 lastEditedByAI: 2026-10-11T19:56:21Z
 oneliner: "Small project I made to test my knowledge in electronics. It's a mini 5V fume extractor made to be used when soldering."
 status: in-progress
-tags: [topic/electronics, type/idea/project, meta/done, meta/ai-assisted]
+tags: [topic/electronics, type/idea/project, meta/ai-assisted]
 title: "Fume Extractor"
-updatedAt: 2026-10-12T01:01:15Z
+updatedAt: 2026-10-12T01:22:37Z
 x-personal-site-export-type: build
 ---
 # Fume Extractor
 
 ## Overview
 
-![[DIY Fume Extractor.png|450]]
-
 The idea was to make the fume extractor so I wouldn't breathe the fumes from the solder. So I started a small project with a [[Potentiometer]] and a small 6cm 5V DC brushless fan.
 
+![[DIY Fume Extractor.png|First version on a perfboard|450]]
+The initial version was supposed to use a 6cm fan, however 
 ## Design
 
 After I tested it in the breadboard, I put a schematic in KiCAD to help me draw a PCB for it:
@@ -24,6 +24,22 @@ After I tested it in the breadboard, I put a schematic in KiCAD to help me draw 
 ![[DIY Fume Extractor_diagram.png]]
 
 I opted to have the fan in a Molex (J) connector because it would be easier if I needed to swap the fan for a bigger one later on, which is what I am planning to do with a 9V/12cm fan, this was basically the test.
+
+### V1
+
+The first board I ordered, from the [KiCad project](https://github.com/khaosdoctor/kicad-fume-extractor-5v/tree/610c8e3e5aa4c40a0b02b2769eef7642583af31b).
+
+![[fume-extractor-v1-schematic.png|Fume extractor v1 schematic|700]]
+
+![[fume-extractor-v1-pcb.png|Fume extractor v1 PCB layout, front view|700]]
+
+### V2
+
+The current version of the [KiCad project](https://github.com/khaosdoctor/kicad-fume-extractor-5v/tree/d25dcb77e7e6b90e89afc76eb4231ef546408225).
+
+![[fume-extractor-v2-schematic.png|Fume extractor v2 schematic|700]]
+
+![[fume-extractor-v2-pcb.png|Fume extractor v2 PCB layout, front view|700]]
 
 ## Bill of materials
 
