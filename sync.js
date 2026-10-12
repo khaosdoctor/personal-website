@@ -93,6 +93,8 @@ const STATE_COLORS = {
 };
 // Shown on the gear detail page but left off the /uses list
 const LIST_HIDDEN_STATES = new Set(['owned', 'actively-used']);
+// Gear no longer around, its name is struck through on /uses
+const GONE_STATES = new Set(['previously-owned', 'broken']);
 // Build `status`, in the order of the builds list on /projects
 const BUILD_STATUS = { 'in-progress': 'tag-yellow', planned: 'tag-blue', built: 'tag-green' };
 const BUILD_ORDER = Object.keys(BUILD_STATUS);
@@ -376,7 +378,8 @@ const stateTags = states => states.map(s => `<span class="tag ${STATE_COLORS[s] 
 function gearRow(g, isChild) {
   const cells = `<span class="gear-name">${esc(g.name)}</span><span class="gear-desc">${esc(g.oneliner)}</span><span class="gear-states">${stateTags(g.state.filter(s => !LIST_HIDDEN_STATES.has(s)))}</span><span class="gear-rating">${g.rating != null ? `${g.rating}/10` : ''}</span>`;
   const href = g.externalLink || (g.hasPage ? g.href : '');
-  const li = isChild ? '<li class="gear-child">' : '<li>';
+  const classes = [isChild && 'gear-child', g.state.some(s => GONE_STATES.has(s)) && 'gone'].filter(Boolean).join(' ');
+  const li = classes ? `<li class="${classes}">` : '<li>';
   return href ? `${li}<a class="gear-link" href="${esc(href)}">${cells}</a></li>` : `${li}${cells}</li>`;
 }
 
