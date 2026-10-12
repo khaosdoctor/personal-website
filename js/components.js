@@ -147,6 +147,18 @@ function shimmer(pre) {
   }, 150);
 }
 
+// From midnight to noon in Stockholm the favicon is the sleeping cat. Checked every minute so an open tab swaps too
+const favicon = document.querySelector('link[rel="icon"]');
+const stockholmHour = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Stockholm', hour: 'numeric', hourCycle: 'h23' });
+function updateFavicon() {
+  const href = Number(stockholmHour.format(new Date())) < 12 ? '/favicon-sleep.svg' : '/favicon.svg';
+  if (favicon.getAttribute('href') !== href) favicon.setAttribute('href', href);
+}
+if (favicon) {
+  updateFavicon();
+  setInterval(updateFavicon, 60000);
+}
+
 // <site-footer>: social links and copyright
 class SiteFooter extends HTMLElement {
   connectedCallback() {
