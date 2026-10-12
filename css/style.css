@@ -274,6 +274,14 @@ a.ext::after {
   font-size: 0.9rem;
 }
 
+.intro-clock {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.intro-clock:empty { display: none; }
+
 .bio { font-size: 0.9rem; }
 .bio p + p { margin-top: 1rem; }
 
@@ -764,6 +772,7 @@ a.ext::after {
 
   .intro-name { font-size: 2.5rem; }
   .intro-sub { font-size: 0.7rem; white-space: nowrap; }
+  .intro-clock { font-size: 0.65rem; }
 
   .section-label { font-size: 1.3rem; }
 
