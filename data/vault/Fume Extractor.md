@@ -6,7 +6,7 @@ oneliner: "Small project I made to test my knowledge in electronics. It's a mini
 status: in-progress
 tags: [topic/electronics, type/idea/project, meta/ai-assisted]
 title: "Fume Extractor"
-updatedAt: 2026-10-12T22:25:53Z
+updatedAt: 2026-10-12T22:37:47Z
 x-personal-site-export-type: build
 ---
 # Fume Extractor
@@ -56,7 +56,11 @@ I also fixed the right-angled corners, which hurt like hell. However they got me
 
 Also, the red color allows for a better view of the parts. Although I didn't complete the soldering of this one, I think I could've done better by putting the resistors and the capacitors in vertical positions. Maybe even soldering the capacitor on the back side.
 
-	The soldered version of it is quite interesting
+The soldered version of it is quite interesting, it's way smaller and I think I can make it even smaller, for example, this is the final build:
+
+![[Pasted image 20261013003613.png|400]]
+
+Here I removed the potentiometer in the back side of the Polyester cap
 
 ### Bill of materials (v1, v2)
 
