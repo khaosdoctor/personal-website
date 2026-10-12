@@ -77,7 +77,6 @@ const VAULT_ASSETS = opt('vault-assets', 'VAULT_ASSETS') || (VAULT && join(VAULT
 if (!VAULT_DIR) log.warn(`no vault matching "${VAULT_NAME}" in ${OBSIDIAN_CONFIG}, using only data/vault`);
 const SITE = 'https://lsantos.dev';
 const RSS_URL ='https://blog.lsantos.dev/en/rss.xml';
-const GITHUB_USER = 'khaosdoctor';
 const GEAR_DIR = './gear';
 const BUILD_DIR = './builds';
 const GEAR_IMG = './img/gear';
@@ -92,7 +91,7 @@ const STATE_COLORS = {
 };
 // Shown on the gear detail page but left off the /uses list
 const LIST_HIDDEN_STATES = new Set(['owned', 'actively-used']);
-// Build `status`, in /builds list order
+// Build `status`, in the order of the builds list on /projects
 const BUILD_STATUS = { 'in-progress': 'tag-yellow', planned: 'tag-blue', built: 'tag-green' };
 const BUILD_ORDER = Object.keys(BUILD_STATUS);
 const ESC_MAP ={ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
@@ -194,7 +193,7 @@ async function readMdFiles(dir, skip = []) {
 const COVER_DIR = './img/gear/covers';
 const FETCH_TIMEOUT_MS = Number(opt('timeout', 'FETCH_TIMEOUT_MS')) || 15000;
 
-const fetchWithTimeout = (url, init = {}) => fetch(url, { ...init, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+const fetchWithTimeout = url => fetch(url, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
 
 async function optimizeImage(input, outputPath) {
   try {
@@ -236,7 +235,7 @@ const statusTag = status => BUILD_STATUS[status] ? `<span class="tag ${BUILD_STA
 function notePage(n, body) {
   const tags = [statusTag(n.status), stateTags(n.state)].filter(Boolean).join(' ');
   const desc = n.oneliner || (n.rating != null ? `${n.name}, rated ${n.rating}/10 by Lucas Santos` : `${n.name}, a build by Lucas Santos`);
-  const back = n.isGear ? 'uses' : 'builds';
+  const back = n.isGear ? { href: '/uses', label: 'uses' } : { href: '/projects', label: 'projects' };
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -269,7 +268,7 @@ function notePage(n, body) {
     <site-sidebar class="sidebar"></site-sidebar>
     <main class="content">
       <div class="content-inner">
-        <a href="/${back}" class="back-link">&lt; ${back}</a>
+        <a href="${back.href}" class="back-link">&lt; ${back.label}</a>
         ${n.coverUrl ? `<img src="${esc(n.coverUrl)}" alt="${esc(n.name)}" class="gear-cover">` : ''}
         <h1 class="gear-detail">${esc(n.name)}</h1>
         <p class="gear-meta">${n.rating != null ? `<span class="rating">${n.rating}/10</span> ` : ''}${tags}${n.updated ? ` <span class="gear-updated">updated ${n.updated}</span>` : ''}</p>
@@ -298,35 +297,6 @@ async function syncPosts() {
   });
   log.ok(`${Math.min(items.length, 3)} posts fetched`);
   return items.slice(0, 3);
-}
-
-// The footer's "last pushed 3 days ago, to repo", from the user's public events. The vault sync pushes
-// here with a deploy key, which GitHub credits to the user, so a push whose head commit a bot authored
-// is skipped. GITHUB_TOKEN is optional and only raises the rate limit.
-const HEARTBEAT_PUSHES = 10;
-async function syncHeartbeat() {
-  log.step('💓 Fetching the last push');
-  const token = process.env.GITHUB_TOKEN?.trim();
-  const headers = { Accept: 'application/vnd.github+json', ...(token && { Authorization: `Bearer ${token}` }) };
-  const github = async path => {
-    const res = await fetchWithTimeout(`https://api.github.com/${path}`, { headers });
-    if (!res.ok) throw new Error(`GitHub ${path.split('/')[0]} HTTP ${res.status}`);
-    return res.json();
-  };
-
-  const pushes = (await github(`users/${GITHUB_USER}/events/public?per_page=100`)).filter(e => e.type === 'PushEvent');
-  for (const push of pushes.slice(0, HEARTBEAT_PUSHES)) {
-    const { commit } = await github(`repos/${push.repo.name}/commits/${push.payload.head}`);
-    if (commit.author.name.endsWith('[bot]')) {
-      debug.bake('%s at %s: bot commit, skipped', push.repo.name, push.created_at);
-      continue;
-    }
-    const [owner, repo] = push.repo.name.split('/');
-    const label = owner === GITHUB_USER ? repo : push.repo.name;
-    log.ok(`last push ${push.created_at} to ${push.repo.name}`);
-    return `<span class="heartbeat"> · last pushed <time datetime="${esc(push.created_at)}">${esc(push.created_at.slice(0, 10))}</time>, to <a href="https://github.com/${esc(push.repo.name)}">${esc(label)}</a></span>`;
-  }
-  throw new Error(`no hand-made push in the last ${HEARTBEAT_PUSHES} public pushes`);
 }
 
 async function syncNotes() {
@@ -443,7 +413,7 @@ function gearHtml(items) {
   return sections.join('\n');
 }
 
-// Sorted in-progress -> planned -> built, then by name; same markup as /projects
+// Sorted in-progress -> planned -> built, then by name; same markup as the software projects list
 function buildsHtml(builds) {
   const rank = b => BUILD_ORDER.indexOf(b.status) === -1 ? BUILD_ORDER.length : BUILD_ORDER.indexOf(b.status);
   const sorted = [...builds].sort((a, b) => rank(a) - rank(b) || a.name.localeCompare(b.name));
@@ -500,20 +470,28 @@ async function bakePages(posts, notes) {
   // No posts means the feed was unreachable; leaving the block out keeps whatever was baked last time
   await bake('index.html', { bio: await md('bio.md'), ...(posts && { posts: postsHtml(posts) }) });
   await bake('now.html', { now: await md('now.md'), 'now-date': nowUpdated });
-  await bake('projects.html', { projects: projectsHtml(projects) });
   await bake('friends.html', { friends: marked(sortLists(await readFile(join(DATA_DIR, 'friends.md'), 'utf-8'))) });
 
-  // No notes means no source was readable, not that the gear is gone. Rewriting /uses, /builds and
-  // the sitemap here would publish empty lists, so they keep what they already have.
+  // No notes means no source was readable, not that the gear is gone. Rewriting /uses, /projects
+  // (which mixes in the builds) and the sitemap here would publish empty lists, so they keep what they have.
   if (!notes.length) {
-    log.warn('no gear or build notes found, leaving /uses, /builds and the sitemap untouched');
+    log.warn('no gear or build notes found, leaving /uses, /projects and the sitemap untouched');
     return;
   }
 
   await bake('uses.html', { gear: gearHtml(notes.filter(n => n.isGear)) });
-  await bake('builds.html', { builds: buildsHtml(notes.filter(n => n.isBuild)) });
+  // Software and builds share the /projects sections by status; inactive software counts as done
+  const builds = notes.filter(n => n.isBuild);
+  const software = status => projectsHtml(projects.filter(p => status.includes(p.status)));
+  const built = status => buildsHtml(builds.filter(b => status.includes(b.status)));
+  const both = (...lists) => lists.filter(Boolean).join('\n');
+  await bake('projects.html', {
+    'projects-active': both(software(['active']), built(['in-progress'])),
+    'projects-planned': built(['planned']),
+    'projects-done': both(built(['built']), software(['inactive', 'archived'])),
+  });
 
-  const urls = ['/', '/now', '/projects', '/uses', '/builds', '/friends', ...notes.filter(n => n.hasPage).map(n => n.href)];
+  const urls = ['/', '/now', '/projects', '/uses', '/friends', ...notes.filter(n => n.hasPage).map(n => n.href)];
   const sitemap = urls.map(u => `  <url><loc>${SITE}${u}</loc></url>`).join('\n');
   await writeFile('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemap}\n</urlset>\n`);
 }
@@ -523,12 +501,6 @@ const posts = await syncPosts().catch(err => {
   log.warn(`${err.name === 'TimeoutError' ? `RSS timed out after ${FETCH_TIMEOUT_MS}ms` : `RSS unavailable: ${err.message}`}, keeping the posts already on the page`);
   return null;
 });
-// Same for GitHub: a failed fetch keeps the push already baked into the footer
-const heartbeat = await syncHeartbeat().catch(err => {
-  log.warn(`${err.name === 'TimeoutError' ? `GitHub timed out after ${FETCH_TIMEOUT_MS}ms` : err.message}, keeping the last push already in the footer`);
-  return null;
-});
-if (heartbeat) await bake('js/components.js', { heartbeat });
 await bakePages(posts, await syncNotes());
 log.step('✅ Done');
 
