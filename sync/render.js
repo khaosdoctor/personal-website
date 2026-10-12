@@ -18,7 +18,7 @@ const BUILD_ORDER = Object.keys(BUILD_STATUS);
 const ESC_MAP ={ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
 const RE_ESC = /[&<>"]/g;
 
-const esc = s => s.replace(RE_ESC, c => ESC_MAP[c]);
+export const esc = s => s.replace(RE_ESC, c => ESC_MAP[c]);
 
 // A note that is both gear and a build keeps its /gear page, so links to it from /uses don't break
 export const pagePath = n => `/${n.isGear ? 'gear' : 'builds'}/${n.slug}.html`;

@@ -1,0 +1,105 @@
+import { writeFile } from 'fs/promises';
+import { execFileSync } from 'child_process';
+import { marked } from 'marked';
+import { log, SITE, RSS_URL } from './options.js';
+import { esc } from './render.js';
+
+const NOW_FILE = 'data/now.md';
+const PROJECTS_FILE = 'data/projects.json';
+// ponytail: latest 20 items per feed, a new subscriber doesn't need the whole history
+const MAX_ITEMS = 20;
+
+// "]]>" would end the CDATA early, so it is split across two sections
+const cdata = s => `<![CDATA[${s.replaceAll(']]>', ']]]]><![CDATA[>')}]]>`;
+const parseJson = s => { try { return JSON.parse(s); } catch { return []; } };
+const git = args => { try { return execFileSync('git', args, { encoding: 'utf-8' }); } catch { return ''; } };
+// Oldest first as [hash, ISO date]; empty when there is no git or no history
+const commitsOf = file => git(['log', '--reverse', '--format=%H %cI', '--', file]).split('\n').filter(Boolean).map(l => l.split(' '));
+const showAt = (hash, file) => git(['show', `${hash}:${file}`]);
+
+// One item per commit that changed what data/now.md says, with the page as it was then
+function nowItems() {
+  const versions = commitsOf(NOW_FILE).map(([hash, date]) => ({ hash, date, md: showAt(hash, NOW_FILE) }));
+  return versions.filter((v, i) => v.md && v.md !== versions[i - 1]?.md).map(v => ({
+    title: `Now: updated ${v.date.slice(0, 10)}`, link: `${SITE}/now`, guid: `now:${v.hash}`, date: v.date, html: marked(v.md),
+  }));
+}
+
+// One item per project that appears or whose entry changes in a commit to data/projects.json
+function softwareItems() {
+  const items = [];
+  const last = new Map();
+  for (const [hash, date] of commitsOf(PROJECTS_FILE)) {
+    for (const p of parseJson(showAt(hash, PROJECTS_FILE))) {
+      const entry = JSON.stringify(p);
+      if (!p.name || last.get(p.name) === entry) continue;
+      const link = p.url ? ` <a href="${esc(p.url)}">${esc(p.url)}</a>` : '';
+      items.push({
+        title: `Project: ${p.name} ${last.has(p.name) ? 'updated' : 'added'}`, link: `${SITE}/projects`,
+        guid: `project:${p.name}:${hash}`, date, html: `<p>${esc(p.description || '')} (${esc(p.status || '')})${link}</p>`,
+      });
+      last.set(p.name, entry);
+    }
+  }
+  return items;
+}
+
+// Gear and builds are dated by the note's updatedAt (createdAt without one); the date is in the guid,
+// so an edited note comes back as a new item
+function noteItems(notes, { prefix, fallback }) {
+  return notes.filter(n => !isNaN(new Date(n.changedAt))).map(n => {
+    const date = new Date(n.changedAt).toISOString();
+    const rating = n.rating != null ? ` Rated ${n.rating}/10.` : '';
+    const status = prefix === 'Build' && n.status ? ` (${n.status})` : '';
+    return {
+      title: `${prefix}: ${n.name}${status}`, link: `${SITE}${n.hasPage ? n.href : fallback}`,
+      guid: `${prefix.toLowerCase()}:${n.slug}:${date}`, date, html: `<p>${esc(n.oneliner)}${rating}</p>`,
+    };
+  });
+}
+
+function rss({ file, title, page, description, items, related = '' }) {
+  const latest = [...items].sort((a, b) => new Date(b.date) - new Date(a.date) || a.guid.localeCompare(b.guid)).slice(0, MAX_ITEMS);
+  const body = latest.map(i => `    <item>
+      <title>${esc(i.title)}</title>
+      <link>${esc(i.link)}</link>
+      <guid isPermaLink="false">${esc(i.guid)}</guid>
+      <pubDate>${new Date(i.date).toUTCString()}</pubDate>
+      <description>${cdata(i.html)}</description>
+    </item>`).join('\n');
+  // No lastBuildDate: it would change on every daily build and commit a feed with nothing new in it
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>${esc(title)}</title>
+    <link>${SITE}${page}</link>
+    <description>${esc(description)}</description>
+    <language>en</language>
+    <atom:link href="${SITE}/${file}" rel="self" type="application/rss+xml"/>${related}
+${body}
+  </channel>
+</rss>
+`;
+}
+
+// Writes feed.xml (everything below merged), now.xml, uses.xml and projects.xml at the site root
+export async function writeFeeds(notes) {
+  const now = nowItems();
+  const uses = noteItems(notes.filter(n => n.isGear), { prefix: 'Uses', fallback: '/uses' });
+  const projects = [
+    ...softwareItems(),
+    ...noteItems(notes.filter(n => n.isBuild), { prefix: 'Build', fallback: '/projects' }),
+  ];
+  const feeds = [
+    { file: 'now.xml', title: 'Lucas Santos: now', page: '/now', items: now, description: 'What Lucas Santos is doing now, one item per update of the /now page' },
+    { file: 'uses.xml', title: 'Lucas Santos: uses', page: '/uses', items: uses, description: 'Gear Lucas Santos uses, one item per added or updated gear note' },
+    { file: 'projects.xml', title: 'Lucas Santos: projects', page: '/projects', items: projects, description: 'Software projects and builds by Lucas Santos, one item per added or changed entry' },
+    {
+      file: 'feed.xml', title: 'Lucas Santos', page: '/', items: [...now, ...uses, ...projects],
+      description: `Updates to lsantos.dev from /now, /uses and /projects. Blog posts have their own feed at ${RSS_URL}`,
+      related: `\n    <atom:link href="${esc(RSS_URL)}" rel="related" type="application/rss+xml"/>`,
+    },
+  ];
+  for (const f of feeds) await writeFile(f.file, rss(f));
+  log.ok(`feeds written: ${feeds.map(f => `${f.file} (${Math.min(f.items.length, MAX_ITEMS)})`).join(', ')}`);
+}

@@ -4,6 +4,7 @@ import { execFileSync } from 'child_process';
 import { marked } from 'marked';
 import { debug, log, SITE, DATA_DIR } from './options.js';
 import { postsHtml, gearHtml, buildsHtml, projectsHtml, sortLists } from './render.js';
+import { writeFeeds } from './feeds.js';
 
 // Replaces whatever sits between <!-- bake:name --> and <!-- /bake:name --> in an HTML page
 async function bake(file, blocks) {
@@ -62,4 +63,5 @@ export async function bakePages(posts, notes) {
   const urls = ['/', '/now', '/projects', '/uses', '/friends', ...notes.filter(n => n.hasPage).map(n => n.href)];
   const sitemap = urls.map(u => `  <url><loc>${SITE}${u}</loc></url>`).join('\n');
   await writeFile('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemap}\n</urlset>\n`);
+  await writeFeeds(notes);
 }

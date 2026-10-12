@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lucas Santos: projects</title>
+    <link>https://lsantos.dev/projects</link>
+    <description>Software projects and builds by Lucas Santos, one item per added or changed entry</description>
+    <language>en</language>
+    <atom:link href="https://lsantos.dev/projects.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Project: blog.lsantos.dev updated</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:blog.lsantos.dev:9f0df862f1b7d2a4344b9d83a4cbdc028401e642</guid>
+      <pubDate>Mon, 12 Oct 2026 00:49:14 GMT</pubDate>
+      <description><![CDATA[<p>My personal tech blog, maintained since 2015 (in-progress) <a href="https://blog.lsantos.dev">https://blog.lsantos.dev</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: dontquotetheai updated</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:dontquotetheai:9f0df862f1b7d2a4344b9d83a4cbdc028401e642</guid>
+      <pubDate>Mon, 12 Oct 2026 00:49:14 GMT</pubDate>
+      <description><![CDATA[<p>Satire website that mocks the AI hype (done) <a href="https://github.com/khaosdoctor/dontquotetheai">https://github.com/khaosdoctor/dontquotetheai</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: enigmajs updated</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:enigmajs:9f0df862f1b7d2a4344b9d83a4cbdc028401e642</guid>
+      <pubDate>Mon, 12 Oct 2026 00:49:14 GMT</pubDate>
+      <description><![CDATA[<p>Full implementation of the 1944 German cryptographic machine in TypeScript (done) <a href="https://github.com/khaosdoctor/enigmajs">https://github.com/khaosdoctor/enigmajs</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: my-notes updated</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:my-notes:9f0df862f1b7d2a4344b9d83a4cbdc028401e642</guid>
+      <pubDate>Mon, 12 Oct 2026 00:49:14 GMT</pubDate>
+      <description><![CDATA[<p>A repo with my study notes, this was my way in to OSS (done) <a href="https://github.com/khaosdoctor/my-notes">https://github.com/khaosdoctor/my-notes</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: netkill updated</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:netkill:9f0df862f1b7d2a4344b9d83a4cbdc028401e642</guid>
+      <pubDate>Mon, 12 Oct 2026 00:49:14 GMT</pubDate>
+      <description><![CDATA[<p>Kills the Internet connection of LAN devices using ARP spoofing, ideal for ADHD (done) <a href="https://github.com/khaosdoctor/netkill">https://github.com/khaosdoctor/netkill</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: node-dht updated</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:node-dht:9f0df862f1b7d2a4344b9d83a4cbdc028401e642</guid>
+      <pubDate>Mon, 12 Oct 2026 00:49:14 GMT</pubDate>
+      <description><![CDATA[<p>A simple Distributed Hash Table made in Node.js (done) <a href="https://github.com/khaosdoctor/node-dht">https://github.com/khaosdoctor/node-dht</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: sigil updated</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:sigil:9f0df862f1b7d2a4344b9d83a4cbdc028401e642</guid>
+      <pubDate>Mon, 12 Oct 2026 00:49:14 GMT</pubDate>
+      <description><![CDATA[<p>Compressed memory format for Claude Code (done) <a href="https://github.com/khaosdoctor/sigil">https://github.com/khaosdoctor/sigil</a></p>]]></description>
+    </item>
+    <item>
+      <title>Build: Klon Centaur Clone (built)</title>
+      <link>https://lsantos.dev/gear/klon-centaur-clone.html</link>
+      <guid isPermaLink="false">build:klon-centaur-clone:2026-10-12T00:30:27.000Z</guid>
+      <pubDate>Mon, 12 Oct 2026 00:30:27 GMT</pubDate>
+      <description><![CDATA[<p>Handbuilt Klon Centaur clone, my first DIY pedal build Rated 8.8/10.</p>]]></description>
+    </item>
+    <item>
+      <title>Build: Pedalboard Buck Converters (built)</title>
+      <link>https://lsantos.dev/gear/pedalboard-buck-converters.html</link>
+      <guid isPermaLink="false">build:pedalboard-buck-converters:2026-10-12T00:30:25.000Z</guid>
+      <pubDate>Mon, 12 Oct 2026 00:30:25 GMT</pubDate>
+      <description><![CDATA[<p>Two LM2596 buck converters with added protection, in 3D-printed enclosures, powering my pedalboard.</p>]]></description>
+    </item>
+    <item>
+      <title>Build: Ibanez Tube Screamer DIY (planned)</title>
+      <link>https://lsantos.dev/builds/ibanez-tube-screamer-diy.html</link>
+      <guid isPermaLink="false">build:ibanez-tube-screamer-diy:2026-10-12T00:30:19.000Z</guid>
+      <pubDate>Mon, 12 Oct 2026 00:30:19 GMT</pubDate>
+      <description><![CDATA[<p>DIY build of the Ibanez TS808 Tube Screamer, one of the most iconic overdrive pedals ever made.</p>]]></description>
+    </item>
+    <item>
+      <title>Build: E-ink bus times computer (planned)</title>
+      <link>https://lsantos.dev/builds/e-ink-bus-times-computer.html</link>
+      <guid isPermaLink="false">build:e-ink-bus-times-computer:2026-10-12T00:30:14.000Z</guid>
+      <pubDate>Mon, 12 Oct 2026 00:30:14 GMT</pubDate>
+      <description><![CDATA[<p>ESP32 with an e-ink screen showing nearby bus and subway departures, with today's weather</p>]]></description>
+    </item>
+    <item>
+      <title>Build: Fume Extractor (in-progress)</title>
+      <link>https://lsantos.dev/builds/fume-extractor.html</link>
+      <guid isPermaLink="false">build:fume-extractor:2026-10-12T00:30:12.000Z</guid>
+      <pubDate>Mon, 12 Oct 2026 00:30:12 GMT</pubDate>
+      <description><![CDATA[<p>Small project I made to test my knowledge in electronics. It's a mini 5V fume extractor made to be used when soldering.</p>]]></description>
+    </item>
+    <item>
+      <title>Project: blog.lsantos.dev updated</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:blog.lsantos.dev:91b4119e14f67cbd639c95882bf4e6ba2f4cde86</guid>
+      <pubDate>Tue, 22 Sep 2026 00:56:12 GMT</pubDate>
+      <description><![CDATA[<p>My personal tech blog, maintained since 2015 (active) <a href="https://blog.lsantos.dev">https://blog.lsantos.dev</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: dontquotetheai updated</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:dontquotetheai:91b4119e14f67cbd639c95882bf4e6ba2f4cde86</guid>
+      <pubDate>Tue, 22 Sep 2026 00:56:12 GMT</pubDate>
+      <description><![CDATA[<p>Satire website that mocks the AI hype (active) <a href="https://github.com/khaosdoctor/dontquotetheai">https://github.com/khaosdoctor/dontquotetheai</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: my-notes updated</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:my-notes:91b4119e14f67cbd639c95882bf4e6ba2f4cde86</guid>
+      <pubDate>Tue, 22 Sep 2026 00:56:12 GMT</pubDate>
+      <description><![CDATA[<p>A repo with my study notes, this was my way in to OSS (archived) <a href="https://github.com/khaosdoctor/my-notes">https://github.com/khaosdoctor/my-notes</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: netkill updated</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:netkill:91b4119e14f67cbd639c95882bf4e6ba2f4cde86</guid>
+      <pubDate>Tue, 22 Sep 2026 00:56:12 GMT</pubDate>
+      <description><![CDATA[<p>Kills the Internet connection of LAN devices using ARP spoofing, ideal for ADHD (archived) <a href="https://github.com/khaosdoctor/netkill">https://github.com/khaosdoctor/netkill</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: dontquotetheai added</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:dontquotetheai:66dff9dc5f30bd1b362cfac0e993c7372661bec1</guid>
+      <pubDate>Tue, 22 Sep 2026 00:48:55 GMT</pubDate>
+      <description><![CDATA[<p>Don't paste the AI response at me, please (active) <a href="https://github.com/khaosdoctor/dontquotetheai">https://github.com/khaosdoctor/dontquotetheai</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: dotfiles added</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:dotfiles:66dff9dc5f30bd1b362cfac0e993c7372661bec1</guid>
+      <pubDate>Tue, 22 Sep 2026 00:48:55 GMT</pubDate>
+      <description><![CDATA[<p>My dotfiles (active) <a href="https://github.com/khaosdoctor/dotfiles">https://github.com/khaosdoctor/dotfiles</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: enigmajs added</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:enigmajs:66dff9dc5f30bd1b362cfac0e993c7372661bec1</guid>
+      <pubDate>Tue, 22 Sep 2026 00:48:55 GMT</pubDate>
+      <description><![CDATA[<p>Full implementation of the 1944 German cryptographic machine in TypeScript (archived) <a href="https://github.com/khaosdoctor/enigmajs">https://github.com/khaosdoctor/enigmajs</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: gotql added</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:gotql:66dff9dc5f30bd1b362cfac0e993c7372661bec1</guid>
+      <pubDate>Tue, 22 Sep 2026 00:48:55 GMT</pubDate>
+      <description><![CDATA[<p>GraphQL query utility for serverside apps (archived) <a href="https://github.com/khaosdoctor/gotql">https://github.com/khaosdoctor/gotql</a></p>]]></description>
+    </item>
+  </channel>
+</rss>

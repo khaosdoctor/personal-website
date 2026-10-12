@@ -52,7 +52,7 @@ jobs:
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add gear builds img/gear uses.html index.html now.html projects.html friends.html sitemap.xml
+          git add gear builds img/gear uses.html index.html now.html projects.html friends.html sitemap.xml feed.xml now.xml uses.xml projects.xml
           git diff --cached --quiet && echo 'nothing to commit' && exit 0
           git commit -m 'chore: bake content [skip ci]'
           git push

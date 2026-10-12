@@ -20,6 +20,8 @@
 
 After changing any of these, run `bun run sync`. It fetches the latest 3 posts from the blog RSS, generates the note pages in `gear/` and `builds/` (with covers converted to WebP), and replaces everything between the `<!-- bake:name -->` and `<!-- /bake:name -->` markers in the pages.
 
+It also writes the RSS feeds, the latest 20 items each: `now.xml` has one item per commit to `data/now.md`, `uses.xml` one per gear note dated by its `updatedAt` (or `createdAt`), `projects.xml` one per project added or changed in the `data/projects.json` history plus the builds, and `feed.xml` merges the three. Blog posts stay in the blog's own feed.
+
 ## Running locally
 
 ```sh

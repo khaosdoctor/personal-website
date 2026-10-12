@@ -79,6 +79,7 @@ async function readMdFiles(dir, skip = []) {
         state: data.state || [], category,
         externalLink: data.externalLink || '',
         updated: isNaN(updatedAt) ? '' : updatedAt.toISOString().slice(0, 10),
+        changedAt: data.updatedAt ?? data.createdAt ?? '',
         // "[[Canon EOS 6D Mark II]]" (or a list of links); unquoted YAML turns [[x]] into nested arrays, hence flat()
         parents: [data['x-personal-site-parent'] ?? []].flat(Infinity)
           .map(p => slugify(String(p).replace(/^\[\[|\]\]$/g, '').split('|')[0])),
@@ -140,6 +141,7 @@ export async function syncNotes() {
       name: n.name, slug: n.slug, oneliner: n.oneliner, rating: n.rating,
       state: n.state, category: n.category, status: n.status, isGear: n.isGear, isBuild: n.isBuild,
       coverUrl: n.coverUrl, externalLink: n.externalLink, hasPage, href: pagePath(n), parents: n.parents,
+      changedAt: n.changedAt,
     };
   }));
   if (coverCount) log.ok(`${coverCount} covers downloaded`);
