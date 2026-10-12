@@ -8,6 +8,7 @@ on:
     paths:
       - 'data/**'
       - 'sync.js'
+      - 'sync/**'
       - 'package.json'
       - 'bun.lock'
       - 'index.html'
