@@ -16,7 +16,7 @@ type:
   - low-gain
   - guitar-pedal
   - rock
-updatedAt: 2026-10-12T01:33:00Z
+updatedAt: 2026-10-12T01:44:38Z
 x-personal-site-category: pedalboard
 x-personal-site-export-type: uses
 x-personal-site-parent: "[[Lekato Pedalboard]]"

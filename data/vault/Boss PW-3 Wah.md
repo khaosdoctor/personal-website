@@ -7,14 +7,14 @@ oneliner: "Boss wah pedal"
 personalRating: 6
 state:
   - owned
-  - actively-used
   - second-hand
+  - not-actively-used
 tags: [topic/music/gear/pedals, type/equipment/guitar-pedal]
 title: "Boss PW-3 Wah"
 type:
   - wah
   - guitar-pedal
-updatedAt: 2026-10-12T00:41:10Z
+updatedAt: 2026-10-12T01:44:36Z
 x-personal-site-category: pedalboard
 x-personal-site-export-type: uses
 x-personal-site-parent: "[[Lekato Pedalboard]]"
@@ -43,6 +43,11 @@ It works really nice if you have a clean sound or a very low distorted sound. So
 
 So if it is on the end of the chain, you will get a lot of modulation. But if you are using it like I am, in the beginning of the chain, you can only get modulation with low distortion, like the [[Klon Centaur Clone|Centaur]] or the [[Boss DS-1|DS-1]] in a low setting. You won't ever be able to get it with a high distortion, or the [[Electro-Harmonix Big Muff Pi|Big Muff]], or whatever other pedal, especially not with the [[Boss MT-2 Metal Zone|Metal Zone]].
 
+There are three things about this pedal that stresses me up real bad:
+
+1. It's _remarkably difficult_ to turn it on and off, you have to put your entire weight on the pedal, I which they were like those DigiTech Whammer pedals which have the pedal _and_ the switch in a separate setting
+2. It's huge, very huge. Unless you find a spot in the middle or the sides of the pedalboard, I couldn't make it fit along with the [[Electro-Harmonix Big Muff Pi|Muff]], one had to go, I love the other, so this was the chosen
+3. Even though you have 0 things happening on the sides, the input and output are still on the top of the pedal. Reasons unknown
 ## Final thoughts
 
 I hardly use it and I don't have a lot to say about it, other than that it's just a huge pedal, and I'm thinking about just putting it aside on the pedalboard because I rarely use it. But it's really fun to use when you need one. I'm thinking about whether I should actually get an auto wah on the pedalboard instead of this one.
