@@ -195,17 +195,17 @@ function aiUsage() {
   return AI_USAGE[here] ?? AI_USAGE[section] ?? AI_USAGE_DEFAULT;
 }
 
-// <site-footer>: social links, copyright and the AI usage label
+// <site-footer>: social links, copyright and the AI usage label (the external-link pass below opens the links in a new tab)
 class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
       <div class="footer-rule">
-      <a href="https://github.lsantos.dev" target="_blank" rel="noopener">[github]</a>
-      <a href="https://blog.lsantos.dev" target="_blank" rel="noopener">[blog]</a>
-      <a href="https://twitter.lsantos.dev" target="_blank" rel="noopener">[twitter (x)]</a>
-      <a href="https://linkedin.lsantos.dev" target="_blank" rel="noopener">[linkedin]</a>
-      <a href="https://youtube.lsantos.dev" target="_blank" rel="noopener">[youtube]</a>
-      <a href="https://telegram.lsantos.dev" target="_blank" rel="noopener">[telegram]</a>
+      <a href="https://github.lsantos.dev">[github]</a>
+      <a href="https://blog.lsantos.dev">[blog]</a>
+      <a href="https://twitter.lsantos.dev">[twitter (x)]</a>
+      <a href="https://linkedin.lsantos.dev">[linkedin]</a>
+      <a href="https://youtube.lsantos.dev">[youtube]</a>
+      <a href="https://telegram.lsantos.dev">[telegram]</a>
       <p class="copyright">&copy; ${new Date().getFullYear()} Lucas Santos <a href="/ai-usage" class="ai-usage">// ${aiUsage()}</a></p>
       </div>
     `;
