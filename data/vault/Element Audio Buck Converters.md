@@ -7,7 +7,7 @@ oneliner: "Two LM2596 buck converters with added protection, in 3D-printed enclo
 status: built
 tags: [topic/electronics, topic/music/gear/pedal, type/idea/project, meta/ai-assisted]
 title: "Pedalboard Buck Converters"
-updatedAt: 2026-10-12T00:40:52Z
+updatedAt: 2026-10-12T20:36:18Z
 x-personal-site-category: pedalboard
 x-personal-site-export-type: [uses, build]
 x-personal-site-parent: "[[Lekato Pedalboard]]"
@@ -18,7 +18,7 @@ x-personal-site-parent: "[[Lekato Pedalboard]]"
 
 Two buck converters that power my [[Lekato Pedalboard]], each one in its own 3D-printed enclosure. My goal with this was to make something that feels professional at home. I added those because the pedalboard has two outputs that output 12 and 18V and I needed to convert them down to 9V to be able to use all the outputs.
 
-The enclosure has
+The enclosure has one side with a male connector to plug into my pedalboard, on the other side there's a female jack to connect the pedal.
 
 ## Design
 
@@ -74,8 +74,14 @@ Per converter, I built two.
 ![[journal/2026-10-07_033110_58297103.jpg|This was the first version|400]]
 - For the next ones I reduced the final size and changed the layer height to 0.16 mm instead of 0.2. I tried 0.08 too but it became too thin and ended up with several imperfections, so 0.16 is ideal.
 ![[journal/2026-10-07_033156_1e191ef9.jpg|Internally I have very little space to put things|400]]
+- The fuse and the jack needed to be off center because they got in the way, I haven't had thought of that
+![[Pasted image 20261012223222.png|The fuse and the jack had to come to the bottom|400]]
 - Positioning the converter inside, on the screws, was the hardest part. I need the screw position plus an extra side for the heat-set inserts. Even though I measured where each converter had its screw holes, one of them was always off by something.
-![[journal/2026-10-07_033309_678b85b9.jpg|Final box|400]]
+![[Pasted image 20261012223321.png|The screws are not centered|400]]
+- Once closed I wanted the LED to be visible, which kinda happened but I wanted more visibility to that, also you can see that the text is not very visible too on the lid
+![[journal/2026-10-07_033309_678b85b9.jpg|Final box, but the text is still meh|400]]
+- In other colors, for example, I could make the brand name way better
+![[Pasted image 20261012223503.png|Version 2 or 3 had a good naming outside|400]]
 - I actually came to the name I wanted to go with my pedal company if I ever make one. "Element Audio Co." has a nice name.
 - Holes in 3D printing are terrible, and positioning something freehand is too. I still haven't figured out how the hell I will position the board in it, I will probably make the hole longer
 - If I were to make more, I'd do it a little different. Probably with a longer input cable I still have 8 left so I can try to fix those, but I honestly have no need for it
