@@ -1,5 +1,5 @@
-const CACHE = 'lsantos-v1';
-const ASSETS = ['/', '/css/style.css', '/js/theme.js', '/js/components.js'];
+const CACHE = 'lsantos-v2';
+const ASSETS = ['/', '/css/style.css', '/js/theme.js', '/js/components.js', '/js/clock.js', '/favicon-sleep.svg'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
