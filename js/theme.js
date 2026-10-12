@@ -38,14 +38,3 @@ function toggleTheme() {
 applyTheme(getTheme());
 
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
-
-// Highlights the nav link for the current page, then reapplies the theme so the sidebar buttons get labeled
-document.addEventListener('DOMContentLoaded', () => {
-  const raw = location.pathname.replace(/\/$/, '').replace(/\.html$/, '').replace(/\/index$/, '');
-  const path = raw || '/';
-  for (const a of document.querySelectorAll('nav a[href]')) {
-    const href = a.getAttribute('href').replace(/\/$/, '').replace(/\.html$/, '') || '/';
-    if (path === href) a.classList.add('active');
-  }
-  applyTheme(getTheme());
-});

@@ -1,6 +1,8 @@
 // <site-sidebar>: photo, name, nav and theme toggles, shared by every page
 class SiteSidebar extends HTMLElement {
   connectedCallback() {
+    // theme.js already set data-theme in <head>; the toggle offers the other one
+    const toggle = document.documentElement.dataset.theme === 'dark' ? '[light]' : '[dark]';
     this.innerHTML = `
       <div class="sidebar-inner">
         <a href="/" class="photo-wrap">
@@ -76,7 +78,7 @@ class SiteSidebar extends HTMLElement {
         <a href="/" class="sidebar-name">${catSvg()} Lucas Santos</a>
         <div class="mobile-actions">
           <div class="theme-toggle">
-            <button onclick="toggleTheme()">[light]</button>
+            <button onclick="toggleTheme()">${toggle}</button>
           </div>
           <button class="hamburger" aria-label="Menu" onclick="this.closest('.sidebar-inner').classList.toggle('menu-open')">&#9776;</button>
         </div>
@@ -93,10 +95,13 @@ class SiteSidebar extends HTMLElement {
           <a href="mailto:hello@lsantos.dev?subject=Contact%20through%20your%20website" target="_blank" rel="noopener">/contact</a>
         </nav>
         <div class="theme-toggle desktop-only">
-          <button onclick="toggleTheme()">[light]</button>
+          <button onclick="toggleTheme()">${toggle}</button>
         </div>
       </div>
     `;
+    // Highlights the current page's link; /now.html, /now/ and /index.html all match their nav href
+    const here = location.pathname.replace(/(\/index)?(\.html)?\/?$/, '') || '/';
+    for (const a of this.querySelectorAll('nav a')) if (a.getAttribute('href') === here) a.classList.add('active');
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     for (const pre of this.querySelectorAll('.photo-ascii')) shimmer(pre);
   }
@@ -179,13 +184,13 @@ class SiteFooter extends HTMLElement {
 customElements.define('site-sidebar', SiteSidebar);
 customElements.define('site-footer', SiteFooter);
 
-// Any link to another host opens in a new tab and gets the .ext arrow; the observer also catches links rendered after load
-new MutationObserver(() => {
-  for (const a of document.querySelectorAll('a[href]:not(.ext)')) {
-    if (a.hostname && a.hostname !== location.hostname) {
-      a.target = '_blank';
-      a.rel = 'noopener';
-      a.classList.add('ext');
-    }
+// Any link to another host opens in a new tab and gets the .ext arrow. Every link is in the page
+// (baked, or rendered by the components above) by the time the DOM is ready, so one pass is enough
+document.addEventListener('DOMContentLoaded', () => {
+  for (const a of document.querySelectorAll('a[href]')) {
+    if (!a.hostname || a.hostname === location.hostname) continue;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.classList.add('ext');
   }
-}).observe(document.documentElement, { childList: true, subtree: true });
+});
