@@ -788,6 +788,9 @@ a.ext::after {
 
   .content-inner { min-height: auto; }
 
+  /* Note tables with many columns scroll sideways on their own instead of widening the page */
+  .gear-body table { display: block; overflow-x: auto; }
+
   .intro-name { font-size: 2.5rem; }
   .intro-sub { font-size: 0.7rem; white-space: nowrap; }
   .intro-clock { font-size: 0.65rem; }
