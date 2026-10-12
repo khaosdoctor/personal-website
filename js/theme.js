@@ -38,4 +38,5 @@ function toggleTheme() {
 // Runs in <head> so the page never flashes the wrong theme
 applyTheme(getTheme());
 
-if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js');
+// Registered after load, so the worker's precache doesn't race the page's own first requests
+if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
