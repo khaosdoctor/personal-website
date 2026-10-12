@@ -222,6 +222,7 @@ a.ext::after {
 .theme-toggle button:hover { color: var(--accent); }
 .ai-policy { display: block; color: var(--muted); font-size: 0.7rem; white-space: nowrap; }
 .ai-policy:hover { color: var(--accent); text-decoration: none; }
+.footer-rule .ai-policy { display: none; }
 .name-cat { vertical-align: -0.2rem; }
 
 .hamburger { display: none; }
@@ -815,6 +816,8 @@ a.ext::after {
   }
 
   .copyright { grid-column: 1 / -1; text-align: center; }
+  /* a.ai-policy outranks .socials a:nth-child(even), which right-aligns every second footer link */
+  .footer-rule a.ai-policy { display: block; grid-column: 1 / -1; text-align: center; margin-top: 0.25rem; }
 
   .gear-list {
     display: flex;

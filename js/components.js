@@ -1,10 +1,11 @@
+// Under the theme toggle on desktop, under the copyright on phones (style.css shows one of the two)
+const AI_POLICY = '<a href="/ai-usage" class="ai-policy">[AI usage policy]</a>';
+
 // <site-sidebar>: photo, name, nav and theme toggles, shared by every page
 class SiteSidebar extends HTMLElement {
   connectedCallback() {
     // theme.js already set data-theme in <head>; the toggle offers the other one
     const toggle = document.documentElement.dataset.theme === 'dark' ? '[light]' : '[dark]';
-    // Sits under both theme toggles (header on phones, sidebar on desktop)
-    const aiPolicy = '<a href="/ai-usage" class="ai-policy">[AI usage policy]</a>';
     this.innerHTML = `
       <div class="sidebar-inner">
         <a href="/" class="photo-wrap">
@@ -81,7 +82,6 @@ class SiteSidebar extends HTMLElement {
         <div class="mobile-actions">
           <div class="theme-toggle">
             <button onclick="toggleTheme()">${toggle}</button>
-            ${aiPolicy}
           </div>
           <button class="hamburger" aria-label="Menu" onclick="this.closest('.sidebar-inner').classList.toggle('menu-open')">&#9776;</button>
         </div>
@@ -99,7 +99,7 @@ class SiteSidebar extends HTMLElement {
         </nav>
         <div class="theme-toggle desktop-only">
           <button onclick="toggleTheme()">${toggle}</button>
-          ${aiPolicy}
+          ${AI_POLICY}
         </div>
       </div>
     `;
@@ -191,6 +191,7 @@ class SiteFooter extends HTMLElement {
       <a href="https://youtube.lsantos.dev">[youtube]</a>
       <a href="https://telegram.lsantos.dev">[telegram]</a>
       <p class="copyright">&copy; ${new Date().getFullYear()} Lucas Santos</p>
+      ${AI_POLICY}
       </div>
     `;
   }
