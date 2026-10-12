@@ -108,7 +108,10 @@ class SiteSidebar extends HTMLElement {
     const here = currentPath();
     for (const a of this.querySelectorAll('nav a')) if (a.getAttribute('href') === here) a.classList.add('active');
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    for (const pre of this.querySelectorAll('.photo-ascii')) shimmer(pre);
+    // Touch screens never show the art (see style.css), so no timer there.
+    // ponytail: checked once, a device that gains a mouse later stays still until reload
+    if (matchMedia('(hover: none)').matches) return;
+    shimmer(this.querySelectorAll('.photo-ascii'));
   }
 }
 
@@ -138,22 +141,30 @@ function catSvg() {
 }
 
 // Every tick a few chars of the ASCII avatar move one step along the ramp, and the next tick
-// puts them back, so the art looks alive. Hidden art (other theme, touch screens) is skipped
+// puts them back, so the art looks alive. One timer drives both arts; the hidden one (other
+// theme) and background tabs are skipped
 const RAMP = '@%#*+=-:. ';
-function shimmer(pre) {
-  const art = pre.textContent;
-  const cells = [];
-  for (const [i, c] of [...art].entries()) if (RAMP.slice(0, -1).includes(c)) cells.push(i);
+function shimmer(pres) {
+  const arts = [];
+  for (const pre of pres) {
+    const art = pre.textContent;
+    const cells = [];
+    for (const [i, c] of [...art].entries()) if (RAMP.slice(0, -1).includes(c)) cells.push(i);
+    arts.push({ pre, art, cells });
+  }
   setInterval(() => {
-    if (!pre.offsetParent) return;
-    const chars = [...art];
-    for (let n = 0; n < 10; n++) {
-      const i = cells[Math.floor(Math.random() * cells.length)];
-      const step = Math.random() < 0.5 ? -1 : 1;
-      // stops before the space at the end of the ramp, so no holes open up
-      chars[i] = RAMP[Math.min(RAMP.length - 2, Math.max(0, RAMP.indexOf(chars[i]) + step))];
+    if (document.hidden) return;
+    for (const { pre, art, cells } of arts) {
+      if (!pre.offsetParent) continue;
+      const chars = [...art];
+      for (let n = 0; n < 10; n++) {
+        const i = cells[Math.floor(Math.random() * cells.length)];
+        const step = Math.random() < 0.5 ? -1 : 1;
+        // stops before the space at the end of the ramp, so no holes open up
+        chars[i] = RAMP[Math.min(RAMP.length - 2, Math.max(0, RAMP.indexOf(chars[i]) + step))];
+      }
+      pre.textContent = chars.join('');
     }
-    pre.textContent = chars.join('');
   }, 150);
 }
 
