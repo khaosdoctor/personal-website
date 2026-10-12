@@ -281,6 +281,7 @@ a.ext::after {
 }
 
 .intro-clock:empty { display: none; }
+.clock-odds { color: var(--accent); }
 
 .bio { font-size: 0.9rem; }
 .bio p + p { margin-top: 1rem; }

@@ -22,7 +22,8 @@ function oddsFor(hour) {
 function render(el) {
   const time = format.format(new Date());
   const hour = Number(time.slice(0, 2));
-  el.textContent = `It is ${time} in Stockholm. Odds I'm awake: ${oddsFor(hour)}.`;
+  // innerHTML is safe here: the time is digits and the label comes from ODDS
+  el.innerHTML = `It is <em>${time}</em> in <em>Stockholm</em>. Odds I'm awake: <strong class="clock-odds">${oddsFor(hour)}</strong>.`;
 }
 
 const clock = document.querySelector('.intro-clock');
