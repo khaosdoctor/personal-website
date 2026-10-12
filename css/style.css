@@ -350,12 +350,14 @@ a.ext::after {
 
 /* ═══ Uses / Gear ═══ */
 
-.gear-category {
+.gear-category,
+.project-group {
   margin-bottom: 2rem;
 }
 
 
 .gear-category h2,
+.project-group h2,
 .gear-body h2,
 .now-section h2,
 #now-content h2 {
@@ -365,6 +367,7 @@ a.ext::after {
 }
 
 .gear-category h2::after,
+.project-group h2::after,
 .gear-body h2::after,
 .now-section h2::after,
 #now-content h2::after {
@@ -592,7 +595,6 @@ a.ext::after {
 
 .project-status[data-status="active"] { color: #39936c; border: 1px solid #39936c; }
 .project-status[data-status="inactive"] { color: #d50612; border: 1px solid #d50612; }
-.project-status[data-status="archived"] { color: var(--muted); border: 1px solid var(--border); opacity: 0.6; }
 
 .project-desc {
   color: var(--muted);

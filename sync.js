@@ -82,7 +82,9 @@ const BUILD_DIR = './builds';
 const GEAR_IMG = './img/gear';
 const DATA_DIR = './data';
 const VAULT_DATA = './data/vault';
-const STATUS_ORDER = { active: 0, inactive: 1, archived: 2 };
+const STATUS_ORDER = { active: 0, 'in-progress': 1, done: 2, inactive: 3, archived: 4 };
+// Software statuses that share a badge with the builds (BUILD_STATUS) instead of the project-status look
+const SOFTWARE_TAG = { 'in-progress': 'tag-yellow', done: 'tag-green', archived: 'tag-orange' };
 const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
 
 const STATE_COLORS = {
@@ -423,12 +425,16 @@ function buildsHtml(builds) {
   }).join('\n');
 }
 
-// Sorted active -> inactive -> archived; data-status drives label color and dimming in CSS
+// Sorted by STATUS_ORDER; data-status drives label color and dimming in CSS
 function projectsHtml(projects) {
-  const sorted = [...projects].sort((a, b) => (STATUS_ORDER[a.status] ?? 3) - (STATUS_ORDER[b.status] ?? 3));
+  const rank = p => STATUS_ORDER[p.status] ?? Object.keys(STATUS_ORDER).length;
+  const sorted = [...projects].sort((a, b) => rank(a) - rank(b));
   return sorted.map(p => {
     const name = p.url ? `<a href="${esc(p.url)}" class="project-name">${esc(p.name)}</a>` : `<span class="project-name">${esc(p.name)}</span>`;
-    return `<li class="project-item" data-status="${esc(p.status)}"><div class="project-header">${name}<span class="project-status" data-status="${esc(p.status)}">${esc(p.status)}</span></div><div class="project-desc">${esc(p.description)}</div></li>`;
+    const badge = SOFTWARE_TAG[p.status]
+      ? `<span class="tag ${SOFTWARE_TAG[p.status]}">${esc(p.status)}</span>`
+      : `<span class="project-status" data-status="${esc(p.status)}">${esc(p.status)}</span>`;
+    return `<li class="project-item" data-status="${esc(p.status)}"><div class="project-header">${name}${badge}</div><div class="project-desc">${esc(p.description)}</div></li>`;
   }).join('\n');
 }
 
@@ -480,15 +486,15 @@ async function bakePages(posts, notes) {
   }
 
   await bake('uses.html', { gear: gearHtml(notes.filter(n => n.isGear)) });
-  // Software and builds share the /projects sections by status; inactive software counts as done
+  // Software and builds share the /projects sections by status; inactive software sits with the archived
   const builds = notes.filter(n => n.isBuild);
   const software = status => projectsHtml(projects.filter(p => status.includes(p.status)));
   const built = status => buildsHtml(builds.filter(b => status.includes(b.status)));
   const both = (...lists) => lists.filter(Boolean).join('\n');
   await bake('projects.html', {
-    'projects-active': both(software(['active']), built(['in-progress'])),
+    'projects-active': both(software(['active', 'in-progress']), built(['in-progress'])),
     'projects-planned': built(['planned']),
-    'projects-done': both(built(['built']), software(['inactive', 'archived'])),
+    'projects-done': both(built(['built']), software(['done']), software(['inactive', 'archived'])),
   });
 
   const urls = ['/', '/now', '/projects', '/uses', '/friends', ...notes.filter(n => n.hasPage).map(n => n.href)];
