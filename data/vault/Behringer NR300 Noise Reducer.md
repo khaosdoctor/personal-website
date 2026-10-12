@@ -38,7 +38,7 @@ x-personal-site-parent: "[[Lekato Pedalboard]]"
 
 I got this because I have a series of very loud and noisy pedals on my pedalboard, especially the [[Boss MT-2 Metal Zone|Metal Zone]], and I needed something with a send and return. The original idea was to get an NS-2 from Boss, but it is extremely expensive, so I was looking into Behringer's solutions, and honestly it works quite well. I have a few grudges with it, which I'll get to in the impressions, but it's ok for its job.
 
-It sits right after my [[Boss PW-3 Wah|wah pedal]], so it mutes the ground noise that comes from the cable while still taking the signal chain from the wah. From there the send goes into the next distortion pedal, which is the [[DIY Klon Centaur Clone|Klon]], and then through all the distortion pedals until it ends on the Metal Zone, which goes back into the return. The output is hooked to the modulation pedals, like the [[Electro-Harmonix Stereo Electric Mistress|Electric Mistress]] and the [[DIY Digital Tape Delay|delay]], so those get the noiseless signal.
+It sits right after my [[Boss PW-3 Wah|wah pedal]], so it mutes the ground noise that comes from the cable while still taking the signal chain from the wah. From there the send goes into the next distortion pedal, which is the [[Klon Centaur Clone|Klon]], and then through all the distortion pedals until it ends on the Metal Zone, which goes back into the return. The output is hooked to the modulation pedals, like the [[Electro-Harmonix Stereo Electric Mistress|Electric Mistress]] and the [[DIY Digital Tape Delay|delay]], so those get the noiseless signal.
 
 ## Impressions
 

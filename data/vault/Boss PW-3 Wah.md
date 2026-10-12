@@ -43,7 +43,7 @@ The wah on my pedalboard. This one I use quite a bit less than all the others, b
 
 It works really nice if you have a clean sound or a very low distorted sound. So for example, if you want to play anything that resembles Metallica's Kirk Hammett solos with wahs, you won't be able to do it, because it has a very low modulation, at least this version that I have, and it only shows up if you pass the entire chain to it.
 
-So if it is on the end of the chain, you will get a lot of modulation. But if you are using it like I am, in the beginning of the chain, you can only get modulation with low distortion, like the [[DIY Klon Centaur Clone|Centaur]] or the [[Boss DS-1|DS-1]] in a low setting. You won't ever be able to get it with a high distortion, or the [[Electro-Harmonix Big Muff Pi|Big Muff]], or whatever other pedal, especially not with the [[Boss MT-2 Metal Zone|Metal Zone]].
+So if it is on the end of the chain, you will get a lot of modulation. But if you are using it like I am, in the beginning of the chain, you can only get modulation with low distortion, like the [[Klon Centaur Clone|Centaur]] or the [[Boss DS-1|DS-1]] in a low setting. You won't ever be able to get it with a high distortion, or the [[Electro-Harmonix Big Muff Pi|Big Muff]], or whatever other pedal, especially not with the [[Boss MT-2 Metal Zone|Metal Zone]].
 
 ## Final thoughts
 

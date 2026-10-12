@@ -61,7 +61,7 @@ I might even recreate the board of this one so I can put it in another enclosure
 
 ## Related
 
-- [[DIY Klon Centaur Clone]]
+- [[Klon Centaur Clone]]
 - [[Ibanez Tube Screamer DIY]]
 - [[Electro-Harmonix Stereo Electric Mistress]]
 - [[Lekato Pedalboard]]

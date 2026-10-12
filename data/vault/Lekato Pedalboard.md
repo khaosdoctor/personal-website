@@ -49,6 +49,6 @@ It's an average thing. I know that I am most likely asking too much of it by put
 
 - [[Boss DS-1]]
 - [[Ibanez Tube Screamer Mini]]
-- [[DIY Klon Centaur Clone]]
+- [[Klon Centaur Clone]]
 - [[Boss PSA-230S AC Adaptor]]
 - [[M-VAVE Chocolate MIDI Controller]]

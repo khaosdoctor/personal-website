@@ -51,7 +51,7 @@ But the Big Muff surprised me. It has a warm, velvety tone, and it's also a very
 
 The bad part is actually two things. First, it's very big and it didn't need to be. I've opened it up to see if the board inside really was that size, and it's tiny, so I wouldn't need an enclosure this large. It takes a big amount of space on the pedalboard, and there are smaller versions of this pedal, so if I had one of those I could probably fit another pedal or two next to it. That's a pain.
 
-Second, the input and the output are on the back instead of on the sides, so I have to run the cables all the way around to the back of the pedal to get the sound out. That kind of kills the chain, because every other pedal except the [[DIY Klon Centaur Clone|Klon]] has the input and the output on the sides. The [[Boss PW-3 Wah|wah]] doesn't either, but that one is more expected because it's a different kind of pedal. It doesn't get in the way that much anymore, I recently ended up building my own cables and it all worked out.
+Second, the input and the output are on the back instead of on the sides, so I have to run the cables all the way around to the back of the pedal to get the sound out. That kind of kills the chain, because every other pedal except the [[Klon Centaur Clone|Klon]] has the input and the output on the sides. The [[Boss PW-3 Wah|wah]] doesn't either, but that one is more expected because it's a different kind of pedal. It doesn't get in the way that much anymore, I recently ended up building my own cables and it all worked out.
 
 It's also very expensive. But of all the pedals on my pedalboard, this is probably the one I like the most.
 

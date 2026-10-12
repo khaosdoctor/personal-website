@@ -45,7 +45,7 @@ The DS-1 has a sound profile that is almost like an overdrive, but it allows me 
 
 ## Impressions
 
-It sounds really nice. It sounds actually pretty rocky, so I use it mostly when I'm playing old 70s or 80s sounds, and less when I'm playing metal, because I don't think it's a good metal distortion. It's also less advised when you're playing blues or grungy tones, because it will completely distort the signal, it will not allow any clean signal to pass through like the [[DIY Klon Centaur Clone|Centaur]] does.
+It sounds really nice. It sounds actually pretty rocky, so I use it mostly when I'm playing old 70s or 80s sounds, and less when I'm playing metal, because I don't think it's a good metal distortion. It's also less advised when you're playing blues or grungy tones, because it will completely distort the signal, it will not allow any clean signal to pass through like the [[Klon Centaur Clone|Centaur]] does.
 
 I can use it with the Centaur and then the Centaur becomes a boost, and I can also use it with the [[Electro-Harmonix Big Muff Pi|Big Muff]], which becomes quite an interesting sound, but I really don't like to use them both together. I use the Centaur and the Big Muff together because they pair very nicely, but especially for the fuzz pedals I think the DS-1 is not really fit. So when I use the DS-1, it's usually just the DS-1, the delay and the Centaur. This is why I actually put the Centaur first on all the chain, at least on the distortion chain, and then I have the DS-1, the Metal Zone, and then the Big Muff.
 
