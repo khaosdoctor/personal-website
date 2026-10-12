@@ -12,6 +12,7 @@
 
 - `data/bio.md` is the about text on the homepage
 - `data/now.md` is the /now page, the "last updated" date is the file's modified date
+- `data/ai-usage.md` is the text of the /ai-usage page, linked as "[AI usage policy]" under the theme toggle
 - `data/friends.md` is the /friends page
 - `data/projects.json` is the software on /projects. Its `status` picks the section: `active` and `in-progress` go under Active, `done`, `inactive` and `archived` under Done, next to the builds
 - Vault notes reach the site through `x-personal-site-export-type`, which is `uses`, `build` or a list of both (`[uses, build]`). Notes with `private: true` stay off the site, and `> [!private]` callouts and `%% %%` comments are stripped from the page
