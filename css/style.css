@@ -618,6 +618,17 @@ a.ext::after {
   margin-top: 0.15rem;
 }
 
+/* ═══ Enigma widget (js/enigma.js), delete this block to remove it ═══ */
+/* Inputs stay at 1rem so iOS does not zoom in on focus */
+
+.enigma { margin-top: 0.35rem; font-size: 0.85rem; color: var(--muted); }
+.enigma summary { cursor: pointer; width: fit-content; }
+.enigma summary:hover { color: var(--accent); }
+.enigma label { display: block; margin-top: 0.4rem; }
+.enigma input, .enigma textarea { display: block; width: 100%; font: 1rem var(--font); color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 2px; padding: 0.2rem 0.4rem; resize: vertical; }
+.enigma input { width: 7ch; text-transform: uppercase; }
+.enigma output { display: block; margin-top: 0.4rem; min-height: 1.65em; color: var(--accent); font-size: 1rem; overflow-wrap: anywhere; }
+
 /* ═══ Now page ═══ */
 
 .now-date {
