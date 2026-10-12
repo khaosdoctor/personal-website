@@ -1,13 +1,10 @@
-// The page's path the way nav hrefs and AI_USAGE keys write it: /now.html, /now/ and /now are all /now, /index.html is /
-function currentPath() {
-  return location.pathname.replace(/(\/index)?(\.html)?\/?$/, '') || '/';
-}
-
 // <site-sidebar>: photo, name, nav and theme toggles, shared by every page
 class SiteSidebar extends HTMLElement {
   connectedCallback() {
     // theme.js already set data-theme in <head>; the toggle offers the other one
     const toggle = document.documentElement.dataset.theme === 'dark' ? '[light]' : '[dark]';
+    // Sits under both theme toggles (header on phones, sidebar on desktop)
+    const aiPolicy = '<a href="/ai-usage" class="ai-policy">[AI usage policy]</a>';
     this.innerHTML = `
       <div class="sidebar-inner">
         <a href="/" class="photo-wrap">
@@ -84,6 +81,7 @@ class SiteSidebar extends HTMLElement {
         <div class="mobile-actions">
           <div class="theme-toggle">
             <button onclick="toggleTheme()">${toggle}</button>
+            ${aiPolicy}
           </div>
           <button class="hamburger" aria-label="Menu" onclick="this.closest('.sidebar-inner').classList.toggle('menu-open')">&#9776;</button>
         </div>
@@ -101,11 +99,12 @@ class SiteSidebar extends HTMLElement {
         </nav>
         <div class="theme-toggle desktop-only">
           <button onclick="toggleTheme()">${toggle}</button>
+          ${aiPolicy}
         </div>
       </div>
     `;
-    // Highlights the current page's link
-    const here = currentPath();
+    // Highlights the current page's link; /now.html, /now/ and /index.html all match their nav href
+    const here = location.pathname.replace(/(\/index)?(\.html)?\/?$/, '') || '/';
     for (const a of this.querySelectorAll('nav a')) if (a.getAttribute('href') === here) a.classList.add('active');
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     // Touch screens never show the art (see style.css), so no timer there.
@@ -180,22 +179,7 @@ if (favicon) {
   setInterval(updateFavicon, 60000);
 }
 
-// How much AI went into each page, shown next to the copyright and linked to /ai-usage.
-// Say either 'written by a human' or 'AI helped with X'. Keys are paths as currentPath() writes them;
-// a key also covers every page under it (/gear covers /gear/akg-k72). Pages not listed get the default
-const AI_USAGE_DEFAULT = 'AI helped with the code';
-const AI_USAGE = {
-  '/gear': 'AI helped with the code and transcription',
-  '/builds': 'AI helped with the code and transcription',
-  '/ai-usage': 'AI helped with the writing',
-};
-function aiUsage() {
-  const here = currentPath();
-  const section = Object.keys(AI_USAGE).find((key) => here.startsWith(`${key}/`));
-  return AI_USAGE[here] ?? AI_USAGE[section] ?? AI_USAGE_DEFAULT;
-}
-
-// <site-footer>: social links, copyright and the AI usage label (the external-link pass below opens the links in a new tab)
+// <site-footer>: social links and copyright (the external-link pass below opens them in a new tab)
 class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -206,7 +190,7 @@ class SiteFooter extends HTMLElement {
       <a href="https://linkedin.lsantos.dev">[linkedin]</a>
       <a href="https://youtube.lsantos.dev">[youtube]</a>
       <a href="https://telegram.lsantos.dev">[telegram]</a>
-      <p class="copyright">&copy; ${new Date().getFullYear()} Lucas Santos <a href="/ai-usage" class="ai-usage">// ${aiUsage()}</a></p>
+      <p class="copyright">&copy; ${new Date().getFullYear()} Lucas Santos</p>
       </div>
     `;
   }
