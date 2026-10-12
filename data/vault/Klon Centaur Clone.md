@@ -4,14 +4,18 @@ coverUrl: https://diymusicgear.dk/wp-content/uploads/2026/05/5401a.png
 createdAt: 2026-06-16T00:00:00Z
 icon: 🎸
 lastEditedByAI: 2026-10-12T00:00:00Z
-oneliner: "Handbuilt Klon Centaur clone, my first DIY pedal build"
+oneliner: Handbuilt Klon Centaur clone, my first DIY pedal build
 personalRating: 8.8
 state:
   - owned
   - actively-used
 status: built
-tags: [topic/music/gear/pedals, type/equipment/guitar-pedal, meta/ai-assisted, type/idea/project]
-title: "DIY Klon Centaur Clone"
+tags:
+  - topic/music/gear/pedals
+  - type/equipment/guitar-pedal
+  - meta/ai-assisted
+  - type/idea/project
+title: DIY Klon Centaur Clone
 type:
   - overdrive
   - diy

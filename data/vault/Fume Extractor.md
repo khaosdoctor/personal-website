@@ -1,11 +1,15 @@
 ---
-aliases: [DIY Fume Extractor]
+aliases:
+  - DIY Fume Extractor
 createdAt: 2026-06-28 23:08
 lastEditedByAI: 2026-10-11T19:56:21Z
-oneliner: "Small project I made to test my knowledge in electronics. It's a mini 5V fume extractor made to be used when soldering."
+oneliner: Small project I made to test my knowledge in electronics. It's a mini 5V fume extractor made to be used when soldering.
 status: in-progress
-tags: [topic/electronics, type/idea/project, meta/ai-assisted]
-title: "Fume Extractor"
+tags:
+  - topic/electronics
+  - type/idea/project
+  - meta/ai-assisted
+title: Fume Extractor
 updatedAt: 2026-10-12T22:58:01Z
 x-personal-site-export-type: build
 ---

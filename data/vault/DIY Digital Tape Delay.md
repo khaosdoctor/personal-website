@@ -1,17 +1,23 @@
 ---
-aliases: [DIY Delay Pedal, DIY Digital Tape Delay]
+aliases:
+  - DIY Delay Pedal
+  - DIY Digital Tape Delay
 coverUrl: https://diymusicgear.dk/wp-content/uploads/2026/05/5461a.webp
 createdAt: 2026-09-20T12:00:00Z
 icon: 🎸
-oneliner: "Handbuilt PT2399-based delay pedal kit from DIY Music Gear"
+oneliner: Handbuilt PT2399-based delay pedal kit from DIY Music Gear
 personalRating: 8
 state:
   - owned
   - actively-used
   - second-hand
 status: built
-tags: [topic/music/gear/pedals, type/equipment/guitar-pedal, meta/ai-assisted, type/idea/project]
-title: "Digital Tape Delay"
+tags:
+  - topic/music/gear/pedals
+  - type/equipment/guitar-pedal
+  - meta/ai-assisted
+  - type/idea/project
+title: Digital Tape Delay
 type:
   - delay
   - diy

@@ -1,16 +1,20 @@
 ---
-aliases: [EQ700]
+aliases:
+  - EQ700
 coverUrl: https://thumbs.static-thomann.de/thumb/padthumb600x600/pics/bdb/_18/183479/11142225_800.jpg
 createdAt: 2026-10-12T01:27:21Z
 icon: 🎸
 lastEditedByAI: 2026-10-12T01:27:21Z
-oneliner: "7-band graphic EQ pedal, Behringer's take on the Boss GE-7"
+oneliner: 7-band graphic EQ pedal, Behringer's take on the Boss GE-7
 personalRating: 8
 state:
   - owned
   - actively-used
-tags: [topic/music/gear/pedals, type/equipment/guitar-pedal, meta/ai-assisted]
-title: "Behringer EQ700 Graphic Equalizer"
+tags:
+  - topic/music/gear/pedals
+  - type/equipment/guitar-pedal
+  - meta/ai-assisted
+title: Behringer EQ700 Graphic Equalizer
 type:
   - equalizer
   - guitar-pedal

@@ -3,14 +3,16 @@ aliases: []
 coverUrl: https://static.roland.com/assets/images/products/main/ds1_main.jpg
 createdAt: 2026-06-16T00:00:00Z
 icon: 🎸
-oneliner: "Classic Boss distortion pedal"
+oneliner: Classic Boss distortion pedal
 personalRating: 8
 state:
   - owned
   - actively-used
   - second-hand
-tags: [topic/music/gear/pedals, type/equipment/guitar-pedal]
-title: "Boss DS-1 Distortion"
+tags:
+  - topic/music/gear/pedals
+  - type/equipment/guitar-pedal
+title: Boss DS-1 Distortion
 type:
   - distortion
   - low-gain

@@ -1,10 +1,13 @@
 ---
 aliases: []
 lastEditedByAI: 2026-10-11T19:56:21Z
-oneliner: "ESP32 with an e-ink screen showing nearby bus and subway departures, with today's weather"
+oneliner: ESP32 with an e-ink screen showing nearby bus and subway departures, with today's weather
 status: planned
-tags: [topic/electronics, type/idea/project, meta/ai-assisted]
-title: "E-ink pet project to have bus times and tasks in an e-ink screen"
+tags:
+  - topic/electronics
+  - type/idea/project
+  - meta/ai-assisted
+title: E-ink pet project to have bus times and tasks in an e-ink screen
 updatedAt: 2026-10-12T00:40:49Z
 x-personal-site-export-type: build
 ---
