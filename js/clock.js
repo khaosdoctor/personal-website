@@ -26,12 +26,12 @@ function render(el) {
   el.innerHTML = `It is <em>${time}</em> in <em>Stockholm</em>. Odds I'm awake: <strong class="clock-odds">${oddsFor(hour)}</strong>.`;
 }
 
-const clock = document.querySelector('.intro-clock');
-if (clock) {
+// Renders now, then again as each new minute starts. Aiming at the minute on every tick keeps it
+// on time after the computer sleeps, where a 60s interval would stay off by the time asleep
+function tick() {
   render(clock);
-  // Wait for the next minute to start, then tick every 60s
-  setTimeout(() => {
-    render(clock);
-    setInterval(() => render(clock), 60000);
-  }, 60000 - (Date.now() % 60000));
+  setTimeout(tick, 60000 - (Date.now() % 60000));
 }
+
+const clock = document.querySelector('.intro-clock');
+if (clock) tick();
