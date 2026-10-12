@@ -90,12 +90,20 @@ export async function writeFeeds(notes) {
     ...softwareItems(),
     ...noteItems(notes.filter(n => n.isBuild), { prefix: 'Build', fallback: '/projects' }),
   ];
+  // A note that is both gear and a build shows up in uses and projects; the site feed keeps one of them
+  const seen = new Set();
+  const site = [...now, ...uses, ...projects].filter(i => {
+    const key = i.guid.replace(/^(uses|build):/, '');
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
   const feeds = [
     { file: 'now.xml', title: 'Lucas Santos: now', page: '/now', items: now, description: 'What Lucas Santos is doing now, one item per update of the /now page' },
     { file: 'uses.xml', title: 'Lucas Santos: uses', page: '/uses', items: uses, description: 'Gear Lucas Santos uses, one item per added or updated gear note' },
     { file: 'projects.xml', title: 'Lucas Santos: projects', page: '/projects', items: projects, description: 'Software projects and builds by Lucas Santos, one item per added or changed entry' },
     {
-      file: 'feed.xml', title: 'Lucas Santos', page: '/', items: [...now, ...uses, ...projects],
+      file: 'feed.xml', title: 'Lucas Santos', page: '/', items: site,
       description: `Updates to lsantos.dev from /now, /uses and /projects. Blog posts have their own feed at ${RSS_URL}`,
       related: `\n    <atom:link href="${esc(RSS_URL)}" rel="related" type="application/rss+xml"/>`,
     },
