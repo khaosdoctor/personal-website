@@ -599,6 +599,7 @@ a.ext::after {
 }
 
 .project-status[data-status="active"] { color: #39936c; border: 1px solid #39936c; }
+.status-active { color: #39936c; }
 .project-status[data-status="inactive"] { color: #d50612; border: 1px solid #d50612; }
 .project-status[data-status="archived"] { color: var(--muted); border: 1px solid var(--border); opacity: 0.6; }
 
