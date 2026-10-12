@@ -1,3 +1,8 @@
+// The page's path the way nav hrefs and AI_USAGE keys write it: /now.html, /now/ and /now are all /now, /index.html is /
+function currentPath() {
+  return location.pathname.replace(/(\/index)?(\.html)?\/?$/, '') || '/';
+}
+
 // <site-sidebar>: photo, name, nav and theme toggles, shared by every page
 class SiteSidebar extends HTMLElement {
   connectedCallback() {
@@ -99,8 +104,8 @@ class SiteSidebar extends HTMLElement {
         </div>
       </div>
     `;
-    // Highlights the current page's link; /now.html, /now/ and /index.html all match their nav href
-    const here = location.pathname.replace(/(\/index)?(\.html)?\/?$/, '') || '/';
+    // Highlights the current page's link
+    const here = currentPath();
     for (const a of this.querySelectorAll('nav a')) if (a.getAttribute('href') === here) a.classList.add('active');
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     for (const pre of this.querySelectorAll('.photo-ascii')) shimmer(pre);
@@ -164,7 +169,22 @@ if (favicon) {
   setInterval(updateFavicon, 60000);
 }
 
-// <site-footer>: social links and copyright
+// How much AI went into each page, shown next to the copyright and linked to /ai-usage.
+// Say either 'written by a human' or 'AI helped with X'. Keys are paths as currentPath() writes them;
+// a key also covers every page under it (/gear covers /gear/akg-k72). Pages not listed get the default
+const AI_USAGE_DEFAULT = 'AI helped with the code';
+const AI_USAGE = {
+  '/gear': 'AI helped with the code and transcription',
+  '/builds': 'AI helped with the code and transcription',
+  '/ai-usage': 'AI helped with the writing',
+};
+function aiUsage() {
+  const here = currentPath();
+  const section = Object.keys(AI_USAGE).find((key) => here.startsWith(`${key}/`));
+  return AI_USAGE[here] ?? AI_USAGE[section] ?? AI_USAGE_DEFAULT;
+}
+
+// <site-footer>: social links, copyright and the AI usage label
 class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -175,7 +195,7 @@ class SiteFooter extends HTMLElement {
       <a href="https://linkedin.lsantos.dev" target="_blank" rel="noopener">[linkedin]</a>
       <a href="https://youtube.lsantos.dev" target="_blank" rel="noopener">[youtube]</a>
       <a href="https://telegram.lsantos.dev" target="_blank" rel="noopener">[telegram]</a>
-      <p class="copyright">&copy; ${new Date().getFullYear()} Lucas Santos</p>
+      <p class="copyright">&copy; ${new Date().getFullYear()} Lucas Santos <a href="/ai-usage" class="ai-usage">// ${aiUsage()}</a></p>
       </div>
     `;
   }

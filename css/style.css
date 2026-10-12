@@ -357,6 +357,12 @@ a.ext::after {
   margin-top: 0.75rem;
 }
 
+/* Wraps to its own line as a whole on narrow screens; even margins keep it centered there */
+.copyright .ai-usage {
+  margin: 0 0.75rem;
+  white-space: nowrap;
+}
+
 /* ═══ Uses / Gear ═══ */
 
 .gear-category,
