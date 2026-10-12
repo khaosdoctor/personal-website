@@ -84,7 +84,7 @@ const DATA_DIR = './data';
 const VAULT_DATA = './data/vault';
 const STATUS_ORDER = { active: 0, 'in-progress': 1, done: 2, inactive: 3, archived: 4 };
 // Software statuses that share a badge with the builds (BUILD_STATUS) instead of the project-status look
-const SOFTWARE_TAG = { 'in-progress': 'tag-yellow', done: 'tag-green', archived: 'tag-orange' };
+const SOFTWARE_TAG = { 'in-progress': 'tag-yellow', done: 'tag-green' };
 const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
 
 const STATE_COLORS = {
