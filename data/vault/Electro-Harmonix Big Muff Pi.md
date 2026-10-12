@@ -3,20 +3,18 @@ aliases: []
 coverUrl: https://b2155914.smushcdn.com/2155914/wp-content/uploads/2020/10/usbm-f.jpg
 createdAt: 2026-06-16T00:00:00Z
 icon: 🎸
-oneliner: Classic fuzz/distortion pedal
+oneliner: "Classic fuzz/distortion pedal"
 personalRating: 9
 state:
   - owned
   - actively-used
   - second-hand
-tags:
-  - topic/music/gear/pedals
-  - type/equipment/guitar-pedal
-title: Electro-Harmonix Big Muff Pi
+tags: [topic/music/gear/pedals, type/equipment/guitar-pedal]
+title: "Electro-Harmonix Big Muff Pi"
 type:
   - fuzz
   - distortion
-updatedAt: 2026-09-27T02:39:05Z
+updatedAt: 2026-10-12T00:30:31Z
 x-personal-site-category: pedalboard
 x-personal-site-export-type: uses
 x-personal-site-parent: "[[Lekato Pedalboard]]"

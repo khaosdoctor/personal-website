@@ -16,7 +16,7 @@ type:
   - overdrive
   - diy
   - guitar-pedal
-updatedAt: 2026-10-12T00:18:44Z
+updatedAt: 2026-10-12T00:30:27Z
 x-personal-site-category: pedalboard
 x-personal-site-export-type: [uses, build]
 x-personal-site-parent: "[[Lekato Pedalboard]]"
@@ -75,7 +75,7 @@ It's a sound everyone should hear at some point in their life and try to underst
 ![[2026-06-14_klon_assembled.png|Assembled in the enclosure|400]]
 - **[[2026-06-23]]**: I found a [[1N34A Germanium Diode]] swap to replace the current ones in the kit, didn't see much difference honestly.
 
-## What broke and what I learned
+## Lessons learned
 
 - It took so long because there were too many components, and very small ones, with some really tight spaces to fit them.
 - The wires going to the jacks were too short, so I had to solder and desolder them multiple times. Same with several other components.

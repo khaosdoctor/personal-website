@@ -1,17 +1,12 @@
 ---
-aliases:
-  - DIY Fume Extractor
+aliases: [DIY Fume Extractor]
 createdAt: 2026-06-28 23:08
 lastEditedByAI: 2026-10-11T19:56:21Z
-oneliner: Small project I made to test my knowledge in electronics. It's a mini 5V fume extractor made to be used when soldering.
+oneliner: "Small project I made to test my knowledge in electronics. It's a mini 5V fume extractor made to be used when soldering."
 status: in-progress
-tags:
-  - topic/electronics
-  - type/idea/project
-  - meta/done
-  - meta/ai-assisted
-title: Fume Extractor
-updatedAt: 2026-10-11T19:56:21Z
+tags: [topic/electronics, type/idea/project, meta/done, meta/ai-assisted]
+title: "Fume Extractor"
+updatedAt: 2026-10-12T00:30:12Z
 x-personal-site-export-type: build
 ---
 # Fume Extractor
@@ -51,7 +46,7 @@ I opted to have the fan in a Molex (J) connector because it would be easier if I
 - **[[2026-06-28]]:** Built it on a [[Protoboards|Perfboard]]. It "works"…
 - **[[2026-06-30]]:** I desoldered everything, it was very bad. I will re-do it this month again.
 
-## What broke and what I learned
+## Lessons learned
 
 The perfboard is terrible because I cannot stick the solder to it, so it looks like this:
 

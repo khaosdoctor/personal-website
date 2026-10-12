@@ -7,7 +7,7 @@ oneliner: "Two LM2596 buck converters with added protection, in 3D-printed enclo
 status: built
 tags: [topic/electronics, topic/music/gear/pedal, type/idea/project, meta/ai-assisted]
 title: "Pedalboard Buck Converters"
-updatedAt: 2026-10-11T20:51:07Z
+updatedAt: 2026-10-12T00:30:25Z
 x-personal-site-category: pedalboard
 x-personal-site-export-type: [uses, build]
 x-personal-site-parent: "[[Lekato Pedalboard]]"
@@ -68,7 +68,7 @@ Per converter, I built two.
 - **[[2026-10-09]]**: The pedalboard is fully working with them. They're on the top side, and I think the wires are too short.
 ![[journal/2026-10-07_033716_051c1c3c.jpg|400]]
 
-## What broke and what I learned
+## Lessons learned
 
 - The first enclosure failed because the lid ended up really loose.
 ![[journal/2026-10-07_033110_58297103.jpg|This was the first version|400]]

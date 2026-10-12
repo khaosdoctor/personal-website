@@ -7,7 +7,7 @@ oneliner: My old and reliable headphones I've been using for years
 personalRating: 7
 state:
   - owned
-  - actively-used
+  - not-actively-used
 tags:
   - type/equipment/headphones
   - topic/music/gear/headphones
@@ -17,7 +17,7 @@ type:
   - closed-back
   - over-ear
   - monitor
-updatedAt: 2026-10-03T00:00:00Z
+updatedAt: 2026-10-12T00:33:46Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 ---

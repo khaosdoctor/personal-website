@@ -7,7 +7,7 @@ oneliner: "DIY build of the Ibanez TS808 Tube Screamer, one of the most iconic o
 status: planned
 tags: [topic/electronics, topic/music/gear/pedal, type/idea/project, meta/ai-assisted]
 title: "Ibanez Tube Screamer DIY"
-updatedAt: 2026-10-11T23:58:34Z
+updatedAt: 2026-10-12T00:30:19Z
 x-personal-site-export-type: build
 ---
 # Ibanez Tube Screamer DIY
@@ -70,7 +70,7 @@ The circuit has four stages:
 
 - **2026-05-24:** Collected the schematic and the bill of materials.
 
-## What broke and what I learned
+## Lessons learned
 
 Still didn't build this. So for now, I just learned that the circuitry for a normal overdrive is not that simple.
 
