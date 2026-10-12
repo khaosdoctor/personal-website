@@ -6,7 +6,7 @@ oneliner: "Small project I made to test my knowledge in electronics. It's a mini
 status: in-progress
 tags: [topic/electronics, type/idea/project, meta/done, meta/ai-assisted]
 title: "Fume Extractor"
-updatedAt: 2026-10-12T00:30:12Z
+updatedAt: 2026-10-12T00:52:54Z
 x-personal-site-export-type: build
 ---
 # Fume Extractor
@@ -43,19 +43,19 @@ I opted to have the fan in a Molex (J) connector because it would be easier if I
 
 ## Build log
 
-- **[[2026-06-28]]:** Built it on a [[Protoboards|Perfboard]]. It "works"…
-- **[[2026-06-30]]:** I desoldered everything, it was very bad. I will re-do it this month again.
+- **[[2026-06-28]]:** Built it on a [[Protoboards|Perfboard]]. It "works"… But I can't really trust, the perfboard is bad because you need to stick solder into it but it will not stick! ![[DIY Fume Extractor_solder.png|This is the final state of it|400]]
+- **[[2026-06-30]]:** I desoldered everything, it was very bad. I will re-do it this again.
+- **[[2026-07-13]]:** I ordered an actual PCB for it
 
 ## Lessons learned
 
-The perfboard is terrible because I cannot stick the solder to it, so it looks like this:
+Perfboards are terrible because I cannot stick the solder to it, so it looks like this:
 
-![[DIY Fume Extractor_solder.png]]
 
 Some parts don't have good continuity, like the blue wire over there which already came lose. I think I will just desolder it all and remove the components I can, then try to do it again.
 
-## Next
 
-- Swap the fan for a bigger 9V/12cm one.
+
+## Next
 - Simplify it by removing the pot, it makes no sense to have it there but I wanted to test it out.
 - Re-do the build.

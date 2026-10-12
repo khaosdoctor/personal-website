@@ -10,13 +10,13 @@ state:
   - actively-used
   - second-hand
 status: built
-tags: [topic/music/gear/pedals, type/equipment/guitar-pedal, meta/ai-assisted]
+tags: [topic/music/gear/pedals, type/equipment/guitar-pedal, meta/ai-assisted, type/idea/project]
 title: "Digital Tape Delay"
 type:
   - delay
   - diy
   - guitar-pedal
-updatedAt: 2026-10-12T00:33:37Z
+updatedAt: 2026-10-12T00:41:05Z
 x-personal-site-category: pedalboard
 x-personal-site-export-type: uses
 x-personal-site-parent: "[[Lekato Pedalboard]]"

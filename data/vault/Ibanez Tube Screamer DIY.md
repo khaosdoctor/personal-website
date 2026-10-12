@@ -7,7 +7,7 @@ oneliner: "DIY build of the Ibanez TS808 Tube Screamer, one of the most iconic o
 status: planned
 tags: [topic/electronics, topic/music/gear/pedal, type/idea/project, meta/ai-assisted]
 title: "Ibanez Tube Screamer DIY"
-updatedAt: 2026-10-12T00:30:19Z
+updatedAt: 2026-10-12T00:41:10Z
 x-personal-site-export-type: build
 ---
 # Ibanez Tube Screamer DIY

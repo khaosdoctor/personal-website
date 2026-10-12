@@ -7,7 +7,7 @@ oneliner: "Two LM2596 buck converters with added protection, in 3D-printed enclo
 status: built
 tags: [topic/electronics, topic/music/gear/pedal, type/idea/project, meta/ai-assisted]
 title: "Pedalboard Buck Converters"
-updatedAt: 2026-10-12T00:30:25Z
+updatedAt: 2026-10-12T00:40:52Z
 x-personal-site-category: pedalboard
 x-personal-site-export-type: [uses, build]
 x-personal-site-parent: "[[Lekato Pedalboard]]"

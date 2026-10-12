@@ -3,21 +3,19 @@ aliases: []
 coverUrl: https://raw.githubusercontent.com/khaosdoctor/blog-assets/master/images/gear/akg-k72.webp
 createdAt: 2026-01-25T20:10:00Z
 icon: 🎧
-oneliner: My old and reliable headphones I've been using for years
+oneliner: "My old and reliable headphones I've been using for years"
 personalRating: 7
 state:
   - owned
   - not-actively-used
-tags:
-  - type/equipment/headphones
-  - topic/music/gear/headphones
-title: AKG K72
+tags: [type/equipment/headphones, topic/music/gear/headphones]
+title: "AKG K72"
 type:
   - studio
   - closed-back
   - over-ear
   - monitor
-updatedAt: 2026-10-12T00:33:46Z
+updatedAt: 2026-10-12T00:39:55Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 ---

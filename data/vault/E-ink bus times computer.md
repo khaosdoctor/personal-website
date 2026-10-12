@@ -5,7 +5,7 @@ oneliner: "ESP32 with an e-ink screen showing nearby bus and subway departures, 
 status: planned
 tags: [topic/electronics, type/idea/project, meta/ai-assisted]
 title: "E-ink pet project to have bus times and tasks in an e-ink screen"
-updatedAt: 2026-10-12T00:30:14Z
+updatedAt: 2026-10-12T00:40:49Z
 x-personal-site-export-type: build
 ---
 # E-ink pet project to have bus times and tasks in an e-ink screen
