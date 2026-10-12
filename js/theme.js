@@ -28,8 +28,9 @@ function applyTheme(theme) {
     btn.textContent = theme === 'dark' ? '[light]' : '[dark]';
 }
 
+// Flips what the page shows, so it still works when storage is blocked and getTheme() can't see the save
 function toggleTheme() {
-  const next = getTheme() === 'dark' ? 'light' : 'dark';
+  const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
   try { localStorage.setItem('theme', next); } catch { /* ok */ }
   applyTheme(next);
 }
