@@ -89,7 +89,6 @@ class SiteSidebar extends HTMLElement {
 
           <a href="/">/index</a>
           <a href="/about">/about</a>
-          <a href="https://personality.lsantos.dev">/personality</a>
           <a href="/now">/now</a>
           <a href="/friends">/friends</a>
           <a href="/uses">/uses</a>
