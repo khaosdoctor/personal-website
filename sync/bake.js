@@ -39,7 +39,8 @@ export async function bakePages(posts, notes) {
   // No posts means the feed was unreachable; leaving the block out keeps whatever was baked last time
   await bake('index.html', { bio: await md('bio.md'), ...(posts && { posts: postsHtml(posts) }) });
   await bake('now.html', { now: await md('now.md'), 'now-date': nowUpdated });
-  await bake('ai-usage.html', { 'ai-usage': await md('ai-usage.md') });
+  await bake('about.html', { about: await md('about.md') });
+  await bake('ai-usage.html',{ 'ai-usage': await md('ai-usage.md') });
   await bake('friends.html', { friends: marked(sortLists(await readFile(join(DATA_DIR, 'friends.md'), 'utf-8'))) });
 
   // No notes means no source was readable, not that the gear is gone. Rewriting /uses, /projects
