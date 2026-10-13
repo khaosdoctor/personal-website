@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ibanez Tube Screamer DIY - Lucas Santos</title>
+  <meta name="description" content="DIY build of the Ibanez TS808 Tube Screamer, one of the most iconic overdrive pedals ever made.">
+  <link rel="canonical" href="https://lsantos.dev/builds/ibanez-tube-screamer-diy.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Lucas Santos">
+  <meta property="og:title" content="Ibanez Tube Screamer DIY - Lucas Santos">
+  <meta property="og:description" content="DIY build of the Ibanez TS808 Tube Screamer, one of the most iconic overdrive pedals ever made.">
+  <meta property="og:url" content="https://lsantos.dev/builds/ibanez-tube-screamer-diy.html">
+  <meta property="og:image" content="https://lsantos.dev/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/theme.js"></script>
+  <script src="/js/components.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <site-sidebar class="sidebar"></site-sidebar>
+    <main class="content">
+      <div class="content-inner">
+        <a href="/projects" class="back-link">&lt; projects</a>
+        <img src="/img/gear/covers/ibanez-tube-screamer-diy.webp" alt="Ibanez Tube Screamer DIY" class="gear-cover">
+        <h1 class="gear-detail">Ibanez Tube Screamer DIY</h1>
+        <p class="gear-meta"><span class="tag tag-blue">planned</span> <span class="gear-updated">updated 2026-10-12</span></p>
+        <p class="oneliner">DIY build of the Ibanez TS808 Tube Screamer, one of the most iconic overdrive pedals ever made.</p>
+        <div class="gear-body"><h2>Overview</h2>
+<p>The TS808 Tube Screamer is the overdrive Ibanez released around 1979, built by Maxon (Nisshin Onpa). Its mid-hump tone and soft clipping around the JRC4558 op-amp made it one of the most copied circuits in pedal history. This build follows the original TS808 values.</p>
+<h2>Design</h2>
+<p><img src="/img/gear/ibanez-tube-screamer-schematic.webp" alt="Ibanez Tube Screamer schematic"></p>
+<blockquote>
+<p>[!quote] Source
+Schematic and circuit analysis from <a href="https://electrosmash.com/tube-screamer-analysis">ElectroSmash - Tube Screamer Analysis</a>.</p>
+</blockquote>
+<p>The circuit has four stages:</p>
+<ul>
+<li><strong>Input buffer:</strong> a transistor stage that isolates the guitar from the rest of the circuit.</li>
+<li><strong>Clipping amplifier:</strong> the op-amp boosts the signal, and the two diodes (D1, D2) in its feedback loop round off the peaks. This is where the overdrive comes from, and the &quot;tube&quot; part of the drive, because a digital drive would square the waves, and having it rounded would &quot;mimic&quot; an Electron tube</li>
+<li><strong>Tone control:</strong> a filter around the second half of the op-amp, set by the Tone pot (P2).</li>
+<li><strong>Output buffer:</strong> a second transistor stage followed by the Level pot (P3).</li>
+</ul>
+<h2>Bill of materials</h2>
+<table>
+<thead>
+<tr>
+<th>Ref</th>
+<th>Part</th>
+<th>Value</th>
+<th>Type</th>
+<th>Substitutes</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>D1, D2</td>
+<td>Diode</td>
+<td>1N4148</td>
+<td>Signal</td>
+<td>1N914, MA150</td>
+<td></td>
+</tr>
+<tr>
+<td>D8</td>
+<td>Diode</td>
+<td>1N4001</td>
+<td>Rectifier</td>
+<td>W03C</td>
+<td></td>
+</tr>
+<tr>
+<td>Q1, Q3</td>
+<td>Transistor</td>
+<td>2N5089</td>
+<td>NPN</td>
+<td>2SC1815, MPSA18</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Op-amp</td>
+<td>RC4558</td>
+<td>Dual op-amp</td>
+<td>JRC4558, RC4559</td>
+<td></td>
+</tr>
+<tr>
+<td>C17</td>
+<td>Capacitor</td>
+<td>100µF</td>
+<td>Electrolytic, 10V</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>C16</td>
+<td>Capacitor</td>
+<td>47µF</td>
+<td>Electrolytic, 10V</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>C9</td>
+<td>Capacitor</td>
+<td>10µF</td>
+<td>Electrolytic, 16V</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>C2, C7</td>
+<td>Capacitor</td>
+<td>1µF</td>
+<td>Non-polarized, 50V</td>
+<td>Film</td>
+<td></td>
+</tr>
+<tr>
+<td>C5, C6</td>
+<td>Capacitor</td>
+<td>0.22µF</td>
+<td>Film</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>C8</td>
+<td>Capacitor</td>
+<td>0.1µF</td>
+<td>Film</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>C3</td>
+<td>Capacitor</td>
+<td>0.047µF</td>
+<td>Film</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>C1</td>
+<td>Capacitor</td>
+<td>0.02µF</td>
+<td>Film</td>
+<td>22nF</td>
+<td></td>
+</tr>
+<tr>
+<td>C4</td>
+<td>Capacitor</td>
+<td>51pF</td>
+<td>Ceramic</td>
+<td>56pF</td>
+<td></td>
+</tr>
+<tr>
+<td>RA</td>
+<td>Resistor</td>
+<td>0Ω</td>
+<td>Jumper</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>RB</td>
+<td>Resistor</td>
+<td>100</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>R10</td>
+<td>Resistor</td>
+<td>220</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>R1, R8, R11, R12</td>
+<td>Resistor</td>
+<td>1K</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>R4</td>
+<td>Resistor</td>
+<td>4K7</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>R3, R5, R9, R14, RC, R32, R33</td>
+<td>Resistor</td>
+<td>10K</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>R6</td>
+<td>Resistor</td>
+<td>51K</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>R2, R13</td>
+<td>Resistor</td>
+<td>510K</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>P1</td>
+<td>Potentiometer</td>
+<td>500K</td>
+<td>Log (Drive)</td>
+<td>470K</td>
+<td></td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Potentiometer</td>
+<td>20K</td>
+<td>Linear (Tone)</td>
+<td>22K</td>
+<td></td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Potentiometer</td>
+<td>100K</td>
+<td>Linear (Level)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Footswitch</td>
+<td>3PDT</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Jack</td>
+<td>6.35mm</td>
+<td>Chassis, stereo</td>
+<td></td>
+<td><a href="https://www.electrokit.com/en/6.3mm-chassie-stereo">Electrokit</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Jack</td>
+<td>6.35mm</td>
+<td>Chassis, mono</td>
+<td>Stereo jack</td>
+<td><a href="https://www.electrokit.com/en/6.3mm-chassie-mono">Electrokit</a></td>
+</tr>
+<tr>
+<td></td>
+<td>DC jack</td>
+<td>2.5/5.5mm</td>
+<td>Chassis</td>
+<td></td>
+<td><a href="https://www.electrokit.com/en/dc-jack-2.5/5.5mm-brytare-rund-60w">Electrokit</a></td>
+</tr>
+<tr>
+<td></td>
+<td>Battery clip</td>
+<td>9V</td>
+<td></td>
+<td></td>
+<td><a href="https://www.electrokit.com/en/batterikontakt-9v">Electrokit</a></td>
+</tr>
+</tbody></table>
+<h2>Build log</h2>
+<ul>
+<li><strong>2026-05-24:</strong> Collected the schematic and the bill of materials.</li>
+</ul>
+<h2>Lessons learned</h2>
+<p>Still didn&#39;t build this. So for now, I just learned that the circuitry for a normal overdrive is not that simple.</p>
+<h2>Next</h2>
+<ul>
+<li>Swap the output section to TS9 values and compare.</li>
+<li>Try other clipping diodes (LEDs, germanium) in place of D1 and D2.</li>
+<li>Try to add an EQ pot for bass and treble</li>
+</ul>
+</div>
+        <site-footer class="socials"></site-footer>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

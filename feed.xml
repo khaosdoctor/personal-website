@@ -10,65 +10,128 @@
     <item>
       <title>Project: blog.lsantos.dev updated</title>
       <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:blog.lsantos.dev:9f0df862f1b7d2a4344b9d83a4cbdc028401e642</guid>
-      <pubDate>Mon, 12 Oct 2026 00:49:14 GMT</pubDate>
+      <guid isPermaLink="false">project:blog.lsantos.dev:7340be6ac5992bc33a46ccbb8c4d60797665a297</guid>
+      <pubDate>Tue, 13 Oct 2026 02:04:25 GMT</pubDate>
       <description><![CDATA[<p>My personal tech blog, maintained since 2015 (in-progress) <a href="https://blog.lsantos.dev">https://blog.lsantos.dev</a></p>]]></description>
     </item>
     <item>
       <title>Project: dontquotetheai updated</title>
       <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:dontquotetheai:9f0df862f1b7d2a4344b9d83a4cbdc028401e642</guid>
-      <pubDate>Mon, 12 Oct 2026 00:49:14 GMT</pubDate>
+      <guid isPermaLink="false">project:dontquotetheai:7340be6ac5992bc33a46ccbb8c4d60797665a297</guid>
+      <pubDate>Tue, 13 Oct 2026 02:04:25 GMT</pubDate>
       <description><![CDATA[<p>Satire website that mocks the AI hype (done) <a href="https://github.com/khaosdoctor/dontquotetheai">https://github.com/khaosdoctor/dontquotetheai</a></p>]]></description>
     </item>
     <item>
       <title>Project: enigmajs updated</title>
       <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:enigmajs:9f0df862f1b7d2a4344b9d83a4cbdc028401e642</guid>
-      <pubDate>Mon, 12 Oct 2026 00:49:14 GMT</pubDate>
+      <guid isPermaLink="false">project:enigmajs:7340be6ac5992bc33a46ccbb8c4d60797665a297</guid>
+      <pubDate>Tue, 13 Oct 2026 02:04:25 GMT</pubDate>
       <description><![CDATA[<p>Full implementation of the 1944 German cryptographic machine in TypeScript (done) <a href="https://github.com/khaosdoctor/enigmajs">https://github.com/khaosdoctor/enigmajs</a></p>]]></description>
     </item>
     <item>
       <title>Project: my-notes updated</title>
       <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:my-notes:9f0df862f1b7d2a4344b9d83a4cbdc028401e642</guid>
-      <pubDate>Mon, 12 Oct 2026 00:49:14 GMT</pubDate>
+      <guid isPermaLink="false">project:my-notes:7340be6ac5992bc33a46ccbb8c4d60797665a297</guid>
+      <pubDate>Tue, 13 Oct 2026 02:04:25 GMT</pubDate>
       <description><![CDATA[<p>A repo with my study notes, this was my way in to OSS (done) <a href="https://github.com/khaosdoctor/my-notes">https://github.com/khaosdoctor/my-notes</a></p>]]></description>
     </item>
     <item>
       <title>Project: netkill updated</title>
       <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:netkill:9f0df862f1b7d2a4344b9d83a4cbdc028401e642</guid>
-      <pubDate>Mon, 12 Oct 2026 00:49:14 GMT</pubDate>
+      <guid isPermaLink="false">project:netkill:7340be6ac5992bc33a46ccbb8c4d60797665a297</guid>
+      <pubDate>Tue, 13 Oct 2026 02:04:25 GMT</pubDate>
       <description><![CDATA[<p>Kills the Internet connection of LAN devices using ARP spoofing, ideal for ADHD (done) <a href="https://github.com/khaosdoctor/netkill">https://github.com/khaosdoctor/netkill</a></p>]]></description>
     </item>
     <item>
       <title>Project: node-dht updated</title>
       <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:node-dht:9f0df862f1b7d2a4344b9d83a4cbdc028401e642</guid>
-      <pubDate>Mon, 12 Oct 2026 00:49:14 GMT</pubDate>
+      <guid isPermaLink="false">project:node-dht:7340be6ac5992bc33a46ccbb8c4d60797665a297</guid>
+      <pubDate>Tue, 13 Oct 2026 02:04:25 GMT</pubDate>
       <description><![CDATA[<p>A simple Distributed Hash Table made in Node.js (done) <a href="https://github.com/khaosdoctor/node-dht">https://github.com/khaosdoctor/node-dht</a></p>]]></description>
     </item>
     <item>
       <title>Project: sigil updated</title>
       <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:sigil:9f0df862f1b7d2a4344b9d83a4cbdc028401e642</guid>
-      <pubDate>Mon, 12 Oct 2026 00:49:14 GMT</pubDate>
+      <guid isPermaLink="false">project:sigil:7340be6ac5992bc33a46ccbb8c4d60797665a297</guid>
+      <pubDate>Tue, 13 Oct 2026 02:04:25 GMT</pubDate>
       <description><![CDATA[<p>Compressed memory format for Claude Code (done) <a href="https://github.com/khaosdoctor/sigil">https://github.com/khaosdoctor/sigil</a></p>]]></description>
     </item>
     <item>
-      <title>Uses: AKG K72</title>
-      <link>https://lsantos.dev/gear/akg-k72.html</link>
-      <guid isPermaLink="false">uses:akg-k72:2026-10-12T00:33:46.000Z</guid>
-      <pubDate>Mon, 12 Oct 2026 00:33:46 GMT</pubDate>
-      <description><![CDATA[<p>My old and reliable headphones I've been using for years Rated 7/10.</p>]]></description>
+      <title>Uses: Electro-Harmonix Stereo Electric Mistress</title>
+      <link>https://lsantos.dev/gear/electro-harmonix-stereo-electric-mistress.html</link>
+      <guid isPermaLink="false">uses:electro-harmonix-stereo-electric-mistress:2026-10-13T00:39:50.000Z</guid>
+      <pubDate>Tue, 13 Oct 2026 00:39:50 GMT</pubDate>
+      <description><![CDATA[<p>Flanger and chorus combination pedal Rated 8/10.</p>]]></description>
+    </item>
+    <item>
+      <title>Build: Fume Extractor (in-progress)</title>
+      <link>https://lsantos.dev/builds/fume-extractor.html</link>
+      <guid isPermaLink="false">build:fume-extractor:2026-10-12T22:58:01.000Z</guid>
+      <pubDate>Mon, 12 Oct 2026 22:58:01 GMT</pubDate>
+      <description><![CDATA[<p>Small project I made to test my knowledge in electronics. It's a mini 5V fume extractor made to be used when soldering.</p>]]></description>
+    </item>
+    <item>
+      <title>Uses: Element Audio Buck Converters</title>
+      <link>https://lsantos.dev/gear/element-audio-buck-converters.html</link>
+      <guid isPermaLink="false">uses:element-audio-buck-converters:2026-10-12T20:36:18.000Z</guid>
+      <pubDate>Mon, 12 Oct 2026 20:36:18 GMT</pubDate>
+      <description><![CDATA[<p>Two LM2596 buck converters with added protection, in 3D-printed enclosures, powering my pedalboard.</p>]]></description>
+    </item>
+    <item>
+      <title>Uses: Boss DS-1</title>
+      <link>https://lsantos.dev/gear/boss-ds-1.html</link>
+      <guid isPermaLink="false">uses:boss-ds-1:2026-10-12T01:57:54.000Z</guid>
+      <pubDate>Mon, 12 Oct 2026 01:57:54 GMT</pubDate>
+      <description><![CDATA[<p>Classic Boss distortion pedal Rated 8/10.</p>]]></description>
+    </item>
+    <item>
+      <title>Uses: Boss PW-3 Wah</title>
+      <link>https://lsantos.dev/gear/boss-pw-3-wah.html</link>
+      <guid isPermaLink="false">uses:boss-pw-3-wah:2026-10-12T01:44:36.000Z</guid>
+      <pubDate>Mon, 12 Oct 2026 01:44:36 GMT</pubDate>
+      <description><![CDATA[<p>Boss wah pedal Rated 6/10.</p>]]></description>
+    </item>
+    <item>
+      <title>Uses: Behringer EQ700 Graphic Equalizer</title>
+      <link>https://lsantos.dev/gear/behringer-eq700-graphic-equalizer.html</link>
+      <guid isPermaLink="false">uses:behringer-eq700-graphic-equalizer:2026-10-12T01:40:44.000Z</guid>
+      <pubDate>Mon, 12 Oct 2026 01:40:44 GMT</pubDate>
+      <description><![CDATA[<p>7-band graphic EQ pedal, Behringer's take on the Boss GE-7 Rated 8/10.</p>]]></description>
     </item>
     <item>
       <title>Uses: DIY Digital Tape Delay</title>
       <link>https://lsantos.dev/gear/diy-digital-tape-delay.html</link>
-      <guid isPermaLink="false">uses:diy-digital-tape-delay:2026-10-12T00:33:37.000Z</guid>
-      <pubDate>Mon, 12 Oct 2026 00:33:37 GMT</pubDate>
+      <guid isPermaLink="false">uses:diy-digital-tape-delay:2026-10-12T01:32:04.000Z</guid>
+      <pubDate>Mon, 12 Oct 2026 01:32:04 GMT</pubDate>
       <description><![CDATA[<p>Handbuilt PT2399-based delay pedal kit from DIY Music Gear Rated 8/10.</p>]]></description>
+    </item>
+    <item>
+      <title>Build: Ibanez Tube Screamer DIY (planned)</title>
+      <link>https://lsantos.dev/builds/ibanez-tube-screamer-diy.html</link>
+      <guid isPermaLink="false">build:ibanez-tube-screamer-diy:2026-10-12T00:41:10.000Z</guid>
+      <pubDate>Mon, 12 Oct 2026 00:41:10 GMT</pubDate>
+      <description><![CDATA[<p>DIY build of the Ibanez TS808 Tube Screamer, one of the most iconic overdrive pedals ever made.</p>]]></description>
+    </item>
+    <item>
+      <title>Uses: Klon Centaur Clone</title>
+      <link>https://lsantos.dev/gear/klon-centaur-clone.html</link>
+      <guid isPermaLink="false">uses:klon-centaur-clone:2026-10-12T00:41:00.000Z</guid>
+      <pubDate>Mon, 12 Oct 2026 00:41:00 GMT</pubDate>
+      <description><![CDATA[<p>Handbuilt Klon Centaur clone, my first DIY pedal build Rated 8.8/10.</p>]]></description>
+    </item>
+    <item>
+      <title>Build: E-ink bus times computer (planned)</title>
+      <link>https://lsantos.dev/builds/e-ink-bus-times-computer.html</link>
+      <guid isPermaLink="false">build:e-ink-bus-times-computer:2026-10-12T00:40:49.000Z</guid>
+      <pubDate>Mon, 12 Oct 2026 00:40:49 GMT</pubDate>
+      <description><![CDATA[<p>ESP32 with an e-ink screen showing nearby bus and subway departures, with today's weather</p>]]></description>
+    </item>
+    <item>
+      <title>Uses: AKG K72</title>
+      <link>https://lsantos.dev/gear/akg-k72.html</link>
+      <guid isPermaLink="false">uses:akg-k72:2026-10-12T00:39:55.000Z</guid>
+      <pubDate>Mon, 12 Oct 2026 00:39:55 GMT</pubDate>
+      <description><![CDATA[<p>My old and reliable headphones I've been using for years Rated 7/10.</p>]]></description>
     </item>
     <item>
       <title>Uses: Electro-Harmonix Big Muff Pi</title>
@@ -83,69 +146,6 @@
       <guid isPermaLink="false">uses:lekato-pedalboard:2026-10-12T00:30:29.000Z</guid>
       <pubDate>Mon, 12 Oct 2026 00:30:29 GMT</pubDate>
       <description><![CDATA[<p>A pedalboard with 12 outputs, 10 being 9V, one as 12V and one 18V, along with a 5V USB-A Rated 6/10.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Klon Centaur Clone</title>
-      <link>https://lsantos.dev/gear/klon-centaur-clone.html</link>
-      <guid isPermaLink="false">uses:klon-centaur-clone:2026-10-12T00:30:27.000Z</guid>
-      <pubDate>Mon, 12 Oct 2026 00:30:27 GMT</pubDate>
-      <description><![CDATA[<p>Handbuilt Klon Centaur clone, my first DIY pedal build Rated 8.8/10.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Pedalboard Buck Converters</title>
-      <link>https://lsantos.dev/gear/pedalboard-buck-converters.html</link>
-      <guid isPermaLink="false">uses:pedalboard-buck-converters:2026-10-12T00:30:25.000Z</guid>
-      <pubDate>Mon, 12 Oct 2026 00:30:25 GMT</pubDate>
-      <description><![CDATA[<p>Two LM2596 buck converters with added protection, in 3D-printed enclosures, powering my pedalboard.</p>]]></description>
-    </item>
-    <item>
-      <title>Build: Ibanez Tube Screamer DIY (planned)</title>
-      <link>https://lsantos.dev/builds/ibanez-tube-screamer-diy.html</link>
-      <guid isPermaLink="false">build:ibanez-tube-screamer-diy:2026-10-12T00:30:19.000Z</guid>
-      <pubDate>Mon, 12 Oct 2026 00:30:19 GMT</pubDate>
-      <description><![CDATA[<p>DIY build of the Ibanez TS808 Tube Screamer, one of the most iconic overdrive pedals ever made.</p>]]></description>
-    </item>
-    <item>
-      <title>Build: E-ink bus times computer (planned)</title>
-      <link>https://lsantos.dev/builds/e-ink-bus-times-computer.html</link>
-      <guid isPermaLink="false">build:e-ink-bus-times-computer:2026-10-12T00:30:14.000Z</guid>
-      <pubDate>Mon, 12 Oct 2026 00:30:14 GMT</pubDate>
-      <description><![CDATA[<p>ESP32 with an e-ink screen showing nearby bus and subway departures, with today's weather</p>]]></description>
-    </item>
-    <item>
-      <title>Build: Fume Extractor (in-progress)</title>
-      <link>https://lsantos.dev/builds/fume-extractor.html</link>
-      <guid isPermaLink="false">build:fume-extractor:2026-10-12T00:30:12.000Z</guid>
-      <pubDate>Mon, 12 Oct 2026 00:30:12 GMT</pubDate>
-      <description><![CDATA[<p>Small project I made to test my knowledge in electronics. It's a mini 5V fume extractor made to be used when soldering.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Kenwood P-110</title>
-      <link>https://lsantos.dev/gear/kenwood-p-110.html</link>
-      <guid isPermaLink="false">uses:kenwood-p-110:2026-10-07T01:13:10.000Z</guid>
-      <pubDate>Wed, 07 Oct 2026 01:13:10 GMT</pubDate>
-      <description><![CDATA[<p>My first turntable, a compact belt-drive semi-automatic Rated 4/10.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Sapphire Pulse RX 7900 XT</title>
-      <link>https://lsantos.dev/gear/sapphire-pulse-rx-7900-xt.html</link>
-      <guid isPermaLink="false">uses:sapphire-pulse-rx-7900-xt:2026-10-07T01:08:13.000Z</guid>
-      <pubDate>Wed, 07 Oct 2026 01:08:13 GMT</pubDate>
-      <description><![CDATA[<p>20 GB RDNA3 card bought from a friend to replace my RTX 3070, runs heavy games on high and stays cool Rated 9.8/10.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: AirPods Pro</title>
-      <link>https://lsantos.dev/gear/airpods-pro.html</link>
-      <guid isPermaLink="false">uses:airpods-pro:2026-10-03T00:00:00.000Z</guid>
-      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
-      <description><![CDATA[<p>My old AirPods, they lasted 5 years before deciding they didn't want to charge anymore. It was a good run. Rated 7/10.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Aissom Soldering Station</title>
-      <link>https://lsantos.dev/gear/aissom-soldering-station.html</link>
-      <guid isPermaLink="false">uses:aissom-soldering-station:2026-10-03T00:00:00.000Z</guid>
-      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
-      <description><![CDATA[<p>Electronics soldering station Rated 6.5/10.</p>]]></description>
     </item>
   </channel>
 </rss>
