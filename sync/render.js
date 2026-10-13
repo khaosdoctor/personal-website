@@ -13,7 +13,7 @@ const LIST_HIDDEN_STATES = new Set(['owned', 'actively-used']);
 // Gear no longer around, its name is struck through on /uses
 const GONE_STATES = new Set(['previously-owned', 'broken']);
 // Build `status`, in the order of the builds list on /projects
-const BUILD_STATUS = { 'in-progress': 'tag-yellow', planned: 'tag-blue', built: 'tag-green' };
+const BUILD_STATUS = { 'in-progress': 'tag-yellow', planned: 'tag-blue', done: 'tag-green' };
 const BUILD_ORDER = Object.keys(BUILD_STATUS);
 const ESC_MAP ={ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
 const RE_ESC = /[&<>"]/g;
@@ -83,7 +83,8 @@ const byRatingThenName = (a, b) => (b.rating || 0) - (a.rating || 0) || a.name.l
 const stateTags = states => states.map(s => `<span class="tag ${STATE_COLORS[s] || ''}">${esc(s)}</span>`).join(' ');
 
 function gearRow(g, isChild) {
-  const cells = `<span class="gear-name">${esc(g.name)}</span><span class="gear-desc">${esc(g.oneliner)}</span><span class="gear-states">${stateTags(g.state.filter(s => !LIST_HIDDEN_STATES.has(s)))}</span><span class="gear-rating">${g.rating != null ? `${g.rating}/10` : ''}</span>`;
+  const tags = [g.diy && '<span class="tag">diy</span>', stateTags(g.state.filter(s => !LIST_HIDDEN_STATES.has(s)))].filter(Boolean).join(' ');
+  const cells = `<span class="gear-name">${esc(g.name)}</span><span class="gear-desc">${esc(g.oneliner)}</span><span class="gear-states">${tags}</span><span class="gear-rating">${g.rating != null ? `${g.rating}/10` : ''}</span>`;
   const href = g.externalLink || (g.hasPage ? g.href : '');
   const classes = [isChild && 'gear-child', g.state.some(s => GONE_STATES.has(s)) && 'gone'].filter(Boolean).join(' ');
   const li = classes ? `<li class="${classes}">` : '<li>';
@@ -125,7 +126,7 @@ export function gearHtml(items) {
   return sections.join('\n');
 }
 
-// Sorted in-progress -> planned -> built, then by name; same markup as the software projects list
+// Sorted in-progress -> planned -> done, then by name; same markup as the software projects list
 export function buildsHtml(builds) {
   const rank = b => BUILD_ORDER.indexOf(b.status) === -1 ? BUILD_ORDER.length : BUILD_ORDER.indexOf(b.status);
   const sorted = [...builds].sort((a, b) => rank(a) - rank(b) || a.name.localeCompare(b.name));

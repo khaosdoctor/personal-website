@@ -73,7 +73,10 @@ async function readMdFiles(dir, skip = []) {
       // gray-matter parses ISO timestamps into Date objects; an invalid or missing value leaves it blank
       const updatedAt = new Date(data.updatedAt ?? NaN);
       out.push({
-        name, slug, rating: data.personalRating ?? data.rating, isGear, isBuild, status: data.status || '',
+        // Build notes say `built`, the site calls it `done` like the finished software
+        name, slug, rating: data.personalRating ?? data.rating, isGear, isBuild, status: data.status === 'built' ? 'done' : data.status || '',
+        // The note's own `type` list (overdrive, diy, ...); only diy shows up, as a tag on /uses
+        diy: [data.type ?? []].flat().map(String).includes('diy'),
         body: content.replace(RE_PRIVATE_CALLOUT, '').replace(RE_COMMENT, ''), isVault: dir === VAULT_DIR,
         oneliner: data.oneliner || '', coverUrl: data.coverUrl || '',
         state: data.state || [], category,
@@ -139,7 +142,7 @@ export async function syncNotes() {
     if (!hasPage) debug.gear('%s: empty body, list row only', n.slug);
     return {
       name: n.name, slug: n.slug, oneliner: n.oneliner, rating: n.rating,
-      state: n.state, category: n.category, status: n.status, isGear: n.isGear, isBuild: n.isBuild,
+      state: n.state, category: n.category, status: n.status, diy: n.diy, isGear: n.isGear, isBuild: n.isBuild,
       coverUrl: n.coverUrl, externalLink: n.externalLink, hasPage, href: pagePath(n), parents: n.parents,
       changedAt: n.changedAt,
     };

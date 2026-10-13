@@ -58,10 +58,10 @@ export async function bakePages(posts, notes) {
   await bake('projects.html', {
     'projects-active': both(software(['active', 'in-progress']), built(['in-progress'])),
     'projects-planned': built(['planned']),
-    'projects-done': both(built(['built']), software(['done']), software(['inactive', 'archived'])),
+    'projects-done': both(built(['done']), software(['done']), software(['inactive', 'archived'])),
   });
 
-  const urls = ['/', '/now', '/projects', '/uses', '/friends', ...notes.filter(n => n.hasPage).map(n => n.href)];
+  const urls = ['/', '/about', '/now', '/projects', '/uses', '/friends', '/ai-usage', ...notes.filter(n => n.hasPage).map(n => n.href)];
   const sitemap = urls.map(u => `  <url><loc>${SITE}${u}</loc></url>`).join('\n');
   await writeFile('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemap}\n</urlset>\n`);
   await writeFeeds(notes);
