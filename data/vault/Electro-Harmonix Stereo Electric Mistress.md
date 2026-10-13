@@ -14,7 +14,7 @@ title: "Electro-Harmonix Stereo Electric Mistress"
 type:
   - flanger
   - chorus
-updatedAt: 2026-09-27T02:39:05Z
+updatedAt: 2026-10-13T00:39:50Z
 x-personal-site-category: pedalboard
 x-personal-site-export-type: uses
 x-personal-site-parent: "[[Lekato Pedalboard]]"
