@@ -2,7 +2,7 @@
 
 - [Roz](https://github.com/roziscoding), one of my oldest dev friends, he taught me to think pragmatically about software. Avid OSS contributor and one of the most talented developers I know.
 - [Ranieri Althoff](https://rsa.sh), a friendship born from us liking the same shitty game called [Tibia](https://www.tibia.com). One of the people I learn the most with, especially low level stuff too complex for my brain.
-- [Marcelo Pecin](https://celo.sh), another [Tibia](https://www.tibia.com) friend. We never met in person, but it feels like we have. An amazing developer, persistent and determined on his goals.
+- [Marcelo Pecin](https://celo.sh), another awesome [Tibia](https://www.tibia.com) friend. We never met in person, but it feels like we have. He's always seeing the positive side of things and cheering everyone up. One of those people that you feel super good to be around. An amazing developer, persistent and determined on his goals.
 - [Erick Wendel](https://erickwendel.com), one of my oldest friends and a long-time inspiration. He makes the most of every chance to make his dreams come true, something I have yet to learn.
 - [Oscar Marion](https://osr.im), we met through Felipe and clicked right away over too many shared hobbies. I admire how he gets himself heard without hurting anyone's feelings.
 - [Felipe Trevisan](https://www.linkedin.com/in/felipe-trevisan/), a once-in-a-lifetime person. A focused developer and a better manager than most I've had, who tells hard truths in a way people understand.
