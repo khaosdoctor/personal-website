@@ -2,17 +2,17 @@
 aliases: []
 coverUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/LM2596_buck_converter_module,_MP1584_buck_converter_module,_and_SDB628_boost_converter_module.jpg"
 createdAt: 2026-10-11T20:07:12Z
-lastEditedByAI: 2026-10-11T20:07:12Z
+lastEditedByAI: 2026-10-12T23:45:00Z
 oneliner: "Two LM2596 buck converters with added protection, in 3D-printed enclosures, powering my pedalboard."
 status: built
 tags: [topic/electronics, topic/music/gear/pedal, type/idea/project, meta/ai-assisted]
-title: "Pedalboard Buck Converters"
+title: "Element Audio Buck Converters"
 updatedAt: 2026-10-12T20:36:18Z
 x-personal-site-category: pedalboard
 x-personal-site-export-type: [uses, build]
 x-personal-site-parent: "[[Lekato Pedalboard]]"
 ---
-# Pedalboard Buck Converters
+# Element Audio Buck Converters
 
 ## Overview
 
@@ -22,7 +22,7 @@ The enclosure has one side with a male connector to plug into my pedalboard, on 
 
 ## Design
 
-The base is an [[LM2596 DC-DC Buck Converter]] module, an adjustable step-down regulator 3.2-46V in, 1.25-35V out, 3A. The module already comes with a 100µF capacitor on both ends which protects against spikes, a Schottky diode for protection and an LED so I didn't have to build the whole "is it on" thing. But the issue is that the converter is super dumb, so I had to make some changes. I added:
+The base is an [[LM2596 DC-DC Buck Converter]] module, an adjustable step-down regulator 3.2-46V in, 1.25-35V out, 3A. The module already comes with a 100µF capacitor on both ends which protects against spikes, a toroidal [[Inductor|inductor]] with a Schottky diode, and an LED so I didn't have to build the whole "is it on" thing. The inductor and the diode are what make the converter work: while the regulator's switch is on, the inductor stores energy, and while it's off, the inductor keeps the current going through the diode, so the output gets a steady voltage instead of pulses. But the issue is that the converter is super dumb, so I had to make some changes. I added:
 
 - **1A fuse** at the input, against over-current. So it doesn't burn the converter and everything catch fire
 - **Ferrite bead** against noise and humming
