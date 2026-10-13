@@ -136,11 +136,11 @@ a:hover { text-decoration: underline; }
   box-shadow: 0 0 0 2.4px var(--border); /* 1px ring once scaled */
   color: var(--text);
   font: 10px/calc(312px / 31) var(--font);
-  transition: opacity 0.2s;
+  transition: opacity 0.6s;
 }
 /* The photo stays hidden under the art, otherwise its edge shows around it */
 @media (hover: hover) {
-  .photo-wrap img.photo { opacity: 0; transition: opacity 0.2s; }
+  .photo-wrap img.photo { opacity: 0; transition: opacity 0.6s; }
   .photo-wrap:hover img.photo,
   .photo-wrap:focus-visible img.photo { opacity: 1; }
 }
