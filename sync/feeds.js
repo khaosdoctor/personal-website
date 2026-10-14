@@ -1,14 +1,15 @@
 // The site's own RSS feeds (now.xml, uses.xml, projects.xml and feed.xml with all three), built from
 // the git history of the data files and the notes' dates; blog posts keep the blog's own feed
 import { writeFile } from 'fs/promises';
-import { join } from 'path';
+// posix: git tree paths need forward slashes on every OS
+import { posix } from 'path';
 import { execFileSync } from 'child_process';
 import { log, SITE, RSS_URL, DATA_DIR } from './options.js';
 import { esc, feedMarkdown } from './render.js';
 
 // git paths, so no leading ./ (git log accepts it, but `git show <hash>:./x` does not)
-const NOW_FILE = join(DATA_DIR, 'now.md');
-const PROJECTS_FILE = join(DATA_DIR, 'projects.json');
+const NOW_FILE = posix.join(DATA_DIR, 'now.md');
+const PROJECTS_FILE = posix.join(DATA_DIR, 'projects.json');
 // ponytail: latest 20 items per feed, a new subscriber doesn't need the whole history
 const MAX_ITEMS = 20;
 

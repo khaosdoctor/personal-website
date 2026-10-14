@@ -24,7 +24,9 @@ test('every bake marker is closed', () => {
 function xmlProblem(xml) {
   const body = xml.replace(/<!\[CDATA\[[\s\S]*?\]\]>|<\?[\s\S]*?\?>|<!--[\s\S]*?-->/g, '');
   const open = [];
+  let roots = 0;
   for (const [, slash, name, selfClosing] of body.matchAll(/<(\/?)([\w:.-]+)[^>]*?(\/?)>/g)) {
+    if (!slash && !open.length) roots++;
     if (selfClosing) continue;
     if (!slash) {
       open.push(name);
@@ -34,6 +36,7 @@ function xmlProblem(xml) {
     if (last !== name) return `</${name}> closes <${last}>`;
   }
   if (open.length) return `<${open.at(-1)}> is never closed`;
+  if (roots !== 1) return `${roots} root elements, expected 1`;
   if (/&(?!(?:amp|lt|gt|quot|apos|#\d+|#x[\da-f]+);)/i.test(body)) return 'bare & outside CDATA';
   return '';
 }
