@@ -11,13 +11,8 @@ on:
       - 'sync/**'
       - 'package.json'
       - 'bun.lock'
-      - 'index.html'
-      - 'now.html'
-      - 'about.html'
-      - 'ai-usage.html'
-      - 'projects.html'
-      - 'friends.html'
-      - 'uses.html'
+      # Root pages only; the bot's own commits to gear/ and builds/ are [skip ci]
+      - '*.html'
   # Daily refresh for the blog posts, which change outside this repo
   schedule:
     - cron: '0 0 * * *'
@@ -41,20 +36,22 @@ jobs:
           fetch-depth: 0
           filter: blob:none
 
+      # Pinned so a new Bun release can't break the daily bake; bump it on purpose
       - uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest
+          bun-version: 1.4.2
 
       - run: bun install --frozen-lockfile
 
       - name: Bake the pages
-        run: bun sync.js --debug
+        run: bun sync.js --debug --prune-images
 
       - name: Commit the generated pages
         run: |
           git config user.name  'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
-          git add gear builds img/gear uses.html index.html now.html about.html ai-usage.html projects.html friends.html sitemap.xml feed.xml now.xml uses.xml projects.xml
+          # Everything the bake writes: note pages, their images, the baked root pages, feeds and sitemap
+          git add -A gear builds img/gear *.html *.xml
           git diff --cached --quiet && echo 'nothing to commit' && exit 0
           git commit -m 'chore: bake content [skip ci]'
           git push

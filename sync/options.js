@@ -31,6 +31,7 @@ if (flag('help')) {
 
   --watch              rebuild when a note or data file changes
   --debug              verbose per-file logging (same as DEBUG=sync:*)
+  --prune-images       delete images in img/gear no note uses any more (only the CI bake passes it)
   --timeout=<ms>       per-request fetch timeout (env FETCH_TIMEOUT_MS, default 15000)
   --help               this text`);
   process.exit(0);

@@ -2,8 +2,8 @@ import { readFile, writeFile, readdir, mkdir, rm } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join, basename, extname } from 'path';
 import matter from 'gray-matter';
-import { debug, log, VAULT_DIR, VAULT_ASSETS, GEAR_DIR, BUILD_DIR, GEAR_IMG, FETCH_TIMEOUT_MS } from './options.js';
-import { COVER_DIR, optimizeImage, fetchCover } from './images.js';
+import { debug, log, flag, VAULT_DIR, VAULT_ASSETS, GEAR_DIR, BUILD_DIR, GEAR_IMG, FETCH_TIMEOUT_MS } from './options.js';
+import { COVER_DIR, optimizeImage, fetchCover, pruneImages } from './images.js';
 import { pagePath, notePage, pageMarkdown, slugify } from './render.js';
 
 const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
@@ -134,18 +134,26 @@ export async function syncNotes() {
     n.markdown = markdown;
     for (const img of images) embeds.set(img.dest, { ...img, note: n.name });
   }
+  const failed = [];
   for (const img of embeds.values()) {
     if (await optimizeImage(img.src, join(GEAR_IMG, img.dest))) continue;
     // The page still links the .webp, so the image shows broken until the source file is fixed
+    failed.push(img);
     log.warn(`${img.note}: embed ${img.src} could not be converted, its image is missing on the page`);
   }
-  if (embeds.size) log.ok(`${embeds.size} images optimized`);
+  if (embeds.size > failed.length) log.ok(`${embeds.size - failed.length} images optimized`);
 
   for (const n of withPage) {
     // The page template already shows the name as the page title, so a body that starts with its own h1 drops it
     const html = pageMarkdown(n.markdown).replace(RE_LEADING_H1, '');
     await writeFile(`.${pagePath(n)}`, notePage(n, html));
     debug.gear('%s: page written, category=%s rating=%s state=%o status=%s', n.slug, n.category, n.rating, n.state, n.status);
+  }
+
+  // Only the CI bake passes --prune-images, so a local run or --watch never deletes images
+  if (flag('prune-images')) {
+    const localCovers = withCover.filter(n => n.coverUrl.startsWith('/')).map(n => `${n.slug}.webp`);
+    await pruneImages(new Set(embeds.keys()), new Set(localCovers));
   }
 
   // The lists, feeds and sitemap need the note without its markdown

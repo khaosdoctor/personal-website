@@ -1,9 +1,23 @@
 import { existsSync } from 'fs';
+import { readdir, rm } from 'fs/promises';
 import { join } from 'path';
 import sharp from 'sharp';
-import { debug, log, FETCH_TIMEOUT_MS, fetchWithTimeout } from './options.js';
+import { debug, log, GEAR_IMG, FETCH_TIMEOUT_MS, fetchWithTimeout } from './options.js';
 
 export const COVER_DIR = './img/gear/covers';
+
+// Deletes the images in img/gear and img/gear/covers that no note page uses any more.
+// Each folder is skipped when nothing in it is in use, so a run that found no notes deletes nothing
+export async function pruneImages(embeds, covers) {
+  const unused = [];
+  if (embeds.size) {
+    const files = await readdir(GEAR_IMG, { withFileTypes: true });
+    unused.push(...files.filter(f => f.isFile() && !embeds.has(f.name)).map(f => join(GEAR_IMG, f.name)));
+  }
+  if (covers.size) unused.push(...(await readdir(COVER_DIR)).filter(f => !covers.has(f)).map(f => join(COVER_DIR, f)));
+  for (const f of unused) await rm(f);
+  if (unused.length) log.info(`${unused.length} unused images removed: ${unused.join(', ')}`);
+}
 
 export async function optimizeImage(input, outputPath) {
   try {
