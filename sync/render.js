@@ -1,21 +1,25 @@
 import { Marked } from 'marked';
 import { log, SITE } from './options.js';
 
+// "Canon EOS 6D Mark II" -> "canon-eos-6d-mark-ii": file names, page URLs and heading ids
+export const slugify = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
 // Markdown for pages: every h2 and below gets an id from its text and a # link to itself, so sections
-// can be linked. Feeds keep the plain marked, a #fragment means nothing inside a feed reader.
+// can be linked. Feeds use the plain parser, a #fragment means nothing inside a feed reader.
 // ponytail: two headings with the same text on one page share an id, the first one wins
-const headingId = text => text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-const pageMarkedInstance = new Marked({
+const pageMarked = new Marked({
   renderer: {
     heading({ tokens, depth, text }) {
       const html = this.parser.parseInline(tokens);
       if (depth < 2) return `<h${depth}>${html}</h${depth}>\n`;
-      const id = headingId(text);
+      const id = slugify(text);
       return `<h${depth} id="${id}">${html} <a class="anchor" href="#${id}" aria-label="Link to this section">#</a></h${depth}>\n`;
     },
   },
 });
-export const pageMarked = md => pageMarkedInstance.parse(md);
+const feedMarked = new Marked();
+export const pageMarkdown = md => pageMarked.parse(md);
+export const feedMarkdown = md => feedMarked.parse(md);
 
 const STATUS_ORDER = { active: 0, 'in-progress': 1, done: 2, inactive: 3, archived: 4 };
 // Software statuses that share a badge with the builds (BUILD_STATUS) instead of the project-status look
@@ -32,7 +36,7 @@ const GONE_STATES = new Set(['previously-owned', 'broken']);
 // Build `status`, in the order of the builds list on /projects
 const BUILD_STATUS = { 'in-progress': 'tag-yellow', planned: 'tag-blue', done: 'tag-green' };
 const BUILD_ORDER = Object.keys(BUILD_STATUS);
-const ESC_MAP ={ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
+const ESC_MAP = {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
 const RE_ESC = /[&<>"]/g;
 
 export const esc = s => s.replace(RE_ESC, c => ESC_MAP[c]);

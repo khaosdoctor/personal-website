@@ -1,10 +1,8 @@
 import { readFile, writeFile, stat } from 'fs/promises';
 import { join } from 'path';
-import { execFileSync } from 'child_process';
-import { pageMarked as marked } from './render.js';
 import { debug, log, SITE, DATA_DIR } from './options.js';
-import { postsHtml, gearHtml, buildsHtml, projectsHtml, sortLists } from './render.js';
-import { writeFeeds } from './feeds.js';
+import { pageMarkdown, postsHtml, gearHtml, buildsHtml, projectsHtml, sortLists } from './render.js';
+import { writeFeeds, lastCommitDate } from './feeds.js';
 
 // Replaces whatever sits between <!-- bake:name --> and <!-- /bake:name --> in an HTML page
 async function bake(file, blocks) {
@@ -21,18 +19,10 @@ async function bake(file, blocks) {
   await writeFile(file, html);
 }
 
-// A fresh CI checkout stamps every file with the checkout time, so mtime can't be trusted there
-function lastCommitDate(file) {
-  try {
-    return execFileSync('git', ['log', '-1', '--format=%cs', '--', file], { encoding: 'utf-8' }).trim();
-  } catch {
-    return '';
-  }
-}
-
 export async function bakePages(posts, notes) {
   log.step('🥐 Baking pages');
-  const md = async f => marked(await readFile(join(DATA_DIR, f), 'utf-8'));
+  const md = async f => pageMarkdown(await readFile(join(DATA_DIR, f), 'utf-8'));
+  // A fresh CI checkout stamps every file with the checkout time, so the last commit dates /now, mtime is the fallback
   const nowUpdated = lastCommitDate(join(DATA_DIR, 'now.md')) || (await stat(join(DATA_DIR, 'now.md'))).mtime.toISOString().slice(0, 10);
   const projects = JSON.parse(await readFile(join(DATA_DIR, 'projects.json'), 'utf-8'));
 
@@ -40,8 +30,8 @@ export async function bakePages(posts, notes) {
   await bake('index.html', { bio: await md('bio.md'), ...(posts && { posts: postsHtml(posts) }) });
   await bake('now.html', { now: await md('now.md'), 'now-date': nowUpdated });
   await bake('about.html', { about: await md('about.md') });
-  await bake('ai-usage.html',{ 'ai-usage': await md('ai-usage.md') });
-  await bake('friends.html', { friends: marked(sortLists(await readFile(join(DATA_DIR, 'friends.md'), 'utf-8'))) });
+  await bake('ai-usage.html', { 'ai-usage': await md('ai-usage.md') });
+  await bake('friends.html', { friends: pageMarkdown(sortLists(await readFile(join(DATA_DIR, 'friends.md'), 'utf-8'))) });
 
   // No notes means no source was readable, not that the gear is gone. Rewriting /uses, /projects
   // (which mixes in the builds) and the sitemap here would publish empty lists, so they keep what they have.

@@ -1,11 +1,12 @@
 import { writeFile } from 'fs/promises';
+import { join } from 'path';
 import { execFileSync } from 'child_process';
-import { marked } from 'marked';
-import { log, SITE, RSS_URL } from './options.js';
-import { esc } from './render.js';
+import { log, SITE, RSS_URL, DATA_DIR } from './options.js';
+import { esc, feedMarkdown } from './render.js';
 
-const NOW_FILE = 'data/now.md';
-const PROJECTS_FILE = 'data/projects.json';
+// git paths, so no leading ./ (git log accepts it, but `git show <hash>:./x` does not)
+const NOW_FILE = join(DATA_DIR, 'now.md');
+const PROJECTS_FILE = join(DATA_DIR, 'projects.json');
 // ponytail: latest 20 items per feed, a new subscriber doesn't need the whole history
 const MAX_ITEMS = 20;
 
@@ -16,12 +17,14 @@ const git = args => { try { return execFileSync('git', args, { encoding: 'utf-8'
 // Oldest first as [hash, ISO date]; empty when there is no git or no history
 const commitsOf = file => git(['log', '--reverse', '--format=%H %cI', '--', file]).split('\n').filter(Boolean).map(l => l.split(' '));
 const showAt = (hash, file) => git(['show', `${hash}:${file}`]);
+// "2026-10-12" of the last commit that touched the file; empty without git
+export const lastCommitDate = file => git(['log', '-1', '--format=%cs', '--', file]).trim();
 
 // One item per commit that changed what data/now.md says, with the page as it was then
 function nowItems() {
   const versions = commitsOf(NOW_FILE).map(([hash, date]) => ({ hash, date, md: showAt(hash, NOW_FILE) }));
   return versions.filter((v, i) => v.md && v.md !== versions[i - 1]?.md).map(v => ({
-    title: `Now: updated ${v.date.slice(0, 10)}`, link: `${SITE}/now`, guid: `now:${v.hash}`, date: v.date, html: marked(v.md),
+    title: `Now: updated ${v.date.slice(0, 10)}`, link: `${SITE}/now`, guid: `now:${v.hash}`, date: v.date, html: feedMarkdown(v.md),
   }));
 }
 

@@ -4,18 +4,18 @@ import { join, basename, extname } from 'path';
 import matter from 'gray-matter';
 import { debug, log, VAULT_DIR, VAULT_ASSETS, GEAR_DIR, BUILD_DIR, GEAR_IMG, VAULT_DATA, FETCH_TIMEOUT_MS } from './options.js';
 import { COVER_DIR, optimizeImage, fetchCover } from './images.js';
-import { pagePath, notePage, pageMarked as marked } from './render.js';
+import { pagePath, notePage, pageMarkdown, slugify } from './render.js';
 
 const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
-const RE_SLUG = /[^a-z0-9]+/g, RE_SLUG_TRIM = /^-|-$/g;
+// ![[target|alias]] or [[target|alias]]: groups are the !, the target and the alias
 const RE_WIKILINK = /(!?)\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
 const RE_UNRESOLVED_LI = /^[ \t]*[-*]\s*<!--unresolved:[\s\S]*?-->\s*$/gm;
 const RE_UNRESOLVED_INLINE = /<!--unresolved:([\s\S]*?)-->/g;
 // Same stripping as internal/scripts/export-notes.mjs in second-brain; repeated here because a local run reads the raw vault
 const RE_PRIVATE_CALLOUT = /^(?:>\s*)+\[!private\][^\n]*(?:\n>[^\n]*)*/gim;
 const RE_COMMENT = /%%[\s\S]*?(?:%%|$)/g;
-
-const slugify = s => s.toLowerCase().replace(RE_SLUG, '-').replace(RE_SLUG_TRIM, '');
+// "photo.JPG" -> the ".JPG" part, swapped for ".webp" once the image is converted
+const RE_EXT = /\.[^.]+$/;
 
 const pendingImages = [];
 
@@ -32,7 +32,7 @@ function resolveWikilinks(content, hrefs) {
         if (existsSync(src)) {
           const dest = slugify(rel.replace(extname(rel), '')) + extname(rel).toLowerCase();
           pendingImages.push({ src, dest });
-          const webpDest = dest.replace(/\.[^.]+$/, '.webp');
+          const webpDest = dest.replace(RE_EXT, '.webp');
           // Obsidian sizes an embed with a trailing |400 or |400x300, which is not part of the caption
           const caption = (alias || '').replace(/(?:^|\|)\d+(?:x\d+)?$/, '');
           const alt = caption || basename(rel, extname(rel));
@@ -132,25 +132,22 @@ export async function syncNotes() {
     const hasPage = n.body.trim().length > 0;
     if (hasPage) {
       // data/vault notes are vault notes exported in CI (private blocks stripped), so they carry wikilinks too
-      let html = await marked(resolveWikilinks(n.body, hrefs));
-      const namePattern = n.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      html = html.replace(new RegExp(`^\\s*<h1>${namePattern}</h1>\\s*`), '');
+      const rendered = pageMarkdown(resolveWikilinks(n.body, hrefs));
+      // The page template already shows the name as its title, so a body starting with the same h1 drops it
+      const html = rendered.replace(new RegExp(`^\\s*<h1>${RegExp.escape(n.name)}</h1>\\s*`), '');
       await writeFile(`.${pagePath(n)}`, notePage(n, html));
       debug.gear('%s: page written, category=%s rating=%s state=%o status=%s', n.slug, n.category, n.rating, n.state, n.status);
     }
     if (!hasPage) debug.gear('%s: empty body, list row only', n.slug);
-    return {
-      name: n.name, slug: n.slug, oneliner: n.oneliner, rating: n.rating,
-      state: n.state, category: n.category, status: n.status, diy: n.diy, isGear: n.isGear, isBuild: n.isBuild,
-      coverUrl: n.coverUrl, externalLink: n.externalLink, hasPage, href: pagePath(n), parents: n.parents,
-      changedAt: n.changedAt,
-    };
+    // The lists, feeds and sitemap need the note without its markdown body
+    const { body, ...note } = n;
+    return { ...note, hasPage, href: pagePath(n) };
   }));
   if (coverCount) log.ok(`${coverCount} covers downloaded`);
 
   for (const img of pendingImages) {
     const destPath = join(GEAR_IMG, img.dest);
-    const webpDest = destPath.replace(/\.[^.]+$/, '.webp');
+    const webpDest = destPath.replace(RE_EXT, '.webp');
     const ok = await optimizeImage(img.src, webpDest);
     if (!ok) await copyFile(img.src, destPath);
   }

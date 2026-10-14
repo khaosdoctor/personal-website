@@ -71,7 +71,7 @@ export const VAULT_DIR = opt('vault-dir', 'VAULT_DIR') || (VAULT && join(VAULT, 
 export const VAULT_ASSETS = opt('vault-assets', 'VAULT_ASSETS') || (VAULT && join(VAULT, 'internal/assets'));
 if (!VAULT_DIR) log.warn(`no vault matching "${VAULT_NAME}" in ${OBSIDIAN_CONFIG}, using only data/vault`);
 export const SITE = 'https://lsantos.dev';
-export const RSS_URL ='https://blog.lsantos.dev/en/rss.xml';
+export const RSS_URL = 'https://blog.lsantos.dev/en/rss.xml';
 export const GEAR_DIR = './gear';
 export const BUILD_DIR = './builds';
 export const GEAR_IMG = './img/gear';
