@@ -10,6 +10,8 @@
 - [Raphael Amorim](https://rapha.land), tells you smart things you only half understand, then comes back with a working [programming language](https://jamlang.org), [terminal](https://rioterm.com) or [bundler](https://github.com/raphamorim/oj). The most prolific programmer I know.
 - [Robin Pokorný](https://robinpokorny.com), we worked together for a while and I keep coming back to a few of his articles that really shaped my thinking.
 - [Ana Neri](https://www.linkedin.com/in/ananeridev/), a super talented programmer and community lead, and one of the most determined people I know. If she thinks about doing something, she does it.
+- [Wellington Almeida](https://wellsadev.com) is probably one of the most positive persons I've ever met. He's super chill, knows a lot a bout development, especially in the front-end, and is always willing to help. I admire his ability to stay calm and collected in any situation, and his dedication to his craft.
+- [Weslley Araújo](https://weslley.io) one of the most competent programmers I've ever met. An amazing full-stack developer that _really_ has a passion for what he does. Plus, he's a maintainer of a __lot__ of very big open source projects and loves to do it!
 
 ## People I haven't met, but admire
 
@@ -23,3 +25,4 @@
 - [Martin Kleppmann](https://martin.kleppmann.com), his book [Designing Data-Intensive Applications](https://dataintensive.net) is one of the best I've read, and he kindly answered all my emails when I tried to write about it.
 - [Tanya Reilly](https://www.noidea.dog), her book [The Staff Engineer's Path](https://noidea.dog/staff) has been a great inspiration for me since I became a staff engineer.
 - [マリウス](https://xn--gckvb8fzb.com), hard to find online, but one of the few in my RSS feed. Their blog has it all, from luggage to books to software, and I want that organization someday.
+- [Dylan Beattie](https://dylanbeattie.net), his talk [The Art of Code](https://www.youtube.com/watch?v=6avJHaC3C2U&t=5s&pp=ygUPdGhlIGFydCBvZiBjb2Rl) is still _the most interesting, funny, and inspiring talk_ I've ever seen. I want to be like him when I grow up.

@@ -1,44 +1,45 @@
-import { readFile, writeFile, readdir, mkdir, copyFile, rm } from 'fs/promises';
+// Reads the gear and build notes from data/vault, writes one page per note into gear/ or builds/
+// (with its cover and embedded images converted to WebP), and returns the notes for the lists and feeds
+import { readFile, writeFile, readdir, mkdir, rm } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join, basename, extname } from 'path';
 import matter from 'gray-matter';
-import { debug, log, VAULT_DIR, VAULT_ASSETS, GEAR_DIR, BUILD_DIR, GEAR_IMG, VAULT_DATA, FETCH_TIMEOUT_MS } from './options.js';
-import { COVER_DIR, optimizeImage, fetchCover } from './images.js';
-import { pagePath, notePage, pageMarked as marked } from './render.js';
+import { debug, log, flag, VAULT_DIR, VAULT_ASSETS, GEAR_DIR, BUILD_DIR, GEAR_IMG, FETCH_TIMEOUT_MS } from './options.js';
+import { COVER_DIR, optimizeImage, fetchCover, pruneImages } from './images.js';
+import { pagePath, notePage, pageMarkdown, slugify } from './render.js';
 
 const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
-const RE_SLUG = /[^a-z0-9]+/g, RE_SLUG_TRIM = /^-|-$/g;
+// ![[target|alias]] or [[target|alias]]: groups are the !, the target and the alias
 const RE_WIKILINK = /(!?)\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
 const RE_UNRESOLVED_LI = /^[ \t]*[-*]\s*<!--unresolved:[\s\S]*?-->\s*$/gm;
 const RE_UNRESOLVED_INLINE = /<!--unresolved:([\s\S]*?)-->/g;
-// Same stripping as internal/scripts/export-notes.mjs in second-brain; repeated here because a local run reads the raw vault
-const RE_PRIVATE_CALLOUT = /^(?:>\s*)+\[!private\][^\n]*(?:\n>[^\n]*)*/gim;
-const RE_COMMENT = /%%[\s\S]*?(?:%%|$)/g;
+const RE_LEADING_H1 = /^\s*<h1>[\s\S]*?<\/h1>\s*/;
+// <img src="/img/gear/x.webp" alt="..."> as marked writes it: groups are the file name and the quoted
+// attributes after src (an alt text can hold a ">", so the attributes are matched as name="value" pairs)
+const RE_GEAR_IMG = /<img src="\/img\/gear\/([^"/]+)"((?:\s+[a-z-]+="[^"]*")*)>/g;
+// gray-matter runs a `---js` front matter block as code; with these engines unset, such a note is skipped as unreadable
+const NO_CODE_ENGINES = { js: undefined, javascript: undefined };
 
-const slugify = s => s.toLowerCase().replace(RE_SLUG, '-').replace(RE_SLUG_TRIM, '');
-
-const pendingImages = [];
-
-// hrefs maps a note slug to its page, so a wikilink to any published note becomes a link
+// Turns wikilinks into links and image embeds into markdown images. hrefs maps a note slug to its
+// page, so a wikilink to any published note becomes a link. Returns the markdown and the embedded
+// images that still need converting into img/gear
 function resolveWikilinks(content, hrefs) {
-  return content
+  const images = [];
+  const markdown = content
     .replace(RE_WIKILINK, (_, bang, rawTarget, alias) => {
       // [[Note\|alias]] is how a wikilink escapes its pipe inside a markdown table
       const target = rawTarget.replace(/\\$/, '');
       if (bang && IMG_EXTS.has(extname(target).toLowerCase())) {
-        // The raw vault embeds journal photos by full path, the export already made it relative to assets
-        const rel = target.replace(/^internal\/assets\//, '');
-        const src = join(VAULT_ASSETS, rel);
-        if (existsSync(src)) {
-          const dest = slugify(rel.replace(extname(rel), '')) + extname(rel).toLowerCase();
-          pendingImages.push({ src, dest });
-          const webpDest = dest.replace(/\.[^.]+$/, '.webp');
-          // Obsidian sizes an embed with a trailing |400 or |400x300, which is not part of the caption
-          const caption = (alias || '').replace(/(?:^|\|)\d+(?:x\d+)?$/, '');
-          const alt = caption || basename(rel, extname(rel));
-          return `![${alt}](/img/gear/${webpDest})`;
-        }
-        return '';
+        // The export writes embeds relative to data/vault/assets
+        const src = join(VAULT_ASSETS, target);
+        if (!existsSync(src)) return '';
+        // "photos/Desk Setup.JPG" -> "photos-desk-setup.webp"
+        const dest = `${slugify(target.replace(extname(target), ''))}.webp`;
+        images.push({ src, dest });
+        // Obsidian sizes an embed with a trailing |400 or |400x300, which is not part of the caption
+        const caption = (alias || '').replace(/(?:^|\|)\d+(?:x\d+)?$/, '');
+        const alt = caption || basename(target, extname(target));
+        return `![${alt}](/img/gear/${dest})`;
       }
       const slug = slugify(target);
       if (hrefs.has(slug)) return `<a href="${hrefs.get(slug)}">${alias || target}</a>`;
@@ -46,21 +47,33 @@ function resolveWikilinks(content, hrefs) {
     })
     .replace(RE_UNRESOLVED_LI, '')
     .replace(RE_UNRESOLVED_INLINE, '$1');
+  return { markdown, images };
 }
 
-async function readMdFiles(dir, skip = []) {
+// Adds width/height (so the text below doesn't jump while the image loads) and lazy loading to each
+// embedded image marked rendered as <img src="/img/gear/x.webp" alt="...">
+function sizeImages(html, sizes) {
+  return html.replace(RE_GEAR_IMG, (tag, file, rest) => {
+    const size = sizes.get(file);
+    if (!size) return tag;
+    return `<img src="/img/gear/${file}"${rest} width="${size.width}" height="${size.height}" loading="lazy" decoding="async">`;
+  });
+}
+
+// Every note in dir that the site publishes (export type `uses` or `build`, not private), as plain objects
+async function readMdFiles(dir) {
   if (!existsSync(dir)) {
     log.warn(`${dir}: not found, skipped`);
     return [];
   }
   const out = [], unreadable = [];
-  // Sorted because readdir order is filesystem-dependent, and an unsorted sitemap would flip
+  // Sorted because readdir order is filesystem-dependent, and an unsorted sitemap would change order
   // on every build that ran on a different machine than the last one
-  const files = (await readdir(dir)).filter(f => f.endsWith('.md') && !skip.includes(f)).sort();
+  const files = (await readdir(dir)).filter(f => f.endsWith('.md')).sort();
   log.info(`${dir}: ${files.length} markdown files`);
   for (const f of files) {
     try {
-      const { data, content } = matter(await readFile(join(dir, f), 'utf-8'), { engines: {} });
+      const { data, content } = matter(await readFile(join(dir, f), 'utf-8'), { engines: NO_CODE_ENGINES });
       if (data.private === true || data.private === 'true') continue;
       // `uses`, `build` or a list of both; it decides which site sections show the note
       const types = [data['x-personal-site-export-type'] ?? []].flat().map(String);
@@ -76,7 +89,7 @@ async function readMdFiles(dir, skip = []) {
         name, slug, rating: data.personalRating ?? data.rating, isGear, isBuild, status: data.status === 'built' ? 'done' : data.status || '',
         // The note's own `type` list (overdrive, diy, ...); only diy shows up, as a tag on /uses
         diy: [data.type ?? []].flat().map(String).includes('diy'),
-        body: content.replace(RE_PRIVATE_CALLOUT, '').replace(RE_COMMENT, ''), isVault: dir === VAULT_DIR,
+        body: content,
         oneliner: data.oneliner || '', coverUrl: data.coverUrl || '',
         state: data.state || [], category,
         externalLink: data.externalLink || '',
@@ -87,7 +100,7 @@ async function readMdFiles(dir, skip = []) {
           .map(p => slugify(String(p).replace(/^\[\[|\]\]$/g, '').split('|')[0])),
       });
     } catch (err) {
-      // Most of these are ordinary vault notes with loose YAML, not site notes, so only --debug names them
+      // A note with broken front matter is skipped; --debug names it
       unreadable.push(f);
       debug.vault('%s: unreadable frontmatter (%s)', f, err.message);
     }
@@ -101,14 +114,15 @@ export async function syncNotes() {
   log.step('🎛  Syncing gear and build notes');
   for (const d of [GEAR_DIR, BUILD_DIR, GEAR_IMG, COVER_DIR]) if (!existsSync(d)) await mkdir(d, { recursive: true });
 
-  const vault = await readMdFiles(VAULT_DIR);
-  const local = await readMdFiles(VAULT_DATA,['gear.template.md']);
-  const vaultSlugs = new Set(vault.map(n => n.slug));
-  const notes = [...vault, ...local.filter(n => !vaultSlugs.has(n.slug))];
-  const hrefs = new Map(notes.map(n => [n.slug, pagePath(n)]));
+  const notes = await readMdFiles(VAULT_DIR);
+  // A note with an empty body is only a row on /uses or /projects; only notes with a page get a cover,
+  // a page, and wikilinks pointing at them
+  const withPage = notes.filter(n => n.body.trim());
+  for (const n of notes) if (!n.body.trim()) debug.gear('%s: empty body, list row only', n.slug);
+  const hrefs = new Map(withPage.map(n => [n.slug, pagePath(n)]));
 
-  // Every page is rewritten below, so clear the old ones and a deleted note stops leaving its page
-  // behind. Skipped when nothing was found, so a missing vault cannot wipe the published pages.
+  // Every page is rewritten below, so clear the old ones: a deleted note, or one whose body was emptied,
+  // stops leaving its page behind. Skipped when nothing was found, so a missing vault cannot wipe the published pages.
   if (notes.length) {
     for (const dir of [GEAR_DIR, BUILD_DIR]) {
       const stale = (await readdir(dir)).filter(f => f.endsWith('.html') && hrefs.get(basename(f, '.html')) !== `/${basename(dir)}/${f}`);
@@ -117,47 +131,54 @@ export async function syncNotes() {
     }
   }
 
-  const missingCovers = notes.filter(n => n.coverUrl && !existsSync(join(COVER_DIR, `${n.slug}.webp`))).length;
+  // Covers download in parallel; a cover that can't be fetched keeps its remote URL
+  const withCover = withPage.filter(n => n.coverUrl);
+  const missingCovers = withCover.filter(n => !existsSync(join(COVER_DIR, `${n.slug}.webp`))).length;
   if (missingCovers) log.info(`downloading ${missingCovers} covers, ${FETCH_TIMEOUT_MS}ms timeout each`);
-
-  let coverCount = 0;
-  const index = await Promise.all(notes.map(async n => {
-    if (n.coverUrl) {
-      // Counted before the call, otherwise an already-cached cover looks like a fresh download
-      const wasMissing = !existsSync(join(COVER_DIR, `${n.slug}.webp`));
-      const localCover = await fetchCover(n.coverUrl, n.slug);
-      if (wasMissing && localCover !== n.coverUrl) coverCount++;
-      n.coverUrl = localCover;
-    }
-    const hasPage = n.body.trim().length > 0;
-    if (hasPage) {
-      // data/vault notes are vault notes exported in CI (private blocks stripped), so they carry wikilinks too
-      let html = await marked(resolveWikilinks(n.body, hrefs));
-      const namePattern = n.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      html = html.replace(new RegExp(`^\\s*<h1>${namePattern}</h1>\\s*`), '');
-      await writeFile(`.${pagePath(n)}`, notePage(n, html));
-      debug.gear('%s: page written, category=%s rating=%s state=%o status=%s', n.slug, n.category, n.rating, n.state, n.status);
-    }
-    if (!hasPage) debug.gear('%s: empty body, list row only', n.slug);
-    return {
-      name: n.name, slug: n.slug, oneliner: n.oneliner, rating: n.rating,
-      state: n.state, category: n.category, status: n.status, diy: n.diy, isGear: n.isGear, isBuild: n.isBuild,
-      coverUrl: n.coverUrl, externalLink: n.externalLink, hasPage, href: pagePath(n), parents: n.parents,
-      changedAt: n.changedAt,
-    };
+  const covers = await Promise.all(withCover.map(async n => {
+    const cover = await fetchCover(n.coverUrl, n.slug);
+    n.coverUrl = cover.src;
+    return cover.downloaded;
   }));
+  const coverCount = covers.filter(Boolean).length;
   if (coverCount) log.ok(`${coverCount} covers downloaded`);
 
-  for (const img of pendingImages) {
-    const destPath = join(GEAR_IMG, img.dest);
-    const webpDest = destPath.replace(/\.[^.]+$/, '.webp');
-    const ok = await optimizeImage(img.src, webpDest);
-    if (!ok) await copyFile(img.src, destPath);
+  // Wikilinks first, so every embedded image is known (once, even when two notes embed it) before conversion
+  const embeds = new Map();
+  for (const n of withPage) {
+    const { markdown, images } = resolveWikilinks(n.body, hrefs);
+    n.markdown = markdown;
+    for (const img of images) embeds.set(img.dest, { ...img, note: n.name });
   }
-  if (pendingImages.length) log.ok(`${pendingImages.length} images optimized`);
-  pendingImages.length = 0;
+  // file name -> { width, height } of each converted embed, so its <img> can reserve its space
+  const sizes = new Map();
+  for (const img of embeds.values()) {
+    const size = await optimizeImage(img.src, join(GEAR_IMG, img.dest));
+    if (size) {
+      sizes.set(img.dest, size);
+      continue;
+    }
+    // The page still links the .webp, so the image shows broken until the source file is fixed
+    log.warn(`${img.note}: embed ${img.src} could not be converted, its image is missing on the page`);
+  }
+  if (sizes.size) log.ok(`${sizes.size} images optimized`);
 
-  const lc = notes.filter(n => !n.isVault).length;
-  log.ok(`${index.length} notes (${index.length - lc} vault, ${lc} manual)`);
-  return index;
+  for (const n of withPage) {
+    // The page template already shows the name as the page title, so a body that starts with its own h1 drops it
+    const html = sizeImages(pageMarkdown(n.markdown).replace(RE_LEADING_H1, ''), sizes);
+    // A `# heading` further down the note gives the page a second h1; worth fixing in the note, not worth failing the bake
+    if (html.includes('<h1>')) log.warn(`${n.name}: the note has a # heading below its first line, so its page has two h1`);
+    await writeFile(`.${pagePath(n)}`, notePage(n, html));
+    debug.gear('%s: page written, category=%s rating=%s state=%o status=%s', n.slug, n.category, n.rating, n.state, n.status);
+  }
+
+  // Only the CI bake passes --prune-images, so a local run or --watch never deletes images.
+  // Skipped when no notes were found, so an unreadable vault deletes nothing
+  if (flag('prune-images') && notes.length) {
+    const localCovers = withCover.filter(n => n.coverUrl.startsWith('/')).map(n => `${n.slug}.webp`);
+    await pruneImages(new Set(embeds.keys()), new Set(localCovers));
+  }
+
+  // The lists, feeds and sitemap need the note without its markdown
+  return notes.map(({ body, markdown, ...n }) => ({ ...n, hasPage: Boolean(body.trim()), href: pagePath(n) }));
 }

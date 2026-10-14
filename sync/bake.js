@@ -1,12 +1,24 @@
+// Writes the content into the root pages between their bake markers, then the sitemap and the feeds
 import { readFile, writeFile, stat } from 'fs/promises';
 import { join } from 'path';
-import { execFileSync } from 'child_process';
-import { pageMarked as marked } from './render.js';
 import { debug, log, SITE, DATA_DIR } from './options.js';
-import { postsHtml, gearHtml, buildsHtml, projectsHtml, sortLists } from './render.js';
-import { writeFeeds } from './feeds.js';
+import { pageMarkdown, postsHtml, gearHtml, buildsHtml, projectsHtml, sortLists } from './render.js';
+import { writeFeeds, lastCommitDate } from './feeds.js';
+import { sidebarHtml, footerHtml } from './layout.js';
 
-// Replaces whatever sits between <!-- bake:name --> and <!-- /bake:name --> in an HTML page
+// Every root page that has the sidebar and footer, with its own path for the active nav link.
+// 404.html is not here: it is a self-contained redirect page
+const ROOT_PAGES = {
+  'index.html': '/',
+  'about.html': '/about',
+  'now.html': '/now',
+  'friends.html': '/friends',
+  'uses.html': '/uses',
+  'projects.html': '/projects',
+  'ai-usage.html': '/ai-usage',
+};
+
+// Replaces whatever is between <!-- bake:name --> and <!-- /bake:name --> in an HTML page
 async function bake(file, blocks) {
   let html = await readFile(file, 'utf-8');
   for (const [name, content] of Object.entries(blocks)) {
@@ -21,27 +33,25 @@ async function bake(file, blocks) {
   await writeFile(file, html);
 }
 
-// A fresh CI checkout stamps every file with the checkout time, so mtime can't be trusted there
-function lastCommitDate(file) {
-  try {
-    return execFileSync('git', ['log', '-1', '--format=%cs', '--', file], { encoding: 'utf-8' }).trim();
-  } catch {
-    return '';
-  }
-}
-
+// posts is null when the blog feed was unreachable; notes is empty when no note could be read
 export async function bakePages(posts, notes) {
   log.step('🥐 Baking pages');
-  const md = async f => marked(await readFile(join(DATA_DIR, f), 'utf-8'));
+  const md = async f => pageMarkdown(await readFile(join(DATA_DIR, f), 'utf-8'));
+  // A fresh CI checkout stamps every file with the checkout time, so the last commit dates /now, mtime is the fallback
   const nowUpdated = lastCommitDate(join(DATA_DIR, 'now.md')) || (await stat(join(DATA_DIR, 'now.md'))).mtime.toISOString().slice(0, 10);
   const projects = JSON.parse(await readFile(join(DATA_DIR, 'projects.json'), 'utf-8'));
+
+  // The shared sidebar and footer (sync/layout.js) go into every root page on every bake, notes or not
+  for (const [file, href] of Object.entries(ROOT_PAGES)) {
+    await bake(file, { sidebar: sidebarHtml(href), footer: footerHtml() });
+  }
 
   // No posts means the feed was unreachable; leaving the block out keeps whatever was baked last time
   await bake('index.html', { bio: await md('bio.md'), ...(posts && { posts: postsHtml(posts) }) });
   await bake('now.html', { now: await md('now.md'), 'now-date': nowUpdated });
   await bake('about.html', { about: await md('about.md') });
-  await bake('ai-usage.html',{ 'ai-usage': await md('ai-usage.md') });
-  await bake('friends.html', { friends: marked(sortLists(await readFile(join(DATA_DIR, 'friends.md'), 'utf-8'))) });
+  await bake('ai-usage.html', { 'ai-usage': await md('ai-usage.md') });
+  await bake('friends.html', { friends: pageMarkdown(sortLists(await readFile(join(DATA_DIR, 'friends.md'), 'utf-8'))) });
 
   // No notes means no source was readable, not that the gear is gone. Rewriting /uses, /projects
   // (which mixes in the builds) and the sitemap here would publish empty lists, so they keep what they have.
@@ -52,7 +62,7 @@ export async function bakePages(posts, notes) {
   }
 
   await bake('uses.html', { gear: gearHtml(notes.filter(n => n.isGear)) });
-  // Software and builds share the /projects sections by status; inactive software sits with the archived
+  // Software and builds share the /projects sections by status; inactive software goes with the archived
   const builds = notes.filter(n => n.isBuild);
   const software = status => projectsHtml(projects.filter(p => status.includes(p.status)));
   const built = status => buildsHtml(builds.filter(b => status.includes(b.status)));
@@ -63,8 +73,22 @@ export async function bakePages(posts, notes) {
     'projects-done': both(built(['done']), software(['done']), software(['inactive', 'archived'])),
   });
 
-  const urls = ['/', '/about', '/now', '/projects', '/uses', '/friends', '/ai-usage', ...notes.filter(n => n.hasPage).map(n => n.href)];
-  const sitemap = urls.map(u => `  <url><loc>${SITE}${u}</loc></url>`).join('\n');
+  // lastmod comes from dates that only move when the content does (a data file's last commit, a note's
+  // updatedAt), so two bakes in a row write the same sitemap. The homepage has none: its posts change daily
+  const day = d => { const t = new Date(d); return isNaN(t) ? '' : t.toISOString().slice(0, 10); };
+  const latest = dates => dates.filter(Boolean).sort().at(-1) || '';
+  const committed = f => lastCommitDate(join(DATA_DIR, f));
+  const pages = [
+    ['/', ''],
+    ['/about', committed('about.md')],
+    ['/now', nowUpdated],
+    ['/projects', latest([committed('projects.json'), ...builds.map(b => day(b.changedAt))])],
+    ['/uses', latest(notes.filter(n => n.isGear).map(n => day(n.changedAt)))],
+    ['/friends', committed('friends.md')],
+    ['/ai-usage', committed('ai-usage.md')],
+    ...notes.filter(n => n.hasPage).map(n => [n.href, day(n.changedAt)]),
+  ];
+  const sitemap = pages.map(([url, mod]) => `  <url><loc>${SITE}${url}</loc>${mod ? `<lastmod>${mod}</lastmod>` : ''}</url>`).join('\n');
   await writeFile('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemap}\n</urlset>\n`);
   await writeFeeds(notes);
 }

@@ -25,22 +25,118 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/uses.css">
+  <!-- theme.js blocks on purpose so the theme is set before the first paint; components.js only adds behaviour, so it waits for the page -->
   <script src="/js/theme.js"></script>
-  <script src="/js/components.js"></script>
+  <script src="/js/components.js" defer></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
-    <site-sidebar class="sidebar"></site-sidebar>
+    <site-sidebar class="sidebar"><!-- bake:sidebar -->
+<div class="sidebar-inner">
+        <a href="/" class="photo-wrap">
+          <span class="photo-stack">
+            <img src="/img/avatar.webp" alt="Lucas Santos" class="photo" width="130" height="130">
+            <pre class="photo-ascii ascii-light" aria-hidden="true">
 
-    <main class="content">
+
+               =*%##%%@
+             =###%%%@@@@@@
+           +#*%%*#%@@@@@   @
+          #%%#%**+**#####%@@@
+         #%##=-=+===+******#@@
+         %#*+. :--=++++***#*#@
+         #**+. .-=*#**+*#%@%#%
+        *###-.:-*%%%%##%%%%%%%
+        +#%*-+#*#%@@##%%@%%%##
+        *%%#***%#*##*#=+%%####
+        +**+...-++*##+=+*%%#%##
+        ==-=....:=+**#%%@@%*##%
+        +-+=-...:+*###%%%@%#**%
+         =:-+-::=+#%%%##%%@%*#%
+          ==*+=+******##%###%%
+             +**#*+==+*####%@%
+             =+#%#****###%@@@
+              :+%%@@@@@@@@@@%#
+              -:+#%@@@@@@@@%%
+              *::-*#%%@@%%%%    @
+               :.:+****#*#%##*   @@
+              =:.:=++==+*%%=*#@@@@@
+            *=:+--+*##%@@@+*%@@@@@@@@@
+          *+=.-=+#%%@@@@%#+@@@@%@@@@@@@@
+       *+===- ===+**###***%@@%**###%%@@@@@@@
+      +=----:.====++****+*@@%***#####*%@@@@@@
+     ---:==- :====+****+:%@#*****%%%%#*@@@@@@
+    ::-:===: :==+++****:-@*+*####*%@@@#%@@@@@
+   -----===: -===++***= *#+**#%%%%%@@@@@@@@@@@</pre>
+            <pre class="photo-ascii ascii-dark" aria-hidden="true">
+
+
+               #*==+--:
+             #=++-=-:.
+           *++--+=-: :.
+          =--+=+***+++++==:
+         +=+=###*###**+**++=-.
+         -++*@@%%##*****+++++.
+         =++#@@%%#*++**+=---+-
+        *+==#@%#+=--===-----=-
+        *==+%*++==:.==--:=--++
+        *===+++=+*++++#*--====
+        **+*@@@#**+++*#*+-=====
+        ####@@@@%#*+++==::=+++=
+        *###%@@%%**+++=--:-+++=
+         #%%*%%%#*+---===-:-+=-
+          ##+*#*+*****+===++--
+             **+=+*##*++=+==:-
+             #*===+*++++=-:.
+              %*=--::::..   -+
+              #%*+-:      .-=
+              *%%#*=--::----
+               %@%#*++++++-=++
+              #%@%#*###*+--#++   ..
+            *#%*##*++=-:  *+-.. ......
+          **#@%#*+--:::--=*:  :-::....:.
+       +*####@###**++++++*-..-+++===-:...:::
+      *#%%##%@####***+++*+ .=+++====+*-.:::::
+     %%%%### %####**+++*%-:+*++++--=-=+:.::-:
+    %%%%###% %###***++*%%:+*+++==+-::.+-.::::
+   %%##%###% ####*****# *=**++=---=:..::.:::::</pre>
+          </span>
+        </a>
+        <a href="/" class="sidebar-name"><svg class="name-cat" viewBox="0 0 10 10" width="18" height="18" shape-rendering="crispEdges" aria-hidden="true"><g><path fill="var(--cat-black)" d="M0 0h1v1h-1zM6 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM5 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM9 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM9 7h1v1h-1zM0 8h1v1h-1zM1 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM0 9h1v1h-1zM3 9h1v1h-1zM6 9h1v1h-1zM7 9h1v1h-1z"/><path fill="#9fd356" d="M1 3h1v1h-1zM5 3h1v1h-1z"/><path fill="#f4f1ea" d="M3 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1z"/></g><g display="none"><path fill="#e8913a" d="M0 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM5 5h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM8 8h1v1h-1zM7 9h1v1h-1z"/><path fill="var(--cat-black)" d="M6 0h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM9 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM9 7h1v1h-1zM0 8h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM6 8h1v1h-1zM0 9h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM6 9h1v1h-1z"/><path fill="#9fd356" d="M1 3h1v1h-1zM5 3h1v1h-1z"/></g><g display="none"><path fill="#e8913a" d="M0 0h1v1h-1zM6 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM5 5h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM9 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM8 8h1v1h-1zM0 9h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM6 9h1v1h-1zM7 9h1v1h-1z"/><path fill="#b5611c" d="M1 2h1v1h-1zM3 2h1v1h-1zM5 2h1v1h-1zM0 6h1v1h-1zM6 6h1v1h-1zM9 7h1v1h-1zM0 8h1v1h-1zM6 8h1v1h-1z"/><path fill="#9fd356" d="M1 3h1v1h-1zM5 3h1v1h-1z"/><path fill="#f4f1ea" d="M3 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1z"/></g></svg> Lucas Santos</a>
+        <div class="mobile-actions">
+          <div class="theme-toggle">
+            <button type="button">[dark]</button>
+          </div>
+          <button type="button" class="hamburger" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">&#9776;</button>
+        </div>
+        <nav id="site-nav" aria-label="Site">
+          <a href="/">/index</a>
+          <a href="/about">/about</a>
+          <a href="/now">/now</a>
+          <a href="/friends">/friends</a>
+          <a href="/uses" class="active" aria-current="page">/uses</a>
+          <a href="/projects">/projects</a>
+          <a href="https://blog.lsantos.dev">/blog</a>
+          <a href="mailto:hello@lsantos.dev?subject=Contact%20through%20your%20website">/contact</a>
+        </nav>
+        <div class="theme-toggle desktop-only">
+          <button type="button">[dark]</button>
+          <a href="/ai-usage" class="ai-policy">[AI usage policy]</a>
+        </div>
+      </div>
+<!-- /bake:sidebar --></site-sidebar>
+
+    <main class="content" id="content">
       <div class="content-inner">
-        <h1 class="section-label">// USES<a href="/uses.xml" class="feed-icon" aria-label="RSS feed for /uses"></a></h1>
+        <div class="page-title section-label"><h1>// USES</h1><a href="/uses.xml" class="feed-icon" aria-label="RSS feed for /uses"></a></div>
         <p class="page-desc subtitle">All the gear, tools, tech, computers and things I have owned over the years.</p>
-        <div id="gear-container">
+        <div>
           <!-- bake:gear -->
-<div class="gear-category"><h2>Audio</h2><ul class="gear-list">
+<div class="gear-category"><h2 id="audio">Audio <a class="anchor" href="#audio" aria-label="Link to this section">#</a></h2><ul class="gear-list">
 <li><a class="gear-link" href="/gear/sony-wh-1000xm4.html"><span class="gear-name">Sony WH-1000XM4</span><span class="gear-desc">Sony's fourth-gen over-ear ANC headphones. Probably the best ANC I ever had</span><span class="gear-states"></span><span class="gear-rating">10/10</span></a></li>
 <li><a class="gear-link" href="/gear/fluance-rt81.html"><span class="gear-name">Fluance RT81+</span><span class="gear-desc">Belt-drive turntable with an AT-VM95E cartridge and a switchable built-in preamp, which I use at the moment, but should replace soon by a Fosi X5</span><span class="gear-states"></span><span class="gear-rating">9.8/10</span></a></li>
 <li><a class="gear-link" href="/gear/krk-rokit-5.html"><span class="gear-name">KRK Rokit 5</span><span class="gear-desc">5-inch bi-amplified near-field studio monitor with onboard DSP room EQ. Use it as my main monitor and audio out on the work setup. The sound is amazing and also has a super high fidelity audio.</span><span class="gear-states"></span><span class="gear-rating">9.8/10</span></a></li>
@@ -53,7 +149,7 @@
 <li><a class="gear-link" href="/gear/akg-k72.html"><span class="gear-name">AKG K72</span><span class="gear-desc">My old and reliable headphones I've been using for years</span><span class="gear-states"><span class="tag tag-orange">not-actively-used</span></span><span class="gear-rating">7/10</span></a></li>
 <li class="gone"><a class="gear-link" href="/gear/kenwood-p-110.html"><span class="gear-name">Kenwood P-110</span><span class="gear-desc">My first turntable, a compact belt-drive semi-automatic</span><span class="gear-states"><span class="tag tag-blue">second-hand</span> <span class="tag tag-yellow">previously-owned</span></span><span class="gear-rating">4/10</span></a></li>
 </ul></div>
-<div class="gear-category"><h2>Computers</h2><ul class="gear-list">
+<div class="gear-category"><h2 id="computers">Computers <a class="anchor" href="#computers" aria-label="Link to this section">#</a></h2><ul class="gear-list">
 <li><a class="gear-link" href="/gear/gaming-pc.html"><span class="gear-name">Gaming PC</span><span class="gear-desc">My main desktop, Arch Linux on Hyprland, used for gaming and everything else</span><span class="gear-states"></span><span class="gear-rating">9.6/10</span></a></li>
 <li class="gear-child"><a class="gear-link" href="/gear/virpil-vpc-mongoost-50cm3-throttle.html"><span class="gear-name">VIRPIL VPC MongoosT-50CM3 Throttle</span><span class="gear-desc">Dual-axis HOTAS throttle with contactless sensors, swappable detents and 30+ inputs, I don't even use them all</span><span class="gear-states"></span><span class="gear-rating">10/10</span></a></li>
 <li class="gear-child"><a class="gear-link" href="/gear/keychron-q3-max.html"><span class="gear-name">Keychron Q3 Max</span><span class="gear-desc">Aluminium TKL with QMK/VIA, 2.4 GHz wireless, running Gateron Jupiter Reds and ASA caps. THE BEST typing experience of all the keyboards I ever had in over 10 years</span><span class="gear-states"></span><span class="gear-rating">9.9/10</span></a></li>
@@ -73,7 +169,7 @@
 <li class="gear-child"><a class="gear-link" href="/gear/fifine-mi14.html"><span class="gear-name">Fifine MI14</span><span class="gear-desc">Dual USB-C / XLR dynamic mic that ships with its own boom arm. Cardioid, so it keeps the room out of the recording.</span><span class="gear-states"></span><span class="gear-rating">7/10</span></a></li>
 <li><a class="gear-link" href="/gear/ipad-air.html"><span class="gear-name">iPad Air</span><span class="gear-desc">I am not a huge fan of iPads, I don't think they have any real purpose, but this one saved my life in 2021.</span><span class="gear-states"></span><span class="gear-rating">5/10</span></a></li>
 </ul></div>
-<div class="gear-category"><h2>Keyboards</h2><ul class="gear-list">
+<div class="gear-category"><h2 id="keyboards">Keyboards <a class="anchor" href="#keyboards" aria-label="Link to this section">#</a></h2><ul class="gear-list">
 <li><a class="gear-link" href="/gear/keychron-k8.html"><span class="gear-name">Keychron K8</span><span class="gear-desc">My ol' reliable wireless TKL mechanical keyboard, almost 10 years old, retired to spare duty and collection after the Q3 Max arrived</span><span class="gear-states"><span class="tag tag-orange">not-actively-used</span></span><span class="gear-rating">9/10</span></a></li>
 <li><a class="gear-link" href="/gear/kbdcraft-adam80.html"><span class="gear-name">KBDCraft Adam80</span><span class="gear-desc">Lego-compatible brick-built TKL kit, used on the work setup until it developed ghosting and dead keys, I mostly keep it because it's super different and nice.</span><span class="gear-states"><span class="tag tag-orange">not-actively-used</span></span><span class="gear-rating">8/10</span></a></li>
 <li><a class="gear-link" href="/gear/apple-magic-keyboard-2-compact.html"><span class="gear-name">Apple Magic Keyboard 2 (Compact)</span><span class="gear-desc">Apple's compact low-profile scissor-switch wireless keyboard. I've had this one since around 2017 and it used to be my main travel keyboard. Sometimes it still is.</span><span class="gear-states"><span class="tag tag-orange">not-actively-used</span></span><span class="gear-rating">7/10</span></a></li>
@@ -81,7 +177,7 @@
 <li><a class="gear-link" href="/gear/mchose-ace-68.html"><span class="gear-name">MCHOSE Ace 68</span><span class="gear-desc">65% wired Hall-effect magnetic keyboard. Replaced the K12 as travel board</span><span class="gear-states"><span class="tag tag-orange">not-actively-used</span></span><span class="gear-rating">6/10</span></a></li>
 <li class="gone"><a class="gear-link" href="/gear/keychron-k12.html"><span class="gear-name">Keychron K12</span><span class="gear-desc">60% wireless mechanical keyboard I used to keep as travel board. But couldn't get used to all the layer dance</span><span class="gear-states"><span class="tag tag-yellow">previously-owned</span> <span class="tag tag-blue">second-hand</span></span><span class="gear-rating">5/10</span></a></li>
 </ul></div>
-<div class="gear-category"><h2>Music Production</h2><ul class="gear-list">
+<div class="gear-category"><h2 id="music-production">Music Production <a class="anchor" href="#music-production" aria-label="Link to this section">#</a></h2><ul class="gear-list">
 <li><a class="gear-link" href="/gear/positive-grid-spark-40.html"><span class="gear-name">Positive Grid Spark 40</span><span class="gear-desc">40 W smart practice amp with app-controlled amp models and effects, doubles as a Bluetooth speaker.</span><span class="gear-states"></span><span class="gear-rating">9/10</span></a></li>
 <li><a class="gear-link" href="/gear/positive-grid-spark-go.html"><span class="gear-name">Positive Grid Spark GO</span><span class="gear-desc">Pocket-sized 5 W battery guitar amp with the same app-controlled tones as the bigger Spark, also a headphone amp and Bluetooth speaker.</span><span class="gear-states"></span><span class="gear-rating">8.8/10</span></a></li>
 <li><a class="gear-link" href="/gear/cort-action-pj.html"><span class="gear-name">Cort Action PJ</span><span class="gear-desc">My 4-string matte black Cort Action PJ bass a happy surprise</span><span class="gear-states"></span><span class="gear-rating">8.7/10</span></a></li>
@@ -93,7 +189,7 @@
 <li class="gear-child"><a class="gear-link" href="/gear/m-audio-ex-p-expression-pedal.html"><span class="gear-name">M-Audio EX-P Expression Pedal</span><span class="gear-desc">Universal expression pedal</span><span class="gear-states"><span class="tag tag-orange">not-actively-used</span></span><span class="gear-rating">5/10</span></a></li>
 <li><a class="gear-link" href="/gear/squier-stratocaster.html"><span class="gear-name">Squier Stratocaster</span><span class="gear-desc">My full black Squier Stratocaster for practicing</span><span class="gear-states"></span><span class="gear-rating">6.8/10</span></a></li>
 </ul></div>
-<div class="gear-category"><h2>Pedalboard</h2><ul class="gear-list">
+<div class="gear-category"><h2 id="pedalboard">Pedalboard <a class="anchor" href="#pedalboard" aria-label="Link to this section">#</a></h2><ul class="gear-list">
 <li><a class="gear-link" href="/gear/donner-dt-1-tuner.html"><span class="gear-name">Donner DT-1 Tuner</span><span class="gear-desc">Donner chromatic tuner pedal</span><span class="gear-states"><span class="tag tag-orange">not-actively-used</span></span><span class="gear-rating">8/10</span></a></li>
 <li><a class="gear-link" href="/gear/lekato-pedalboard.html"><span class="gear-name">Lekato Pedalboard</span><span class="gear-desc">A pedalboard with 12 outputs, 10 being 9V, one as 12V and one 18V, along with a 5V USB-A</span><span class="gear-states"></span><span class="gear-rating">6/10</span></a></li>
 <li class="gear-child"><a class="gear-link" href="/gear/boss-tu-2-tuner.html"><span class="gear-name">Boss TU-2 Tuner</span><span class="gear-desc">Boss chromatic tuner pedal, predecessor of the TU-3</span><span class="gear-states"><span class="tag tag-blue">second-hand</span></span><span class="gear-rating">10/10</span></a></li>
@@ -111,15 +207,15 @@
 <li class="gone"><a class="gear-link" href="/gear/ibanez-tube-screamer-mini.html"><span class="gear-name">Ibanez Tube Screamer Mini</span><span class="gear-desc">Mini version of the classic Tube Screamer overdrive</span><span class="gear-states"><span class="tag tag-yellow">previously-owned</span> <span class="tag tag-blue">second-hand</span></span><span class="gear-rating">5/10</span></a></li>
 <li class="gone"><a class="gear-link" href="/gear/tc-electronic-rusty-fuzz.html"><span class="gear-name">TC Electronic Rusty Fuzz</span><span class="gear-desc">TC Electronic fuzz pedal</span><span class="gear-states"><span class="tag tag-yellow">previously-owned</span> <span class="tag tag-blue">second-hand</span></span><span class="gear-rating">5/10</span></a></li>
 </ul></div>
-<div class="gear-category"><h2>Peripherals</h2><ul class="gear-list">
+<div class="gear-category"><h2 id="peripherals">Peripherals <a class="anchor" href="#peripherals" aria-label="Link to this section">#</a></h2><ul class="gear-list">
 <li><a class="gear-link" href="/gear/kensington-expert-mouse-wireless-trackball.html"><span class="gear-name">Kensington Expert Mouse Wireless Trackball</span><span class="gear-desc">Big red-ball trackball with a scroll ring. Got me through a bad tendinitis, weird looking but super comfortable</span><span class="gear-states"><span class="tag tag-orange">not-actively-used</span></span><span class="gear-rating">7.8/10</span></a></li>
 <li><a class="gear-link" href="/gear/logitech-lift-left-handed.html"><span class="gear-name">Logitech Lift Left-Handed</span><span class="gear-desc">Originally bought these because Logi is the only company that makes left-handed mice that are vertical. Used for quite a while until I switched to the Master</span><span class="gear-states"><span class="tag tag-orange">not-actively-used</span></span><span class="gear-rating">7.4/10</span></a></li>
 <li><a class="gear-link" href="/gear/apple-magic-mouse-2.html"><span class="gear-name">Apple Magic Mouse 2</span><span class="gear-desc">Apple's infamous Bluetooth mouse with a Lightning charging port. Probably one of the worst UX's I ever had. I still use it when I travel though, hard to find something so small</span><span class="gear-states"><span class="tag tag-orange">not-actively-used</span></span><span class="gear-rating">4/10</span></a></li>
 </ul></div>
-<div class="gear-category"><h2>Phones</h2><ul class="gear-list">
+<div class="gear-category"><h2 id="phones">Phones <a class="anchor" href="#phones" aria-label="Link to this section">#</a></h2><ul class="gear-list">
 <li><a class="gear-link" href="/gear/iphone-15-pro.html"><span class="gear-name">iPhone 15 Pro</span><span class="gear-desc">Apple's 6.1-inch titanium phone with the A17 Pro chip, 256 GB</span><span class="gear-states"></span><span class="gear-rating">4.5/10</span></a></li>
 </ul></div>
-<div class="gear-category"><h2>Photography</h2><ul class="gear-list">
+<div class="gear-category"><h2 id="photography">Photography <a class="anchor" href="#photography" aria-label="Link to this section">#</a></h2><ul class="gear-list">
 <li><a class="gear-link" href="/gear/sony-alpha-6400.html"><span class="gear-name">Sony Alpha 6400</span><span class="gear-desc">24.2 MP APS-C E-mount mirrorless with 4K video. I use it mainly as my &quot;webcam&quot; and content creation camera. Totally stock, never changed anything</span><span class="gear-states"></span><span class="gear-rating">9.6/10</span></a></li>
 <li><a class="gear-link" href="/gear/canon-eos-6d-mark-ii.html"><span class="gear-name">Canon EOS 6D Mark II</span><span class="gear-desc">26.2 MP full-frame EF-mount DSLR. I use it as my go-to picture camera when I go out photographing stuff (which is less than I'd like to)</span><span class="gear-states"></span><span class="gear-rating">7.8/10</span></a></li>
 <li class="gear-child"><a class="gear-link" href="/gear/canon-ef-100mm-f2-8-macro-usm.html"><span class="gear-name">Canon EF 100mm f2.8 Macro USM</span><span class="gear-desc">Full-frame 1:1 macro prime for EF mount. I use it quite a lot for macro photos and landscape. Has an outstanding quality</span><span class="gear-states"></span><span class="gear-rating">9.8/10</span></a></li>
@@ -129,20 +225,31 @@
 <li class="gear-child"><a class="gear-link" href="/gear/canon-ef-40mm-f2-8-stm.html"><span class="gear-name">Canon EF 40mm f2.8 STM</span><span class="gear-desc">Canon's 130 g full-frame pancake prime for EF mount. Useful but not that much</span><span class="gear-states"><span class="tag tag-orange">not-actively-used</span> <span class="tag tag-blue">second-hand</span></span><span class="gear-rating">4/10</span></a></li>
 <li class="gear-child"><a class="gear-link" href="/gear/canon-ef-8-15mm-f4l-fisheye-usm.html"><span class="gear-name">Canon EF 8-15mm f4L Fisheye USM</span><span class="gear-desc">Full-frame L-series fisheye zoom, circular at 8mm and diagonal at 15mm. Used it a few times on super rare occasions when there's a large landscape</span><span class="gear-states"><span class="tag tag-orange">not-actively-used</span> <span class="tag tag-blue">second-hand</span></span><span class="gear-rating">4/10</span></a></li>
 </ul></div>
-<div class="gear-category"><h2>Tools</h2><ul class="gear-list">
+<div class="gear-category"><h2 id="tools">Tools <a class="anchor" href="#tools" aria-label="Link to this section">#</a></h2><ul class="gear-list">
 <li><a class="gear-link" href="/gear/bambu-lab-a1-mini.html"><span class="gear-name">Bambu Lab A1 Mini</span><span class="gear-desc">Compact 180 mm bed-slinger FDM printer with the 4-slot AMS lite for multi-color prints. My first 3D printer</span><span class="gear-states"></span><span class="gear-rating">9/10</span></a></li>
 <li><a class="gear-link" href="/gear/hardell-stainless-steel-digital-caliper.html"><span class="gear-name">Hardell Stainless Steel Digital Caliper</span><span class="gear-desc">Digital caliper for precise measurements</span><span class="gear-states"></span><span class="gear-rating">9/10</span></a></li>
 <li><a class="gear-link" href="/gear/coczow-pm8233d-multimeter.html"><span class="gear-name">COCZOW PM8233D+ Multimeter</span><span class="gear-desc">Digital autoranging multimeter</span><span class="gear-states"></span><span class="gear-rating">7/10</span></a></li>
 <li><a class="gear-link" href="/gear/aissom-soldering-station.html"><span class="gear-name">Aissom Soldering Station</span><span class="gear-desc">Electronics soldering station</span><span class="gear-states"></span><span class="gear-rating">6.5/10</span></a></li>
 <li class="gone"><a class="gear-link" href="/gear/dymo-omega-embosser.html"><span class="gear-name">DYMO Omega Embosser</span><span class="gear-desc">DYMO Omega manual embossing label maker</span><span class="gear-states"><span class="tag tag-red">broken</span> <span class="tag tag-yellow">previously-owned</span></span><span class="gear-rating">2/10</span></a></li>
 </ul></div>
-<div class="gear-category"><h2>Wearables</h2><ul class="gear-list">
+<div class="gear-category"><h2 id="wearables">Wearables <a class="anchor" href="#wearables" aria-label="Link to this section">#</a></h2><ul class="gear-list">
 <li><a class="gear-link" href="/gear/apple-watch-series-7.html"><span class="gear-name">Apple Watch Series 7</span><span class="gear-desc">Good watch, not much to say. I've had it for over 5 years, don't really use it the way it should be used</span><span class="gear-states"></span><span class="gear-rating">7/10</span></a></li>
 </ul></div>
 <!-- /bake:gear -->
         </div>
 
-        <site-footer class="socials"></site-footer>
+        <site-footer class="socials"><!-- bake:footer -->
+<div class="footer-rule">
+        <a href="https://github.lsantos.dev">[github]</a>
+        <a href="https://blog.lsantos.dev">[blog]</a>
+        <a href="https://twitter.lsantos.dev">[twitter (x)]</a>
+        <a href="https://linkedin.lsantos.dev">[linkedin]</a>
+        <a href="https://youtube.lsantos.dev">[youtube]</a>
+        <a href="https://telegram.lsantos.dev">[telegram]</a>
+        <p class="copyright">&copy; 2026 Lucas Santos</p>
+        <a href="/ai-usage" class="ai-policy">[AI usage policy]</a>
+      </div>
+<!-- /bake:footer --></site-footer>
       </div>
     </main>
   </div>

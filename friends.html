@@ -23,18 +23,113 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <!-- theme.js blocks on purpose so the theme is set before the first paint; components.js only adds behaviour, so it waits for the page -->
   <script src="/js/theme.js"></script>
-  <script src="/js/components.js"></script>
+  <script src="/js/components.js" defer></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
-    <site-sidebar class="sidebar"></site-sidebar>
+    <site-sidebar class="sidebar"><!-- bake:sidebar -->
+<div class="sidebar-inner">
+        <a href="/" class="photo-wrap">
+          <span class="photo-stack">
+            <img src="/img/avatar.webp" alt="Lucas Santos" class="photo" width="130" height="130">
+            <pre class="photo-ascii ascii-light" aria-hidden="true">
 
-    <main class="content">
+
+               =*%##%%@
+             =###%%%@@@@@@
+           +#*%%*#%@@@@@   @
+          #%%#%**+**#####%@@@
+         #%##=-=+===+******#@@
+         %#*+. :--=++++***#*#@
+         #**+. .-=*#**+*#%@%#%
+        *###-.:-*%%%%##%%%%%%%
+        +#%*-+#*#%@@##%%@%%%##
+        *%%#***%#*##*#=+%%####
+        +**+...-++*##+=+*%%#%##
+        ==-=....:=+**#%%@@%*##%
+        +-+=-...:+*###%%%@%#**%
+         =:-+-::=+#%%%##%%@%*#%
+          ==*+=+******##%###%%
+             +**#*+==+*####%@%
+             =+#%#****###%@@@
+              :+%%@@@@@@@@@@%#
+              -:+#%@@@@@@@@%%
+              *::-*#%%@@%%%%    @
+               :.:+****#*#%##*   @@
+              =:.:=++==+*%%=*#@@@@@
+            *=:+--+*##%@@@+*%@@@@@@@@@
+          *+=.-=+#%%@@@@%#+@@@@%@@@@@@@@
+       *+===- ===+**###***%@@%**###%%@@@@@@@
+      +=----:.====++****+*@@%***#####*%@@@@@@
+     ---:==- :====+****+:%@#*****%%%%#*@@@@@@
+    ::-:===: :==+++****:-@*+*####*%@@@#%@@@@@
+   -----===: -===++***= *#+**#%%%%%@@@@@@@@@@@</pre>
+            <pre class="photo-ascii ascii-dark" aria-hidden="true">
+
+
+               #*==+--:
+             #=++-=-:.
+           *++--+=-: :.
+          =--+=+***+++++==:
+         +=+=###*###**+**++=-.
+         -++*@@%%##*****+++++.
+         =++#@@%%#*++**+=---+-
+        *+==#@%#+=--===-----=-
+        *==+%*++==:.==--:=--++
+        *===+++=+*++++#*--====
+        **+*@@@#**+++*#*+-=====
+        ####@@@@%#*+++==::=+++=
+        *###%@@%%**+++=--:-+++=
+         #%%*%%%#*+---===-:-+=-
+          ##+*#*+*****+===++--
+             **+=+*##*++=+==:-
+             #*===+*++++=-:.
+              %*=--::::..   -+
+              #%*+-:      .-=
+              *%%#*=--::----
+               %@%#*++++++-=++
+              #%@%#*###*+--#++   ..
+            *#%*##*++=-:  *+-.. ......
+          **#@%#*+--:::--=*:  :-::....:.
+       +*####@###**++++++*-..-+++===-:...:::
+      *#%%##%@####***+++*+ .=+++====+*-.:::::
+     %%%%### %####**+++*%-:+*++++--=-=+:.::-:
+    %%%%###% %###***++*%%:+*+++==+-::.+-.::::
+   %%##%###% ####*****# *=**++=---=:..::.:::::</pre>
+          </span>
+        </a>
+        <a href="/" class="sidebar-name"><svg class="name-cat" viewBox="0 0 10 10" width="18" height="18" shape-rendering="crispEdges" aria-hidden="true"><g><path fill="var(--cat-black)" d="M0 0h1v1h-1zM6 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM5 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM9 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM9 7h1v1h-1zM0 8h1v1h-1zM1 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM0 9h1v1h-1zM3 9h1v1h-1zM6 9h1v1h-1zM7 9h1v1h-1z"/><path fill="#9fd356" d="M1 3h1v1h-1zM5 3h1v1h-1z"/><path fill="#f4f1ea" d="M3 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1z"/></g><g display="none"><path fill="#e8913a" d="M0 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM5 5h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM8 8h1v1h-1zM7 9h1v1h-1z"/><path fill="var(--cat-black)" d="M6 0h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM9 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM9 7h1v1h-1zM0 8h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM6 8h1v1h-1zM0 9h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM6 9h1v1h-1z"/><path fill="#9fd356" d="M1 3h1v1h-1zM5 3h1v1h-1z"/></g><g display="none"><path fill="#e8913a" d="M0 0h1v1h-1zM6 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM5 5h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM9 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM8 8h1v1h-1zM0 9h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM6 9h1v1h-1zM7 9h1v1h-1z"/><path fill="#b5611c" d="M1 2h1v1h-1zM3 2h1v1h-1zM5 2h1v1h-1zM0 6h1v1h-1zM6 6h1v1h-1zM9 7h1v1h-1zM0 8h1v1h-1zM6 8h1v1h-1z"/><path fill="#9fd356" d="M1 3h1v1h-1zM5 3h1v1h-1z"/><path fill="#f4f1ea" d="M3 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1z"/></g></svg> Lucas Santos</a>
+        <div class="mobile-actions">
+          <div class="theme-toggle">
+            <button type="button">[dark]</button>
+          </div>
+          <button type="button" class="hamburger" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">&#9776;</button>
+        </div>
+        <nav id="site-nav" aria-label="Site">
+          <a href="/">/index</a>
+          <a href="/about">/about</a>
+          <a href="/now">/now</a>
+          <a href="/friends" class="active" aria-current="page">/friends</a>
+          <a href="/uses">/uses</a>
+          <a href="/projects">/projects</a>
+          <a href="https://blog.lsantos.dev">/blog</a>
+          <a href="mailto:hello@lsantos.dev?subject=Contact%20through%20your%20website">/contact</a>
+        </nav>
+        <div class="theme-toggle desktop-only">
+          <button type="button">[dark]</button>
+          <a href="/ai-usage" class="ai-policy">[AI usage policy]</a>
+        </div>
+      </div>
+<!-- /bake:sidebar --></site-sidebar>
+
+    <main class="content" id="content">
       <div class="content-inner">
-        <div class="section-label">// FRIENDS</div>
+        <h1 class="section-label">// FRIENDS</h1>
         <p class="page-desc subtitle">This is a /friends page, inspired by <a
             href="https://slashfriends.org">slashfriends.org</a> and <a href="https://nickgray.net">Nick Gray</a>.</p>
 
@@ -55,6 +150,8 @@
 <li><a href="https://rapha.land">Raphael Amorim</a>, tells you smart things you only half understand, then comes back with a working <a href="https://jamlang.org">programming language</a>, <a href="https://rioterm.com">terminal</a> or <a href="https://github.com/raphamorim/oj">bundler</a>. The most prolific programmer I know.</li>
 <li><a href="https://robinpokorny.com">Robin Pokorný</a>, we worked together for a while and I keep coming back to a few of his articles that really shaped my thinking.</li>
 <li><a href="https://github.com/roziscoding">Roz</a>, one of my oldest dev friends, he taught me to think pragmatically about software. Avid OSS contributor and one of the most talented developers I know.</li>
+<li><a href="https://wellsadev.com">Wellington Almeida</a> is probably one of the most positive persons I&#39;ve ever met. He&#39;s super chill, knows a lot a bout development, especially in the front-end, and is always willing to help. I admire his ability to stay calm and collected in any situation, and his dedication to his craft.</li>
+<li><a href="https://weslley.io">Weslley Araújo</a> one of the most competent programmers I&#39;ve ever met. An amazing full-stack developer that <em>really</em> has a passion for what he does. Plus, he&#39;s a maintainer of a <strong>lot</strong> of very big open source projects and loves to do it!</li>
 <li><a href="https://woliveiras.com">William Oliveira</a>, introduced me to tech communities and pushed me to write and do open source. If you are reading this, it&#39;s mostly because of him.</li>
 </ul>
 <h2 id="people-i-haven-t-met-but-admire">People I haven&#39;t met, but admire <a class="anchor" href="#people-i-haven-t-met-but-admire" aria-label="Link to this section">#</a></h2>
@@ -62,6 +159,7 @@
 <li><a href="https://addyosmani.com">Addy Osmani</a>, I&#39;ve always admired his writing style, and recently came to like his books on philosophy as well.</li>
 <li><a href="https://2ality.com">Axel Rauschmayer, Ph.D</a>, his essays and books inspire me and I read everything he writes. He made me realize I could write about programming and be taken seriously.</li>
 <li><a href="https://unix.foo">Cyrus Lopez</a>, extremely insightful essays and good taste in UIs. My blog design is based on his.</li>
+<li><a href="https://dylanbeattie.net">Dylan Beattie</a>, his talk <a href="https://www.youtube.com/watch?v=6avJHaC3C2U&t=5s&pp=ygUPdGhlIGFydCBvZiBjb2Rl">The Art of Code</a> is still <em>the most interesting, funny, and inspiring talk</em> I&#39;ve ever seen. I want to be like him when I grow up.</li>
 <li><a href="https://www.linkedin.com/in/lydia-hallie/">Lydia Hallie</a>, helped me a lot to visualize how I could make good content.</li>
 <li><a href="https://martin.kleppmann.com">Martin Kleppmann</a>, his book <a href="https://dataintensive.net">Designing Data-Intensive Applications</a> is one of the best I&#39;ve read, and he kindly answered all my emails when I tried to write about it.</li>
 <li><a href="https://www.seangoedecke.com">Sean Goedecke</a>, I love his insights on being a software engineer and how he navigates it.</li>
@@ -74,7 +172,18 @@
 <!-- /bake:friends -->
         </div>
 
-        <site-footer class="socials"></site-footer>
+        <site-footer class="socials"><!-- bake:footer -->
+<div class="footer-rule">
+        <a href="https://github.lsantos.dev">[github]</a>
+        <a href="https://blog.lsantos.dev">[blog]</a>
+        <a href="https://twitter.lsantos.dev">[twitter (x)]</a>
+        <a href="https://linkedin.lsantos.dev">[linkedin]</a>
+        <a href="https://youtube.lsantos.dev">[youtube]</a>
+        <a href="https://telegram.lsantos.dev">[telegram]</a>
+        <p class="copyright">&copy; 2026 Lucas Santos</p>
+        <a href="/ai-usage" class="ai-policy">[AI usage policy]</a>
+      </div>
+<!-- /bake:footer --></site-footer>
       </div>
     </main>
   </div>

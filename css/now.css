@@ -1,0 +1,9 @@
+/* /now only: the space under the baked markdown (/about and /friends use .now-section in base.css) and the
+   "last updated" line. Loaded after base.css */
+
+#now-content { margin-bottom: 1.25rem; }
+
+.now-date {
+  color: var(--muted);
+  font-size: var(--fs-small);
+}

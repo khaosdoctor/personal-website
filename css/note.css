@@ -1,0 +1,104 @@
+/* Gear and build pages only (gear/*.html and builds/*.html, one template in sync/render.js): back link,
+   cover, meta line and the note body. Loaded after base.css */
+
+.back-link {
+  font-size: 1rem;
+  color: var(--muted);
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.back-link:is(:hover, :focus-visible) { color: var(--accent); }
+
+.gear-cover {
+  width: 300px;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--border) 10%, transparent);
+  padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .gear-cover { display: block; margin-left: auto; margin-right: auto; }
+}
+
+/* The title follows the back link or the cover photo, which already leave space above it */
+:is(.back-link, .gear-cover) + .section-label { margin-top: 0; }
+
+.gear-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  font-size: var(--fs-small);
+}
+
+.gear-updated { color: var(--muted); margin-left: auto; }
+
+.rating {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.oneliner {
+  font-style: italic;
+  color: var(--muted);
+  font-size: var(--fs-copy);
+}
+
+/* Gear notes are denser than the other pages: half the space between paragraphs, and a note's own h1 is a
+   section heading (the page title comes from the template). The font size is for code blocks,
+   which size off their parent */
+.gear-body { font-size: var(--fs-copy); }
+.gear-body p { margin: 0.5rem 0; }
+.gear-body h1 { color: var(--text); font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+
+/* ═══ Markdown that only the notes use today ═══
+   No other page's markdown has these yet. If one gets an h3, a table, a rule or code, move the rule it needs
+   to base.css */
+
+h3 { font-size: 0.9rem; font-weight: 600; margin: 1rem 0 0.5rem; }
+
+/* A loose markdown list wraps each item in <p>; inline keeps the text on the marker's line */
+li > p { display: inline; }
+
+table {
+  border-collapse: collapse;
+  margin: 0.75rem 0;
+  font-size: 0.85rem;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.6rem;
+  text-align: left;
+}
+
+th {
+  font-weight: 600;
+  background: color-mix(in srgb, var(--border) 15%, transparent);
+}
+
+/* sync/render.js wraps each markdown table in this div, so tables with many columns scroll sideways on their
+   own instead of widening the page, and stay real tables for screen readers. The div holds the table's margin */
+.table-scroll { overflow-x: auto; margin: 0.75rem 0; }
+.table-scroll > table { margin: 0; }
+/* The div is focusable so a keyboard can scroll it; the outline shows where focus is */
+.table-scroll:focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
+
+hr { border: none; border-top: 1px solid var(--border); margin: var(--space-para) 0; }
+
+/* Code blocks scroll sideways on their own instead of widening the page */
+main pre { overflow-x: auto; }
+
+/* Cascadia Mono (base.css) looks close to the text around inline code, so a faint background marks it
+   (blocks in <pre> don't get it) */
+:not(pre) > code {
+  background: color-mix(in srgb, var(--border) 15%, transparent);
+  padding: 0 0.3ch;
+  border-radius: 2px;
+}

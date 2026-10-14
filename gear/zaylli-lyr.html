@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://lsantos.dev/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -21,21 +22,117 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/note.css">
+  <!-- theme.js blocks on purpose so the theme is set before the first paint; components.js only adds behaviour, so it waits for the page -->
   <script src="/js/theme.js"></script>
-  <script src="/js/components.js"></script>
+  <script src="/js/components.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
-    <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <site-sidebar class="sidebar"><!-- bake:sidebar -->
+<div class="sidebar-inner">
+        <a href="/" class="photo-wrap">
+          <span class="photo-stack">
+            <img src="/img/avatar.webp" alt="Lucas Santos" class="photo" width="130" height="130">
+            <pre class="photo-ascii ascii-light" aria-hidden="true">
+
+
+               =*%##%%@
+             =###%%%@@@@@@
+           +#*%%*#%@@@@@   @
+          #%%#%**+**#####%@@@
+         #%##=-=+===+******#@@
+         %#*+. :--=++++***#*#@
+         #**+. .-=*#**+*#%@%#%
+        *###-.:-*%%%%##%%%%%%%
+        +#%*-+#*#%@@##%%@%%%##
+        *%%#***%#*##*#=+%%####
+        +**+...-++*##+=+*%%#%##
+        ==-=....:=+**#%%@@%*##%
+        +-+=-...:+*###%%%@%#**%
+         =:-+-::=+#%%%##%%@%*#%
+          ==*+=+******##%###%%
+             +**#*+==+*####%@%
+             =+#%#****###%@@@
+              :+%%@@@@@@@@@@%#
+              -:+#%@@@@@@@@%%
+              *::-*#%%@@%%%%    @
+               :.:+****#*#%##*   @@
+              =:.:=++==+*%%=*#@@@@@
+            *=:+--+*##%@@@+*%@@@@@@@@@
+          *+=.-=+#%%@@@@%#+@@@@%@@@@@@@@
+       *+===- ===+**###***%@@%**###%%@@@@@@@
+      +=----:.====++****+*@@%***#####*%@@@@@@
+     ---:==- :====+****+:%@#*****%%%%#*@@@@@@
+    ::-:===: :==+++****:-@*+*####*%@@@#%@@@@@
+   -----===: -===++***= *#+**#%%%%%@@@@@@@@@@@</pre>
+            <pre class="photo-ascii ascii-dark" aria-hidden="true">
+
+
+               #*==+--:
+             #=++-=-:.
+           *++--+=-: :.
+          =--+=+***+++++==:
+         +=+=###*###**+**++=-.
+         -++*@@%%##*****+++++.
+         =++#@@%%#*++**+=---+-
+        *+==#@%#+=--===-----=-
+        *==+%*++==:.==--:=--++
+        *===+++=+*++++#*--====
+        **+*@@@#**+++*#*+-=====
+        ####@@@@%#*+++==::=+++=
+        *###%@@%%**+++=--:-+++=
+         #%%*%%%#*+---===-:-+=-
+          ##+*#*+*****+===++--
+             **+=+*##*++=+==:-
+             #*===+*++++=-:.
+              %*=--::::..   -+
+              #%*+-:      .-=
+              *%%#*=--::----
+               %@%#*++++++-=++
+              #%@%#*###*+--#++   ..
+            *#%*##*++=-:  *+-.. ......
+          **#@%#*+--:::--=*:  :-::....:.
+       +*####@###**++++++*-..-+++===-:...:::
+      *#%%##%@####***+++*+ .=+++====+*-.:::::
+     %%%%### %####**+++*%-:+*++++--=-=+:.::-:
+    %%%%###% %###***++*%%:+*+++==+-::.+-.::::
+   %%##%###% ####*****# *=**++=---=:..::.:::::</pre>
+          </span>
+        </a>
+        <a href="/" class="sidebar-name"><svg class="name-cat" viewBox="0 0 10 10" width="18" height="18" shape-rendering="crispEdges" aria-hidden="true"><g><path fill="var(--cat-black)" d="M0 0h1v1h-1zM6 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM5 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM9 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM9 7h1v1h-1zM0 8h1v1h-1zM1 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM0 9h1v1h-1zM3 9h1v1h-1zM6 9h1v1h-1zM7 9h1v1h-1z"/><path fill="#9fd356" d="M1 3h1v1h-1zM5 3h1v1h-1z"/><path fill="#f4f1ea" d="M3 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1z"/></g><g display="none"><path fill="#e8913a" d="M0 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM5 5h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM8 8h1v1h-1zM7 9h1v1h-1z"/><path fill="var(--cat-black)" d="M6 0h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM9 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM9 7h1v1h-1zM0 8h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM6 8h1v1h-1zM0 9h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM6 9h1v1h-1z"/><path fill="#9fd356" d="M1 3h1v1h-1zM5 3h1v1h-1z"/></g><g display="none"><path fill="#e8913a" d="M0 0h1v1h-1zM6 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM5 5h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM9 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM8 8h1v1h-1zM0 9h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM6 9h1v1h-1zM7 9h1v1h-1z"/><path fill="#b5611c" d="M1 2h1v1h-1zM3 2h1v1h-1zM5 2h1v1h-1zM0 6h1v1h-1zM6 6h1v1h-1zM9 7h1v1h-1zM0 8h1v1h-1zM6 8h1v1h-1z"/><path fill="#9fd356" d="M1 3h1v1h-1zM5 3h1v1h-1z"/><path fill="#f4f1ea" d="M3 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1z"/></g></svg> Lucas Santos</a>
+        <div class="mobile-actions">
+          <div class="theme-toggle">
+            <button type="button">[dark]</button>
+          </div>
+          <button type="button" class="hamburger" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">&#9776;</button>
+        </div>
+        <nav id="site-nav" aria-label="Site">
+          <a href="/">/index</a>
+          <a href="/about">/about</a>
+          <a href="/now">/now</a>
+          <a href="/friends">/friends</a>
+          <a href="/uses">/uses</a>
+          <a href="/projects">/projects</a>
+          <a href="https://blog.lsantos.dev">/blog</a>
+          <a href="mailto:hello@lsantos.dev?subject=Contact%20through%20your%20website">/contact</a>
+        </nav>
+        <div class="theme-toggle desktop-only">
+          <button type="button">[dark]</button>
+          <a href="/ai-usage" class="ai-policy">[AI usage policy]</a>
+        </div>
+      </div>
+<!-- /bake:sidebar --></site-sidebar>
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="/uses" class="back-link">&lt; uses</a>
         <img src="/img/gear/covers/zaylli-lyr.webp" alt="Zaylli Lyrö" class="gear-cover">
-        <h1 class="gear-detail">Zaylli Lyrö</h1>
+        <h1 class="section-label">Zaylli Lyrö</h1>
         <p class="gear-meta"><span class="rating">8.8/10</span> <span class="tag tag-green">owned</span> <span class="tag tag-orange">not-actively-used</span> <span class="gear-updated">updated 2026-10-03</span></p>
         <p class="oneliner">My first proper hifi gear with detachable cables and on-ear.</p>
-        <div class="gear-body"><table>
+        <div class="gear-body"><div class="table-scroll" tabindex="0" role="region" aria-label="Table, scrolls sideways"><table>
 <thead>
 <tr>
 <th>Review link</th>
@@ -55,9 +152,10 @@
 <td>Semi-open-back on-ear headphones with stereo imaging control and hi fidelity audio</td>
 </tr>
 </tbody></table>
+</div>
 <hr>
 <h2 id="store">Store <a class="anchor" href="#store" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Table, scrolls sideways"><table>
 <thead>
 <tr>
 <th>Store</th>
@@ -71,6 +169,7 @@
 <td>2026-07-02</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="description">Description <a class="anchor" href="#description" aria-label="Link to this section">#</a></h2>
 <p>My first proper hi-fi headphones. The knobs on the cups let me tune how much bass they have.</p>
 <h2 id="impressions">Impressions <a class="anchor" href="#impressions" aria-label="Link to this section">#</a></h2>
@@ -78,18 +177,18 @@
 <p>It&#39;s an open back headphone or some semi open back headphone, whatever that means. But I think it means that you can turn it into a closed back headphone or a fully open back headphone by turning the knob on the cans. As any open back headphone, it cannot be used outside, because it&#39;s completely open, so it will not isolate anything and you won&#39;t hear anything. But internally this is one of the most interesting pieces of hardware I&#39;ve ever got.</p>
 <h3 id="general">General <a class="anchor" href="#general" aria-label="Link to this section">#</a></h3>
 <p>The initial impression on this was that it was remarkably light. And I thought it was actually gonna be a piece of crap because it&#39;s super thin. But it&#39;s actually really well made. It&#39;s all aluminum and the drivers in the cans are removable, so you can change the entire body of the headphone and keep only the drivers. Which is amazing because if you really like the sound and if you really like the cans it has, you can actually move to another headphone. But I don&#39;t know if they actually support any other headphone, which is a shame.</p>
-<p>It comes with several accessories, so I got the full pack. It has all the cables being detachable. So they use the same type of connections as the in-ear monitors use. It&#39;s an MMCX pair of pins: <img src="/img/gear/zaylli-lyr-mmcx.webp" alt="Micro Miniature Coaxial cable connection"></p>
+<p>It comes with several accessories, so I got the full pack. It has all the cables being detachable. So they use the same type of connections as the in-ear monitors use. It&#39;s an MMCX pair of pins: <img src="/img/gear/zaylli-lyr-mmcx.webp" alt="Micro Miniature Coaxial cable connection" width="600" height="600" loading="lazy" decoding="async"></p>
 <p>Using this type of connection is really good because it allows me to remove any of the cables and just store the body itself. I got a pair of simple MMCX connector to a 3.5 phone jack connector, which is standard. I also got a DAC that goes from a USB-C to a common 3.5 jack, pretty similar to the apple ones. I got an extra pair of 3.5 millimeters like the first one. I also got another one with an MMCX connector in one end and the other end is a balanced jack which I will probably never use because I don&#39;t have any balanced 4.4mm jacks around.</p>
-<p>And the final one, it&#39;s the most interesting one because it&#39;s a double microphone cable. It&#39;s an USB C to a double MMCX, but in the middle of these there is a microphone. And this microphone is connected to the MMCX connector using a 2-pin (0.78mm) connector like this: <img src="/img/gear/zaylli-lyr-two-pin.webp" alt="Two pin connector"></p>
+<p>And the final one, it&#39;s the most interesting one because it&#39;s a double microphone cable. It&#39;s an USB C to a double MMCX, but in the middle of these there is a microphone. And this microphone is connected to the MMCX connector using a 2-pin (0.78mm) connector like this: <img src="/img/gear/zaylli-lyr-two-pin.webp" alt="Two pin connector" width="600" height="600" loading="lazy" decoding="async"></p>
 <p>And in the end of it there&#39;s a proper headset mic. So I <em>could</em> use the Lyrö as my main headphone in the computer, which would be awesome if I had an extra USB-C that I could plug into, I might actually try it by removing my table DAC one day.</p>
 <h3 id="audio-quality">Audio Quality <a class="anchor" href="#audio-quality" aria-label="Link to this section">#</a></h3>
 <p>The audio quality is actually pretty good. I have tested it in multiple computers, but I haven&#39;t really used it in Linux, for example. I mostly used it in a MacBook, and it&#39;s really good. For a headphone that is not that expensive, I think it was a pretty good acquisition. It does require some equalization though, but it doesn&#39;t really change too much the sound you&#39;re getting from it.</p>
 <p><a href="https://www.reddit.com/r/oratory1990/comments/1q5fmbz/eq_for_zaylli_lyr%C3%B6_onear_headphone/">Oratory1990</a> has an EQ preset and a Frequency Response chart that&#39;s rather interesting. You see, since you can turn the knob on the drivers, the bass response will change.</p>
-<p>So, the headphone has a rotating knob on the outside of the earcup, and turning this knob changes the acoustic impedance connecting to the center port of the speaker. They say it&#39;s by mechanically changing the cross-section of a tube connecting to the back of the speaker and stuff (which I didn&#39;t understand at all), but it theoretically changes the output of the headphone at lower frequencies. I haven&#39;t really noticed any of those, but according to the post, it affects frequencies from 10 to well over 500 Hz. But it&#39;s mostly centered around 40 to 50 Hz. And it slightly reduces the 2~3kHz frequencies as well. So the chart with the knob in all positions look like this: <img src="/img/gear/zaylli-lyr-frc.webp" alt="Notice the value change in the bass"></p>
-<p>If we overlap this to the Harman Curve, you get something like this: <img src="/img/gear/zaylli-lyr-frc-harman.webp" alt="Comparison with Harman curve"></p>
-<p>The most noticeable effect, I think, is the changes in the low highs (or high mids?) which is the most different part of the spectrum. Also, an interesting part of having it on-ear rather than over-ear is that the perception of sound or the frequency response actually changes depending on the way you position the headphones in your ear. So if you go more towards your front, or more to the back of your head, the response will be way different, and it can vary a lot. And this I have noticed. This FR shows it with the knob set in the minimum: <img src="/img/gear/zaylli-lyr-frc-position.webp" alt="Comparison in different parts of the ear with the knob in the minimum setting"></p>
+<p>So, the headphone has a rotating knob on the outside of the earcup, and turning this knob changes the acoustic impedance connecting to the center port of the speaker. They say it&#39;s by mechanically changing the cross-section of a tube connecting to the back of the speaker and stuff (which I didn&#39;t understand at all), but it theoretically changes the output of the headphone at lower frequencies. I haven&#39;t really noticed any of those, but according to the post, it affects frequencies from 10 to well over 500 Hz. But it&#39;s mostly centered around 40 to 50 Hz. And it slightly reduces the 2~3kHz frequencies as well. So the chart with the knob in all positions look like this: <img src="/img/gear/zaylli-lyr-frc.webp" alt="Notice the value change in the bass" width="600" height="336" loading="lazy" decoding="async"></p>
+<p>If we overlap this to the Harman Curve, you get something like this: <img src="/img/gear/zaylli-lyr-frc-harman.webp" alt="Comparison with Harman curve" width="600" height="420" loading="lazy" decoding="async"></p>
+<p>The most noticeable effect, I think, is the changes in the low highs (or high mids?) which is the most different part of the spectrum. Also, an interesting part of having it on-ear rather than over-ear is that the perception of sound or the frequency response actually changes depending on the way you position the headphones in your ear. So if you go more towards your front, or more to the back of your head, the response will be way different, and it can vary a lot. And this I have noticed. This FR shows it with the knob set in the minimum: <img src="/img/gear/zaylli-lyr-frc-position.webp" alt="Comparison in different parts of the ear with the knob in the minimum setting" width="600" height="336" loading="lazy" decoding="async"></p>
 <h2 id="eq-presets">EQ Presets <a class="anchor" href="#eq-presets" aria-label="Link to this section">#</a></h2>
-<p>Oratory has also made some EQ presets that tune it quite a bit: <img src="/img/gear/zaylli-lyr-eq.webp" alt="Zaylli Lyrö_EQ"></p>
+<p>Oratory has also made some EQ presets that tune it quite a bit: <img src="/img/gear/zaylli-lyr-eq.webp" alt="Zaylli Lyrö_EQ" width="600" height="751" loading="lazy" decoding="async"></p>
 <p>The APO presets are different for each one. The first is for the knob set to minimum, what Zaylli calls &quot;Diffuse Field&quot;:</p>
 <pre><code class="language-bash"># /EQ-minimum-bass-diffuse-field
 Preamp: -5.2 dB
@@ -138,7 +237,18 @@ Filter 9: ON HSC Fc 10000 Hz Gain 2.0 dB Q 0.71
 <li><a href="/gear/kz-zsn-pro-x.html">KZ ZSN Pro X</a></li>
 </ul>
 </div>
-        <site-footer class="socials"></site-footer>
+        <site-footer class="socials"><!-- bake:footer -->
+<div class="footer-rule">
+        <a href="https://github.lsantos.dev">[github]</a>
+        <a href="https://blog.lsantos.dev">[blog]</a>
+        <a href="https://twitter.lsantos.dev">[twitter (x)]</a>
+        <a href="https://linkedin.lsantos.dev">[linkedin]</a>
+        <a href="https://youtube.lsantos.dev">[youtube]</a>
+        <a href="https://telegram.lsantos.dev">[telegram]</a>
+        <p class="copyright">&copy; 2026 Lucas Santos</p>
+        <a href="/ai-usage" class="ai-policy">[AI usage policy]</a>
+      </div>
+<!-- /bake:footer --></site-footer>
       </div>
     </main>
   </div>

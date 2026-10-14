@@ -1,0 +1,107 @@
+/* /uses only: the gear list and the hover tooltip from js/gear.js. Loaded after base.css */
+
+.gear-list {
+  list-style: none;
+  display: grid;
+  /* Fixed state and rating widths so the columns line up across category lists */
+  grid-template-columns: minmax(0, 1fr) 18rem 4.5rem;
+}
+
+.gear-list li { display: contents; }
+
+.gear-list li > span,
+.gear-list .gear-link > * {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid var(--line-faint);
+}
+
+.gear-list li:nth-child(even) > *,
+.gear-list li:nth-child(even) .gear-link > * {
+  background: var(--row-stripe);
+}
+
+.gear-link {
+  display: contents;
+  color: inherit;
+}
+
+.gear-link:is(:hover, :focus-visible) .gear-name { color: var(--accent); }
+
+.gear-list .gear-name { font-weight: 500; font-size: var(--fs-copy); }
+
+/* Items with x-personal-site-parent, listed under their parent */
+.gear-list .gear-child .gear-name { padding-left: 1.25rem; font-weight: 400; }
+.gear-list .gear-child .gear-name::before { content: '\2514\00a0'; color: var(--muted); }
+
+/* Previously owned or broken; the rows are display: contents, so the dimming goes on each cell */
+.gear-list .gone .gear-name { text-decoration: line-through; }
+.gear-list .gone > span,
+.gear-list .gone .gear-link > * { opacity: 0.6; }
+
+/* The oneliner shows as a hover tooltip on desktop (js/gear.js) and under the name on mobile */
+.gear-list .gear-desc { display: none; }
+
+.gear-list .gear-states { gap: 0.3rem; }
+.gear-list .gear-states .tag { white-space: nowrap; }
+
+.gear-list .gear-rating {
+  color: var(--accent);
+  font-size: var(--fs-small);
+  justify-content: flex-end;
+}
+
+.gear-tip {
+  position: fixed;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  font-size: var(--fs-small);
+  max-width: 300px;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+.gear-tip.visible { opacity: 1; }
+
+/* On phones each gear row is its own small grid: name and description on the left, rating on the right */
+@media (max-width: 768px) {
+  .gear-category { margin-bottom: 2.5rem; }
+  .gear-category h2 { font-size: 1.25rem; margin-top: 1rem; }
+
+  .gear-list { display: flex; flex-direction: column; }
+
+  .gear-list li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto;
+    width: 100%;
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--line-faint);
+  }
+
+  /* Same rows striped as on desktop, but here the whole row gets it, so the desktop cell stripes are undone */
+  .gear-list li:nth-child(even) { background: var(--row-stripe); }
+  .gear-list li:nth-child(even) > *,
+  .gear-list li:nth-child(even) .gear-link > * { background: none; }
+  .gear-list li > *,
+  .gear-list .gear-link > * { border-bottom: none; padding: 0; }
+
+  .gear-list .gear-name { grid-column: 1; grid-row: 1; }
+  .gear-list .gear-rating { grid-column: 2; grid-row: 1 / -1; align-self: center; padding-left: 0.75rem; border-left: 1px solid var(--line-faint); }
+
+  .gear-list .gear-desc {
+    display: block;
+    grid-column: 1;
+    grid-row: 2;
+    color: var(--muted);
+    font-size: var(--fs-small);
+    padding-top: 0.15rem;
+  }
+  .gear-list .gear-desc:empty { display: none; }
+  .gear-list .gear-states { grid-column: 1; grid-row: 3; padding-top: 0.3rem; }
+  .gear-list .gear-states:empty { display: none; }
+}

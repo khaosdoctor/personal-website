@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://lsantos.dev/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -21,21 +22,117 @@
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/note.css">
+  <!-- theme.js blocks on purpose so the theme is set before the first paint; components.js only adds behaviour, so it waits for the page -->
   <script src="/js/theme.js"></script>
-  <script src="/js/components.js"></script>
+  <script src="/js/components.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
-    <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <site-sidebar class="sidebar"><!-- bake:sidebar -->
+<div class="sidebar-inner">
+        <a href="/" class="photo-wrap">
+          <span class="photo-stack">
+            <img src="/img/avatar.webp" alt="Lucas Santos" class="photo" width="130" height="130">
+            <pre class="photo-ascii ascii-light" aria-hidden="true">
+
+
+               =*%##%%@
+             =###%%%@@@@@@
+           +#*%%*#%@@@@@   @
+          #%%#%**+**#####%@@@
+         #%##=-=+===+******#@@
+         %#*+. :--=++++***#*#@
+         #**+. .-=*#**+*#%@%#%
+        *###-.:-*%%%%##%%%%%%%
+        +#%*-+#*#%@@##%%@%%%##
+        *%%#***%#*##*#=+%%####
+        +**+...-++*##+=+*%%#%##
+        ==-=....:=+**#%%@@%*##%
+        +-+=-...:+*###%%%@%#**%
+         =:-+-::=+#%%%##%%@%*#%
+          ==*+=+******##%###%%
+             +**#*+==+*####%@%
+             =+#%#****###%@@@
+              :+%%@@@@@@@@@@%#
+              -:+#%@@@@@@@@%%
+              *::-*#%%@@%%%%    @
+               :.:+****#*#%##*   @@
+              =:.:=++==+*%%=*#@@@@@
+            *=:+--+*##%@@@+*%@@@@@@@@@
+          *+=.-=+#%%@@@@%#+@@@@%@@@@@@@@
+       *+===- ===+**###***%@@%**###%%@@@@@@@
+      +=----:.====++****+*@@%***#####*%@@@@@@
+     ---:==- :====+****+:%@#*****%%%%#*@@@@@@
+    ::-:===: :==+++****:-@*+*####*%@@@#%@@@@@
+   -----===: -===++***= *#+**#%%%%%@@@@@@@@@@@</pre>
+            <pre class="photo-ascii ascii-dark" aria-hidden="true">
+
+
+               #*==+--:
+             #=++-=-:.
+           *++--+=-: :.
+          =--+=+***+++++==:
+         +=+=###*###**+**++=-.
+         -++*@@%%##*****+++++.
+         =++#@@%%#*++**+=---+-
+        *+==#@%#+=--===-----=-
+        *==+%*++==:.==--:=--++
+        *===+++=+*++++#*--====
+        **+*@@@#**+++*#*+-=====
+        ####@@@@%#*+++==::=+++=
+        *###%@@%%**+++=--:-+++=
+         #%%*%%%#*+---===-:-+=-
+          ##+*#*+*****+===++--
+             **+=+*##*++=+==:-
+             #*===+*++++=-:.
+              %*=--::::..   -+
+              #%*+-:      .-=
+              *%%#*=--::----
+               %@%#*++++++-=++
+              #%@%#*###*+--#++   ..
+            *#%*##*++=-:  *+-.. ......
+          **#@%#*+--:::--=*:  :-::....:.
+       +*####@###**++++++*-..-+++===-:...:::
+      *#%%##%@####***+++*+ .=+++====+*-.:::::
+     %%%%### %####**+++*%-:+*++++--=-=+:.::-:
+    %%%%###% %###***++*%%:+*+++==+-::.+-.::::
+   %%##%###% ####*****# *=**++=---=:..::.:::::</pre>
+          </span>
+        </a>
+        <a href="/" class="sidebar-name"><svg class="name-cat" viewBox="0 0 10 10" width="18" height="18" shape-rendering="crispEdges" aria-hidden="true"><g><path fill="var(--cat-black)" d="M0 0h1v1h-1zM6 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM5 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM9 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM9 7h1v1h-1zM0 8h1v1h-1zM1 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM0 9h1v1h-1zM3 9h1v1h-1zM6 9h1v1h-1zM7 9h1v1h-1z"/><path fill="#9fd356" d="M1 3h1v1h-1zM5 3h1v1h-1z"/><path fill="#f4f1ea" d="M3 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1z"/></g><g display="none"><path fill="#e8913a" d="M0 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM5 5h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM8 8h1v1h-1zM7 9h1v1h-1z"/><path fill="var(--cat-black)" d="M6 0h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM9 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM9 7h1v1h-1zM0 8h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM6 8h1v1h-1zM0 9h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM6 9h1v1h-1z"/><path fill="#9fd356" d="M1 3h1v1h-1zM5 3h1v1h-1z"/></g><g display="none"><path fill="#e8913a" d="M0 0h1v1h-1zM6 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM5 5h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM9 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM8 8h1v1h-1zM0 9h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM4 9h1v1h-1zM5 9h1v1h-1zM6 9h1v1h-1zM7 9h1v1h-1z"/><path fill="#b5611c" d="M1 2h1v1h-1zM3 2h1v1h-1zM5 2h1v1h-1zM0 6h1v1h-1zM6 6h1v1h-1zM9 7h1v1h-1zM0 8h1v1h-1zM6 8h1v1h-1z"/><path fill="#9fd356" d="M1 3h1v1h-1zM5 3h1v1h-1z"/><path fill="#f4f1ea" d="M3 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1z"/></g></svg> Lucas Santos</a>
+        <div class="mobile-actions">
+          <div class="theme-toggle">
+            <button type="button">[dark]</button>
+          </div>
+          <button type="button" class="hamburger" aria-label="Menu" aria-controls="site-nav" aria-expanded="false">&#9776;</button>
+        </div>
+        <nav id="site-nav" aria-label="Site">
+          <a href="/">/index</a>
+          <a href="/about">/about</a>
+          <a href="/now">/now</a>
+          <a href="/friends">/friends</a>
+          <a href="/uses">/uses</a>
+          <a href="/projects">/projects</a>
+          <a href="https://blog.lsantos.dev">/blog</a>
+          <a href="mailto:hello@lsantos.dev?subject=Contact%20through%20your%20website">/contact</a>
+        </nav>
+        <div class="theme-toggle desktop-only">
+          <button type="button">[dark]</button>
+          <a href="/ai-usage" class="ai-policy">[AI usage policy]</a>
+        </div>
+      </div>
+<!-- /bake:sidebar --></site-sidebar>
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="/uses" class="back-link">&lt; uses</a>
         <img src="/img/gear/covers/ipad-air.webp" alt="iPad Air" class="gear-cover">
-        <h1 class="gear-detail">iPad Air</h1>
+        <h1 class="section-label">iPad Air</h1>
         <p class="gear-meta"><span class="rating">5/10</span> <span class="tag tag-green">owned</span> <span class="tag tag-green">actively-used</span> <span class="gear-updated">updated 2026-10-03</span></p>
         <p class="oneliner">I am not a huge fan of iPads, I don't think they have any real purpose, but this one saved my life in 2021.</p>
-        <div class="gear-body"><table>
+        <div class="gear-body"><div class="table-scroll" tabindex="0" role="region" aria-label="Table, scrolls sideways"><table>
 <thead>
 <tr>
 <th>Maker</th>
@@ -51,8 +148,9 @@
 <td>Tablet (10.9-inch Liquid Retina, A14 Bionic, 64 GB, Wi-Fi)</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="store">Store <a class="anchor" href="#store" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Table, scrolls sideways"><table>
 <thead>
 <tr>
 <th>Store</th>
@@ -66,8 +164,9 @@
 <td>2021-11-13</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="specs">Specs <a class="anchor" href="#specs" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Table, scrolls sideways"><table>
 <thead>
 <tr>
 <th>Spec</th>
@@ -91,6 +190,7 @@
 <td>4 GB</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="description">Description <a class="anchor" href="#description" aria-label="Link to this section">#</a></h2>
 <p>This was my only computer for over 6 months when I moved to Sweden in 2021, paired with a Magic Keyboard and a remote Azure machine running VSCode so I could code and write. After I got a proper computer it became a very expensive control center for lights and Spotify, stayed in a closet for months, and now it lives on my electronics workbench.</p>
 <h2 id="impressions">Impressions <a class="anchor" href="#impressions" aria-label="Link to this section">#</a></h2>
@@ -109,7 +209,18 @@
 <li><a href="/gear/macbook-pro-m1-max.html">MacBook Pro M1 Max</a></li>
 </ul>
 </div>
-        <site-footer class="socials"></site-footer>
+        <site-footer class="socials"><!-- bake:footer -->
+<div class="footer-rule">
+        <a href="https://github.lsantos.dev">[github]</a>
+        <a href="https://blog.lsantos.dev">[blog]</a>
+        <a href="https://twitter.lsantos.dev">[twitter (x)]</a>
+        <a href="https://linkedin.lsantos.dev">[linkedin]</a>
+        <a href="https://youtube.lsantos.dev">[youtube]</a>
+        <a href="https://telegram.lsantos.dev">[telegram]</a>
+        <p class="copyright">&copy; 2026 Lucas Santos</p>
+        <a href="/ai-usage" class="ai-policy">[AI usage policy]</a>
+      </div>
+<!-- /bake:footer --></site-footer>
       </div>
     </main>
   </div>

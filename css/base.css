@@ -1,0 +1,587 @@
+/* Loaded by every page. It holds the fonts, the color and size variables, and every rule that two or more
+   pages use. A rule that only one page uses goes in that page's own file instead, linked right after this
+   one: home.css (/), now.css (/now), uses.css (/uses), projects.css (/projects) and note.css (the gear and
+   build pages, which share one template). A page with no rules of its own has no file */
+
+/* Self-hosted IBM Plex Mono, Latin subset (from Google Fonts v20) */
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/plex-mono-400.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: italic; font-weight: 400; font-display: swap; src: url('/fonts/plex-mono-400-italic.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/plex-mono-500.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/plex-mono-600.woff2') format('woff2'); }
+/* Self-hosted Cascadia Mono for code, Latin subset (from @fontsource/cascadia-mono 5.3.0). No preload: browsers
+   only fetch it on pages that render code */
+@font-face { font-family: 'Cascadia Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/cascadia-mono-400.woff2') format('woff2'); }
+/* Noto Sans Mono CJK JP, only the kana used on /friends (マリウス). Add new chars to --text and unicode-range:
+   pyftsubset NotoSansCJK-Regular.ttc --font-number=5 --text='マリウス' --flavor=woff2 --layout-features='' --output-file=fonts/noto-mono-jp-subset.woff2 */
+@font-face { font-family: 'Noto Mono JP Subset'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/noto-mono-jp-subset.woff2') format('woff2'); unicode-range: U+30A6, U+30B9, U+30DE, U+30EA; }
+
+/* ═══ Tokens (every page) ═══ */
+
+/* Text ladder: --title (page titles) > --text (headings, names) > --body (body copy) > --muted (subtitles, dates).
+   Light is the default; js/theme.js always sets data-theme, the media query covers no-JS visits.
+   404.html loads no stylesheet and keeps its own copy of the main colors */
+:root {
+  /* Tells the browser which theme is on, so scrollbars and form controls match it */
+  color-scheme: light;
+  --bg: #f4efe0;
+  --title: #2b2622;
+  --text: #4f493f;
+  --body: #5d564a;
+  --muted: #6b6353;
+  --border: #736e62;
+  /* Faded versions of --border for the /uses gear list: row lines and every second row's background */
+  --line-faint: color-mix(in srgb, var(--border) 25%, transparent);
+  --row-stripe: color-mix(in srgb, var(--border) 6%, transparent);
+  /* js/theme.js replaces --accent with a daily color from its palette; this value is for no-JS visits */
+  --accent: #0571b3;
+  /* The black pixels of the sidebar cat (CAT_COLORS in sync/layout.js); lighter in dark mode so it shows */
+  --cat-black: #2b2622;
+  /* State colors for tags and badges */
+  --red: #b71c1c;
+  --green: #1b5e20;
+  --yellow: #8b6500;
+  --blue: #0d47a1;
+  --orange: #bf360c;
+
+  --font: 'IBM Plex Mono', 'Noto Mono JP Subset', monospace;
+  --fs-copy: 0.9rem;   /* body copy, lists */
+  --fs-small: 0.8rem;  /* dates, meta lines, footer */
+  --space-section: 2rem; /* above every section heading */
+  --space-para: 1rem;    /* between paragraphs */
+  --sidebar-w: 240px;
+  /* The phone layout starts at 768px. Variables don't work inside @media, so each section repeats
+     @media (max-width: 768px) after its own rules; search for 768px to change it */
+}
+
+/* The dark colors are written twice: this block follows the OS setting for no-JS visits, the next one is
+   what js/theme.js sets. Keep both blocks the same */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #131313;
+    --title: #fff;
+    --text: #d6d2c9;
+    --body: #bdb8ae;
+    --muted: #a8a29a;
+    --border: #6b627b;
+    --accent: #1d85c4;
+    --cat-black: #4a4540;
+    --red: #ef5350;
+    --green: #66bb6a;
+    --yellow: #fdd835;
+    --blue: #42a5f5;
+    --orange: #ff7043;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #131313;
+  --title: #fff;
+  --text: #d6d2c9;
+  --body: #bdb8ae;
+  --muted: #a8a29a;
+  --border: #6b627b;
+  --accent: #1d85c4;
+  --cat-black: #4a4540;
+  --red: #ef5350;
+  --green: #66bb6a;
+  --yellow: #fdd835;
+  --blue: #42a5f5;
+  --orange: #ff7043;
+}
+
+/* ═══ Base (every page) ═══ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Short pages have no scrollbar; reserving its space keeps the centered layout from shifting between pages */
+html { scrollbar-gutter: stable; }
+
+/* Sizes in this file are in rem, which is the browser's 16px, not body's 15px: 0.9rem is 14.4px.
+   The 5rem on top is the space above the whole layout on desktop */
+body {
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.65;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 5rem;
+}
+
+@media (max-width: 768px) {
+  body { padding-top: 0; }
+}
+
+/* Plain wrapper tags around the baked sidebar and footer (sync/layout.js); nothing defines them in JS,
+   so they would be inline without this */
+site-sidebar, site-footer { display: block; }
+
+/* Background on accent has the same contrast as accent text on the background, so it passes too */
+::selection { background: var(--accent); color: var(--bg); }
+
+a { color: var(--accent); text-decoration: none; }
+/* Every hover style in this file also applies on keyboard focus (:focus-visible), so keyboard users get the same cue */
+a:is(:hover, :focus-visible) { text-decoration: underline; }
+
+/* Links to other sites get a small arrow. The /uses gear rows (uses.css) are left out: their link is
+   display: contents, so the arrow would become an extra grid cell and break the row */
+a[href^="http"]:not([href^="https://lsantos.dev"]):not(.gear-link)::after {
+  content: '\2197';
+  font-size: 0.65em;
+  vertical-align: super;
+  opacity: 0.5;
+  margin-left: 0.15em;
+}
+
+img { max-width: 100%; height: auto; }
+
+/* ═══ Prose (every page, and the markdown baked into them) ═══ */
+
+/* Element defaults for every page. Markdown output has no classes, so anything with a class
+   (lists, paragraphs, headings) is a component and styles itself */
+
+h1 { color: var(--title); }
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: var(--space-section) 0 0.35rem;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  height: 1px;
+  margin-top: 0.35rem;
+  background: linear-gradient(to right, var(--border), transparent);
+}
+
+/* .content-inner is a flex column, so margins there add up instead of collapsing: a heading that opens
+   a block gets its space from what comes before the block (the intro paragraph's margin below) */
+h2:first-child { margin-top: 0; }
+
+/* The # after a heading links to it; dim until hovered, and a jump leaves a little room above */
+h2, h3 { scroll-margin-top: 1.5rem; }
+.anchor { color: var(--muted); font-weight: 400; opacity: 0.5; }
+.anchor:is(:hover, :focus-visible) { color: var(--accent); opacity: 1; text-decoration: none; }
+
+/* Body copy sits one step below headings. :where() keeps it at zero specificity, so anything with its
+   own color or size class (subtitles, dates, copyright, tags) wins */
+:where(p, :is(ul, ol):not([class])) { color: var(--body); font-size: var(--fs-copy); }
+
+/* The spacing rules are zero specificity too, so the denser gear notes can override them.
+   Paragraphs right in the .content-inner column space themselves (see Content) */
+:where(:not(.content-inner) > p + p) { margin-top: var(--space-para); }
+
+/* Lists: > for bullets, bold accent numbers for ordered lists, and a hanging indent so wrapped lines
+   start under the text instead of under the marker */
+:is(ul, ol):not([class]) { list-style: none; padding-left: 1rem; }
+:where(p + :is(ul, ol):not([class])) { margin-top: 0.4rem; }
+:where(:is(ul, ol):not([class]) + p) { margin-top: var(--space-para); }
+ul:not([class]) > li { padding-left: 2ch; text-indent: -2ch; }
+ul:not([class]) > li::before { content: '> '; color: var(--muted); }
+ol:not([class]) { counter-reset: item; }
+ol:not([class]) > li { padding-left: 3ch; text-indent: -3ch; counter-increment: item; }
+ol:not([class]) > li::before { content: counter(item) '. '; color: var(--accent); font-weight: 600; }
+:is(ul, ol):not([class]) > li + li { margin-top: 0.25rem; }
+
+blockquote {
+  margin: var(--space-para) 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--border);
+}
+
+/* Code uses Cascadia Mono. The sidebar art pre keeps --font through its own font rule. The rest of the code
+   styles are in note.css, the only page with code today */
+code, pre { font-family: 'Cascadia Mono', ui-monospace, monospace; }
+
+/* ═══ Layout (every page) ═══ */
+
+.layout {
+  display: flex;
+  max-width: 1100px;
+  width: 100%;
+}
+
+/* Phones stack the sidebar on top of the content */
+@media (max-width: 768px) {
+  .layout { flex-direction: column; }
+}
+
+/* ═══ Sidebar (every page, <site-sidebar> baked from sync/layout.js) ═══ */
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  position: sticky;
+  top: 1rem;
+  align-self: flex-start;
+  padding: 1rem 2rem 2rem;
+}
+
+.sidebar-inner {
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+/* The vertical double line between sidebar and content. It runs 350px below the sidebar; .content-inner's
+   min-height (987px) is matched to where it ends, so change the two together */
+.sidebar-inner::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 2.5rem;
+  bottom: -350px;
+  border-right: 4px double var(--border);
+}
+
+/* The double line under the photo. The 4.5rem pulls it out to the right, past the sidebar's own padding, so
+   it crosses the vertical double line and runs 3rem beyond it */
+.photo-wrap {
+  border-bottom: 4px double var(--border);
+  padding-bottom: 1rem;
+  margin-right: -4.5rem;
+  padding-right: 4.5rem;
+}
+
+.photo-wrap img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* The ASCII avatar replaces the photo until the link is hovered or focused.
+   Each theme has its own art, since dense chars mean dark on light and bright on dark.
+   52x31 chars at 10px (6px per char) is 312px square, scaled down to the 130px photo;
+   browsers round char widths at tiny font sizes, so a 4px font would not line up */
+.photo-stack { position: relative; display: block; width: fit-content; }
+.photo-ascii {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 312px;
+  height: 312px;
+  transform: scale(calc(130 / 312));
+  transform-origin: 0 0;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 2.4px var(--border); /* 1px ring once scaled */
+  color: var(--text);
+  font: 10px/calc(312px / 31) var(--font);
+  transition: opacity 0.6s;
+}
+/* The photo stays hidden under the art, otherwise its edge shows around it */
+@media (hover: hover) {
+  .photo-wrap img.photo { opacity: 0; transition: opacity 0.6s; }
+  .photo-wrap:hover img.photo,
+  .photo-wrap:focus-visible img.photo { opacity: 1; }
+}
+.ascii-dark { display: none; }
+:root[data-theme="dark"] .ascii-light { display: none; }
+:root[data-theme="dark"] .ascii-dark { display: block; }
+.photo-wrap:hover .photo-ascii,
+.photo-wrap:focus-visible .photo-ascii { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .photo-ascii, .photo-wrap img.photo { transition: none; } }
+/* Touch screens can't hover, so they get the photo; !important beats the theme swap */
+@media (hover: none) { .photo-ascii { display: none !important; } }
+
+/* a.photo-wrap has the same specificity as a:is(:hover, ...) and comes later in the file, so it wins: the photo and
+   the name never underline */
+a.photo-wrap, a.sidebar-name {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sidebar-name {
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.name-cat { vertical-align: -0.2rem; }
+
+nav { padding-top: 0.75rem; }
+
+nav a {
+  display: block;
+  color: var(--text);
+  padding: 0.25rem 0;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+nav a:is(:hover, :focus-visible), nav a.active { color: var(--accent); }
+
+/* The desktop toggle and AI policy link at the bottom of the sidebar. The -2rem cancels the sidebar's
+   bottom padding, so the sidebar ends right under the link */
+.theme-toggle {
+  margin-top: 3rem;
+  margin-bottom: -2rem;
+  text-align: right;
+}
+
+.theme-toggle button {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: var(--fs-small);
+}
+
+.theme-toggle button:is(:hover, :focus-visible) { color: var(--accent); }
+.ai-policy { display: block; color: var(--muted); font-size: 0.7rem; white-space: nowrap; }
+.ai-policy:is(:hover, :focus-visible) { color: var(--accent); text-decoration: none; }
+
+/* Only the phone layout shows these */
+.mobile-actions { display: none; }
+
+/* On phones the sidebar becomes a top bar: name left, small photo center, theme toggle and menu button
+   right, and the nav opens below it as a two-column grid */
+@media (max-width: 768px) {
+  .desktop-only { display: none; }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+    padding: 1rem 1rem 0.75rem;
+  }
+
+  .sidebar-inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding-right: 0;
+  }
+
+  .sidebar-inner::after { display: none; }
+
+  .photo-wrap {
+    grid-column: 2;
+    grid-row: 1;
+    border-bottom: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .photo-wrap img { width: 56px; height: 56px; }
+
+  .sidebar-name { grid-column: 1; grid-row: 1; font-size: var(--fs-copy); justify-self: start; }
+
+  .mobile-actions {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .mobile-actions .theme-toggle { margin: 0; }
+
+  /* The menu button only shows on phones, so its whole style lives here */
+  .hamburger {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 1.2rem;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    font-family: var(--font);
+    border-radius: 2px;
+    line-height: 1;
+  }
+
+  .hamburger:is(:hover, :focus-visible) { color: var(--accent); border-color: var(--accent); }
+
+  nav {
+    display: none;
+    grid-column: 1 / -1;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 0.75rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .sidebar-inner.menu-open nav { display: grid; }
+
+  nav a { font-size: var(--fs-copy); padding: 0.3rem 0; }
+}
+
+/* ═══ Content (every page) ═══ */
+
+/* The side padding is 5% of the window width, at most 4rem, so windows between the phone layout and full
+   desktop width keep more room for the content (phones use 1rem, below) */
+.content {
+  flex: 1;
+  padding: 2rem min(5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Full width of .content on every page (about 750px at most: the 1100px layout minus the sidebar and padding),
+   so navigating only swaps the content. The min-height puts the copyright line level with the end of the
+   sidebar's double line (.sidebar-inner::after); grow it if the sidebar grows */
+.content-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 987px;
+}
+
+/* The last intro paragraph holds the space above the first section (see h2:first-child) */
+.content-inner > p:has(+ :not(p)) { margin-bottom: var(--space-section); }
+
+@media (max-width: 768px) {
+  .content { padding: 1rem; }
+  .content-inner { min-height: auto; }
+}
+
+/* ═══ Page header (every page; the homepage's own header is in home.css) ═══ */
+
+/* "Skip to content" link, the first thing in <body>: hidden above the page until a keyboard user tabs to it */
+.skip-link {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 20;
+  padding: 0.4rem 0.8rem;
+  background: var(--bg);
+  border: 1px solid var(--accent);
+  transform: translateY(-300%);
+}
+.skip-link:focus-visible { transform: none; }
+
+.section-label {
+  color: var(--title);
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: var(--space-section) 0 0.5rem;
+}
+
+.section-label:first-child { margin-top: 0; }
+
+/* The first line under a title starts with a bold > in the title's color; follow-up paragraphs don't */
+.subtitle::before { content: '> '; font-weight: 600; color: var(--title); }
+
+.page-desc {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+/* The page title when the page has an RSS link: <div class="page-title section-label"> (or intro-name) holds
+   a bare <h1> and the feed link, so the link stays out of the heading text. The h1 takes the wrapper's look.
+   A page without a feed link uses a bare <h1 class="section-label"> */
+.page-title { display: flex; align-items: baseline; }
+.page-title h1 { font: inherit; color: inherit; letter-spacing: inherit; }
+
+/* RSS link next to a page's title; the icon is a mask so it takes the link color in both themes */
+.feed-icon {
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Ccircle cx='1' cy='7' r='1'/%3E%3Cpath d='M0 3a5 5 0 0 1 5 5H4a4 4 0 0 0-4-4zM0 0a8 8 0 0 1 8 8H7a7 7 0 0 0-7-7z'/%3E%3C/svg%3E");
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-left: 0.4em;
+  /* Sits on the title's baseline, nudged up a hair */
+  position: relative;
+  bottom: 0.05em;
+  background: var(--muted);
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
+.feed-icon:is(:hover, :focus-visible) { background: var(--accent); }
+
+@media (max-width: 768px) {
+  .section-label { font-size: 1.3rem; }
+}
+
+/* ═══ Socials (every page, <site-footer> baked from sync/layout.js) ═══ */
+
+/* margin-top: auto pins the footer to the bottom of .content-inner; the gap above it is padding,
+   since an auto margin can't also hold a minimum */
+.socials {
+  margin-top: auto;
+  padding-top: 3rem;
+  font-size: var(--fs-small);
+}
+
+.footer-rule {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.socials a {
+  color: var(--muted);
+  margin-right: 1.25rem;
+}
+
+.socials a:is(:hover, :focus-visible) { color: var(--accent); }
+.footer-rule .ai-policy { display: none; }
+
+.copyright {
+  color: var(--muted);
+  font-size: 0.7rem;
+  margin-top: 0.75rem;
+}
+
+/* Phones lay the footer links out in two columns, with the copyright and the AI policy link centered below */
+@media (max-width: 768px) {
+  .footer-rule {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem 1rem;
+  }
+
+  .socials a { margin-right: 0; }
+  .socials a:nth-child(even) { text-align: right; }
+
+  .copyright { grid-column: 1 / -1; text-align: center; }
+  /* Same specificity as .socials a:nth-child(even), which right-aligns every second footer link;
+     this rule comes later, so it wins */
+  .footer-rule a.ai-policy { display: block; grid-column: 1 / -1; text-align: center; margin-top: 0.25rem; }
+}
+
+/* ═══ Tags (/uses, /projects, gear and build pages) ═══ */
+
+.tag {
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  font-size: 0.75rem;
+}
+
+/* Also used on bare text (the /projects legend), where only the color shows */
+.tag-red { color: var(--red); border-color: var(--red); }
+.tag-green { color: var(--green); border-color: var(--green); }
+.tag-yellow { color: var(--yellow); border-color: var(--yellow); }
+.tag-blue { color: var(--blue); border-color: var(--blue); }
+.tag-orange { color: var(--orange); border-color: var(--orange); }
+
+/* ═══ Groups (/uses categories, /projects groups, gear and build notes) ═══ */
+
+.gear-category,
+.project-group {
+  margin-bottom: var(--space-section);
+}
+
+/* They head tables and dense lists, so their headings are a step smaller */
+:is(.gear-body, .gear-category, .project-group) h2 {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ═══ Baked markdown block (/about, /friends; /now's block is in now.css) ═══ */
+
+.now-section { margin-bottom: 1.25rem; }
