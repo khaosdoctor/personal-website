@@ -214,7 +214,8 @@ hr { border: none; border-top: 1px solid var(--border); margin: var(--space-para
 /* Code blocks scroll sideways on their own instead of widening the page (the sidebar art is a pre too) */
 main pre { overflow-x: auto; }
 
-/* Inline code uses the same font as the text around it, so a faint background marks it (blocks in <pre> don't get it) */
+/* Inline code gets the browser's monospace font, which looks close to the text around it, so a faint background
+   marks it (blocks in <pre> don't get it) */
 :not(pre) > code {
   background: color-mix(in srgb, var(--border) 15%, transparent);
   padding: 0 0.3ch;
