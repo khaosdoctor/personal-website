@@ -1,70 +1,38 @@
-### Version 1: the current text
+I am not one of those extremists that avoid and talk bad about vibe coding software all the time. I actually _do_ think that AI is a pretty useful tool. What I really avoid is __handing my thinking over to AI__.
 
-I don't avoid vibe coding. What I avoid is handing my thinking over to AI, and trusting what it gives me without checking.
+I am _very_ adamant when it comes to reading [pasted AI content](https://dontpastetheai.com). I will never give someone something made entirely by AI to read or check without having checked it myself first.
 
-On projects that aren't important to me, I let AI drive. On the ones that are, I read and understand everything it writes.
+With that said, where do I draw the line and where do I think it's really useful? Let's run a list.
 
-Most of the code on this site was written by AI, with me directing it.
+## Side projects that won't harm anyone
 
-The gear and build notes are my own words. I dictate them, and AI transcribes and cleans them up.
+Much like this site or my [blog](https://blog.lsantos.dev), these are small side projects that I keep for fun; most of the code in those was written by AI, with heavy direction from me and a _lot_ of patience, but still.
 
----
+For these cases, I think there's no harm in using AI. After all, it's something that won't take any data from anyone, and will just present static content most of the time.
 
-### Version 2: short
+For these cases in particular, AI has been so helpful to me that it even allowed me to return to writing, since the restructuring of my blog was a long-delayed project of mine. Same with this website.
 
-I use AI every day. I don't let it think for me, and I check what it gives me.
+## Small projects with remarks
 
-Most of the code on this site was written by AI while I directed it. The gear and build notes are mine: I dictate them, and AI turns the recording into text.
+One great example of this is my [Proton Drive client for Linux](https://github.lsantos.dev/proton-drive-linux-fs), a small project I made for myself, but allowed it to be open source because it's useful.
 
----
+However, in this case, I _am_ dealing with people's data and secret values, so I can't just allow it to be vibe-coded completely; therefore, I check the most important parts and run a loop of agents to argue among themselves until I am satisfied enough that I would use it myself.
 
-### Version 3: as a list
+## Important projects
 
-- **Code on this site:** mostly written by AI, with me deciding what gets built and how.
-- **Gear and build notes:** my own words, dictated. AI transcribes them and cleans up the text.
-- **Side projects I don't care much about:** AI drives, and I look at the result.
-- **Projects that matter to me:** I read and understand every line AI writes before it stays.
-- **What I don't do:** hand my thinking over to AI, or trust its output without checking it.
+For very important projects or client projects that I know I am either making money off, and therefore I have responsibility to deliver a good product, __I will read the entire thing__, even if I have been aided by AI to do the code.
 
----
+For these cases, what I usually do is that I plan using AI to research, get information, or get options and so on. I write this plan as a to-do list and I implement it myself. Then I run some agents on top of that for specific tasks like security and bug hunting.
 
-### Version 4: it depends on the project
+## Writing and opinion
 
-How much I let AI do depends on how much I care about the project.
+This case is one of the cases where AI will probably __never__ touch. If I'm writing an opinion article or an essay or anything, you're really seeing my writing as a human. No AI has created anything.
 
-When it's something small or throwaway, I'm fine vibe coding it. I describe what I want, AI writes it, and if it works, it works.
+There are three acceptable uses of AI in writing (at least my writing):
 
-When it matters to me, the rules change. I still use AI to write a lot of the code, but I read all of it, and I don't keep anything I don't understand.
+1. Fixing structure or punctuation, since English is not my native language. And, even if it was, I suck at languages.
+2. Transcription (speech-to-text), because it's easier for me to dictate all the things, and it will automatically apply #1 to it.
+3. Fetch or write descriptions/technical blocks that I would've copied from another place anyway.
 
-This site is somewhere in the middle. AI wrote most of the code, with me directing it and reviewing what came back. The gear and build notes are different: those are my own words, dictated, and AI only transcribes and tidies them.
+This means that all the text in this website is __entirely__ written or dictated by me. Same goes for my blog and all other essays/articles I write.
 
----
-
-### Version 5: questions people ask
-
-**Do you use AI?**
-Yes, a lot.
-
-**Did AI write this site?**
-Most of the code, yes. I directed it and reviewed what it wrote.
-
-**Did AI write the gear and build notes?**
-No. I dictate them, and AI transcribes and cleans up the text. The words and the opinions are mine.
-
-**Do you vibe code?**
-On projects that aren't important to me, yes. On the ones that are, I read and understand everything AI writes.
-
-**Where do you draw the line?**
-I don't hand my thinking over to it, and I don't trust what it gives me without checking.
-
----
-
-### Version 6: my rules
-
-1. AI can write the code. I decide what the code should do.
-2. If a project matters to me, I read everything AI writes, and I understand it before it stays.
-3. If a project doesn't matter much, AI can drive.
-4. I never trust AI output I haven't checked.
-5. My opinions are my own. The gear and build notes on this site are dictated by me, and AI only transcribes and cleans them up.
-
-Most of the code on this site was written under these rules.

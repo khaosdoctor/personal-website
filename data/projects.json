@@ -9,19 +9,19 @@
     "name": "sigil",
     "url": "https://github.com/khaosdoctor/sigil",
     "description": "Compressed memory format for Claude Code",
-    "status": "inactive"
+    "status": "done"
   },
   {
     "name": "blog.lsantos.dev",
     "url": "https://blog.lsantos.dev",
     "description": "My personal tech blog, maintained since 2015",
-    "status": "active"
+    "status": "in-progress"
   },
   {
     "name": "dontquotetheai",
     "url": "https://github.com/khaosdoctor/dontquotetheai",
     "description": "Satire website that mocks the AI hype",
-    "status": "active"
+    "status": "done"
   },
   {
     "name": "gotql",
@@ -33,7 +33,7 @@
     "name": "my-notes",
     "url": "https://github.com/khaosdoctor/my-notes",
     "description": "A repo with my study notes, this was my way in to OSS",
-    "status": "archived"
+    "status": "done"
   },
   {
     "name": "zaqar",
@@ -45,7 +45,7 @@
     "name": "enigmajs",
     "url": "https://github.com/khaosdoctor/enigmajs",
     "description": "Full implementation of the 1944 German cryptographic machine in TypeScript",
-    "status": "archived"
+    "status": "done"
   },
   {
     "name": "typescript-blockchain",
@@ -63,12 +63,12 @@
     "name": "node-dht",
     "url": "https://github.com/khaosdoctor/node-dht",
     "description": "A simple Distributed Hash Table made in Node.js",
-    "status": "archived"
+    "status": "done"
   },
   {
     "name": "netkill",
     "url": "https://github.com/khaosdoctor/netkill",
     "description": "Kills the Internet connection of LAN devices using ARP spoofing, ideal for ADHD",
-    "status": "archived"
+    "status": "done"
   }
 ]

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://lsantos.dev/</loc></url>
+  <url><loc>https://lsantos.dev/about</loc></url>
   <url><loc>https://lsantos.dev/now</loc></url>
   <url><loc>https://lsantos.dev/projects</loc></url>
   <url><loc>https://lsantos.dev/uses</loc></url>
   <url><loc>https://lsantos.dev/friends</loc></url>
+  <url><loc>https://lsantos.dev/ai-usage</loc></url>
   <url><loc>https://lsantos.dev/gear/akg-k72.html</loc></url>
   <url><loc>https://lsantos.dev/gear/airpods-pro.html</loc></url>
   <url><loc>https://lsantos.dev/gear/aissom-soldering-station.html</loc></url>
@@ -39,14 +41,18 @@
   <url><loc>https://lsantos.dev/gear/dymo-omega-embosser.html</loc></url>
   <url><loc>https://lsantos.dev/gear/deepcool-ch560-digital.html</loc></url>
   <url><loc>https://lsantos.dev/gear/donner-dt-1-tuner.html</loc></url>
+  <url><loc>https://lsantos.dev/builds/e-ink-bus-times-computer.html</loc></url>
   <url><loc>https://lsantos.dev/gear/electro-harmonix-big-muff-pi.html</loc></url>
   <url><loc>https://lsantos.dev/gear/electro-harmonix-stereo-electric-mistress.html</loc></url>
+  <url><loc>https://lsantos.dev/gear/element-audio-buck-converters.html</loc></url>
   <url><loc>https://lsantos.dev/gear/fifine-mi14.html</loc></url>
   <url><loc>https://lsantos.dev/gear/fluance-rt81.html</loc></url>
   <url><loc>https://lsantos.dev/gear/focusrite-scarlett-solo-2nd-gen.html</loc></url>
+  <url><loc>https://lsantos.dev/builds/fume-extractor.html</loc></url>
   <url><loc>https://lsantos.dev/gear/fun-generation-wireless-system.html</loc></url>
   <url><loc>https://lsantos.dev/gear/gaming-pc.html</loc></url>
   <url><loc>https://lsantos.dev/gear/hardell-stainless-steel-digital-caliper.html</loc></url>
+  <url><loc>https://lsantos.dev/builds/ibanez-tube-screamer-diy.html</loc></url>
   <url><loc>https://lsantos.dev/gear/ibanez-tube-screamer-mini.html</loc></url>
   <url><loc>https://lsantos.dev/gear/kbdcraft-adam80.html</loc></url>
   <url><loc>https://lsantos.dev/gear/krk-rokit-5.html</loc></url>
