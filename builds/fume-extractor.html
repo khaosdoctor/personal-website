@@ -35,22 +35,22 @@
         <h1 class="gear-detail">Fume Extractor</h1>
         <p class="gear-meta"><span class="tag tag-yellow">in-progress</span> <span class="gear-updated">updated 2026-10-12</span></p>
         <p class="oneliner">Small project I made to test my knowledge in electronics. It's a mini 5V fume extractor made to be used when soldering.</p>
-        <div class="gear-body"><h2>Overview</h2>
+        <div class="gear-body"><h2 id="overview">Overview <a class="anchor" href="#overview" aria-label="Link to this section">#</a></h2>
 <p>The idea was to make the fume extractor so I wouldn&#39;t breathe the fumes from the solder. So I started a small project with a Potentiometer and a small 6cm 5V DC brushless fan.</p>
 <p><img src="/img/gear/diy-fume-extractor.webp" alt="First version on a perfboard"></p>
 <p>The initial version was supposed to use a 6cm fan, however I realized that a 6cm fan would do absolutely nothing if it stood too far from the smoke, which is almost all the time. So I changed the build to a 12cm one. It&#39;s still a 5V fan, so nothing really changed in the circuit in V1 or V2 other than the size.</p>
 <p>V3 though, this will be different. I am planning for a switching converter with a rechargeable 9V Li-Ion battery.</p>
-<h2>Initial Design</h2>
+<h2 id="initial-design">Initial Design <a class="anchor" href="#initial-design" aria-label="Link to this section">#</a></h2>
 <p>After I tested it in the breadboard, I put a schematic in KiCAD to help me draw a PCB for it:</p>
 <p><img src="/img/gear/diy-fume-extractor-diagram.webp" alt="DIY Fume Extractor_diagram"></p>
 <p>I opted to have the fan in a Molex (J) connector because it would be easier if I needed to swap the fan for a bigger one later on, which is what I am planning to do with a 9V/12cm fan, this was basically the test.</p>
 <p>This was V0, the next step was to complete it in the perfboard, which I did (as the photo shows). I wasn&#39;t planning on going any further with this.</p>
-<h3>V1</h3>
+<h3 id="v1">V1 <a class="anchor" href="#v1" aria-label="Link to this section">#</a></h3>
 <p>Once I realized that the perfboard was crap, I ordered a set of 5 PCBs from PCBWay, same circuit, just in a PCB so I didn&#39;t have to use the board. The whole thing is in the <a href="https://github.com/khaosdoctor/kicad-fume-extractor-5v/tree/610c8e3e5aa4c40a0b02b2769eef7642583af31b">KiCad project</a>. Then I wanted to make this a real thing. With a case and so on.</p>
 <p><img src="/img/gear/fume-extractor-v1-schematic.webp" alt="Fume extractor v1 schematic"></p>
 <p><img src="/img/gear/fume-extractor-v1-pcb.webp" alt="Fume extractor v1 PCB layout, front view"></p>
 <p>The final printed PCB was ok, but I learned some things<img src="/img/gear/pasted-image-20261012040240.webp" alt="Final version of the mk1 PCB"></p>
-<h3>V2</h3>
+<h3 id="v2">V2 <a class="anchor" href="#v2" aria-label="Link to this section">#</a></h3>
 <p>Once I realized that I could make that circuit <strong>way</strong> smaller, I begin to work on what&#39;s the current version of the <a href="https://github.com/khaosdoctor/kicad-fume-extractor-5v/tree/d25dcb77e7e6b90e89afc76eb4231ef546408225">KiCad project</a>. It&#39;s roughly the same circuit, the main differente is that it uses a molex connector both for the battery and for the fan. The LED is a 3mm one, and the orientations are corrected (as well as the blueprints. I made sure of that).</p>
 <p><img src="/img/gear/fume-extractor-v2-schematic.webp" alt="Fume extractor v2 schematic"></p>
 <p><img src="/img/gear/fume-extractor-v2-pcb.webp" alt="Fume extractor v2 PCB layout, front view"></p>
@@ -62,7 +62,7 @@
 <p><img src="/img/gear/pasted-image-20261013003613.webp" alt="Pasted image 20261013003613"></p>
 <p>Here I removed the potentiometer in the back side of the Polyester cap, I did a small hack using a component leg from one of the caps to bridge the wiper to the VCC here</p>
 <p><img src="/img/gear/pasted-image-20261013004410.webp" alt="You can see the jumper on the back side"></p>
-<h3>Bill of materials (v1, v2)</h3>
+<h3 id="bill-of-materials-v1-v2">Bill of materials (v1, v2) <a class="anchor" href="#bill-of-materials-v1-v2" aria-label="Link to this section">#</a></h3>
 <table>
 <thead>
 <tr>
@@ -139,7 +139,7 @@
 <td>Also in a Molex connector</td>
 </tr>
 </tbody></table>
-<h2>V3</h2>
+<h2 id="v3">V3 <a class="anchor" href="#v3" aria-label="Link to this section">#</a></h2>
 <p>Version 3 is still to come. The idea is a bit ambitious:</p>
 <ol>
 <li>Make it even smaller with SMD components</li>
@@ -152,7 +152,7 @@
 </ol>
 </li>
 </ol>
-<h2>Build log</h2>
+<h2 id="build-log">Build log <a class="anchor" href="#build-log" aria-label="Link to this section">#</a></h2>
 <ul>
 <li><strong>2026-06-28:</strong> Built it on a Perfboard. It &quot;works&quot;… But I can&#39;t really trust, the perfboard is bad because you need to stick solder into it but it will not stick! <img src="/img/gear/diy-fume-extractor-solder.webp" alt="This is the final state of it"></li>
 <li><strong>2026-06-30:</strong> I desoldered everything, it was very bad. I will re-do it this again.</li>
@@ -162,11 +162,11 @@
 <li><strong>2026-10-12:</strong> I don&#39;t have a new version yet, but I am working on the case, which will dictate the size I can have for it.</li>
 <li><strong>2026-10-13:</strong> Decided to solder the second version of the board to use it while the V3 is not here</li>
 </ul>
-<h2>Lessons learned</h2>
+<h2 id="lessons-learned">Lessons learned <a class="anchor" href="#lessons-learned" aria-label="Link to this section">#</a></h2>
 <ul>
 <li>Perfboards are terrible because I cannot stick the solder to it, never do again.</li>
 </ul>
-<h3>From v1</h3>
+<h3 id="from-v1">From v1 <a class="anchor" href="#from-v1" aria-label="Link to this section">#</a></h3>
 <ul>
 <li>Square PCBs hurt</li>
 <li>Always check the footprints. My switch was from a different brand and a different footprint than the big SW1 you see in the left side, I had to ignore it</li>
@@ -174,13 +174,13 @@
 <li>There&#39;s always space to make it smaller</li>
 <li>Black is not really nice to solder on top of</li>
 </ul>
-<h3>From v2</h3>
+<h3 id="from-v2">From v2 <a class="anchor" href="#from-v2" aria-label="Link to this section">#</a></h3>
 <ul>
 <li>Usually the problem is not the size, you can make it smaller, it gets more difficult to make, but it won&#39;t make your circuit better. What really made this board great was the form-factor</li>
 <li>M3 screws are better than M2 for positioning</li>
 <li>Square components don&#39;t really sit well in rounded corners</li>
 </ul>
-<h2>Next</h2>
+<h2 id="next">Next <a class="anchor" href="#next" aria-label="Link to this section">#</a></h2>
 <ul>
 <li>Complete the V3</li>
 <li>Design the enclosure in a way that I can fit on a multiboard base and also make it portable</li>

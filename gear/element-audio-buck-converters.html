@@ -35,10 +35,10 @@
         <h1 class="gear-detail">Element Audio Buck Converters</h1>
         <p class="gear-meta"><span class="tag tag-green">done</span> <span class="gear-updated">updated 2026-10-12</span></p>
         <p class="oneliner">Two LM2596 buck converters with added protection, in 3D-printed enclosures, powering my pedalboard.</p>
-        <div class="gear-body"><h2>Overview</h2>
+        <div class="gear-body"><h2 id="overview">Overview <a class="anchor" href="#overview" aria-label="Link to this section">#</a></h2>
 <p>Two buck converters that power my <a href="/gear/lekato-pedalboard.html">Lekato Pedalboard</a>, each one in its own 3D-printed enclosure. My goal with this was to make something that feels professional at home. I added those because the pedalboard has two outputs that output 12 and 18V and I needed to convert them down to 9V to be able to use all the outputs.</p>
 <p>The enclosure has one side with a male connector to plug into my pedalboard, on the other side there&#39;s a female jack to connect the pedal.</p>
-<h2>Design</h2>
+<h2 id="design">Design <a class="anchor" href="#design" aria-label="Link to this section">#</a></h2>
 <p>The base is an LM2596 DC-DC Buck Converter module, an adjustable step-down regulator 3.2-46V in, 1.25-35V out, 3A. The module already comes with a 100µF capacitor on both ends which protects against spikes, a toroidal inductor with a Schottky diode, and an LED so I didn&#39;t have to build the whole &quot;is it on&quot; thing. The inductor and the diode are what make the converter work: while the regulator&#39;s switch is on, the inductor stores energy, and while it&#39;s off, the inductor keeps the current going through the diode, so the output gets a steady voltage instead of pulses. But the issue is that the converter is super dumb, so I had to make some changes. I added:</p>
 <ul>
 <li><strong>1A fuse</strong> at the input, against over-current. So it doesn&#39;t burn the converter and everything catch fire</li>
@@ -53,7 +53,7 @@
 <p>And then the output needs to wire the center to the negative side, with the hot signal on the sleeve.</p>
 <p><img src="/img/gear/pedalboard-buck-converter-schematic.webp" alt="Pedalboard buck converter schematic"></p>
 <p>The enclosure is printed on my <a href="/gear/bambu-lab-a1-mini.html">Bambu Lab A1 Mini</a>. The front has a triangle pattern and the name of my brand. The converter is screwed to the inside, with room for heat-set inserts.</p>
-<h2>Bill of materials</h2>
+<h2 id="bill-of-materials">Bill of materials <a class="anchor" href="#bill-of-materials" aria-label="Link to this section">#</a></h2>
 <p>Per converter, I built two.</p>
 <table>
 <thead>
@@ -113,7 +113,7 @@
 <td>Body, lid and screws</td>
 </tr>
 </tbody></table>
-<h2>Build log</h2>
+<h2 id="build-log">Build log <a class="anchor" href="#build-log" aria-label="Link to this section">#</a></h2>
 <ul>
 <li><strong>2026-09-14:</strong> Bought a 10-pack of LM2596 modules.</li>
 <li><strong>2026-09-15:</strong> Tested two converters while making the pedalboard cables. They&#39;re tiny, the fuse and the output jack are bigger than the converter itself. Planned the extra protection: fuse, ferrite bead, zener and ceramic cap.</li>
@@ -125,7 +125,7 @@
 <li><strong>2026-10-09</strong>: The pedalboard is fully working with them. They&#39;re on the top side, and I think the wires are too short.
 <img src="/img/gear/journal-2026-10-07-033716-051c1c3c.webp" alt="2026-10-07_033716_051c1c3c"></li>
 </ul>
-<h2>Lessons learned</h2>
+<h2 id="lessons-learned">Lessons learned <a class="anchor" href="#lessons-learned" aria-label="Link to this section">#</a></h2>
 <ul>
 <li>The first enclosure failed because the lid ended up really loose.
 <img src="/img/gear/journal-2026-10-07-033110-58297103.webp" alt="This was the first version"></li>

@@ -7,6 +7,20 @@
     <language>en</language>
     <atom:link href="https://lsantos.dev/uses.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Uses: Aissom Soldering Station</title>
+      <link>https://lsantos.dev/gear/aissom-soldering-station.html</link>
+      <guid isPermaLink="false">uses:aissom-soldering-station:2026-10-13T19:03:58.000Z</guid>
+      <pubDate>Tue, 13 Oct 2026 19:03:58 GMT</pubDate>
+      <description><![CDATA[<p>Electronics soldering station Rated 6.5/10.</p>]]></description>
+    </item>
+    <item>
+      <title>Uses: Boss DS-1</title>
+      <link>https://lsantos.dev/gear/boss-ds-1.html</link>
+      <guid isPermaLink="false">uses:boss-ds-1:2026-10-13T01:51:06.000Z</guid>
+      <pubDate>Tue, 13 Oct 2026 01:51:06 GMT</pubDate>
+      <description><![CDATA[<p>Classic Boss distortion pedal Rated 8/10.</p>]]></description>
+    </item>
+    <item>
       <title>Uses: Electro-Harmonix Stereo Electric Mistress</title>
       <link>https://lsantos.dev/gear/electro-harmonix-stereo-electric-mistress.html</link>
       <guid isPermaLink="false">uses:electro-harmonix-stereo-electric-mistress:2026-10-13T00:39:50.000Z</guid>
@@ -19,13 +33,6 @@
       <guid isPermaLink="false">uses:element-audio-buck-converters:2026-10-12T20:36:18.000Z</guid>
       <pubDate>Mon, 12 Oct 2026 20:36:18 GMT</pubDate>
       <description><![CDATA[<p>Two LM2596 buck converters with added protection, in 3D-printed enclosures, powering my pedalboard.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Boss DS-1</title>
-      <link>https://lsantos.dev/gear/boss-ds-1.html</link>
-      <guid isPermaLink="false">uses:boss-ds-1:2026-10-12T01:57:54.000Z</guid>
-      <pubDate>Mon, 12 Oct 2026 01:57:54 GMT</pubDate>
-      <description><![CDATA[<p>Classic Boss distortion pedal Rated 8/10.</p>]]></description>
     </item>
     <item>
       <title>Uses: Boss PW-3 Wah</title>
@@ -96,13 +103,6 @@
       <guid isPermaLink="false">uses:airpods-pro:2026-10-03T00:00:00.000Z</guid>
       <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[<p>My old AirPods, they lasted 5 years before deciding they didn't want to charge anymore. It was a good run. Rated 7/10.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Aissom Soldering Station</title>
-      <link>https://lsantos.dev/gear/aissom-soldering-station.html</link>
-      <guid isPermaLink="false">uses:aissom-soldering-station:2026-10-03T00:00:00.000Z</guid>
-      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
-      <description><![CDATA[<p>Electronics soldering station Rated 6.5/10.</p>]]></description>
     </item>
     <item>
       <title>Uses: Apple Magic Mouse 2</title>
