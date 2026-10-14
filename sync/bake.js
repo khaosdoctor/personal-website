@@ -46,7 +46,8 @@ export async function bakePages(posts, notes) {
   // No notes means no source was readable, not that the gear is gone. Rewriting /uses, /projects
   // (which mixes in the builds) and the sitemap here would publish empty lists, so they keep what they have.
   if (!notes.length) {
-    log.warn('no gear or build notes found, leaving /uses, /projects and the sitemap untouched');
+    log.warn('no gear or build notes found, leaving /uses, /projects, the sitemap and the note feeds untouched');
+    await writeFeeds(notes);
     return;
   }
 

@@ -108,6 +108,8 @@ export async function writeFeeds(notes) {
       related: `\n    <atom:link href="${esc(RSS_URL)}" rel="related" type="application/rss+xml"/>`,
     },
   ];
-  for (const f of feeds) await writeFile(f.file, rss(f));
-  log.ok(`feeds written: ${feeds.map(f => `${f.file} (${Math.min(f.items.length, MAX_ITEMS)})`).join(', ')}`);
+  // No notes means none were readable: only now.xml is complete without them, the others keep what they had
+  const toWrite = notes.length ? feeds : feeds.filter(f => f.file === 'now.xml');
+  for (const f of toWrite) await writeFile(f.file, rss(f));
+  log.ok(`feeds written: ${toWrite.map(f => `${f.file} (${Math.min(f.items.length, MAX_ITEMS)})`).join(', ')}`);
 }
