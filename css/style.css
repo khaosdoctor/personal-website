@@ -204,10 +204,10 @@ th {
   background: color-mix(in srgb, var(--border) 15%, transparent);
 }
 
-@media (max-width: 768px) {
-  /* Tables with many columns scroll sideways on their own instead of widening the page */
-  table { display: block; overflow-x: auto; }
-}
+/* sync/render.js wraps each markdown table in this div, so tables with many columns scroll sideways on their
+   own instead of widening the page, and stay real tables for screen readers. The div holds the table's margin */
+.table-scroll { overflow-x: auto; margin: 0.75rem 0; }
+.table-scroll > table { margin: 0; }
 
 hr { border: none; border-top: 1px solid var(--border); margin: var(--space-para) 0; }
 
@@ -482,6 +482,8 @@ nav a:is(:hover, :focus-visible), nav a.active { color: var(--accent); }
 }
 
 .section-label:first-child { margin-top: 0; }
+/* Gear and build pages: the title follows the back link or the cover photo, which already leave space above it */
+:is(.back-link, .gear-cover) + .section-label { margin-top: 0; }
 
 /* The first line under a title starts with a bold > in the title's color; follow-up paragraphs don't */
 .subtitle::before { content: '> '; font-weight: 600; color: var(--title); }
