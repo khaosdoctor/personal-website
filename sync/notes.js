@@ -1,4 +1,4 @@
-import { readFile, writeFile, readdir, mkdir, copyFile, rm } from 'fs/promises';
+import { readFile, writeFile, readdir, mkdir, rm } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join, basename, extname } from 'path';
 import matter from 'gray-matter';
@@ -11,30 +11,27 @@ const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
 const RE_WIKILINK = /(!?)\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
 const RE_UNRESOLVED_LI = /^[ \t]*[-*]\s*<!--unresolved:[\s\S]*?-->\s*$/gm;
 const RE_UNRESOLVED_INLINE = /<!--unresolved:([\s\S]*?)-->/g;
-// "photo.JPG" -> the ".JPG" part, swapped for ".webp" once the image is converted
-const RE_EXT = /\.[^.]+$/;
 
-const pendingImages = [];
-
-// hrefs maps a note slug to its page, so a wikilink to any published note becomes a link
+// Turns wikilinks into links and image embeds into markdown images. hrefs maps a note slug to its
+// page, so a wikilink to any published note becomes a link. Returns the markdown and the embedded
+// images that still need converting into img/gear
 function resolveWikilinks(content, hrefs) {
-  return content
+  const images = [];
+  const markdown = content
     .replace(RE_WIKILINK, (_, bang, rawTarget, alias) => {
       // [[Note\|alias]] is how a wikilink escapes its pipe inside a markdown table
       const target = rawTarget.replace(/\\$/, '');
       if (bang && IMG_EXTS.has(extname(target).toLowerCase())) {
         // The export writes embeds relative to data/vault/assets
         const src = join(VAULT_ASSETS, target);
-        if (existsSync(src)) {
-          const dest = slugify(target.replace(extname(target), '')) + extname(target).toLowerCase();
-          pendingImages.push({ src, dest });
-          const webpDest = dest.replace(RE_EXT, '.webp');
-          // Obsidian sizes an embed with a trailing |400 or |400x300, which is not part of the caption
-          const caption = (alias || '').replace(/(?:^|\|)\d+(?:x\d+)?$/, '');
-          const alt = caption || basename(target, extname(target));
-          return `![${alt}](/img/gear/${webpDest})`;
-        }
-        return '';
+        if (!existsSync(src)) return '';
+        // "photos/Desk Setup.JPG" -> "photos-desk-setup.webp"
+        const dest = `${slugify(target.replace(extname(target), ''))}.webp`;
+        images.push({ src, dest });
+        // Obsidian sizes an embed with a trailing |400 or |400x300, which is not part of the caption
+        const caption = (alias || '').replace(/(?:^|\|)\d+(?:x\d+)?$/, '');
+        const alt = caption || basename(target, extname(target));
+        return `![${alt}](/img/gear/${dest})`;
       }
       const slug = slugify(target);
       if (hrefs.has(slug)) return `<a href="${hrefs.get(slug)}">${alias || target}</a>`;
@@ -42,6 +39,7 @@ function resolveWikilinks(content, hrefs) {
     })
     .replace(RE_UNRESOLVED_LI, '')
     .replace(RE_UNRESOLVED_INLINE, '$1');
+  return { markdown, images };
 }
 
 async function readMdFiles(dir) {
@@ -110,42 +108,44 @@ export async function syncNotes() {
     }
   }
 
-  const missingCovers = notes.filter(n => n.coverUrl && !existsSync(join(COVER_DIR, `${n.slug}.webp`))).length;
-  if (missingCovers) log.info(`downloading ${missingCovers} covers, ${FETCH_TIMEOUT_MS}ms timeout each`);
+  // A note with an empty body is only a row on /uses or /projects; only notes with a page need a cover
+  const withPage = notes.filter(n => n.body.trim());
+  for (const n of notes) if (!n.body.trim()) debug.gear('%s: empty body, list row only', n.slug);
 
-  let coverCount = 0;
-  const index = await Promise.all(notes.map(async n => {
-    if (n.coverUrl) {
-      // Counted before the call, otherwise an already-cached cover looks like a fresh download
-      const wasMissing = !existsSync(join(COVER_DIR, `${n.slug}.webp`));
-      const localCover = await fetchCover(n.coverUrl, n.slug);
-      if (wasMissing && localCover !== n.coverUrl) coverCount++;
-      n.coverUrl = localCover;
-    }
-    const hasPage = n.body.trim().length > 0;
-    if (hasPage) {
-      // data/vault notes are vault notes exported in CI (private blocks stripped), so they carry wikilinks too
-      const rendered = pageMarkdown(resolveWikilinks(n.body, hrefs));
-      // The page template already shows the name as its title, so a body starting with the same h1 drops it
-      const html = rendered.replace(new RegExp(`^\\s*<h1>${RegExp.escape(n.name)}</h1>\\s*`), '');
-      await writeFile(`.${pagePath(n)}`, notePage(n, html));
-      debug.gear('%s: page written, category=%s rating=%s state=%o status=%s', n.slug, n.category, n.rating, n.state, n.status);
-    }
-    if (!hasPage) debug.gear('%s: empty body, list row only', n.slug);
-    // The lists, feeds and sitemap need the note without its markdown body
-    const { body, ...note } = n;
-    return { ...note, hasPage, href: pagePath(n) };
+  // Covers download in parallel; a cover that can't be fetched keeps its remote URL
+  const withCover = withPage.filter(n => n.coverUrl);
+  const missingCovers = withCover.filter(n => !existsSync(join(COVER_DIR, `${n.slug}.webp`))).length;
+  if (missingCovers) log.info(`downloading ${missingCovers} covers, ${FETCH_TIMEOUT_MS}ms timeout each`);
+  const covers = await Promise.all(withCover.map(async n => {
+    const cover = await fetchCover(n.coverUrl, n.slug);
+    n.coverUrl = cover.src;
+    return cover.downloaded;
   }));
+  const coverCount = covers.filter(Boolean).length;
   if (coverCount) log.ok(`${coverCount} covers downloaded`);
 
-  for (const img of pendingImages) {
-    const destPath = join(GEAR_IMG, img.dest);
-    const webpDest = destPath.replace(RE_EXT, '.webp');
-    const ok = await optimizeImage(img.src, webpDest);
-    if (!ok) await copyFile(img.src, destPath);
+  // Wikilinks first, so every embedded image is known (once, even when two notes embed it) before conversion
+  const embeds = new Map();
+  for (const n of withPage) {
+    const { markdown, images } = resolveWikilinks(n.body, hrefs);
+    n.markdown = markdown;
+    for (const img of images) embeds.set(img.dest, { ...img, note: n.name });
   }
-  if (pendingImages.length) log.ok(`${pendingImages.length} images optimized`);
-  pendingImages.length = 0;
+  for (const img of embeds.values()) {
+    if (await optimizeImage(img.src, join(GEAR_IMG, img.dest))) continue;
+    // The page still links the .webp, so the image shows broken until the source file is fixed
+    log.warn(`${img.note}: embed ${img.src} could not be converted, its image is missing on the page`);
+  }
+  if (embeds.size) log.ok(`${embeds.size} images optimized`);
 
-  return index;
+  for (const n of withPage) {
+    const rendered = pageMarkdown(n.markdown);
+    // The page template already shows the name as its title, so a body starting with the same h1 drops it
+    const html = rendered.replace(new RegExp(`^\\s*<h1>${RegExp.escape(n.name)}</h1>\\s*`), '');
+    await writeFile(`.${pagePath(n)}`, notePage(n, html));
+    debug.gear('%s: page written, category=%s rating=%s state=%o status=%s', n.slug, n.category, n.rating, n.state, n.status);
+  }
+
+  // The lists, feeds and sitemap need the note without its markdown
+  return notes.map(({ body, markdown, ...n }) => ({ ...n, hasPage: Boolean(body.trim()), href: pagePath(n) }));
 }
