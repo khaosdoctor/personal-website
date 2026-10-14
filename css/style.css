@@ -441,14 +441,16 @@ nav a:is(:hover, :focus-visible), nav a.active { color: var(--accent); }
 
 /* ═══ Content (every page) ═══ */
 
+/* The side padding is 5% of the window width, at most 4rem, so windows between the phone layout and full
+   desktop width keep more room for the content (phones use 1rem, below) */
 .content {
   flex: 1;
-  padding: 2rem 4rem;
+  padding: 2rem min(5vw, 4rem);
   display: flex;
   flex-direction: column;
 }
 
-/* Full width of .content on every page (at most 732px: the 1100px layout minus the sidebar and padding),
+/* Full width of .content on every page (about 750px at most: the 1100px layout minus the sidebar and padding),
    so navigating only swaps the content. The min-height puts the copyright line level with the end of the
    sidebar's double line (.sidebar-inner::after); grow it if the sidebar grows */
 .content-inner {
