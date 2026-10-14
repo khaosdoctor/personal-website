@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+# Source notes and markdown the pages are baked from; the pages themselves are the public copy
+Disallow: /data/
 
 Sitemap: https://lsantos.dev/sitemap.xml

@@ -24,21 +24,23 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
 
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
-        <h1 class="section-label">// PROJECTS<a href="/projects.xml" class="feed-icon" aria-label="RSS feed for /projects"></a></h1>
+        <div class="page-title section-label"><h1>// PROJECTS</h1><a href="/projects.xml" class="feed-icon" aria-label="RSS feed for /projects"></a></div>
         <p class="page-desc subtitle">Software I built or maintain, and pedals, electronics and other DIY things I build.</p>
 
         <section class="project-group">
-        <h2>// ACTIVE</h2>
-        <p class="page-desc subtitle">Things I'm working on right now, or continuously improving. <strong class="status-active">Active</strong> means it works and I maintain it: fixing bugs and eventually adding new features. <strong class="tag-yellow">In progress</strong> means it isn't finished yet and I'm building it right now.</p>
+        <h2 id="active">// ACTIVE <a class="anchor" href="#active" aria-label="Link to this section">#</a></h2>
+        <p class="page-desc subtitle">Things I'm working on right now, or continuously improving. <strong class="tag-green">Active</strong> means it works and I maintain it: fixing bugs and eventually adding new features. <strong class="tag-yellow">In progress</strong> means it isn't finished yet and I'm building it right now.</p>
         <ul class="project-list">
           <!-- bake:projects-active -->
 <li class="project-item" data-status="active"><div class="project-header"><a href="https://github.com/khaosdoctor/proton-drive-linux-fs" class="project-name">proton-drive-linux-fs</a><span class="project-status" data-status="active">active</span></div><div class="project-desc">FUSE virtual filesystem for Proton Drive on Linux</div></li>
@@ -50,7 +52,7 @@
         </section>
 
         <section class="project-group">
-        <h2>// PLANNED</h2>
+        <h2 id="planned">// PLANNED <a class="anchor" href="#planned" aria-label="Link to this section">#</a></h2>
         <p class="page-desc subtitle">Things I am planning to do, some of those might never see the light.</p>
         <ul class="project-list">
           <!-- bake:projects-planned -->
@@ -61,7 +63,7 @@
         </section>
 
         <section class="project-group">
-        <h2>// DONE</h2>
+        <h2 id="done">// DONE <a class="anchor" href="#done" aria-label="Link to this section">#</a></h2>
         <p class="page-desc subtitle"><strong class="tag-green">Done</strong> means I don't think there's anything more to add to the project, it's done. <strong>Archived</strong> means I could do more, but I don't want to continue for whatever reason.</p>
         <ul class="project-list">
           <!-- bake:projects-done -->

@@ -20,6 +20,26 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
+  <!-- Tells search engines who this site belongs to. sameAs lists the footer's profiles at the address each
+       *.lsantos.dev short link redirects to, since search engines match profiles by their real URL -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Lucas Santos",
+    "url": "https://lsantos.dev/",
+    "image": "https://lsantos.dev/img/avatar.webp",
+    "jobTitle": "Staff Engineer",
+    "sameAs": [
+      "https://github.com/khaosdoctor",
+      "https://blog.lsantos.dev",
+      "https://twitter.com/_staticvoid",
+      "https://www.linkedin.com/in/lsantosdev",
+      "https://www.youtube.com/channel/UCki-WnBzwzpvbBDk4swJniQ",
+      "https://t.me/lsantosdev"
+    ]
+  }
+  </script>
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
@@ -27,18 +47,19 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
 
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
-        <h1 class="intro-name">Lucas Santos<a href="/feed.xml" class="feed-icon" aria-label="RSS feed for the site"></a>
-        </h1>
+        <div class="page-title intro-name"><h1>Lucas Santos</h1><a href="/feed.xml" class="feed-icon" aria-label="RSS feed for the site"></a></div>
         <div class="intro-sub">software engineer :: content creator :: stockholm</div>
         <div class="intro-clock"></div>
         <div class="section-label">// INDEX</div>
@@ -54,7 +75,7 @@
         </div>
 
         <div class="section-label">// LATEST FROM THE BLOG</div>
-        <ul class="post-list" id="latest-posts">
+        <ul class="post-list">
           <!-- bake:posts -->
 <li><span class="post-date">2026-09-11</span><a href="https://blog.lsantos.dev/en/i-m-back/">I'm back!</a></li>
 <li><span class="post-date">2025-03-20</span><a href="https://blog.lsantos.dev/en/backlog-10-slopware-the-end-of-well-made-code/">Slopware: The End of Well-Made Code</a></li>

@@ -24,17 +24,19 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
 
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
-        <div class="section-label">// FRIENDS</div>
+        <h1 class="section-label">// FRIENDS</h1>
         <p class="page-desc subtitle">This is a /friends page, inspired by <a
             href="https://slashfriends.org">slashfriends.org</a> and <a href="https://nickgray.net">Nick Gray</a>.</p>
 
