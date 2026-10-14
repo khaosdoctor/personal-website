@@ -172,7 +172,7 @@ ul:not([class]) > li { padding-left: 2ch; text-indent: -2ch; }
 ul:not([class]) > li::before { content: '> '; color: var(--muted); }
 ol:not([class]) { counter-reset: item; }
 ol:not([class]) > li { padding-left: 3ch; text-indent: -3ch; counter-increment: item; }
-ol:not([class]) > li::before { content: counter(item) '. '; color: var(--accent); font-weight: 700; }
+ol:not([class]) > li::before { content: counter(item) '. '; color: var(--accent); font-weight: 600; }
 :is(ul, ol):not([class]) > li + li { margin-top: 0.25rem; }
 /* A loose markdown list wraps each item in <p>; inline keeps the text on the marker's line */
 li > p { display: inline; }
@@ -460,7 +460,7 @@ nav a:hover, nav a.active { color: var(--accent); }
 .section-label {
   color: var(--title);
   font-size: 1.7rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.05em;
   margin: var(--space-section) 0 0.5rem;
 }
@@ -468,7 +468,7 @@ nav a:hover, nav a.active { color: var(--accent); }
 .section-label:first-child { margin-top: 0; }
 
 /* The first line under a title starts with a bold > in the title's color; follow-up paragraphs don't */
-.subtitle::before { content: '> '; font-weight: 700; color: var(--title); }
+.subtitle::before { content: '> '; font-weight: 600; color: var(--title); }
 
 .page-desc {
   color: var(--muted);
