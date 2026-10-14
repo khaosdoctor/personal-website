@@ -29,7 +29,7 @@ It also writes the RSS feeds, the latest 20 items each: `now.xml` has one item p
 
 ## Pages and scripts
 
-- Every root page (`index.html`, `about.html`, `now.html`, `friends.html`, `uses.html`, `projects.html`, `ai-usage.html`) is a hand-written template, and the gear and build pages come from the template in `sync/render.js`. All 8 share the same `<head>` block (meta tags, font preloads, stylesheet, the two scripts), so a change there goes in all 8 places
+- Every root page (`index.html`, `about.html`, `now.html`, `friends.html`, `uses.html`, `projects.html`, `ai-usage.html`) is a hand-written template, and the gear and build pages come from the template in `sync/render.js`. All 8 share the same `<head>` block (meta tags, font preload, stylesheet, the two scripts), so a change there goes in all 8 places
 - A page with an RSS feed puts its title in `<div class="page-title section-label"><h1>...</h1><a class="feed-icon" ...></a></div>`; a page without one uses a bare `<h1 class="section-label">`
 - `js/theme.js` loads first in `<head>`: it applies the saved or system theme before the first paint, picks the day's accent color (one palette per theme, every color readable as link text), and registers the service worker
 - `js/components.js` loads right after it, also in `<head>`, and defines `<site-sidebar>` and `<site-footer>`, so they draw with the page instead of popping in. It also swaps the favicon to the sleeping cat from midnight to noon, Stockholm time
