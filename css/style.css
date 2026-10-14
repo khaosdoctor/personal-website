@@ -21,6 +21,9 @@
   --body: #5d564a;
   --muted: #6b6353;
   --border: #736e62;
+  /* Faded versions of --border for the /uses gear list: row lines and every second row's background */
+  --line-faint: color-mix(in srgb, var(--border) 25%, transparent);
+  --row-stripe: color-mix(in srgb, var(--border) 6%, transparent);
   /* js/theme.js replaces --accent with a daily color from its palette; this value is for no-JS visits */
   --accent: #0571b3;
   /* The black pixels of the sidebar cat (CAT_COLORS in js/components.js); lighter in dark mode so it shows */
@@ -658,12 +661,12 @@ nav a:hover, nav a.active { color: var(--accent); }
   display: flex;
   align-items: center;
   padding: 0.4rem 0.5rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--border) 25%, transparent);
+  border-bottom: 1px solid var(--line-faint);
 }
 
 .gear-list li:nth-child(even) > *,
 .gear-list li:nth-child(even) .gear-link > * {
-  background: color-mix(in srgb, var(--border) 6%, transparent);
+  background: var(--row-stripe);
 }
 
 .gear-link {
@@ -724,17 +727,17 @@ nav a:hover, nav a.active { color: var(--accent); }
     grid-template-rows: auto auto auto;
     width: 100%;
     padding: 0.5rem;
-    border-bottom: 1px solid color-mix(in srgb, var(--border) 25%, transparent);
+    border-bottom: 1px solid var(--line-faint);
   }
 
-  .gear-list li:nth-child(odd) { background: color-mix(in srgb, var(--border) 6%, transparent); }
+  .gear-list li:nth-child(odd) { background: var(--row-stripe); }
   .gear-list li:nth-child(even) > *,
   .gear-list li:nth-child(even) .gear-link > * { background: none; }
   .gear-list li > *,
   .gear-list .gear-link > * { border-bottom: none; padding: 0; }
 
   .gear-list .gear-name { grid-column: 1; grid-row: 1; }
-  .gear-list .gear-rating { grid-column: 2; grid-row: 1 / -1; align-self: center; padding-left: 0.75rem; border-left: 1px solid color-mix(in srgb, var(--border) 25%, transparent); }
+  .gear-list .gear-rating { grid-column: 2; grid-row: 1 / -1; align-self: center; padding-left: 0.75rem; border-left: 1px solid var(--line-faint); }
 
   .gear-list .gear-desc {
     display: block;
