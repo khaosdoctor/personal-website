@@ -12,7 +12,7 @@ const RE_SLUG = /[^a-z0-9]+/g, RE_SLUG_TRIM = /^-|-$/g;
 const RE_WIKILINK = /(!?)\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
 const RE_UNRESOLVED_LI = /^[ \t]*[-*]\s*<!--unresolved:[\s\S]*?-->\s*$/gm;
 const RE_UNRESOLVED_INLINE = /<!--unresolved:([\s\S]*?)-->/g;
-// Same stripping as scripts/export-notes.mjs in second-brain; repeated here because a local run reads the raw vault
+// Same stripping as internal/scripts/export-notes.mjs in second-brain; repeated here because a local run reads the raw vault
 const RE_PRIVATE_CALLOUT = /^(?:>\s*)+\[!private\][^\n]*(?:\n>[^\n]*)*/gim;
 const RE_COMMENT = /%%[\s\S]*?(?:%%|$)/g;
 
