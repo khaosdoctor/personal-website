@@ -5,7 +5,7 @@
 
 // ═══ Sidebar (<site-sidebar>, every page) ═══
 
-// Under the theme toggle on desktop, under the copyright on phones (style.css shows one of the two)
+// Under the theme toggle on desktop, under the copyright on phones (css/base.css shows one of the two)
 const AI_POLICY = '<a href="/ai-usage" class="ai-policy">[AI usage policy]</a>';
 
 // <site-sidebar>: photo, name, nav and theme toggles, shared by every page
@@ -113,7 +113,7 @@ class SiteSidebar extends HTMLElement {
     const here = location.pathname.replace(/(\/index)?(\.html)?\/?$/, '') || '/';
     for (const a of this.querySelectorAll('nav a')) if (a.getAttribute('href') === here) a.classList.add('active');
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    // Touch screens never show the art (see style.css), so no timer there.
+    // Touch screens never show the art (see css/base.css), so no timer there.
     // ponytail: checked once, a device that gains a mouse later stays still until reload
     if (matchMedia('(hover: none)').matches) return;
     shimmer(this.querySelectorAll('.photo-ascii'));
@@ -193,7 +193,7 @@ if (favicon) {
 
 // ═══ Footer (<site-footer>, every page) ═══
 
-// Social links and copyright. The arrow on outside links comes from style.css
+// Social links and copyright. The arrow on outside links comes from css/base.css
 class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `

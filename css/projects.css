@@ -1,0 +1,29 @@
+/* /projects only: the project rows. Loaded after base.css */
+
+.project-list { list-style: none; }
+
+.project-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+}
+
+.project-item:last-child { border-bottom: none; }
+.project-item[data-status="archived"],
+.project-item[data-status="inactive"] { opacity: 0.5; }
+
+.project-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.project-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.project-desc {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 0.15rem;
+}

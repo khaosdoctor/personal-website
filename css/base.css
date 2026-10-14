@@ -1,3 +1,8 @@
+/* Loaded by every page. It holds the fonts, the color and size variables, and every rule that two or more
+   pages use. A rule that only one page uses goes in that page's own file instead, linked right after this
+   one: home.css (/), now.css (/now), uses.css (/uses), projects.css (/projects) and note.css (the gear and
+   build pages, which share one template). A page with no rules of its own has no file */
+
 /* Self-hosted IBM Plex Mono, Latin subset (from Google Fonts v20) */
 @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/plex-mono-400.woff2') format('woff2'); }
 @font-face { font-family: 'IBM Plex Mono'; font-style: italic; font-weight: 400; font-display: swap; src: url('/fonts/plex-mono-400-italic.woff2') format('woff2'); }
@@ -117,8 +122,8 @@ a { color: var(--accent); text-decoration: none; }
 /* Every hover style in this file also applies on keyboard focus (:focus-visible), so keyboard users get the same cue */
 a:is(:hover, :focus-visible) { text-decoration: underline; }
 
-/* Links to other sites get a small arrow. The /uses gear rows are left out: their link is display: contents,
-   so the arrow would become an extra grid cell and break the row */
+/* Links to other sites get a small arrow. The /uses gear rows (uses.css) are left out: their link is
+   display: contents, so the arrow would become an extra grid cell and break the row */
 a[href^="http"]:not([href^="https://lsantos.dev"]):not(.gear-link)::after {
   content: '\2197';
   font-size: 0.65em;
@@ -154,8 +159,6 @@ h2::after {
    a block gets its space from what comes before the block (the intro paragraph's margin below) */
 h2:first-child { margin-top: 0; }
 
-h3 { font-size: 0.9rem; font-weight: 600; margin: 1rem 0 0.5rem; }
-
 /* The # after a heading links to it; dim until hovered, and a jump leaves a little room above */
 h2, h3 { scroll-margin-top: 1.5rem; }
 .anchor { color: var(--muted); font-weight: 400; opacity: 0.5; }
@@ -180,8 +183,6 @@ ol:not([class]) { counter-reset: item; }
 ol:not([class]) > li { padding-left: 3ch; text-indent: -3ch; counter-increment: item; }
 ol:not([class]) > li::before { content: counter(item) '. '; color: var(--accent); font-weight: 600; }
 :is(ul, ol):not([class]) > li + li { margin-top: 0.25rem; }
-/* A loose markdown list wraps each item in <p>; inline keeps the text on the marker's line */
-li > p { display: inline; }
 
 blockquote {
   margin: var(--space-para) 0;
@@ -189,44 +190,9 @@ blockquote {
   border-left: 2px solid var(--border);
 }
 
-table {
-  border-collapse: collapse;
-  margin: 0.75rem 0;
-  font-size: 0.85rem;
-  width: 100%;
-}
-
-th, td {
-  border: 1px solid var(--border);
-  padding: 0.3rem 0.6rem;
-  text-align: left;
-}
-
-th {
-  font-weight: 600;
-  background: color-mix(in srgb, var(--border) 15%, transparent);
-}
-
-/* sync/render.js wraps each markdown table in this div, so tables with many columns scroll sideways on their
-   own instead of widening the page, and stay real tables for screen readers. The div holds the table's margin */
-.table-scroll { overflow-x: auto; margin: 0.75rem 0; }
-.table-scroll > table { margin: 0; }
-
-hr { border: none; border-top: 1px solid var(--border); margin: var(--space-para) 0; }
-
-/* Code blocks scroll sideways on their own instead of widening the page (the sidebar art is a pre too) */
-main pre { overflow-x: auto; }
-
-/* Code uses Cascadia Mono. The sidebar art pre keeps --font through its own font rule */
+/* Code uses Cascadia Mono. The sidebar art pre keeps --font through its own font rule. The rest of the code
+   styles are in note.css, the only page with code today */
 code, pre { font-family: 'Cascadia Mono', ui-monospace, monospace; }
-
-/* Cascadia Mono looks close to the text around inline code, so a faint background marks it (blocks in <pre>
-   don't get it) */
-:not(pre) > code {
-  background: color-mix(in srgb, var(--border) 15%, transparent);
-  padding: 0 0.3ch;
-  border-radius: 2px;
-}
 
 /* ═══ Layout (every page) ═══ */
 
@@ -474,7 +440,7 @@ nav a:is(:hover, :focus-visible), nav a.active { color: var(--accent); }
   .content-inner { min-height: auto; }
 }
 
-/* ═══ Page header (every page; .intro-* only on the homepage) ═══ */
+/* ═══ Page header (every page; the homepage's own header is in home.css) ═══ */
 
 /* "Skip to content" link, the first thing in <body>: hidden above the page until a keyboard user tabs to it */
 .skip-link {
@@ -498,8 +464,6 @@ nav a:is(:hover, :focus-visible), nav a.active { color: var(--accent); }
 }
 
 .section-label:first-child { margin-top: 0; }
-/* Gear and build pages: the title follows the back link or the cover photo, which already leave space above it */
-:is(.back-link, .gear-cover) + .section-label { margin-top: 0; }
 
 /* The first line under a title starts with a bold > in the title's color; follow-up paragraphs don't */
 .subtitle::before { content: '> '; font-weight: 600; color: var(--title); }
@@ -508,14 +472,6 @@ nav a:is(:hover, :focus-visible), nav a.active { color: var(--accent); }
   color: var(--muted);
   font-size: 0.85rem;
   margin-bottom: 1.5rem;
-}
-
-.intro-name {
-  color: var(--title);
-  font-size: 4rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-  line-height: 1.1;
 }
 
 /* The page title when the page has an RSS link: <div class="page-title section-label"> (or intro-name) holds
@@ -539,79 +495,9 @@ nav a:is(:hover, :focus-visible), nav a.active { color: var(--accent); }
   mask: var(--icon) center / contain no-repeat;
 }
 .feed-icon:is(:hover, :focus-visible) { background: var(--accent); }
-.intro-name .feed-icon { width: 0.3em; height: 0.3em; }
-
-.intro-sub {
-  color: var(--muted);
-  font-size: var(--fs-copy);
-}
-
-/* js/clock.js fills this line after the page shows; the min-height keeps its space from the start,
-   so the text below doesn't jump down */
-.intro-clock {
-  color: var(--muted);
-  font-size: 0.75rem;
-  margin-top: 0.25rem;
-  min-height: 1lh;
-}
-
-.clock-odds { color: var(--accent); }
 
 @media (max-width: 768px) {
   .section-label { font-size: 1.3rem; }
-  .intro-name { font-size: 2.5rem; }
-  .intro-sub { font-size: 0.7rem; white-space: nowrap; }
-  .intro-clock { font-size: 0.65rem; }
-}
-
-/* ═══ Home (/ only) ═══ */
-
-.post-list {
-  list-style: none;
-  font-size: var(--fs-copy);
-}
-
-.post-list li {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  padding: 0.15rem 0;
-}
-
-.post-date {
-  color: var(--muted);
-  font-size: var(--fs-small);
-  flex-shrink: 0;
-}
-
-.timeline { font-size: var(--fs-copy); }
-
-.timeline-item {
-  display: flex;
-  gap: 1rem;
-  padding: 0.15rem 0;
-}
-
-.timeline-period {
-  color: var(--muted);
-  font-size: var(--fs-small);
-  flex-shrink: 0;
-  min-width: 9ch; /* fits "2024-2025", so the titles line up */
-}
-
-/* Phones put the date above the title instead of beside it */
-@media (max-width: 768px) {
-  .post-list li, .timeline-item { flex-direction: column; gap: 0; }
-}
-
-/* ═══ Now / About / Friends ═══ */
-
-/* The block of baked markdown: #now-content on /now, .now-section on /about and /friends */
-.now-section, #now-content { margin-bottom: 1.25rem; }
-
-.now-date {
-  color: var(--muted);
-  font-size: var(--fs-small);
 }
 
 /* ═══ Socials (every page, <site-footer> in js/components.js) ═══ */
@@ -678,205 +564,19 @@ nav a:is(:hover, :focus-visible), nav a.active { color: var(--accent); }
 .tag-blue { color: var(--blue); border-color: var(--blue); }
 .tag-orange { color: var(--orange); border-color: var(--orange); }
 
-/* ═══ Uses / Gear (/uses; the group headings also on /projects and gear pages) ═══ */
+/* ═══ Groups (/uses categories, /projects groups, gear and build notes) ═══ */
 
 .gear-category,
 .project-group {
   margin-bottom: var(--space-section);
 }
 
-/* Gear notes and the /uses and /projects groups head tables and dense lists, so their headings are a step smaller */
+/* They head tables and dense lists, so their headings are a step smaller */
 :is(.gear-body, .gear-category, .project-group) h2 {
   font-size: 1.15rem;
   margin-bottom: 0.75rem;
 }
 
-.gear-list {
-  list-style: none;
-  display: grid;
-  /* Fixed state and rating widths so the columns line up across category lists */
-  grid-template-columns: minmax(0, 1fr) 18rem 4.5rem;
-}
+/* ═══ Baked markdown block (/about, /friends; /now's block is in now.css) ═══ */
 
-.gear-list li { display: contents; }
-
-.gear-list li > span,
-.gear-list .gear-link > * {
-  display: flex;
-  align-items: center;
-  padding: 0.4rem 0.5rem;
-  border-bottom: 1px solid var(--line-faint);
-}
-
-.gear-list li:nth-child(even) > *,
-.gear-list li:nth-child(even) .gear-link > * {
-  background: var(--row-stripe);
-}
-
-.gear-link {
-  display: contents;
-  color: inherit;
-}
-
-.gear-link:is(:hover, :focus-visible) .gear-name { color: var(--accent); }
-
-.gear-list .gear-name { font-weight: 500; font-size: var(--fs-copy); }
-
-/* Items with x-personal-site-parent, listed under their parent */
-.gear-list .gear-child .gear-name { padding-left: 1.25rem; font-weight: 400; }
-.gear-list .gear-child .gear-name::before { content: '\2514\00a0'; color: var(--muted); }
-
-/* Previously owned or broken; the rows are display: contents, so the dimming goes on each cell */
-.gear-list .gone .gear-name { text-decoration: line-through; }
-.gear-list .gone > span,
-.gear-list .gone .gear-link > * { opacity: 0.6; }
-
-/* The oneliner shows as a hover tooltip on desktop (js/gear.js) and under the name on mobile */
-.gear-list .gear-desc { display: none; }
-
-.gear-list .gear-states { gap: 0.3rem; }
-.gear-list .gear-states .tag { white-space: nowrap; }
-
-.gear-list .gear-rating {
-  color: var(--accent);
-  font-size: var(--fs-small);
-  justify-content: flex-end;
-}
-
-.gear-tip {
-  position: fixed;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  padding: 0.4rem 0.6rem;
-  font-size: var(--fs-small);
-  max-width: 300px;
-  z-index: 10;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s;
-}
-
-.gear-tip.visible { opacity: 1; }
-
-/* On phones each gear row is its own small grid: name and description on the left, rating on the right */
-@media (max-width: 768px) {
-  .gear-category { margin-bottom: 2.5rem; }
-  .gear-category h2 { font-size: 1.25rem; margin-top: 1rem; }
-
-  .gear-list { display: flex; flex-direction: column; }
-
-  .gear-list li {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto auto;
-    width: 100%;
-    padding: 0.5rem;
-    border-bottom: 1px solid var(--line-faint);
-  }
-
-  /* Same rows striped as on desktop, but here the whole row gets it, so the desktop cell stripes are undone */
-  .gear-list li:nth-child(even) { background: var(--row-stripe); }
-  .gear-list li:nth-child(even) > *,
-  .gear-list li:nth-child(even) .gear-link > * { background: none; }
-  .gear-list li > *,
-  .gear-list .gear-link > * { border-bottom: none; padding: 0; }
-
-  .gear-list .gear-name { grid-column: 1; grid-row: 1; }
-  .gear-list .gear-rating { grid-column: 2; grid-row: 1 / -1; align-self: center; padding-left: 0.75rem; border-left: 1px solid var(--line-faint); }
-
-  .gear-list .gear-desc {
-    display: block;
-    grid-column: 1;
-    grid-row: 2;
-    color: var(--muted);
-    font-size: var(--fs-small);
-    padding-top: 0.15rem;
-  }
-  .gear-list .gear-desc:empty { display: none; }
-  .gear-list .gear-states { grid-column: 1; grid-row: 3; padding-top: 0.3rem; }
-  .gear-list .gear-states:empty { display: none; }
-}
-
-/* ═══ Gear detail (gear/*.html and builds/*.html, template in sync/render.js) ═══ */
-
-.back-link {
-  font-size: 1rem;
-  color: var(--muted);
-  display: inline-block;
-  margin-bottom: 1.5rem;
-}
-
-.back-link:is(:hover, :focus-visible) { color: var(--accent); }
-
-.gear-cover {
-  width: 300px;
-  height: 220px;
-  object-fit: contain;
-  margin-bottom: 1.5rem;
-  border-radius: 4px;
-  background: color-mix(in srgb, var(--border) 10%, transparent);
-  padding: 0.5rem;
-}
-
-@media (max-width: 768px) {
-  .gear-cover { display: block; margin-left: auto; margin-right: auto; }
-}
-
-.gear-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-  font-size: var(--fs-small);
-}
-
-.gear-updated { color: var(--muted); margin-left: auto; }
-
-.rating {
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.oneliner {
-  font-style: italic;
-  color: var(--muted);
-  font-size: var(--fs-copy);
-}
-
-/* Gear notes are denser than the other pages: half the space between paragraphs, and a note's own h1 is a
-   section heading (the page title comes from the template). The font size is for code blocks,
-   which size off their parent */
-.gear-body { font-size: var(--fs-copy); }
-.gear-body p { margin: 0.5rem 0; }
-.gear-body h1 { color: var(--text); font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
-
-/* ═══ Projects (/projects only) ═══ */
-
-.project-list { list-style: none; }
-
-.project-item {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
-}
-
-.project-item:last-child { border-bottom: none; }
-.project-item[data-status="archived"],
-.project-item[data-status="inactive"] { opacity: 0.5; }
-
-.project-header {
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-}
-
-.project-name {
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.project-desc {
-  color: var(--muted);
-  font-size: 0.85rem;
-  margin-top: 0.15rem;
-}
+.now-section { margin-bottom: 1.25rem; }

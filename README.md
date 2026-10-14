@@ -4,7 +4,7 @@
 
 ## Stack
 
-- IBM Plex Mono for all text, self-hosted in `fonts/`, plus a tiny Noto Sans Mono JP subset with only the kana used on /friends (how to rebuild it is in the comment at the top of `css/style.css`)
+- IBM Plex Mono for all text, self-hosted in `fonts/`, plus a tiny Noto Sans Mono JP subset with only the kana used on /friends (how to rebuild it is in the comment at the top of `css/base.css`)
 - Cascadia Mono for code, also in `fonts/`, with no preload, so only pages that show code download it
 - HTML, CSS, JS... That's really it. Some native webcomponents as well (`<site-sidebar>` and `<site-footer>` in `js/components.js`)
 - A `sync.js` script that bakes the gear notes (exported from my Obsidian vault into `data/vault`), the `data/*.md` files and the latest blog posts into the HTML, so pages don't fetch anything at runtime
@@ -30,14 +30,26 @@ It also writes the RSS feeds, the latest 20 items each: `now.xml` has one item p
 
 ## Pages and scripts
 
-- Every root page (`index.html`, `about.html`, `now.html`, `friends.html`, `uses.html`, `projects.html`, `ai-usage.html`) is a hand-written template, and the gear and build pages come from the template in `sync/render.js`. All 8 share the same `<head>` block (meta tags, font preload, stylesheet, the two scripts), so a change there goes in all 8 places
+- Every root page (`index.html`, `about.html`, `now.html`, `friends.html`, `uses.html`, `projects.html`, `ai-usage.html`) is a hand-written template, and the gear and build pages come from the template in `sync/render.js`. All 8 share the same `<head>` block (meta tags, font preload, stylesheets, the two scripts), so a change there goes in all 8 places
+- CSS is split so each page loads only the rules it uses, and editing one page's file can't change another page. `css/base.css` is loaded everywhere: the fonts, the color and size variables, and every rule that two or more pages use. A rule that exactly one page uses goes in that page's file, linked right after `base.css`; a page with no rules of its own has no file. The gear and build pages count as one page (one template):
+
+  | Page | Own CSS file |
+  |---|---|
+  | `/` | `css/home.css` |
+  | `/now` | `css/now.css` |
+  | `/uses` | `css/uses.css` |
+  | `/projects` | `css/projects.css` |
+  | gear and build pages | `css/note.css` |
+  | `/about`, `/friends`, `/ai-usage` | none |
+
+  When a second page starts using a rule from a page file, move that rule to `base.css`
 - A page with an RSS feed puts its title in `<div class="page-title section-label"><h1>...</h1><a class="feed-icon" ...></a></div>`; a page without one uses a bare `<h1 class="section-label">`
 - `js/theme.js` loads first in `<head>`: it applies the saved or system theme before the first paint, picks the day's accent color (one palette per theme, every color readable as link text), and registers the service worker
 - `js/components.js` loads right after it, also in `<head>`, and defines `<site-sidebar>` and `<site-footer>`, so they draw with the page instead of popping in. It also swaps the favicon to the sleeping cat from midnight to noon, Stockholm time
 - `js/clock.js` (homepage clock) and `js/gear.js` (the /uses tooltips) only run on their page, deferred. Code that only one page needs gets its own file like these
 - `sw.js` keeps a copy of every visited page and file so the site opens offline. It always asks the network first. Every path in its `ASSETS` list must exist, or the worker stops updating
 - The homepage has a JSON-LD block that tells search engines who the site belongs to. Its `sameAs` list holds the footer profiles at the address each `*.lsantos.dev` link redirects to, so changing a profile means updating the redirect and that list
-- `404.html` is the redirect page for the old short links: any unknown path goes to `go.lsantos.dev`. It is self-contained (font, colors and script inline) and does not load `style.css`
+- `404.html` is the redirect page for the old short links: any unknown path goes to `go.lsantos.dev`. It is self-contained (font, colors and script inline) and loads none of the files in `css/`
 
 ## Hosting
 
