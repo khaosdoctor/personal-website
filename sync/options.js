@@ -78,6 +78,11 @@ export const GEAR_IMG = './img/gear';
 export const DATA_DIR = './data';
 export const VAULT_DATA = './data/vault';
 
-export const FETCH_TIMEOUT_MS = Number(opt('timeout', 'FETCH_TIMEOUT_MS')) || 15000;
+// AbortSignal.timeout() rejects anything but a non-negative integer, so a bad value falls back to the default
+const timeoutOpt = opt('timeout', 'FETCH_TIMEOUT_MS');
+const timeout = Number(timeoutOpt);
+const validTimeout = Number.isInteger(timeout) && timeout > 0;
+if (timeoutOpt !== '' && !validTimeout) log.warn(`timeout "${timeoutOpt}" is not a positive whole number of ms, using 15000`);
+export const FETCH_TIMEOUT_MS = validTimeout ? timeout : 15000;
 
 export const fetchWithTimeout = url => fetch(url, { signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
