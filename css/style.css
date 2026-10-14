@@ -7,10 +7,11 @@
    pyftsubset NotoSansCJK-Regular.ttc --font-number=5 --text='マリウス' --flavor=woff2 --layout-features='' --output-file=fonts/noto-mono-jp-subset.woff2 */
 @font-face { font-family: 'Noto Mono JP Subset'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/noto-mono-jp-subset.woff2') format('woff2'); unicode-range: U+30A6, U+30B9, U+30DE, U+30EA; }
 
-/* ═══ Tokens ═══ */
+/* ═══ Tokens (every page) ═══ */
 
 /* Text ladder: --title (page titles) > --text (headings, names) > --body (body copy) > --muted (subtitles, dates).
-   Light is the default; js/theme.js always sets data-theme, the media query covers no-JS visits */
+   Light is the default; js/theme.js always sets data-theme, the media query covers no-JS visits.
+   404.html loads no stylesheet and keeps its own copy of the main colors */
 :root {
   --bg: #f4efe0;
   --title: #2b2622;
@@ -18,7 +19,9 @@
   --body: #5d564a;
   --muted: #6b6353;
   --border: #736e62;
+  /* js/theme.js replaces --accent with a daily color from its palette; this value is for no-JS visits */
   --accent: #0571b3;
+  /* The black pixels of the sidebar cat (CAT_COLORS in js/components.js); lighter in dark mode so it shows */
   --cat-black: #2b2622;
   /* State colors for tags and badges */
   --red: #b71c1c;
@@ -37,6 +40,8 @@
      @media (max-width: 768px) after its own rules; search for 768px to change it */
 }
 
+/* The dark colors are written twice: this block follows the OS setting for no-JS visits, the next one is
+   what js/theme.js sets. Keep both blocks the same */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #131313;
@@ -71,13 +76,15 @@
   --orange: #ff7043;
 }
 
-/* ═══ Base ═══ */
+/* ═══ Base (every page) ═══ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* Short pages have no scrollbar; reserving its space keeps the centered layout from shifting between pages */
 html { scrollbar-gutter: stable; }
 
+/* Sizes in this file are in rem, which is the browser's 16px, not body's 15px: 0.9rem is 14.4px.
+   The 5rem on top is the space above the whole layout on desktop */
 body {
   font-family: var(--font);
   font-size: 15px;
@@ -109,7 +116,7 @@ a.ext::after {
 
 img { max-width: 100%; height: auto; }
 
-/* ═══ Prose ═══ */
+/* ═══ Prose (every page, and the markdown baked into them) ═══ */
 
 /* Element defaults for every page. Markdown output has no classes, so anything with a class
    (lists, paragraphs, headings) is a component and styles itself */
@@ -197,7 +204,7 @@ hr { border: none; border-top: 1px solid var(--border); margin: var(--space-para
 /* Code blocks scroll sideways on their own instead of widening the page (the sidebar art is a pre too) */
 main pre { overflow-x: auto; }
 
-/* ═══ Layout ═══ */
+/* ═══ Layout (every page) ═══ */
 
 .layout {
   display: flex;
@@ -210,7 +217,7 @@ main pre { overflow-x: auto; }
   .layout { flex-direction: column; }
 }
 
-/* ═══ Sidebar ═══ */
+/* ═══ Sidebar (every page, <site-sidebar> in js/components.js) ═══ */
 
 .sidebar {
   width: var(--sidebar-w);
@@ -226,6 +233,8 @@ main pre { overflow-x: auto; }
   padding-right: 1.5rem;
 }
 
+/* The vertical double line between sidebar and content. It runs 350px below the sidebar; .content-inner's
+   min-height (987px) is matched to where it ends, so change the two together */
 .sidebar-inner::after {
   content: '';
   position: absolute;
@@ -235,6 +244,8 @@ main pre { overflow-x: auto; }
   border-right: 4px double var(--border);
 }
 
+/* The double line under the photo. The 4.5rem pulls it out to the right, past the sidebar's own padding, so
+   it crosses the vertical double line and runs 3rem beyond it */
 .photo-wrap {
   border-bottom: 4px double var(--border);
   padding-bottom: 1rem;
@@ -285,7 +296,8 @@ main pre { overflow-x: auto; }
 /* Touch screens can't hover, so they get the photo; !important beats the theme swap */
 @media (hover: none) { .photo-ascii { display: none !important; } }
 
-/* a. outranks a:hover, so the name never underlines */
+/* a.photo-wrap has the same specificity as a:hover and comes later in the file, so it wins: the photo and
+   the name never underline */
 a.photo-wrap, a.sidebar-name {
   display: block;
   text-decoration: none;
@@ -314,6 +326,8 @@ nav a {
 
 nav a:hover, nav a.active { color: var(--accent); }
 
+/* The desktop toggle and AI policy link at the bottom of the sidebar. The -2rem cancels the sidebar's
+   bottom padding, so the sidebar ends right under the link */
 .theme-toggle {
   margin-top: 3rem;
   margin-bottom: -2rem;
@@ -379,6 +393,7 @@ nav a:hover, nav a.active { color: var(--accent); }
 
   .mobile-actions .theme-toggle { margin: 0; }
 
+  /* The menu button only shows on phones, so its whole style lives here */
   .hamburger {
     background: none;
     border: 1px solid var(--border);
@@ -406,7 +421,7 @@ nav a:hover, nav a.active { color: var(--accent); }
   nav a { font-size: var(--fs-copy); padding: 0.3rem 0; }
 }
 
-/* ═══ Content ═══ */
+/* ═══ Content (every page) ═══ */
 
 .content {
   flex: 1;
@@ -433,7 +448,7 @@ nav a:hover, nav a.active { color: var(--accent); }
   .content-inner { min-height: auto; }
 }
 
-/* ═══ Page header ═══ */
+/* ═══ Page header (every page; .intro-* only on the homepage) ═══ */
 
 .section-label {
   color: var(--title);
@@ -498,7 +513,7 @@ nav a:hover, nav a.active { color: var(--accent); }
   .intro-clock { font-size: 0.65rem; }
 }
 
-/* ═══ Home ═══ */
+/* ═══ Home (/ only) ═══ */
 
 .post-list {
   list-style: none;
@@ -530,7 +545,7 @@ nav a:hover, nav a.active { color: var(--accent); }
   color: var(--muted);
   font-size: var(--fs-small);
   flex-shrink: 0;
-  min-width: 9ch;
+  min-width: 9ch; /* fits "2024-2025", so the titles line up */
 }
 
 /* Phones put the date above the title instead of beside it */
@@ -540,6 +555,7 @@ nav a:hover, nav a.active { color: var(--accent); }
 
 /* ═══ Now / About / Friends ═══ */
 
+/* The block of baked markdown: #now-content on /now, .now-section on /about and /friends */
 .now-section, #now-content { margin-bottom: 1.25rem; }
 
 .now-date {
@@ -547,7 +563,7 @@ nav a:hover, nav a.active { color: var(--accent); }
   font-size: var(--fs-small);
 }
 
-/* ═══ Socials ═══ */
+/* ═══ Socials (every page, <site-footer> in js/components.js) ═══ */
 
 /* margin-top: auto pins the footer to the bottom of .content-inner; the gap above it is padding,
    since an auto margin can't also hold a minimum */
@@ -589,11 +605,12 @@ nav a:hover, nav a.active { color: var(--accent); }
   .socials a:nth-child(even) { text-align: right; }
 
   .copyright { grid-column: 1 / -1; text-align: center; }
-  /* a.ai-policy outranks .socials a:nth-child(even), which right-aligns every second footer link */
+  /* Same specificity as .socials a:nth-child(even), which right-aligns every second footer link;
+     this rule comes later, so it wins */
   .footer-rule a.ai-policy { display: block; grid-column: 1 / -1; text-align: center; margin-top: 0.25rem; }
 }
 
-/* ═══ Tags ═══ */
+/* ═══ Tags (/uses, /projects, gear and build pages) ═══ */
 
 .tag {
   color: var(--muted);
@@ -610,7 +627,7 @@ nav a:hover, nav a.active { color: var(--accent); }
 .tag-blue { color: var(--blue); border-color: var(--blue); }
 .tag-orange { color: var(--orange); border-color: var(--orange); }
 
-/* ═══ Uses / Gear ═══ */
+/* ═══ Uses / Gear (/uses; the group headings also on /projects and gear pages) ═══ */
 
 .gear-category,
 .project-group {
@@ -728,7 +745,7 @@ nav a:hover, nav a.active { color: var(--accent); }
   .gear-list .gear-states:empty { display: none; }
 }
 
-/* ═══ Gear detail ═══ */
+/* ═══ Gear detail (gear/*.html and builds/*.html, template in sync/render.js) ═══ */
 
 .back-link {
   font-size: 1rem;
@@ -782,7 +799,7 @@ nav a:hover, nav a.active { color: var(--accent); }
 .gear-body p { margin: 0.5rem 0; }
 .gear-body h1 { color: var(--text); font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
 
-/* ═══ Projects ═══ */
+/* ═══ Projects (/projects only) ═══ */
 
 .project-list { list-style: none; }
 
