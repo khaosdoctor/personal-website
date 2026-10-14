@@ -28,7 +28,7 @@ It also writes the RSS feeds, the latest 20 items each: `now.xml` has one item p
 
 ```sh
 bun install
-bun run dev         # quiet sync, then browser-sync on http://localhost:3456 with hot reload
+bun run dev         # sync in watch mode plus browser-sync on http://localhost:3456, a vault or data change rebakes and reloads
 bun run sync        # bake content into the pages, verbose
 bun run sync:quiet  # same, summary lines only
 bun run sync:watch  # rebuild on every vault or data change
