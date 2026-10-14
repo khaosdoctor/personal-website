@@ -166,6 +166,8 @@ export async function syncNotes() {
   for (const n of withPage) {
     // The page template already shows the name as the page title, so a body that starts with its own h1 drops it
     const html = sizeImages(pageMarkdown(n.markdown).replace(RE_LEADING_H1, ''), sizes);
+    // A `# heading` further down the note gives the page a second h1; worth fixing in the note, not worth failing the bake
+    if (html.includes('<h1>')) log.warn(`${n.name}: the note has a # heading below its first line, so its page has two h1`);
     await writeFile(`.${pagePath(n)}`, notePage(n, html));
     debug.gear('%s: page written, category=%s rating=%s state=%o status=%s', n.slug, n.category, n.rating, n.state, n.status);
   }

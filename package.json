@@ -6,6 +6,7 @@
     "sync": "bun sync.js --debug",
     "sync:quiet": "bun sync.js",
     "sync:watch": "bun sync.js --watch",
+    "check": "bun test",
     "dev": "bun sync.js --watch & browser-sync start --config bs-config.cjs"
   },
   "dependencies": {

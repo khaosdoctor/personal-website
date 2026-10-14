@@ -47,6 +47,10 @@ jobs:
       - name: Bake the pages
         run: bun sync.js --debug --prune-images
 
+      # A broken page, feed or image link fails here, so it never gets committed
+      - name: Check the baked output
+        run: bun test
+
       - name: Commit the generated pages
         run: |
           git config user.name  'github-actions[bot]'
