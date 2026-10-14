@@ -1,10 +1,10 @@
 // Service worker (registered by js/theme.js): keeps a copy of every page and file you visit, so the site
 // still opens offline. It always asks the network first, so it never serves an old page when online.
 // Bump CACHE to drop every stored copy at once on the next visit.
-const CACHE = 'lsantos-v3';
+const CACHE = 'lsantos-v4';
 // Stored on install. Every path here must exist: one 404 fails the whole install and the worker never
 // updates. Update this list when one of these files moves or is renamed
-const ASSETS = ['/', '/css/base.css', '/css/home.css', '/js/theme.js', '/js/components.js', '/js/clock.js', '/favicon-sleep.svg'];
+const ASSETS = ['/', '/css/base.css', '/css/home.css', '/js/theme.js', '/js/components.js','/favicon-sleep.svg'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
