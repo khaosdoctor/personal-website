@@ -11,6 +11,9 @@ const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
 const RE_WIKILINK = /(!?)\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
 const RE_UNRESOLVED_LI = /^[ \t]*[-*]\s*<!--unresolved:[\s\S]*?-->\s*$/gm;
 const RE_UNRESOLVED_INLINE = /<!--unresolved:([\s\S]*?)-->/g;
+const RE_LEADING_H1 = /^\s*<h1>[\s\S]*?<\/h1>\s*/;
+// gray-matter runs a `---js` front matter block as code; with these engines unset, such a note is skipped as unreadable
+const NO_CODE_ENGINES = { js: undefined, javascript: undefined };
 
 // Turns wikilinks into links and image embeds into markdown images. hrefs maps a note slug to its
 // page, so a wikilink to any published note becomes a link. Returns the markdown and the embedded
@@ -54,7 +57,7 @@ async function readMdFiles(dir) {
   log.info(`${dir}: ${files.length} markdown files`);
   for (const f of files) {
     try {
-      const { data, content } = matter(await readFile(join(dir, f), 'utf-8'), { engines: {} });
+      const { data, content } = matter(await readFile(join(dir, f), 'utf-8'), { engines: NO_CODE_ENGINES });
       if (data.private === true || data.private === 'true') continue;
       // `uses`, `build` or a list of both; it decides which site sections show the note
       const types = [data['x-personal-site-export-type'] ?? []].flat().map(String);
@@ -139,9 +142,8 @@ export async function syncNotes() {
   if (embeds.size) log.ok(`${embeds.size} images optimized`);
 
   for (const n of withPage) {
-    const rendered = pageMarkdown(n.markdown);
-    // The page template already shows the name as its title, so a body starting with the same h1 drops it
-    const html = rendered.replace(new RegExp(`^\\s*<h1>${RegExp.escape(n.name)}</h1>\\s*`), '');
+    // The page template already shows the name as the page title, so a body that starts with its own h1 drops it
+    const html = pageMarkdown(n.markdown).replace(RE_LEADING_H1, '');
     await writeFile(`.${pagePath(n)}`, notePage(n, html));
     debug.gear('%s: page written, category=%s rating=%s state=%o status=%s', n.slug, n.category, n.rating, n.state, n.status);
   }
