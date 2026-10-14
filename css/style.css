@@ -111,7 +111,8 @@ body {
 site-sidebar, site-footer { display: block; }
 
 a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+/* Every hover style in this file also applies on keyboard focus (:focus-visible), so keyboard users get the same cue */
+a:is(:hover, :focus-visible) { text-decoration: underline; }
 
 a.ext::after {
   content: '\2197';
@@ -153,7 +154,7 @@ h3 { font-size: 0.9rem; font-weight: 600; margin: 1rem 0 0.5rem; }
 /* The # after a heading links to it; dim until hovered, and a jump leaves a little room above */
 h2, h3 { scroll-margin-top: 1.5rem; }
 .anchor { color: var(--muted); font-weight: 400; opacity: 0.5; }
-.anchor:hover { color: var(--accent); opacity: 1; text-decoration: none; }
+.anchor:is(:hover, :focus-visible) { color: var(--accent); opacity: 1; text-decoration: none; }
 
 /* Body copy sits one step below headings. :where() keeps it at zero specificity, so anything with its
    own color or size class (subtitles, dates, copyright, tags) wins */
@@ -303,7 +304,7 @@ main pre { overflow-x: auto; }
 /* Touch screens can't hover, so they get the photo; !important beats the theme swap */
 @media (hover: none) { .photo-ascii { display: none !important; } }
 
-/* a.photo-wrap has the same specificity as a:hover and comes later in the file, so it wins: the photo and
+/* a.photo-wrap has the same specificity as a:is(:hover, ...) and comes later in the file, so it wins: the photo and
    the name never underline */
 a.photo-wrap, a.sidebar-name {
   display: block;
@@ -331,7 +332,7 @@ nav a {
   font-weight: 500;
 }
 
-nav a:hover, nav a.active { color: var(--accent); }
+nav a:is(:hover, :focus-visible), nav a.active { color: var(--accent); }
 
 /* The desktop toggle and AI policy link at the bottom of the sidebar. The -2rem cancels the sidebar's
    bottom padding, so the sidebar ends right under the link */
@@ -350,9 +351,9 @@ nav a:hover, nav a.active { color: var(--accent); }
   font-size: var(--fs-small);
 }
 
-.theme-toggle button:hover { color: var(--accent); }
+.theme-toggle button:is(:hover, :focus-visible) { color: var(--accent); }
 .ai-policy { display: block; color: var(--muted); font-size: 0.7rem; white-space: nowrap; }
-.ai-policy:hover { color: var(--accent); text-decoration: none; }
+.ai-policy:is(:hover, :focus-visible) { color: var(--accent); text-decoration: none; }
 
 /* Only the phone layout shows these */
 .mobile-actions { display: none; }
@@ -413,7 +414,7 @@ nav a:hover, nav a.active { color: var(--accent); }
     line-height: 1;
   }
 
-  .hamburger:hover { color: var(--accent); border-color: var(--accent); }
+  .hamburger:is(:hover, :focus-visible) { color: var(--accent); border-color: var(--accent); }
 
   nav {
     display: none;
@@ -496,7 +497,7 @@ nav a:hover, nav a.active { color: var(--accent); }
   -webkit-mask: var(--icon) center / contain no-repeat;
   mask: var(--icon) center / contain no-repeat;
 }
-.feed-icon:hover { background: var(--accent); }
+.feed-icon:is(:hover, :focus-visible) { background: var(--accent); }
 .intro-name .feed-icon { width: 0.3em; height: 0.3em; }
 
 .intro-sub {
@@ -591,7 +592,7 @@ nav a:hover, nav a.active { color: var(--accent); }
   margin-right: 1.25rem;
 }
 
-.socials a:hover { color: var(--accent); }
+.socials a:is(:hover, :focus-visible) { color: var(--accent); }
 .footer-rule .ai-policy { display: none; }
 
 .copyright {
@@ -674,7 +675,7 @@ nav a:hover, nav a.active { color: var(--accent); }
   color: inherit;
 }
 
-.gear-link:hover .gear-name { color: var(--accent); }
+.gear-link:is(:hover, :focus-visible) .gear-name { color: var(--accent); }
 
 .gear-list .gear-name { font-weight: 500; font-size: var(--fs-copy); }
 
@@ -761,7 +762,7 @@ nav a:hover, nav a.active { color: var(--accent); }
   margin-bottom: 1.5rem;
 }
 
-.back-link:hover { color: var(--accent); }
+.back-link:is(:hover, :focus-visible) { color: var(--accent); }
 
 .gear-cover {
   width: 300px;
