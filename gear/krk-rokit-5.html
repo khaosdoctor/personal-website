@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://lsantos.dev/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -22,20 +23,22 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="/uses" class="back-link">&lt; uses</a>
         <img src="/img/gear/covers/krk-rokit-5.webp" alt="KRK Rokit 5" class="gear-cover">
-        <h1 class="gear-detail">KRK Rokit 5</h1>
+        <h1 class="section-label">KRK Rokit 5</h1>
         <p class="gear-meta"><span class="rating">9.8/10</span> <span class="tag tag-green">owned</span> <span class="tag tag-green">actively-used</span> <span class="gear-updated">updated 2026-09-27</span></p>
         <p class="oneliner">5-inch bi-amplified near-field studio monitor with onboard DSP room EQ. Use it as my main monitor and audio out on the work setup. The sound is amazing and also has a super high fidelity audio.</p>
-        <div class="gear-body"><table>
+        <div class="gear-body"><div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Maker</th>
@@ -51,8 +54,9 @@
 <td>Active 2-way near-field studio monitor (5&quot; woofer, 1&quot; tweeter, 55 W class D)</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="store">Store <a class="anchor" href="#store" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Store</th>
@@ -66,8 +70,9 @@
 <td>2026-09-21</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="specs">Specs <a class="anchor" href="#specs" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Spec</th>
@@ -87,6 +92,7 @@
 <td>5.12 kOhm balanced</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="description">Description <a class="anchor" href="#description" aria-label="Link to this section">#</a></h2>
 <p>My main monitor and the audio out on the work setup. I&#39;m very happy with how it sounds.</p>
 <p>I bought them together with the <a href="/gear/focusrite-scarlett-solo-2nd-gen.html">Scarlett</a>, because I really wanted to record music, record myself playing and practising. My musician friend recommended I get a monitor, and at the time he lent me two small Creative speakers, the same brand as the <a href="/gear/creative-pebble.html">Pebbles</a> but a different model. They did a very good job for how small they are, but they weren&#39;t completely flat, so the sound coming out of them was quite different from what I heard on my headphones, which back then were the <a href="/gear/akg-k72.html">AKG</a>. After I bought the <a href="/gear/beyerdynamics-dt-990-pro.html">Beyerdynamics</a> that difference got even bigger, and that was the trigger to buy these monitors.</p>

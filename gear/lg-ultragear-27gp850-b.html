@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://lsantos.dev/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -22,20 +23,22 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="/uses" class="back-link">&lt; uses</a>
         <img src="/img/gear/covers/lg-ultragear-27gp850-b.webp" alt="LG UltraGear 27GP850-B" class="gear-cover">
-        <h1 class="gear-detail">LG UltraGear 27GP850-B</h1>
+        <h1 class="section-label">LG UltraGear 27GP850-B</h1>
         <p class="gear-meta"><span class="rating">8.6/10</span> <span class="tag tag-green">owned</span> <span class="tag tag-green">actively-used</span> <span class="tag tag-blue">second-hand</span> <span class="gear-updated">updated 2026-10-03</span></p>
         <p class="oneliner">27-inch QHD Nano IPS at 165 Hz, my second screen next to the Odyssey</p>
-        <div class="gear-body"><table>
+        <div class="gear-body"><div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Maker</th>
@@ -51,8 +54,9 @@
 <td>27-inch 2560 x 1440 gaming monitor, runs at 165 Hz on my setup</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="store">Store <a class="anchor" href="#store" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Store</th>
@@ -66,6 +70,7 @@
 <td>2026-09-27</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="description">Description <a class="anchor" href="#description" aria-label="Link to this section">#</a></h2>
 <p>This is my second monitor, right next to the big <a href="/gear/samsung-odyssey-g8-oled.html">Samsung Odyssey G8 OLED</a> on my desk. It&#39;s a 27-inch screen, smaller and lower resolution than the Samsung, but still fast enough for games, even though I am not really using it for games.</p>
 <p>I bought it because back then I had a monitor that Klarna had given me, and I used the same setup for both gaming and work. For work that monitor was fantastic, no problems at all, but it had very few outputs for other things. So I ended up putting a USB hub on it and connecting everything to the hub, except some things somehow didn&#39;t work through the hub and only worked plugged straight into the monitor, so I was constantly juggling cables. On top of that I wanted a monitor with at least 144 Hz, because the one the company gave me was a normal 75 Hz one. A game at 60 FPS looked fine on it, but not as good as a game at 120 or 144.</p>

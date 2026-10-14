@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://lsantos.dev/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -22,20 +23,22 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="/uses" class="back-link">&lt; uses</a>
         <img src="/img/gear/covers/keychron-k8.webp" alt="Keychron K8" class="gear-cover">
-        <h1 class="gear-detail">Keychron K8</h1>
+        <h1 class="section-label">Keychron K8</h1>
         <p class="gear-meta"><span class="rating">9/10</span> <span class="tag tag-green">owned</span> <span class="tag tag-orange">not-actively-used</span> <span class="gear-updated">updated 2026-10-03</span></p>
         <p class="oneliner">My ol' reliable wireless TKL mechanical keyboard, almost 10 years old, retired to spare duty and collection after the Q3 Max arrived</p>
-        <div class="gear-body"><table>
+        <div class="gear-body"><div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Maker</th>
@@ -51,8 +54,9 @@
 <td>Wireless tenkeyless mechanical keyboard (87 keys, Bluetooth 5.1 + USB-C, Gateron switches)</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="store">Store <a class="anchor" href="#store" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Store</th>
@@ -66,8 +70,9 @@
 <td>2026-09-22</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="specs">Specs <a class="anchor" href="#specs" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Spec</th>
@@ -87,6 +92,7 @@
 <td>Bluetooth 5.1 (up to 3 devices) and USB-C wired</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="description">Description <a class="anchor" href="#description" aria-label="Link to this section">#</a></h2>
 <p>My ol&#39; reliable, I&#39;ve had it for almost 10 years. Since the <a href="/gear/keychron-q3-max.html">Q3 Max</a> arrived it moved to the gaming setup as a spare.</p>
 <p>It&#39;s a TKL, so it has all the normal keys of a keyboard except the numpad. I&#39;ve had it for as long as I can remember, I don&#39;t remember using any other mechanical keyboard before it apart from an old Corsair, so this was probably my second mechanical keyboard ever. It connects over Bluetooth to up to three devices or wired, there&#39;s no dongle, and it isn&#39;t a VIA or QMK board, it uses Keychron&#39;s own software to program it.</p>

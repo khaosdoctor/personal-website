@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://lsantos.dev/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -22,20 +23,22 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="/uses" class="back-link">&lt; uses</a>
         <img src="/img/gear/covers/razer-naga-left-handed.webp" alt="Razer Naga Left-Handed" class="gear-cover">
-        <h1 class="gear-detail">Razer Naga Left-Handed</h1>
+        <h1 class="section-label">Razer Naga Left-Handed</h1>
         <p class="gear-meta"><span class="rating">7/10</span> <span class="tag tag-green">owned</span> <span class="tag tag-green">actively-used</span> <span class="gear-updated">updated 2026-10-03</span></p>
         <p class="oneliner">Razer's wired left-handed MMO mouse with a 12-button thumb grid. The ONLY company that makes left-handed mice for MMO</p>
-        <div class="gear-body"><table>
+        <div class="gear-body"><div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Maker</th>
@@ -51,8 +54,9 @@
 <td>Wired left-handed MMO gaming mouse (Focus+ 20000 DPI, 12-button thumb grid, 109 g)</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="store">Store <a class="anchor" href="#store" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Store</th>
@@ -66,8 +70,9 @@
 <td>2026-09-21</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="specs">Specs <a class="anchor" href="#specs" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Spec</th>
@@ -87,6 +92,7 @@
 <td>109 g</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="description">Description <a class="anchor" href="#description" aria-label="Link to this section">#</a></h2>
 <p>Razer is the only company that makes left-handed MMO mice, so this is the one I use.</p>
 <p>This is a mouse I&#39;ve owned twice. The first time was in Brazil, around 2014 or 2015, when I had a Corsair keyboard. I sold it around 2017, because I wasn&#39;t using it as much as I wanted to, or it broke, I don&#39;t remember exactly what happened. When I went to look for it again in 2019 or 2020 it had been discontinued, so I bought a Corsair instead, a Scimitar if I&#39;m not mistaken. I brought that one to Sweden and it eventually broke after a long time of use, and when I went back to look at the Razer, I found they had started making the left-handed one again because people kept asking for it. So I bought the original again.</p>

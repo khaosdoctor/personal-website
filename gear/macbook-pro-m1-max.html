@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://lsantos.dev/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -22,20 +23,22 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="/uses" class="back-link">&lt; uses</a>
         <img src="/img/gear/covers/macbook-pro-m1-max.webp" alt="MacBook Pro M1 Max" class="gear-cover">
-        <h1 class="gear-detail">MacBook Pro M1 Max</h1>
+        <h1 class="section-label">MacBook Pro M1 Max</h1>
         <p class="gear-meta"><span class="rating">9.4/10</span> <span class="tag tag-green">owned</span> <span class="tag tag-green">actively-used</span> <span class="gear-updated">updated 2026-10-03</span></p>
         <p class="oneliner">After the iPad I got this one. At the time, this was the flagship of Apple, I got the highest spec'd MacBook I could because I knew this would outlast generations.</p>
-        <div class="gear-body"><table>
+        <div class="gear-body"><div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Maker</th>
@@ -51,8 +54,9 @@
 <td>Apple Silicon laptop (M1 Max, 32 GB unified memory, 1 TB SSD)</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="store">Store <a class="anchor" href="#store" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Store</th>
@@ -66,8 +70,9 @@
 <td>2021-12-03</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="specs">Specs <a class="anchor" href="#specs" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Spec</th>
@@ -91,6 +96,7 @@
 <td>14.2-inch Liquid Retina XDR, 3024 x 1964 (254 ppi), mini-LED</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="description">Description <a class="anchor" href="#description" aria-label="Link to this section">#</a></h2>
 <p>My personal laptop and the one I travel with. It&#39;s also the computer I use for my own work.</p>
 <p>I told the story in the <a href="/gear/ipad-air.html">iPad Air</a> note, how I came here without a computer and used the iPad for a long time. When I bought the MacBook I wanted it to be the most top of the line machine possible, because I didn&#39;t want to have to buy another computer any time soon.</p>

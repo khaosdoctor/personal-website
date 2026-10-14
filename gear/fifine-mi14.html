@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://lsantos.dev/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -22,20 +23,22 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="/uses" class="back-link">&lt; uses</a>
         <img src="/img/gear/covers/fifine-mi14.webp" alt="Fifine MI14" class="gear-cover">
-        <h1 class="gear-detail">Fifine MI14</h1>
+        <h1 class="section-label">Fifine MI14</h1>
         <p class="gear-meta"><span class="rating">7/10</span> <span class="tag tag-green">owned</span> <span class="tag tag-green">actively-used</span> <span class="gear-updated">updated 2026-10-03</span></p>
         <p class="oneliner">Dual USB-C / XLR dynamic mic that ships with its own boom arm. Cardioid, so it keeps the room out of the recording.</p>
-        <div class="gear-body"><table>
+        <div class="gear-body"><div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Maker</th>
@@ -51,8 +54,9 @@
 <td>Cardioid dynamic broadcast microphone with both USB-C and XLR outputs</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="store">Store <a class="anchor" href="#store" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Store</th>
@@ -66,6 +70,7 @@
 <td>2026-09-27</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="description">Description <a class="anchor" href="#description" aria-label="Link to this section">#</a></h2>
 <p>The mic on the <a href="/gear/macbook-pro-m1-max.html">MacBook</a>, it is connected through a XLR cable to the <a href="/gear/focusrite-scarlett-solo-2nd-gen.html">Scarlett Solo</a>, which itself is connected to the AUX return of the <a href="/gear/behringer-xenyx-802.html">Behringer Xenyx 802</a>.</p>
 <p>I bought it because, before this became my work mic, the <a href="/gear/blue-yeti.html">Yeti</a> was connected on the <a href="/gear/macbook-pro-m1-max.html">MacBook</a>, so I already had a mic on the work setup and on the <a href="/gear/gaming-pc.html">Gaming PC</a> I was using only my <a href="/gear/steelseries-arctis-7.html">SteelSeries Arctis</a> headset, all the time.</p>

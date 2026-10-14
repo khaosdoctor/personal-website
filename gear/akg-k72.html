@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://lsantos.dev/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -22,20 +23,22 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="/uses" class="back-link">&lt; uses</a>
         <img src="/img/gear/covers/akg-k72.webp" alt="AKG K72" class="gear-cover">
-        <h1 class="gear-detail">AKG K72</h1>
+        <h1 class="section-label">AKG K72</h1>
         <p class="gear-meta"><span class="rating">7/10</span> <span class="tag tag-green">owned</span> <span class="tag tag-orange">not-actively-used</span> <span class="gear-updated">updated 2026-10-12</span></p>
         <p class="oneliner">My old and reliable headphones I've been using for years</p>
-        <div class="gear-body"><table>
+        <div class="gear-body"><div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Maker</th>
@@ -51,8 +54,9 @@
 <td>Closed-back over-ear studio headphones (40mm dynamic drivers, 32 Ω, closed-back)</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="store">Store <a class="anchor" href="#store" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Store</th>
@@ -66,13 +70,14 @@
 <td>2026-07-02</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="description">Description <a class="anchor" href="#description" aria-label="Link to this section">#</a></h2>
 <p>My old and reliable headphones. Right now I use them for monitoring and mixing.</p>
 <h2 id="impressions">Impressions <a class="anchor" href="#impressions" aria-label="Link to this section">#</a></h2>
 <p>I originally bought these headphones because I wanted something that had a longer cable, and somewhat better sound quality than my previous Edifier headphones (which I don&#39;t remember the model). This was in 2017, so it&#39;s been a long time since the date I&#39;m writing this article in 2026. In 9 years I only had to swap the pads once, and I switched it to a bigger one which isolates a bit more than the original.</p>
 <p>I particularly liked the headphones, they&#39;re quite comfortable, they&#39;re not heavy, they also don&#39;t press a lot on my head and they&#39;re pretty comfortable to use for extended periods of time, which is one of AKG&#39;s key ideas.</p>
 <p>The isolation is not really good (even with the new pads), but I don&#39;t think these headphones are made for that, however, they do have a very nice sound, at least for me, this is so true that I didn&#39;t even have to set up any EQ&#39;s for it, and, if I try to set EQ&#39;s for it, they just sound horrible… I think that&#39;s because the sound curve it has is very wonky…</p>
-<p><img src="/img/gear/akg-k72-response-curve.webp" alt="The <<Frequency Response Chart>> for the AKG K72 made by Sound Guys"></p>
+<p><img src="/img/gear/akg-k72-response-curve.webp" alt="The <<Frequency Response Chart>> for the AKG K72 made by Sound Guys" width="600" height="394" loading="lazy" decoding="async"></p>
 <p>You can see it&#39;s kinda all over the place, maybe because it&#39;s tuned to be more of a end-user friendly sound. In any case, I think it&#39;s a pretty ok sound for the price, which was cheap as hell.</p>
 <p>I mainly use it as a monitoring headphone for music and casual listening anyways.</p>
 <p>Reading along, I think I could&#39;ve made a better choice by having the AKG K371 which is deemed to be one of &quot;the best closed back headphones in the market&quot;, I might get one just to see how it goes.</p>

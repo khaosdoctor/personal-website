@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://lsantos.dev/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -22,17 +23,19 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="/uses" class="back-link">&lt; uses</a>
-        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/LM2596_buck_converter_module,_MP1584_buck_converter_module,_and_SDB628_boost_converter_module.jpg" alt="Element Audio Buck Converters" class="gear-cover">
-        <h1 class="gear-detail">Element Audio Buck Converters</h1>
+        <img src="/img/gear/covers/element-audio-buck-converters.webp" alt="Element Audio Buck Converters" class="gear-cover">
+        <h1 class="section-label">Element Audio Buck Converters</h1>
         <p class="gear-meta"><span class="tag tag-green">done</span> <span class="gear-updated">updated 2026-10-12</span></p>
         <p class="oneliner">Two LM2596 buck converters with added protection, in 3D-printed enclosures, powering my pedalboard.</p>
         <div class="gear-body"><h2 id="overview">Overview <a class="anchor" href="#overview" aria-label="Link to this section">#</a></h2>
@@ -51,11 +54,11 @@
 </blockquote>
 <p>Both jacks are center negative so when I connect, I have to connect it reversed on the Input, because the buck converter module expects a center positive input, so the sleeve goes to the positive side (which would be the reverse of an expected center positive jack). On the output, the zener and the cap are wired across OUT+ and OUTin parallel, with the zener&#39;s cathode on OUT+.</p>
 <p>And then the output needs to wire the center to the negative side, with the hot signal on the sleeve.</p>
-<p><img src="/img/gear/pedalboard-buck-converter-schematic.webp" alt="Pedalboard buck converter schematic"></p>
+<p><img src="/img/gear/pedalboard-buck-converter-schematic.webp" alt="Pedalboard buck converter schematic" width="600" height="130" loading="lazy" decoding="async"></p>
 <p>The enclosure is printed on my <a href="/gear/bambu-lab-a1-mini.html">Bambu Lab A1 Mini</a>. The front has a triangle pattern and the name of my brand. The converter is screwed to the inside, with room for heat-set inserts.</p>
 <h2 id="bill-of-materials">Bill of materials <a class="anchor" href="#bill-of-materials" aria-label="Link to this section">#</a></h2>
 <p>Per converter, I built two.</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Part</th>
@@ -113,6 +116,7 @@
 <td>Body, lid and screws</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="build-log">Build log <a class="anchor" href="#build-log" aria-label="Link to this section">#</a></h2>
 <ul>
 <li><strong>2026-09-14:</strong> Bought a 10-pack of LM2596 modules.</li>
@@ -121,24 +125,24 @@
 <li><strong>2026-10-04:</strong> Printed the first casings. They came out a bit crooked.</li>
 <li><strong>2026-10-05:</strong> Made and printed a version 2.</li>
 <li><strong>2026-10-07:</strong> Finished, after about 5 iterations of the enclosure.
-<img src="/img/gear/img-7714.webp" alt="From the first to the fifth version"></li>
+<img src="/img/gear/img-7714.webp" alt="From the first to the fifth version" width="600" height="1067" loading="lazy" decoding="async"></li>
 <li><strong>2026-10-09</strong>: The pedalboard is fully working with them. They&#39;re on the top side, and I think the wires are too short.
-<img src="/img/gear/journal-2026-10-07-033716-051c1c3c.webp" alt="2026-10-07_033716_051c1c3c"></li>
+<img src="/img/gear/journal-2026-10-07-033716-051c1c3c.webp" alt="2026-10-07_033716_051c1c3c" width="600" height="800" loading="lazy" decoding="async"></li>
 </ul>
 <h2 id="lessons-learned">Lessons learned <a class="anchor" href="#lessons-learned" aria-label="Link to this section">#</a></h2>
 <ul>
 <li>The first enclosure failed because the lid ended up really loose.
-<img src="/img/gear/journal-2026-10-07-033110-58297103.webp" alt="This was the first version"></li>
+<img src="/img/gear/journal-2026-10-07-033110-58297103.webp" alt="This was the first version" width="600" height="800" loading="lazy" decoding="async"></li>
 <li>For the next ones I reduced the final size and changed the layer height to 0.16 mm instead of 0.2. I tried 0.08 too but it became too thin and ended up with several imperfections, so 0.16 is ideal.
-<img src="/img/gear/journal-2026-10-07-033156-1e191ef9.webp" alt="Internally I have very little space to put things"></li>
+<img src="/img/gear/journal-2026-10-07-033156-1e191ef9.webp" alt="Internally I have very little space to put things" width="600" height="800" loading="lazy" decoding="async"></li>
 <li>The fuse and the jack needed to be off center because they got in the way, I haven&#39;t had thought of that
-<img src="/img/gear/pasted-image-20261012223222.webp" alt="The fuse and the jack had to come to the bottom"></li>
+<img src="/img/gear/pasted-image-20261012223222.webp" alt="The fuse and the jack had to come to the bottom" width="600" height="440" loading="lazy" decoding="async"></li>
 <li>Positioning the converter inside, on the screws, was the hardest part. I need the screw position plus an extra side for the heat-set inserts. Even though I measured where each converter had its screw holes, one of them was always off by something.
-<img src="/img/gear/pasted-image-20261012223321.webp" alt="The screws are not centered"></li>
+<img src="/img/gear/pasted-image-20261012223321.webp" alt="The screws are not centered" width="600" height="407" loading="lazy" decoding="async"></li>
 <li>Once closed I wanted the LED to be visible, which kinda happened but I wanted more visibility to that, also you can see that the text is not very visible too on the lid
-<img src="/img/gear/journal-2026-10-07-033309-678b85b9.webp" alt="Final box, but the text is still meh"></li>
+<img src="/img/gear/journal-2026-10-07-033309-678b85b9.webp" alt="Final box, but the text is still meh" width="600" height="800" loading="lazy" decoding="async"></li>
 <li>In other colors, for example, I could make the brand name way better
-<img src="/img/gear/pasted-image-20261012223503.webp" alt="Version 2 or 3 had a good naming outside"></li>
+<img src="/img/gear/pasted-image-20261012223503.webp" alt="Version 2 or 3 had a good naming outside" width="600" height="455" loading="lazy" decoding="async"></li>
 <li>I actually came to the name I wanted to go with my pedal company if I ever make one. &quot;Element Audio Co.&quot; has a nice name.</li>
 <li>Holes in 3D printing are terrible, and positioning something freehand is too. I still haven&#39;t figured out how the hell I will position the board in it, I will probably make the hole longer</li>
 <li>If I were to make more, I&#39;d do it a little different. Probably with a longer input cable I still have 8 left so I can try to fix those, but I honestly have no need for it</li>

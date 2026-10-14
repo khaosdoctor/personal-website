@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://lsantos.dev/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -22,20 +23,22 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="/uses" class="back-link">&lt; uses</a>
         <img src="/img/gear/covers/keychron-q3-max.webp" alt="Keychron Q3 Max" class="gear-cover">
-        <h1 class="gear-detail">Keychron Q3 Max</h1>
+        <h1 class="section-label">Keychron Q3 Max</h1>
         <p class="gear-meta"><span class="rating">9.9/10</span> <span class="tag tag-green">owned</span> <span class="tag tag-green">actively-used</span> <span class="gear-updated">updated 2026-09-27</span></p>
         <p class="oneliner">Aluminium TKL with QMK/VIA, 2.4 GHz wireless, running Gateron Jupiter Reds and ASA caps. THE BEST typing experience of all the keyboards I ever had in over 10 years</p>
-        <div class="gear-body"><table>
+        <div class="gear-body"><div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Maker</th>
@@ -51,8 +54,9 @@
 <td>Wireless custom TKL mechanical keyboard</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="store">Store <a class="anchor" href="#store" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Store</th>
@@ -66,8 +70,9 @@
 <td>2026-09-21</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="specs">Specs <a class="anchor" href="#specs" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Spec</th>
@@ -91,6 +96,7 @@
 <td>2.4 GHz wireless, Bluetooth 5.1 (up to 3 devices), USB-C wired</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="description">Description <a class="anchor" href="#description" aria-label="Link to this section">#</a></h2>
 <p>My main keyboard, and the best typing experience of all the keyboards I&#39;ve had in over 10 years. It came with KSA keycaps and I swapped those for an ASA pudding set, but I kept the Gateron Jupiter Red switches it shipped with. It&#39;s all aluminium and it runs QMK.</p>
 <h2 id="impressions">Impressions <a class="anchor" href="#impressions" aria-label="Link to this section">#</a></h2>

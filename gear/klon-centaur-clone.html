@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://lsantos.dev/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -22,21 +23,22 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="/uses" class="back-link">&lt; uses</a>
         <img src="/img/gear/covers/klon-centaur-clone.webp" alt="Klon Centaur Clone" class="gear-cover">
-        <h1 class="gear-detail">Klon Centaur Clone</h1>
+        <h1 class="section-label">Klon Centaur Clone</h1>
         <p class="gear-meta"><span class="rating">8.8/10</span> <span class="tag tag-green">done</span> <span class="tag tag-green">owned</span> <span class="tag tag-green">actively-used</span> <span class="gear-updated">updated 2026-10-12</span></p>
         <p class="oneliner">Handbuilt Klon Centaur clone, my first DIY pedal build</p>
-        <div class="gear-body"><h1>DIY Klon Centaur Clone</h1>
-<table>
+        <div class="gear-body"><div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Maker</th>
@@ -52,8 +54,9 @@
 <td>Overdrive / boost</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="store">Store <a class="anchor" href="#store" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Store</th>
@@ -67,6 +70,7 @@
 <td>2026-09-20</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="description">Description <a class="anchor" href="#description" aria-label="Link to this section">#</a></h2>
 <p>A Klon Centaur overdrive clone that I built myself, and my first pedal build. I heard a lot about this pedal, the Centaur is a classic. It got really famous more recently, after some famous artists started using it, but back when it was created it wasn&#39;t that known and it wasn&#39;t that famous either.</p>
 <p>A bit of the history: Bill Finnegan developed it in Boston with engineers from MIT and released it in 1994, going after the sound of an amp pushed hard instead of another Tube Screamer. He built every single unit by hand, around 8,000 of them until he stopped in 2008, and he covered the boards in black epoxy so nobody could copy the circuit. The secrecy plus the small numbers is basically why the used prices went crazy and the pedal became a legend.</p>
@@ -87,9 +91,9 @@
 <li><strong>2026-05-19:</strong> Assembled the first version of the pedalboard and decided the next pedal would be an overdrive, either a Tube Screamer clone or a Centaur clone.</li>
 <li><strong>2026-06-01:</strong> Bought the Klon DIY kit from <a href="https://diymusicgear.dk/product/klon-centaur-overdrive/">DIY Music Gear</a>. It shipped the same day.</li>
 <li><strong>2026-06-13:</strong> Built it in one sitting. It took about 8 hours and I finished around 4 AM. The time kinda flew by because I was talking in Discord with some friends and it was a lovely sunny day
-<img src="/img/gear/2026-06-14-klon-centaur.webp" alt="The finished board"></li>
+<img src="/img/gear/2026-06-14-klon-centaur.webp" alt="The finished board" width="600" height="507" loading="lazy" decoding="async"></li>
 <li><strong>2026-06-15:</strong> It took me a while to assemble it because I wanted to see if the board itself was secured, the jacks were hitting the top sides of the board and the knobs were not well fitted so it took me a while to adjust them all.
-<img src="/img/gear/2026-06-14-klon-assembled.webp" alt="Assembled in the enclosure"></li>
+<img src="/img/gear/2026-06-14-klon-assembled.webp" alt="Assembled in the enclosure" width="600" height="529" loading="lazy" decoding="async"></li>
 <li><strong>2026-06-23</strong>: I found a 1N34A Germanium Diode swap to replace the current ones in the kit, didn&#39;t see much difference honestly.</li>
 </ul>
 <h2 id="lessons-learned">Lessons learned <a class="anchor" href="#lessons-learned" aria-label="Link to this section">#</a></h2>

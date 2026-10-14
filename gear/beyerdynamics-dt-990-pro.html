@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://lsantos.dev/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -22,20 +23,22 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="/uses" class="back-link">&lt; uses</a>
         <img src="/img/gear/covers/beyerdynamics-dt-990-pro.webp" alt="Beyerdynamics DT 990 Pro" class="gear-cover">
-        <h1 class="gear-detail">Beyerdynamics DT 990 Pro</h1>
+        <h1 class="section-label">Beyerdynamics DT 990 Pro</h1>
         <p class="gear-meta"><span class="rating">9.7/10</span> <span class="tag tag-green">owned</span> <span class="tag tag-green">actively-used</span> <span class="gear-updated">updated 2026-10-03</span></p>
         <p class="oneliner">One of the best headphones I ever had</p>
-        <div class="gear-body"><table>
+        <div class="gear-body"><div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Maker</th>
@@ -51,8 +54,9 @@
 <td>Open-back over-ear studio headphones (45mm dynamic drivers, 250 Ω, open-back)</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="store">Store <a class="anchor" href="#store" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Store</th>
@@ -66,6 +70,7 @@
 <td>2026-07-02</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="description">Description <a class="anchor" href="#description" aria-label="Link to this section">#</a></h2>
 <p>One of the best headphones I ever had. Right now I use them for monitoring and mixing, and sometimes just to listen to music on the <a href="/gear/gaming-pc.html">Gaming PC</a>.</p>
 <h2 id="impressions">Impressions <a class="anchor" href="#impressions" aria-label="Link to this section">#</a></h2>
@@ -76,7 +81,7 @@
 <p>It&#39;s very sturdy, mostly made of metal with the cups being plastic. The wire is a bit too long for my taste and it&#39;s not coiled, and I can&#39;t change it, which is a problem too, but nothing that bothered me too much, of course it would be better if I could not have a gigantic cable laying around.</p>
 <h3 id="audio-quality">Audio Quality <a class="anchor" href="#audio-quality" aria-label="Link to this section">#</a></h3>
 <p>For the sound quality, out of the box it depends on what place you&#39;re using it, for example, I used it on Windows, Mac and Linux, on Windows and MacOS I had to EQ it using PEACE (on Windows) and eqMac (on Mac) and the sound was better than without it. This headphone has a massive increase in High frequencies (sound) and some bump to the Middle frequencies (sound), more specifically a small bump to frequencies from 50-300Hz and 2kHz-20kHz</p>
-<p><img src="/img/gear/dt-990-pro-frequency-response.webp" alt="DT 990 Frequency Response Curve"></p>
+<p><img src="/img/gear/dt-990-pro-frequency-response.webp" alt="DT 990 Frequency Response Curve" width="600" height="394" loading="lazy" decoding="async"></p>
 <p>According to the Frequency Response Chart, this headphone has a <strong>very high</strong> boost to the treble and all the high frequencies. Which is kinda expected for a mixing headphone since <strong>it&#39;s meant to be a mixing headphone, not a monitoring one</strong> (hence the open back). So this needed equalization in both Windows and Mac, however, in Linux I found that the EQ with EasyEffects is almost the same as without it, I still applied a Limiter (audio effect) and a Crossfeed to the line so I get a better signal response, but the overall EQ was not super life changing.</p>
 <h2 id="eq-presets">EQ Presets <a class="anchor" href="#eq-presets" aria-label="Link to this section">#</a></h2>
 <p>There&#39;s a <a href="https://www.reddit.com/r/oratory1990/wiki/index/list_of_presets/">list</a> of presets in the Oratory1990 subreddit, I took one from there and it&#39;s a PDF file.</p>

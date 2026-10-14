@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://lsantos.dev/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -22,20 +23,22 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="/uses" class="back-link">&lt; uses</a>
         <img src="/img/gear/covers/kbdcraft-adam80.webp" alt="KBDCraft Adam80" class="gear-cover">
-        <h1 class="gear-detail">KBDCraft Adam80</h1>
+        <h1 class="section-label">KBDCraft Adam80</h1>
         <p class="gear-meta"><span class="rating">8/10</span> <span class="tag tag-green">owned</span> <span class="tag tag-orange">not-actively-used</span> <span class="gear-updated">updated 2026-09-21</span></p>
         <p class="oneliner">Lego-compatible brick-built TKL kit, used on the work setup until it developed ghosting and dead keys, I mostly keep it because it's super different and nice.</p>
-        <div class="gear-body"><table>
+        <div class="gear-body"><div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Maker</th>
@@ -51,8 +54,9 @@
 <td>Brick-built 80% mechanical keyboard kit (64-key core + 17-key numpad, hot-swap, QMK/Vial, wired)</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="store">Store <a class="anchor" href="#store" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Store</th>
@@ -66,8 +70,9 @@
 <td>2026-09-21</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="specs">Specs <a class="anchor" href="#specs" aria-label="Link to this section">#</a></h2>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Spec</th>
@@ -87,6 +92,7 @@
 <td>Wired; modules joined by an internal cable</td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="description">Description <a class="anchor" href="#description" aria-label="Link to this section">#</a></h2>
 <p>A brick-built keyboard I used on the work setup until it developed ghosting and dead keys. I keep it because it&#39;s super different and nice.</p>
 <p>The Adam was an interest purchase. I really wanted to understand how a Lego keyboard works. I bought it around 2021 or 2022, when it had just come out, the first version of the Adam. Back then I only had the <a href="/gear/keychron-k8.html">K8</a>, which was making a lot of noise, and I wanted a new keyboard, something different. Then I saw this little thing and thought it was really interesting, because you can swap the bricks around, even though I never did. It&#39;s wired only, there&#39;s no Bluetooth on it.</p>

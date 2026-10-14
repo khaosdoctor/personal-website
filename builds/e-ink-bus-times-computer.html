@@ -14,6 +14,7 @@
   <meta property="og:image" content="https://lsantos.dev/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Specialist Software Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -22,21 +23,22 @@
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="/projects" class="back-link">&lt; projects</a>
         
-        <h1 class="gear-detail">E-ink bus times computer</h1>
+        <h1 class="section-label">E-ink bus times computer</h1>
         <p class="gear-meta"><span class="tag tag-blue">planned</span> <span class="gear-updated">updated 2026-10-12</span></p>
         <p class="oneliner">ESP32 with an e-ink screen showing nearby bus and subway departures, with today's weather</p>
-        <div class="gear-body"><h1>E-ink pet project to have bus times and tasks in an e-ink screen</h1>
-<h2 id="overview">Overview <a class="anchor" href="#overview" aria-label="Link to this section">#</a></h2>
+        <div class="gear-body"><h2 id="overview">Overview <a class="anchor" href="#overview" aria-label="Link to this section">#</a></h2>
 <p>Good project to learn how to work with ESP32 and hardware using E-Ink screens. The goal here is to learn how to work with systems that need to use an <em>exceptionally small</em> amount of energy.</p>
 <h2 id="design">Design <a class="anchor" href="#design" aria-label="Link to this section">#</a></h2>
 <ul>
@@ -45,7 +47,7 @@
 </ul>
 <h2 id="bill-of-materials">Bill of materials <a class="anchor" href="#bill-of-materials" aria-label="Link to this section">#</a></h2>
 <p>I don&#39;t have the entire idea yet but for now:</p>
-<table>
+<div class="table-scroll"><table>
 <thead>
 <tr>
 <th>Part</th>
@@ -79,6 +81,7 @@
 <td></td>
 </tr>
 </tbody></table>
+</div>
 <h2 id="build-log">Build log <a class="anchor" href="#build-log" aria-label="Link to this section">#</a></h2>
 <p>Nothing here yet, keep posted through my RSS</p>
 <h2 id="lessons-learned">Lessons learned <a class="anchor" href="#lessons-learned" aria-label="Link to this section">#</a></h2>
