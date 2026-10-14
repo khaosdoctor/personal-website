@@ -7,6 +7,8 @@ const RSS_RE = Object.fromEntries(['title', 'link', 'pubDate'].map(t =>
   [t, new RegExp(`<${t}><!\\[CDATA\\[([\\s\\S]*?)\\]\\]>|<${t}>([^<]*)</${t}>`)]));
 
 const rssTag = (b, tag) => { const m = b.match(RSS_RE[tag]); return m?.[1] ?? m?.[2] ?? ''; };
+// Feed text is XML-escaped; decoded here so render.js escapes it exactly once for the page
+const decode = s => s.replace(RE_ENTITY, m => ENTITY_MAP[m]);
 
 export async function syncPosts() {
   log.step('📡 Fetching blog RSS');
@@ -16,8 +18,8 @@ export async function syncPosts() {
   const items = [...xml.matchAll(RE_RSS_ITEM)].map(([, b]) => {
     const d = rssTag(b, 'pubDate');
     return {
-      title: rssTag(b, 'title').replace(RE_ENTITY, m => ENTITY_MAP[m]),
-      link: rssTag(b, 'link'),
+      title: decode(rssTag(b, 'title')),
+      link: decode(rssTag(b, 'link')),
       date: d ? new Date(d).toISOString().split('T')[0] : '',
     };
   });
