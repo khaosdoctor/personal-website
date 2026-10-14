@@ -657,6 +657,7 @@ a.ext::after {
 }
 
 #now-content p + p { margin-top: 1rem; }
+.now-section p + ul { margin-top: 0.4rem; }
 
 .now-section ul, #now-content ul {
   list-style: none;
