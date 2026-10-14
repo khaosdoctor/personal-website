@@ -7,23 +7,31 @@
    pyftsubset NotoSansCJK-Regular.ttc --font-number=5 --text='マリウス' --flavor=woff2 --layout-features='' --output-file=fonts/noto-mono-jp-subset.woff2 */
 @font-face { font-family: 'Noto Mono JP Subset'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/noto-mono-jp-subset.woff2') format('woff2'); unicode-range: U+30A6, U+30B9, U+30DE, U+30EA; }
 
-/* ═══ Tokens ═══ */
+/* ═══ Tokens (every page) ═══ */
 
 /* Text ladder: --title (page titles) > --text (headings, names) > --body (body copy) > --muted (subtitles, dates).
-   Light is the default; js/theme.js always sets data-theme, the media query covers no-JS visits */
+   Light is the default; js/theme.js always sets data-theme, the media query covers no-JS visits.
+   404.html loads no stylesheet and keeps its own copy of the main colors */
 :root {
+  /* Tells the browser which theme is on, so scrollbars and form controls match it */
+  color-scheme: light;
   --bg: #f4efe0;
   --title: #2b2622;
   --text: #4f493f;
   --body: #5d564a;
   --muted: #6b6353;
   --border: #736e62;
+  /* Faded versions of --border for the /uses gear list: row lines and every second row's background */
+  --line-faint: color-mix(in srgb, var(--border) 25%, transparent);
+  --row-stripe: color-mix(in srgb, var(--border) 6%, transparent);
+  /* js/theme.js replaces --accent with a daily color from its palette; this value is for no-JS visits */
   --accent: #0571b3;
+  /* The black pixels of the sidebar cat (CAT_COLORS in js/components.js); lighter in dark mode so it shows */
   --cat-black: #2b2622;
   /* State colors for tags and badges */
   --red: #b71c1c;
   --green: #1b5e20;
-  --yellow: #a67c00;
+  --yellow: #8b6500;
   --blue: #0d47a1;
   --orange: #bf360c;
 
@@ -33,17 +41,22 @@
   --space-section: 2rem; /* above every section heading */
   --space-para: 1rem;    /* between paragraphs */
   --sidebar-w: 240px;
+  /* The phone layout starts at 768px. Variables don't work inside @media, so each section repeats
+     @media (max-width: 768px) after its own rules; search for 768px to change it */
 }
 
+/* The dark colors are written twice: this block follows the OS setting for no-JS visits, the next one is
+   what js/theme.js sets. Keep both blocks the same */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --bg: #131313;
     --title: #fff;
     --text: #d6d2c9;
     --body: #bdb8ae;
     --muted: #a8a29a;
     --border: #6b627b;
-    --accent: #1480c2;
+    --accent: #1d85c4;
     --cat-black: #4a4540;
     --red: #ef5350;
     --green: #66bb6a;
@@ -54,13 +67,14 @@
 }
 
 :root[data-theme="dark"] {
+  color-scheme: dark;
   --bg: #131313;
   --title: #fff;
   --text: #d6d2c9;
   --body: #bdb8ae;
   --muted: #a8a29a;
   --border: #6b627b;
-  --accent: #1480c2;
+  --accent: #1d85c4;
   --cat-black: #4a4540;
   --red: #ef5350;
   --green: #66bb6a;
@@ -69,13 +83,15 @@
   --orange: #ff7043;
 }
 
-/* ═══ Base ═══ */
+/* ═══ Base (every page) ═══ */
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* Short pages have no scrollbar; reserving its space keeps the centered layout from shifting between pages */
 html { scrollbar-gutter: stable; }
 
+/* Sizes in this file are in rem, which is the browser's 16px, not body's 15px: 0.9rem is 14.4px.
+   The 5rem on top is the space above the whole layout on desktop */
 body {
   font-family: var(--font);
   font-size: 15px;
@@ -88,12 +104,19 @@ body {
   padding-top: 5rem;
 }
 
+@media (max-width: 768px) {
+  body { padding-top: 0; }
+}
+
 site-sidebar, site-footer { display: block; }
 
 a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+/* Every hover style in this file also applies on keyboard focus (:focus-visible), so keyboard users get the same cue */
+a:is(:hover, :focus-visible) { text-decoration: underline; }
 
-a.ext::after {
+/* Links to other sites get a small arrow. The /uses gear rows are left out: their link is display: contents,
+   so the arrow would become an extra grid cell and break the row */
+a[href^="http"]:not([href^="https://lsantos.dev"]):not(.gear-link)::after {
   content: '\2197';
   font-size: 0.65em;
   vertical-align: super;
@@ -103,7 +126,7 @@ a.ext::after {
 
 img { max-width: 100%; height: auto; }
 
-/* ═══ Prose ═══ */
+/* ═══ Prose (every page, and the markdown baked into them) ═══ */
 
 /* Element defaults for every page. Markdown output has no classes, so anything with a class
    (lists, paragraphs, headings) is a component and styles itself */
@@ -133,7 +156,7 @@ h3 { font-size: 0.9rem; font-weight: 600; margin: 1rem 0 0.5rem; }
 /* The # after a heading links to it; dim until hovered, and a jump leaves a little room above */
 h2, h3 { scroll-margin-top: 1.5rem; }
 .anchor { color: var(--muted); font-weight: 400; opacity: 0.5; }
-.anchor:hover { color: var(--accent); opacity: 1; text-decoration: none; }
+.anchor:is(:hover, :focus-visible) { color: var(--accent); opacity: 1; text-decoration: none; }
 
 /* Body copy sits one step below headings. :where() keeps it at zero specificity, so anything with its
    own color or size class (subtitles, dates, copyright, tags) wins */
@@ -152,7 +175,7 @@ ul:not([class]) > li { padding-left: 2ch; text-indent: -2ch; }
 ul:not([class]) > li::before { content: '> '; color: var(--muted); }
 ol:not([class]) { counter-reset: item; }
 ol:not([class]) > li { padding-left: 3ch; text-indent: -3ch; counter-increment: item; }
-ol:not([class]) > li::before { content: counter(item) '. '; color: var(--accent); font-weight: 700; }
+ol:not([class]) > li::before { content: counter(item) '. '; color: var(--accent); font-weight: 600; }
 :is(ul, ol):not([class]) > li + li { margin-top: 0.25rem; }
 /* A loose markdown list wraps each item in <p>; inline keeps the text on the marker's line */
 li > p { display: inline; }
@@ -181,12 +204,25 @@ th {
   background: color-mix(in srgb, var(--border) 15%, transparent);
 }
 
+/* sync/render.js wraps each markdown table in this div, so tables with many columns scroll sideways on their
+   own instead of widening the page, and stay real tables for screen readers. The div holds the table's margin */
+.table-scroll { overflow-x: auto; margin: 0.75rem 0; }
+.table-scroll > table { margin: 0; }
+
 hr { border: none; border-top: 1px solid var(--border); margin: var(--space-para) 0; }
 
 /* Code blocks scroll sideways on their own instead of widening the page (the sidebar art is a pre too) */
 main pre { overflow-x: auto; }
 
-/* ═══ Layout ═══ */
+/* Inline code gets the browser's monospace font, which looks close to the text around it, so a faint background
+   marks it (blocks in <pre> don't get it) */
+:not(pre) > code {
+  background: color-mix(in srgb, var(--border) 15%, transparent);
+  padding: 0 0.3ch;
+  border-radius: 2px;
+}
+
+/* ═══ Layout (every page) ═══ */
 
 .layout {
   display: flex;
@@ -194,7 +230,12 @@ main pre { overflow-x: auto; }
   width: 100%;
 }
 
-/* ═══ Sidebar ═══ */
+/* Phones stack the sidebar on top of the content */
+@media (max-width: 768px) {
+  .layout { flex-direction: column; }
+}
+
+/* ═══ Sidebar (every page, <site-sidebar> in js/components.js) ═══ */
 
 .sidebar {
   width: var(--sidebar-w);
@@ -210,6 +251,8 @@ main pre { overflow-x: auto; }
   padding-right: 1.5rem;
 }
 
+/* The vertical double line between sidebar and content. It runs 350px below the sidebar; .content-inner's
+   min-height (987px) is matched to where it ends, so change the two together */
 .sidebar-inner::after {
   content: '';
   position: absolute;
@@ -219,6 +262,8 @@ main pre { overflow-x: auto; }
   border-right: 4px double var(--border);
 }
 
+/* The double line under the photo. The 4.5rem pulls it out to the right, past the sidebar's own padding, so
+   it crosses the vertical double line and runs 3rem beyond it */
 .photo-wrap {
   border-bottom: 4px double var(--border);
   padding-bottom: 1rem;
@@ -261,10 +306,6 @@ main pre { overflow-x: auto; }
   .photo-wrap:focus-visible img.photo { opacity: 1; }
 }
 .ascii-dark { display: none; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .ascii-light { display: none; }
-  :root:not([data-theme="light"]) .ascii-dark { display: block; }
-}
 :root[data-theme="dark"] .ascii-light { display: none; }
 :root[data-theme="dark"] .ascii-dark { display: block; }
 .photo-wrap:hover .photo-ascii,
@@ -273,7 +314,8 @@ main pre { overflow-x: auto; }
 /* Touch screens can't hover, so they get the photo; !important beats the theme swap */
 @media (hover: none) { .photo-ascii { display: none !important; } }
 
-/* a. outranks a:hover, so the name never underlines */
+/* a.photo-wrap has the same specificity as a:is(:hover, ...) and comes later in the file, so it wins: the photo and
+   the name never underline */
 a.photo-wrap, a.sidebar-name {
   display: block;
   text-decoration: none;
@@ -300,8 +342,10 @@ nav a {
   font-weight: 500;
 }
 
-nav a:hover, nav a.active { color: var(--accent); }
+nav a:is(:hover, :focus-visible), nav a.active { color: var(--accent); }
 
+/* The desktop toggle and AI policy link at the bottom of the sidebar. The -2rem cancels the sidebar's
+   bottom padding, so the sidebar ends right under the link */
 .theme-toggle {
   margin-top: 3rem;
   margin-bottom: -2rem;
@@ -317,362 +361,17 @@ nav a:hover, nav a.active { color: var(--accent); }
   font-size: var(--fs-small);
 }
 
-.theme-toggle button:hover { color: var(--accent); }
+.theme-toggle button:is(:hover, :focus-visible) { color: var(--accent); }
 .ai-policy { display: block; color: var(--muted); font-size: 0.7rem; white-space: nowrap; }
-.ai-policy:hover { color: var(--accent); text-decoration: none; }
+.ai-policy:is(:hover, :focus-visible) { color: var(--accent); text-decoration: none; }
 
 /* Only the phone layout shows these */
 .mobile-actions { display: none; }
 
-/* ═══ Content ═══ */
-
-.content {
-  flex: 1;
-  padding: 2rem 4rem;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Same width on every page, so navigating only swaps the content (the widest page, /uses, sets it).
-   The min-height puts the copyright line level with the end of the sidebar's double line
-   (.sidebar-inner::after); grow it if the sidebar grows */
-.content-inner {
-  max-width: 820px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  min-height: 987px;
-}
-
-/* The last intro paragraph holds the space above the first section (see h2:first-child) */
-.content-inner > p:has(+ :not(p)) { margin-bottom: var(--space-section); }
-
-/* ═══ Page header ═══ */
-
-.section-label {
-  color: var(--title);
-  font-size: 1.7rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  margin: var(--space-section) 0 0.5rem;
-}
-
-.section-label:first-child { margin-top: 0; }
-
-/* The first line under a title starts with a bold > in the title's color; follow-up paragraphs don't */
-.subtitle::before { content: '> '; font-weight: 700; color: var(--title); }
-
-.page-desc {
-  color: var(--muted);
-  font-size: 0.85rem;
-  margin-bottom: 1.5rem;
-}
-
-.intro-name {
-  color: var(--title);
-  font-size: 4rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-  line-height: 1.1;
-}
-
-/* RSS link next to a page's h1; the icon is a mask so it takes the link color in both themes */
-.feed-icon {
-  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Ccircle cx='1' cy='7' r='1'/%3E%3Cpath d='M0 3a5 5 0 0 1 5 5H4a4 4 0 0 0-4-4zM0 0a8 8 0 0 1 8 8H7a7 7 0 0 0-7-7z'/%3E%3C/svg%3E");
-  display: inline-block;
-  width: 0.55em;
-  height: 0.55em;
-  margin-left: 0.4em;
-  vertical-align: 0.05em;
-  background: var(--muted);
-  -webkit-mask: var(--icon) center / contain no-repeat;
-  mask: var(--icon) center / contain no-repeat;
-}
-.feed-icon:hover { background: var(--accent); }
-.intro-name .feed-icon { width: 0.3em; height: 0.3em; }
-
-.intro-sub {
-  color: var(--muted);
-  font-size: var(--fs-copy);
-}
-
-.intro-clock {
-  color: var(--muted);
-  font-size: 0.75rem;
-  margin-top: 0.25rem;
-}
-
-.intro-clock:empty { display: none; }
-.clock-odds { color: var(--accent); }
-
-/* ═══ Home ═══ */
-
-.post-list {
-  list-style: none;
-  font-size: var(--fs-copy);
-}
-
-.post-list li {
-  display: flex;
-  align-items: baseline;
-  gap: 1rem;
-  padding: 0.15rem 0;
-}
-
-.post-date {
-  color: var(--muted);
-  font-size: var(--fs-small);
-  flex-shrink: 0;
-}
-
-.timeline { font-size: var(--fs-copy); }
-
-.timeline-item {
-  display: flex;
-  gap: 1rem;
-  padding: 0.15rem 0;
-}
-
-.timeline-period {
-  color: var(--muted);
-  font-size: var(--fs-small);
-  flex-shrink: 0;
-  min-width: 9ch;
-}
-
-/* ═══ Now / About / Friends ═══ */
-
-.now-section, #now-content { margin-bottom: 1.25rem; }
-
-.now-date {
-  color: var(--muted);
-  font-size: var(--fs-small);
-}
-
-/* ═══ Socials ═══ */
-
-/* margin-top: auto pins the footer to the bottom of .content-inner; the gap above it is padding,
-   since an auto margin can't also hold a minimum */
-.socials {
-  margin-top: auto;
-  padding-top: 3rem;
-  font-size: var(--fs-small);
-}
-
-.footer-rule {
-  padding-top: 1rem;
-  padding-bottom: 2rem;
-  border-top: 1px solid var(--border);
-}
-
-.socials a {
-  color: var(--muted);
-  margin-right: 1.25rem;
-}
-
-.socials a:hover { color: var(--accent); }
-.footer-rule .ai-policy { display: none; }
-
-.copyright {
-  color: var(--muted);
-  font-size: 0.7rem;
-  margin-top: 0.75rem;
-}
-
-/* ═══ Tags ═══ */
-
-.tag {
-  color: var(--muted);
-  border: 1px solid var(--border);
-  padding: 0.1rem 0.4rem;
-  border-radius: 2px;
-  font-size: 0.75rem;
-}
-
-/* Also used on bare text (the /projects legend), where only the color shows */
-.tag-red { color: var(--red); border-color: var(--red); }
-.tag-green { color: var(--green); border-color: var(--green); }
-.tag-yellow { color: var(--yellow); border-color: var(--yellow); }
-.tag-blue { color: var(--blue); border-color: var(--blue); }
-.tag-orange { color: var(--orange); border-color: var(--orange); }
-
-/* ═══ Uses / Gear ═══ */
-
-.gear-category,
-.project-group {
-  margin-bottom: var(--space-section);
-}
-
-/* Gear notes and the /uses and /projects groups head tables and dense lists, so their headings are a step smaller */
-:is(.gear-body, .gear-category, .project-group) h2 {
-  font-size: 1.15rem;
-  margin-bottom: 0.75rem;
-}
-
-.gear-list {
-  list-style: none;
-  display: grid;
-  /* Fixed state and rating widths so the columns line up across category lists */
-  grid-template-columns: minmax(0, 1fr) 18rem 4.5rem;
-}
-
-.gear-list li { display: contents; }
-
-.gear-list li > span,
-.gear-list .gear-link > * {
-  display: flex;
-  align-items: center;
-  padding: 0.4rem 0.5rem;
-  border-bottom: 1px solid color-mix(in srgb, var(--border) 25%, transparent);
-}
-
-.gear-list li:nth-child(even) > *,
-.gear-list li:nth-child(even) .gear-link > * {
-  background: color-mix(in srgb, var(--border) 6%, transparent);
-}
-
-.gear-link {
-  display: contents;
-  color: inherit;
-}
-
-.gear-link:hover .gear-name { color: var(--accent); }
-
-.gear-list .gear-name { font-weight: 500; font-size: var(--fs-copy); }
-
-/* Items with x-personal-site-parent, listed under their parent */
-.gear-list .gear-child .gear-name { padding-left: 1.25rem; font-weight: 400; }
-.gear-list .gear-child .gear-name::before { content: '\2514\00a0'; color: var(--muted); }
-
-/* Previously owned or broken; the rows are display: contents, so the dimming goes on each cell */
-.gear-list .gone .gear-name { text-decoration: line-through; }
-.gear-list .gone > span,
-.gear-list .gone .gear-link > * { opacity: 0.6; }
-
-/* The oneliner shows as a hover tooltip on desktop (js/gear.js) and under the name on mobile */
-.gear-list .gear-desc { display: none; }
-
-.gear-list .gear-states { gap: 0.3rem; }
-.gear-list .gear-states .tag { white-space: nowrap; }
-
-.gear-list .gear-rating {
-  color: var(--accent);
-  font-size: var(--fs-small);
-  justify-content: flex-end;
-}
-
-.gear-tip {
-  position: fixed;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  padding: 0.4rem 0.6rem;
-  font-size: var(--fs-small);
-  max-width: 300px;
-  z-index: 10;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s;
-}
-
-.gear-tip.visible { opacity: 1; }
-
-/* ═══ Gear detail ═══ */
-
-.back-link {
-  font-size: 1rem;
-  color: var(--muted);
-  display: inline-block;
-  margin-bottom: 1.5rem;
-}
-
-.back-link:hover { color: var(--accent); }
-
-.gear-cover {
-  width: 300px;
-  height: 220px;
-  object-fit: contain;
-  margin-bottom: 1.5rem;
-  border-radius: 4px;
-  background: color-mix(in srgb, var(--border) 10%, transparent);
-  padding: 0.5rem;
-}
-
-.gear-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-bottom: 1rem;
-  font-size: var(--fs-small);
-}
-
-.gear-updated { color: var(--muted); margin-left: auto; }
-
-.rating {
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.oneliner {
-  font-style: italic;
-  color: var(--muted);
-  font-size: var(--fs-copy);
-}
-
-/* Gear notes are denser than the other pages: half the space between paragraphs, and a note's own h1 is a
-   section heading (the page title comes from the template). The font size is for code blocks,
-   which size off their parent */
-.gear-body { font-size: var(--fs-copy); }
-.gear-body p { margin: 0.5rem 0; }
-.gear-body h1 { color: var(--text); font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
-
-/* ═══ Projects ═══ */
-
-.project-list { list-style: none; }
-
-.project-item {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
-}
-
-.project-item:last-child { border-bottom: none; }
-.project-item[data-status="archived"],
-.project-item[data-status="inactive"] { opacity: 0.5; }
-
-.project-header {
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-}
-
-.project-name {
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.project-status {
-  font-size: 0.75rem;
-  padding: 0.05rem 0.35rem;
-  border-radius: 2px;
-}
-
-.project-status[data-status="active"] { color: #39936c; border: 1px solid #39936c; }
-.status-active { color: #39936c; }
-.project-status[data-status="inactive"] { color: #d50612; border: 1px solid #d50612; }
-.project-status[data-status="archived"] { color: var(--muted); border: 1px solid var(--border); opacity: 0.6; }
-
-.project-desc {
-  color: var(--muted);
-  font-size: 0.85rem;
-  margin-top: 0.15rem;
-}
-
-/* ═══ Mobile ═══ */
-
+/* On phones the sidebar becomes a top bar: name left, small photo center, theme toggle and menu button
+   right, and the nav opens below it as a two-column grid */
 @media (max-width: 768px) {
-  body { padding-top: 0; }
   .desktop-only { display: none; }
-  .layout { flex-direction: column; }
 
   .sidebar {
     position: static;
@@ -712,6 +411,7 @@ nav a:hover, nav a.active { color: var(--accent); }
 
   .mobile-actions .theme-toggle { margin: 0; }
 
+  /* The menu button only shows on phones, so its whole style lives here */
   .hamburger {
     background: none;
     border: 1px solid var(--border);
@@ -724,7 +424,7 @@ nav a:hover, nav a.active { color: var(--accent); }
     line-height: 1;
   }
 
-  .hamburger:hover { color: var(--accent); border-color: var(--accent); }
+  .hamburger:is(:hover, :focus-visible) { color: var(--accent); border-color: var(--accent); }
 
   nav {
     display: none;
@@ -737,22 +437,209 @@ nav a:hover, nav a.active { color: var(--accent); }
   .sidebar-inner.menu-open nav { display: grid; }
 
   nav a { font-size: var(--fs-copy); padding: 0.3rem 0; }
+}
 
+/* ═══ Content (every page) ═══ */
+
+/* The side padding is 5% of the window width, at most 4rem, so windows between the phone layout and full
+   desktop width keep more room for the content (phones use 1rem, below) */
+.content {
+  flex: 1;
+  padding: 2rem min(5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Full width of .content on every page (about 750px at most: the 1100px layout minus the sidebar and padding),
+   so navigating only swaps the content. The min-height puts the copyright line level with the end of the
+   sidebar's double line (.sidebar-inner::after); grow it if the sidebar grows */
+.content-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 987px;
+}
+
+/* The last intro paragraph holds the space above the first section (see h2:first-child) */
+.content-inner > p:has(+ :not(p)) { margin-bottom: var(--space-section); }
+
+@media (max-width: 768px) {
   .content { padding: 1rem; }
-
   .content-inner { min-height: auto; }
+}
 
-  /* Tables with many columns scroll sideways on their own instead of widening the page */
-  table { display: block; overflow-x: auto; }
+/* ═══ Page header (every page; .intro-* only on the homepage) ═══ */
 
+/* "Skip to content" link, the first thing in <body>: hidden above the page until a keyboard user tabs to it */
+.skip-link {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 20;
+  padding: 0.4rem 0.8rem;
+  background: var(--bg);
+  border: 1px solid var(--accent);
+  transform: translateY(-300%);
+}
+.skip-link:focus-visible { transform: none; }
+
+.section-label {
+  color: var(--title);
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin: var(--space-section) 0 0.5rem;
+}
+
+.section-label:first-child { margin-top: 0; }
+/* Gear and build pages: the title follows the back link or the cover photo, which already leave space above it */
+:is(.back-link, .gear-cover) + .section-label { margin-top: 0; }
+
+/* The first line under a title starts with a bold > in the title's color; follow-up paragraphs don't */
+.subtitle::before { content: '> '; font-weight: 600; color: var(--title); }
+
+.page-desc {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.intro-name {
+  color: var(--title);
+  font-size: 4rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  line-height: 1.1;
+}
+
+/* The page title when the page has an RSS link: <div class="page-title section-label"> (or intro-name) holds
+   a bare <h1> and the feed link, so the link stays out of the heading text. The h1 takes the wrapper's look.
+   A page without a feed link uses a bare <h1 class="section-label"> */
+.page-title { display: flex; align-items: baseline; }
+.page-title h1 { font: inherit; color: inherit; letter-spacing: inherit; }
+
+/* RSS link next to a page's title; the icon is a mask so it takes the link color in both themes */
+.feed-icon {
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Ccircle cx='1' cy='7' r='1'/%3E%3Cpath d='M0 3a5 5 0 0 1 5 5H4a4 4 0 0 0-4-4zM0 0a8 8 0 0 1 8 8H7a7 7 0 0 0-7-7z'/%3E%3C/svg%3E");
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-left: 0.4em;
+  /* Sits on the title's baseline, nudged up a hair */
+  position: relative;
+  bottom: 0.05em;
+  background: var(--muted);
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
+.feed-icon:is(:hover, :focus-visible) { background: var(--accent); }
+.intro-name .feed-icon { width: 0.3em; height: 0.3em; }
+
+.intro-sub {
+  color: var(--muted);
+  font-size: var(--fs-copy);
+}
+
+/* js/clock.js fills this line after the page shows; the min-height keeps its space from the start,
+   so the text below doesn't jump down */
+.intro-clock {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  min-height: 1lh;
+}
+
+.clock-odds { color: var(--accent); }
+
+@media (max-width: 768px) {
+  .section-label { font-size: 1.3rem; }
   .intro-name { font-size: 2.5rem; }
   .intro-sub { font-size: 0.7rem; white-space: nowrap; }
   .intro-clock { font-size: 0.65rem; }
+}
 
-  .section-label { font-size: 1.3rem; }
+/* ═══ Home (/ only) ═══ */
 
+.post-list {
+  list-style: none;
+  font-size: var(--fs-copy);
+}
+
+.post-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.15rem 0;
+}
+
+.post-date {
+  color: var(--muted);
+  font-size: var(--fs-small);
+  flex-shrink: 0;
+}
+
+.timeline { font-size: var(--fs-copy); }
+
+.timeline-item {
+  display: flex;
+  gap: 1rem;
+  padding: 0.15rem 0;
+}
+
+.timeline-period {
+  color: var(--muted);
+  font-size: var(--fs-small);
+  flex-shrink: 0;
+  min-width: 9ch; /* fits "2024-2025", so the titles line up */
+}
+
+/* Phones put the date above the title instead of beside it */
+@media (max-width: 768px) {
   .post-list li, .timeline-item { flex-direction: column; gap: 0; }
+}
 
+/* ═══ Now / About / Friends ═══ */
+
+/* The block of baked markdown: #now-content on /now, .now-section on /about and /friends */
+.now-section, #now-content { margin-bottom: 1.25rem; }
+
+.now-date {
+  color: var(--muted);
+  font-size: var(--fs-small);
+}
+
+/* ═══ Socials (every page, <site-footer> in js/components.js) ═══ */
+
+/* margin-top: auto pins the footer to the bottom of .content-inner; the gap above it is padding,
+   since an auto margin can't also hold a minimum */
+.socials {
+  margin-top: auto;
+  padding-top: 3rem;
+  font-size: var(--fs-small);
+}
+
+.footer-rule {
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.socials a {
+  color: var(--muted);
+  margin-right: 1.25rem;
+}
+
+.socials a:is(:hover, :focus-visible) { color: var(--accent); }
+.footer-rule .ai-policy { display: none; }
+
+.copyright {
+  color: var(--muted);
+  font-size: 0.7rem;
+  margin-top: 0.75rem;
+}
+
+/* Phones lay the footer links out in two columns, with the copyright and the AI policy link centered below */
+@media (max-width: 768px) {
   .footer-rule {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -763,13 +650,114 @@ nav a:hover, nav a.active { color: var(--accent); }
   .socials a:nth-child(even) { text-align: right; }
 
   .copyright { grid-column: 1 / -1; text-align: center; }
-  /* a.ai-policy outranks .socials a:nth-child(even), which right-aligns every second footer link */
+  /* Same specificity as .socials a:nth-child(even), which right-aligns every second footer link;
+     this rule comes later, so it wins */
   .footer-rule a.ai-policy { display: block; grid-column: 1 / -1; text-align: center; margin-top: 0.25rem; }
+}
 
-  .gear-list { display: flex; flex-direction: column; }
+/* ═══ Tags (/uses, /projects, gear and build pages) ═══ */
 
+.tag {
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  font-size: 0.75rem;
+}
+
+/* Also used on bare text (the /projects legend), where only the color shows */
+.tag-red { color: var(--red); border-color: var(--red); }
+.tag-green { color: var(--green); border-color: var(--green); }
+.tag-yellow { color: var(--yellow); border-color: var(--yellow); }
+.tag-blue { color: var(--blue); border-color: var(--blue); }
+.tag-orange { color: var(--orange); border-color: var(--orange); }
+
+/* ═══ Uses / Gear (/uses; the group headings also on /projects and gear pages) ═══ */
+
+.gear-category,
+.project-group {
+  margin-bottom: var(--space-section);
+}
+
+/* Gear notes and the /uses and /projects groups head tables and dense lists, so their headings are a step smaller */
+:is(.gear-body, .gear-category, .project-group) h2 {
+  font-size: 1.15rem;
+  margin-bottom: 0.75rem;
+}
+
+.gear-list {
+  list-style: none;
+  display: grid;
+  /* Fixed state and rating widths so the columns line up across category lists */
+  grid-template-columns: minmax(0, 1fr) 18rem 4.5rem;
+}
+
+.gear-list li { display: contents; }
+
+.gear-list li > span,
+.gear-list .gear-link > * {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem 0.5rem;
+  border-bottom: 1px solid var(--line-faint);
+}
+
+.gear-list li:nth-child(even) > *,
+.gear-list li:nth-child(even) .gear-link > * {
+  background: var(--row-stripe);
+}
+
+.gear-link {
+  display: contents;
+  color: inherit;
+}
+
+.gear-link:is(:hover, :focus-visible) .gear-name { color: var(--accent); }
+
+.gear-list .gear-name { font-weight: 500; font-size: var(--fs-copy); }
+
+/* Items with x-personal-site-parent, listed under their parent */
+.gear-list .gear-child .gear-name { padding-left: 1.25rem; font-weight: 400; }
+.gear-list .gear-child .gear-name::before { content: '\2514\00a0'; color: var(--muted); }
+
+/* Previously owned or broken; the rows are display: contents, so the dimming goes on each cell */
+.gear-list .gone .gear-name { text-decoration: line-through; }
+.gear-list .gone > span,
+.gear-list .gone .gear-link > * { opacity: 0.6; }
+
+/* The oneliner shows as a hover tooltip on desktop (js/gear.js) and under the name on mobile */
+.gear-list .gear-desc { display: none; }
+
+.gear-list .gear-states { gap: 0.3rem; }
+.gear-list .gear-states .tag { white-space: nowrap; }
+
+.gear-list .gear-rating {
+  color: var(--accent);
+  font-size: var(--fs-small);
+  justify-content: flex-end;
+}
+
+.gear-tip {
+  position: fixed;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.6rem;
+  font-size: var(--fs-small);
+  max-width: 300px;
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+
+.gear-tip.visible { opacity: 1; }
+
+/* On phones each gear row is its own small grid: name and description on the left, rating on the right */
+@media (max-width: 768px) {
   .gear-category { margin-bottom: 2.5rem; }
   .gear-category h2 { font-size: 1.25rem; margin-top: 1rem; }
+
+  .gear-list { display: flex; flex-direction: column; }
 
   .gear-list li {
     display: grid;
@@ -777,17 +765,18 @@ nav a:hover, nav a.active { color: var(--accent); }
     grid-template-rows: auto auto auto;
     width: 100%;
     padding: 0.5rem;
-    border-bottom: 1px solid color-mix(in srgb, var(--border) 25%, transparent);
+    border-bottom: 1px solid var(--line-faint);
   }
 
-  .gear-list li:nth-child(odd) { background: color-mix(in srgb, var(--border) 6%, transparent); }
+  /* Same rows striped as on desktop, but here the whole row gets it, so the desktop cell stripes are undone */
+  .gear-list li:nth-child(even) { background: var(--row-stripe); }
   .gear-list li:nth-child(even) > *,
   .gear-list li:nth-child(even) .gear-link > * { background: none; }
   .gear-list li > *,
   .gear-list .gear-link > * { border-bottom: none; padding: 0; }
 
   .gear-list .gear-name { grid-column: 1; grid-row: 1; }
-  .gear-list .gear-rating { grid-column: 2; grid-row: 1 / -1; align-self: center; padding-left: 0.75rem; border-left: 1px solid color-mix(in srgb, var(--border) 25%, transparent); }
+  .gear-list .gear-rating { grid-column: 2; grid-row: 1 / -1; align-self: center; padding-left: 0.75rem; border-left: 1px solid var(--line-faint); }
 
   .gear-list .gear-desc {
     display: block;
@@ -800,6 +789,88 @@ nav a:hover, nav a.active { color: var(--accent); }
   .gear-list .gear-desc:empty { display: none; }
   .gear-list .gear-states { grid-column: 1; grid-row: 3; padding-top: 0.3rem; }
   .gear-list .gear-states:empty { display: none; }
+}
 
+/* ═══ Gear detail (gear/*.html and builds/*.html, template in sync/render.js) ═══ */
+
+.back-link {
+  font-size: 1rem;
+  color: var(--muted);
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.back-link:is(:hover, :focus-visible) { color: var(--accent); }
+
+.gear-cover {
+  width: 300px;
+  height: 220px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--border) 10%, transparent);
+  padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
   .gear-cover { display: block; margin-left: auto; margin-right: auto; }
+}
+
+.gear-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  font-size: var(--fs-small);
+}
+
+.gear-updated { color: var(--muted); margin-left: auto; }
+
+.rating {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.oneliner {
+  font-style: italic;
+  color: var(--muted);
+  font-size: var(--fs-copy);
+}
+
+/* Gear notes are denser than the other pages: half the space between paragraphs, and a note's own h1 is a
+   section heading (the page title comes from the template). The font size is for code blocks,
+   which size off their parent */
+.gear-body { font-size: var(--fs-copy); }
+.gear-body p { margin: 0.5rem 0; }
+.gear-body h1 { color: var(--text); font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
+
+/* ═══ Projects (/projects only) ═══ */
+
+.project-list { list-style: none; }
+
+.project-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 30%, transparent);
+}
+
+.project-item:last-child { border-bottom: none; }
+.project-item[data-status="archived"],
+.project-item[data-status="inactive"] { opacity: 0.5; }
+
+.project-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.project-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.project-desc {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 0.15rem;
 }
