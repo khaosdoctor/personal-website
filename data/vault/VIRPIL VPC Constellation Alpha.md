@@ -9,7 +9,6 @@ state:
   - owned
   - actively-used
 tags: [topic/games/flight-sim/gear, type/equipment/flight-controls]
-title: "VIRPIL VPC Constellation Alpha"
 type:
   - flight-stick
   - grip

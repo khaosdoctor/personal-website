@@ -12,7 +12,6 @@ state:
 tags:
   - topic/music/gear/microphones
   - type/equipment/microphone
-title: Fifine MI14
 type:
   - dynamic
   - cardioid

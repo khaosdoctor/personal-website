@@ -13,7 +13,6 @@ state:
 tags:
   - topic/photography/gear
   - type/equipment/lens
-title: Canon EF 40mm f2.8 STM
 type:
   - prime
   - pancake

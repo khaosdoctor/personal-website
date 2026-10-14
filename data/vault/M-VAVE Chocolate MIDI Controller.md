@@ -11,7 +11,6 @@ state:
 tags:
   - topic/music/gear
   - type/equipment/midi-controller
-title: M-VAVE Chocolate MIDI Controller
 type:
   - midi
 updatedAt: 2026-07-13T11:45:50Z

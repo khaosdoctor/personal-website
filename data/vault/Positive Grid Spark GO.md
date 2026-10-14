@@ -9,7 +9,6 @@ state:
   - owned
   - actively-used
 tags: [topic/music/gear/amps, type/equipment/guitar-amp]
-title: "Positive Grid Spark GO"
 type:
   - modeling
   - practice

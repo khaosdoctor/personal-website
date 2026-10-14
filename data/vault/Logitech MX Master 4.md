@@ -9,7 +9,6 @@ state:
   - owned
   - actively-used
 tags: [topic/computing/hardware/mice, type/equipment/mouse]
-title: "Logitech MX Master 4"
 type:
   - wireless
   - productivity

@@ -11,7 +11,6 @@ state:
 tags:
   - topic/music/gear/pedals
   - type/equipment/guitar-pedal
-title: TC Electronic Rusty Fuzz
 type:
   - fuzz
   - guitar-pedal

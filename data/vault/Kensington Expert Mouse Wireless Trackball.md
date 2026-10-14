@@ -13,7 +13,6 @@ state:
 tags:
   - topic/computing/hardware/mice
   - type/equipment/mouse
-title: Kensington Expert Mouse Wireless Trackball
 type:
   - trackball
   - wireless

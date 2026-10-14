@@ -11,7 +11,6 @@ state:
 tags:
   - type/equipment/electric-guitar
   - topic/music/gear/electric-guitar
-title: Squier Stratocaster
 type:
   - stratocaster
   - hss

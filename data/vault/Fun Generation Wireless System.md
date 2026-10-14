@@ -11,7 +11,6 @@ state:
 tags:
   - topic/music/gear
   - type/equipment/wireless-system
-title: Fun Generation Wireless Guitar System
 type:
   - guitar-cable
   - instrument

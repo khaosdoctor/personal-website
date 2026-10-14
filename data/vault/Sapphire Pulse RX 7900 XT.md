@@ -12,7 +12,6 @@ state:
   - second-hand
 tags:
   - type/equipment/gpu
-title: Sapphire Pulse RX 7900 XT
 type:
   - gpu
 updatedAt: 2026-10-07T01:08:13Z

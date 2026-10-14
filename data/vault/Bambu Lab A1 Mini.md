@@ -9,7 +9,6 @@ state:
   - owned
   - actively-used
 tags: [topic/3d-printing/printers, type/equipment/3d-printer]
-title: "Bambu Lab A1 Mini"
 type:
   - fdm
   - bed-slinger

@@ -12,7 +12,6 @@ state:
 tags:
   - topic/computing/hardware
   - type/equipment/tablet
-title: iPad Air
 type:
   - computer
   - mobile

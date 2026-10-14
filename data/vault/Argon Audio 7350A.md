@@ -13,7 +13,6 @@ state:
 tags:
   - topic/music/gear/speakers
   - type/equipment/speakers
-title: Argon Audio 7350A
 type:
   - bookshelf
   - active

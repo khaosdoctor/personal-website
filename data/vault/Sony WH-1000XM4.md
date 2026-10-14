@@ -12,7 +12,6 @@ state:
 tags:
   - topic/music/gear/headphones
   - type/equipment/headphones
-title: Sony WH-1000XM4
 type:
   - over-ear
   - closed-back

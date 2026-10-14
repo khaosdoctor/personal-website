@@ -9,7 +9,6 @@ state:
   - owned
   - actively-used
 tags: [topic/computing/hardware/keyboards, type/equipment/keyboard]
-title: "Keychron Q3 Max"
 type:
   - mechanical
   - tenkeyless

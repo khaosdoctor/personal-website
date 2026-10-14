@@ -12,7 +12,6 @@ state:
 tags:
   - topic/photography/gear
   - type/equipment/lens
-title: Canon EF 50mm f1.8 STM
 type:
   - prime
   - standard

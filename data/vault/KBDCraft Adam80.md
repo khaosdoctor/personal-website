@@ -11,7 +11,6 @@ state:
 tags:
   - topic/computing/hardware/keyboards
   - type/equipment/keyboard
-title: KBDCraft Adam80
 type:
   - mechanical
   - tenkeyless

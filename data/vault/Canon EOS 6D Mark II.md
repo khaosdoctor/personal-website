@@ -12,7 +12,6 @@ state:
 tags:
   - topic/photography/gear
   - type/equipment/camera
-title: Canon EOS 6D Mark II
 type:
   - dslr
   - full-frame

@@ -11,7 +11,6 @@ state:
 tags:
   - topic/computing/hardware/mice
   - type/equipment/mouse
-title: Razer Naga Left-Handed
 type:
   - wired
   - gaming

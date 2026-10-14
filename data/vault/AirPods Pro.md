@@ -12,7 +12,6 @@ state:
 tags:
   - topic/computing/hardware/audio
   - type/equipment/earbuds
-title: AirPods Pro
 type:
   - noise-cancelling
   - true-wireless

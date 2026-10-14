@@ -13,7 +13,6 @@ state:
 tags:
   - topic/music/gear/amps
   - type/equipment/guitar-amp
-title: Positive Grid Spark 40
 type:
   - modeling
   - practice

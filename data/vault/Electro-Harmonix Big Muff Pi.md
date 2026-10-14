@@ -12,7 +12,6 @@ state:
 tags:
   - topic/music/gear/pedals
   - type/equipment/guitar-pedal
-title: Electro-Harmonix Big Muff Pi
 type:
   - fuzz
   - distortion

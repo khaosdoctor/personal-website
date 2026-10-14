@@ -11,7 +11,6 @@ state:
 tags:
   - topic/music/gear/pedals
   - type/equipment/guitar-pedal
-title: Ibanez Tube Screamer Mini
 type:
   - overdrive
   - guitar-pedal

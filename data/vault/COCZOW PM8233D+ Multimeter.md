@@ -11,7 +11,6 @@ state:
 tags:
   - topic/electronics/tools
   - type/equipment/test-equipment
-title: PeakMeter PM8233D+ Multimeter
 type:
   - multimeter
 updatedAt: 2026-09-20T01:32:33Z

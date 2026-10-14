@@ -11,7 +11,6 @@ state:
 tags:
   - topic/music/gear/pedals
   - type/equipment/guitar-pedal
-title: Donner DT-1 Chromatic Tuner
 type:
   - tuner
   - guitar-pedal

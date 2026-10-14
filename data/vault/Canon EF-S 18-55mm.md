@@ -9,7 +9,6 @@ state:
   - not-actively-used
   - owned
 tags: [topic/photography/gear, type/equipment/lens]
-title: "Canon EF-S 18-55mm"
 type:
   - zoom
   - kit-lens

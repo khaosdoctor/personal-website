@@ -11,7 +11,6 @@ state:
 tags:
   - topic/computing/hardware/keyboards
   - type/equipment/keyboard
-title: MCHOSE Ace 68
 type:
   - hall-effect
   - 65-percent

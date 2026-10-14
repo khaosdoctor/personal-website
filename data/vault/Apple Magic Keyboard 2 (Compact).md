@@ -11,7 +11,6 @@ state:
 tags:
   - topic/computing/hardware/keyboards
   - type/equipment/keyboard
-title: Apple Magic Keyboard 2 (Compact)
 type:
   - low-profile
   - scissor-switch

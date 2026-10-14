@@ -10,7 +10,6 @@ state:
   - actively-used
   - second-hand
 tags: [topic/music/gear/pedals, type/equipment/guitar-pedal, meta/ai-assisted]
-title: "Boss TU-2 Tuner"
 type:
   - tuner
   - guitar-pedal

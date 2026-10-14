@@ -11,7 +11,6 @@ state:
 tags:
   - topic/computing/hardware/audio
   - type/equipment/speakers
-title: Creative Pebble
 type:
   - desktop
   - usb-powered

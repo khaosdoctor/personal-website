@@ -11,7 +11,6 @@ state:
 tags:
   - type/equipment/bass
   - topic/music/gear/bass
-title: Cort Action PJ
 type:
   - 4-string
   - instrument

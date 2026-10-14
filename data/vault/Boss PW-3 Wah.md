@@ -12,7 +12,6 @@ state:
 tags:
   - topic/music/gear/pedals
   - type/equipment/guitar-pedal
-title: Boss PW-3 Wah
 type:
   - wah
   - guitar-pedal

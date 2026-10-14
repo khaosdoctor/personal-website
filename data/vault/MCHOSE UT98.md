@@ -12,7 +12,6 @@ state:
 tags:
   - topic/computing/hardware/keyboards
   - type/equipment/keyboard
-title: MCHOSE UT98
 type:
   - mechanical
   - 1800-layout

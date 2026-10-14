@@ -11,7 +11,6 @@ state:
 tags:
   - topic/music/gear/turntables
   - type/equipment/turntable
-title: Kenwood P-110
 type:
   - belt-drive
   - semi-automatic

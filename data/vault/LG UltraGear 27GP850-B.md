@@ -13,7 +13,6 @@ state:
 tags:
   - topic/computing/hardware/monitors
   - type/equipment/monitor
-title: LG UltraGear 27GP850-B
 type:
   - ips
   - 1440p

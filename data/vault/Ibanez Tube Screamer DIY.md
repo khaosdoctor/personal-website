@@ -1,14 +1,18 @@
 ---
 aliases: []
-coverUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/Ibanez_TS808_Tube_Screamer_(48588080527)_(cropped).jpg"
+coverUrl: https://commons.wikimedia.org/wiki/Special:FilePath/Ibanez_TS808_Tube_Screamer_(48588080527)_(cropped).jpg
 createdAt: 2026-05-24 19:06
 lastEditedByAI: 2026-10-11T19:40:43Z
-oneliner: "DIY build of the Ibanez TS808 Tube Screamer, one of the most iconic overdrive pedals ever made."
+oneliner: DIY build of the Ibanez TS808 Tube Screamer, one of the most iconic overdrive pedals ever made.
 status: planned
-tags: [topic/electronics, topic/music/gear/pedal, type/idea/project, meta/ai-assisted]
-title: "Ibanez Tube Screamer DIY"
+tags:
+  - topic/electronics
+  - topic/music/gear/pedal
+  - type/idea/project
+  - meta/ai-assisted
 updatedAt: 2026-10-12T00:41:10Z
 x-personal-site-export-type: build
+icon: 🎸
 ---
 # Ibanez Tube Screamer DIY
 

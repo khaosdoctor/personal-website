@@ -12,7 +12,6 @@ state:
 tags:
   - topic/music/gear/mixers
   - type/equipment/mixer
-title: Behringer Xenyx 802
 type:
   - analog
   - compact

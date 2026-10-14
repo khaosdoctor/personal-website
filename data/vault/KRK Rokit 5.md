@@ -13,7 +13,6 @@ state:
 tags:
   - topic/music/gear/monitors
   - type/equipment/studio-monitor
-title: KRK Rokit 5
 type:
   - active
   - near-field

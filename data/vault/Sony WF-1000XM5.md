@@ -12,7 +12,6 @@ state:
 tags:
   - topic/music/gear/headphones
   - type/equipment/earbuds
-title: Sony WF-1000XM5
 type:
   - noise-cancelling
   - true-wireless

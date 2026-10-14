@@ -9,7 +9,6 @@ state:
   - owned
   - actively-used
 tags: [type/equipment/cpu-cooler]
-title: "Thermalright Peerless Assassin 120 SE White ARGB"
 type:
   - air-cooler
   - dual-tower

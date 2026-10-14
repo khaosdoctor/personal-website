@@ -12,7 +12,6 @@ state:
 tags:
   - topic/computing/hardware
   - type/equipment/smartphone
-title: iPhone 15 Pro
 type:
   - phone
   - apple

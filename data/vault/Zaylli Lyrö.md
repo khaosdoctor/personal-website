@@ -9,7 +9,6 @@ state:
   - owned
   - not-actively-used
 tags: [type/equipment/headphones, topic/music/gear/headphones, meta/ai-assisted]
-title: "Zaylli Lyrö"
 type:
   - hi-fi
   - semi-open-back

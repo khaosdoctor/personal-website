@@ -2,19 +2,16 @@
 aliases: []
 coverUrl: https://m.media-amazon.com/images/I/71bftLf00jL._AC_SX679_.jpg
 createdAt: 2026-06-16T00:00:00Z
-icon: 🔥
-oneliner: Electronics soldering station
+icon: 🛠️
+oneliner: "Electronics soldering station"
 personalRating: 6.5
 state:
   - owned
   - actively-used
-tags:
-  - topic/electronics/tools
-  - type/equipment/hand-tool
-title: Soldering Station
+tags: [topic/electronics/tools, type/equipment/hand-tool]
 type:
   - soldering
-updatedAt: 2026-10-03T00:00:00Z
+updatedAt: 2026-10-13T19:03:58Z
 x-personal-site-category: tools
 x-personal-site-export-type: uses
 ---

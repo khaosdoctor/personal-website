@@ -11,7 +11,6 @@ state:
 tags:
   - type/equipment/headphones
   - topic/music/gear/headphones
-title: AKG K72
 type:
   - studio
   - closed-back

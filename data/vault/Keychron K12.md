@@ -11,7 +11,6 @@ state:
 tags:
   - topic/computing/hardware/keyboards
   - type/equipment/keyboard
-title: Keychron K12
 type:
   - mechanical
   - 60-percent

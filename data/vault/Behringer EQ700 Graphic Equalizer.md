@@ -14,7 +14,6 @@ tags:
   - topic/music/gear/pedals
   - type/equipment/guitar-pedal
   - meta/ai-assisted
-title: Behringer EQ700 Graphic Equalizer
 type:
   - equalizer
   - guitar-pedal
