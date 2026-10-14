@@ -35,7 +35,7 @@ flowchart LR
   layout["sync/layout.js<br>sidebar + footer, written once"] --> sync["bun sync.js"]
   data["data/ + data/vault/"] --> sync
   sync --> pages["every .html page<br>between bake markers"]
-  pages --> js["js/<br>behaviour only: theme, menu, clock, shimmer"]
+  pages --> js["js/<br>behaviour only: theme, menu, shimmer"]
 ```
 
 The rule: HTML shared by several pages lives in `sync/` (`layout.js` for the sidebar and footer, `render.js` for the gear and build pages), a page's own HTML lives in its `.html` file, and nothing inside a pair of bake markers is ever edited by hand.
@@ -59,7 +59,7 @@ The rule: HTML shared by several pages lives in `sync/` (`layout.js` for the sid
 - `js/theme.js` loads first in `<head>`: it applies the saved or system theme before the first paint, picks the day's accent color (one palette per theme, every color readable as link text), and registers the service worker
 - The sidebar and footer HTML lives in `sync/layout.js`. Every sync bakes it between `<!-- bake:sidebar -->` and `<!-- bake:footer -->` markers inside `<site-sidebar>` and `<site-footer>` on each root page, with that page's nav link marked active, and the gear and build page template uses the same functions. The two tags are plain wrappers: nothing defines them in JS. The footer year comes from the bake, so it changes on the first bake of a new year (CI bakes daily)
 - `js/components.js` loads deferred and only adds behaviour to that baked HTML: the theme buttons' label and clicks, the phone menu button, a random cat before the name (all three are baked, the first one shows without JS), the ASCII avatar shimmer, and the favicon swap to the sleeping cat from midnight to noon, Stockholm time. It never writes HTML
-- `js/clock.js` (homepage clock) and `js/gear.js` (the /uses tooltips) only run on their page, deferred. Code that only one page needs gets its own file like these
+- `js/gear.js` (the /uses tooltips) only runs on its page, deferred. Code that only one page needs gets its own file like this one
 - `sw.js` keeps a copy of every visited page and file so the site opens offline. It always asks the network first. Every path in its `ASSETS` list must exist, or the worker stops updating
 - The homepage has a JSON-LD block that tells search engines who the site belongs to. Its `sameAs` list holds the footer profiles at the address each `*.lsantos.dev` link redirects to, so changing a profile means updating the redirect and that list
 - `404.html` is the redirect page for the old short links: any unknown path goes to `go.lsantos.dev`. It is self-contained (font, colors and script inline) and loads none of the files in `css/`

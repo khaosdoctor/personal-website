@@ -1,7 +1,7 @@
 // Behaviour for the sidebar and footer every page shares. Their HTML is baked into each page from
 // sync/layout.js, so this file never writes markup: it only wires up what is already there.
 // Loaded with defer after theme.js, so it runs once the page is parsed.
-// Code that only one page needs goes in its own deferred file instead (clock.js, gear.js).
+// Code that only one page needs goes in its own deferred file instead (gear.js).
 
 // ═══ Theme buttons (sidebar) ═══
 

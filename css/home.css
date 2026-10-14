@@ -1,4 +1,4 @@
-/* The homepage (/) only: the big name, tagline and clock, the post list and the timeline.
+/* The homepage (/) only: the big name, tagline, the post list and the timeline.
    Loaded after base.css */
 
 .intro-name {
@@ -16,17 +16,6 @@
   color: var(--muted);
   font-size: var(--fs-copy);
 }
-
-/* js/clock.js fills this line after the page shows; the min-height keeps its space from the start,
-   so the text below doesn't jump down */
-.intro-clock {
-  color: var(--muted);
-  font-size: 0.75rem;
-  margin-top: 0.25rem;
-  min-height: 1lh;
-}
-
-.clock-odds { color: var(--accent); }
 
 .post-list {
   list-style: none;
@@ -65,6 +54,5 @@
 @media (max-width: 768px) {
   .intro-name { font-size: 2.5rem; }
   .intro-sub { font-size: 0.7rem; white-space: nowrap; }
-  .intro-clock { font-size: 0.65rem; }
   .post-list li, .timeline-item { flex-direction: column; gap: 0; }
 }
