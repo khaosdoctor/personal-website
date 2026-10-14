@@ -458,6 +458,19 @@ nav a:is(:hover, :focus-visible), nav a.active { color: var(--accent); }
 
 /* ═══ Page header (every page; .intro-* only on the homepage) ═══ */
 
+/* "Skip to content" link, the first thing in <body>: hidden above the page until a keyboard user tabs to it */
+.skip-link {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 20;
+  padding: 0.4rem 0.8rem;
+  background: var(--bg);
+  border: 1px solid var(--accent);
+  transform: translateY(-300%);
+}
+.skip-link:focus-visible { transform: none; }
+
 .section-label {
   color: var(--title);
   font-size: 1.7rem;
@@ -485,14 +498,22 @@ nav a:is(:hover, :focus-visible), nav a.active { color: var(--accent); }
   line-height: 1.1;
 }
 
-/* RSS link next to a page's h1; the icon is a mask so it takes the link color in both themes */
+/* The page title when the page has an RSS link: <div class="page-title section-label"> (or intro-name) holds
+   a bare <h1> and the feed link, so the link stays out of the heading text. The h1 takes the wrapper's look.
+   A page without a feed link uses a bare <h1 class="section-label"> */
+.page-title { display: flex; align-items: baseline; }
+.page-title h1 { font: inherit; color: inherit; letter-spacing: inherit; }
+
+/* RSS link next to a page's title; the icon is a mask so it takes the link color in both themes */
 .feed-icon {
   --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Ccircle cx='1' cy='7' r='1'/%3E%3Cpath d='M0 3a5 5 0 0 1 5 5H4a4 4 0 0 0-4-4zM0 0a8 8 0 0 1 8 8H7a7 7 0 0 0-7-7z'/%3E%3C/svg%3E");
   display: inline-block;
   width: 0.55em;
   height: 0.55em;
   margin-left: 0.4em;
-  vertical-align: 0.05em;
+  /* Sits on the title's baseline, nudged up a hair */
+  position: relative;
+  bottom: 0.05em;
   background: var(--muted);
   -webkit-mask: var(--icon) center / contain no-repeat;
   mask: var(--icon) center / contain no-repeat;
