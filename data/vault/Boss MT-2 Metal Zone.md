@@ -10,7 +10,6 @@ state:
   - actively-used
   - second-hand
 tags: [topic/music/gear/pedals, type/equipment/guitar-pedal]
-title: "Boss MT-2 Metal Zone"
 type:
   - distortion
   - guitar-pedal

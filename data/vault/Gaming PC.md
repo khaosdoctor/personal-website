@@ -9,7 +9,6 @@ state:
   - owned
   - actively-used
 tags: [type/equipment/computer, topic/games/gear, topic/games]
-title: "Gaming PC"
 type:
   - desktop
   - gaming

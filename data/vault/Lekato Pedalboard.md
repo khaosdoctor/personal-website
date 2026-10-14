@@ -11,7 +11,6 @@ state:
 tags:
   - topic/music/gear/pedals
   - type/equipment/guitar-pedal
-title: Lekato Pedalboard Power Supply
 type:
   - guitar-pedal
   - power-supply

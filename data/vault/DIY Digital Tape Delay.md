@@ -17,7 +17,6 @@ tags:
   - type/equipment/guitar-pedal
   - meta/ai-assisted
   - type/idea/project
-title: Digital Tape Delay
 type:
   - delay
   - diy

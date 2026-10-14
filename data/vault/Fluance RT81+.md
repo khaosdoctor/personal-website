@@ -11,7 +11,6 @@ state:
 tags:
   - topic/music/gear/turntables
   - type/equipment/turntable
-title: Fluance RT81+
 type:
   - belt-drive
   - manual

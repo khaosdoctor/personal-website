@@ -13,7 +13,6 @@ state:
 tags:
   - topic/photography/gear
   - type/equipment/lens
-title: Canon EF 24-70mm
 type:
   - zoom
   - standard

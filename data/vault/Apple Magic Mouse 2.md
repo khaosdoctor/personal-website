@@ -11,7 +11,6 @@ state:
 tags:
   - topic/computing/hardware/mice
   - type/equipment/mouse
-title: Apple Magic Mouse 2
 type:
   - wireless
   - multi-touch

@@ -9,7 +9,6 @@ state:
   - owned
   - actively-used
 tags: [topic/computing/hardware/monitors, type/equipment/monitor]
-title: "Samsung Odyssey G8 OLED"
 type:
   - oled
   - 4k

@@ -11,7 +11,6 @@ state:
 tags:
   - topic/music/gear/pedals
   - type/equipment/guitar-pedal
-title: Behringer NR300 Noise Reducer
 type:
   - noise-reduction
   - guitar-pedal

@@ -9,7 +9,6 @@ tags:
   - topic/electronics
   - type/idea/project
   - meta/ai-assisted
-title: Fume Extractor
 updatedAt: 2026-10-12T22:58:01Z
 x-personal-site-export-type: build
 ---

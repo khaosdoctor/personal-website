@@ -11,7 +11,6 @@ state:
 tags:
   - topic/computing/hardware/keyboards
   - type/equipment/keyboard
-title: Keychron K8
 type:
   - mechanical
   - tenkeyless

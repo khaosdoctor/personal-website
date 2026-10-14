@@ -12,7 +12,6 @@ state:
 tags:
   - topic/computing/hardware/laptops
   - type/equipment/laptop
-title: MacBook Pro M1 Max
 type:
   - workstation
 updatedAt: 2026-10-03T00:00:00Z

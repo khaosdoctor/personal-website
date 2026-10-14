@@ -12,7 +12,6 @@ state:
 tags:
   - type/equipment/electric-guitar
   - topic/music/gear/electric-guitar
-title: Cort Viva Gold II
 type:
   - superstrat
   - hsh

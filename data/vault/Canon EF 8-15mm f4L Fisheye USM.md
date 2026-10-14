@@ -14,7 +14,6 @@ state:
 tags:
   - topic/photography/gear
   - type/equipment/lens
-title: Canon EF 8-15mm f4L Fisheye USM
 type:
   - zoom
   - fisheye

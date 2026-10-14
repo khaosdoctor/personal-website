@@ -9,7 +9,6 @@ state:
   - owned
   - actively-used
 tags: [topic/computing/hardware, type/equipment/smartwatch]
-title: "Apple Watch Series 7"
 type:
   - watch
   - apple

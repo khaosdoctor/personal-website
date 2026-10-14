@@ -2,7 +2,7 @@
 aliases: []
 coverUrl: https://m.media-amazon.com/images/I/817OklF5IeL._AC_SL1500_.jpg
 createdAt: 2026-06-16T00:00:00Z
-icon: 🏷️
+icon: 🛠️
 oneliner: DYMO Omega manual embossing label maker
 personalRating: 2
 state:
@@ -11,7 +11,6 @@ state:
 tags:
   - topic/electronics/tools
   - type/equipment/hand-tool
-title: DYMO Omega Embosser
 type:
   - labelling
   - embosser

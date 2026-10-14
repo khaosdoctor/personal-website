@@ -10,7 +10,6 @@ state:
   - actively-used
 tags:
   - type/equipment/case
-title: DeepCool CH560 Digital
 type:
   - pc-case
 updatedAt: 2026-09-27T02:37:40Z

@@ -10,7 +10,6 @@ state:
   - actively-used
   - second-hand
 tags: [topic/music/gear/pedal, type/equipment/guitar-pedal, meta/ai-assisted]
-title: "Boss CS-3"
 type:
   - compressor
   - sustainer

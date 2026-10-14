@@ -15,7 +15,6 @@ tags:
   - type/equipment/guitar-pedal
   - meta/ai-assisted
   - type/idea/project
-title: DIY Klon Centaur Clone
 type:
   - overdrive
   - diy

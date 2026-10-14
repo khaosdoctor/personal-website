@@ -7,7 +7,6 @@ tags:
   - topic/electronics
   - type/idea/project
   - meta/ai-assisted
-title: E-ink pet project to have bus times and tasks in an e-ink screen
 updatedAt: 2026-10-12T00:40:49Z
 x-personal-site-export-type: build
 ---

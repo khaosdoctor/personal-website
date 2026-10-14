@@ -13,7 +13,6 @@ state:
 tags:
   - topic/music/gear/audio-interfaces
   - type/equipment/audio-interface
-title: Focusrite Scarlett Solo 2nd Gen
 type:
   - usb
   - bus-powered

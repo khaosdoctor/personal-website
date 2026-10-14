@@ -13,7 +13,6 @@ state:
 tags:
   - topic/games/flight-sim/gear
   - type/equipment/flight-controls
-title: VIRPIL VPC MongoosT-50CM3 Throttle
 type:
   - throttle
   - hotas

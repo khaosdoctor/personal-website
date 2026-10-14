@@ -11,7 +11,6 @@ state:
 tags:
   - topic/music/gear/headphones
   - type/equipment/headphones
-title: Beyerdynamics DT 990 Pro
 type:
   - studio
   - open-back

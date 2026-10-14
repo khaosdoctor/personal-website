@@ -2,7 +2,7 @@
 aliases: []
 coverUrl: https://m.media-amazon.com/images/W/BW_MEDIAX_AVIF_MEASUREMENT_1306696-T2/images/I/61WB3R+44hL._SL1500_.jpg
 createdAt: 2026-06-16T00:00:00Z
-icon: 📏
+icon: 📟
 oneliner: Digital caliper for precise measurements
 personalRating: 9
 state:
@@ -11,7 +11,6 @@ state:
 tags:
   - topic/electronics/tools
   - type/equipment/test-equipment
-title: Digital Caliper
 type:
   - caliper
 updatedAt: 2026-09-20T01:32:38Z

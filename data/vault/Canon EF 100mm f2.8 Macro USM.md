@@ -12,7 +12,6 @@ state:
 tags:
   - topic/photography/gear
   - type/equipment/lens
-title: Canon EF 100mm f2.8 Macro USM
 type:
   - prime
   - macro

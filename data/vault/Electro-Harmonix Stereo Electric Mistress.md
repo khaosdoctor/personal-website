@@ -10,7 +10,6 @@ state:
   - actively-used
   - second-hand
 tags: [topic/music/gear/pedals, type/equipment/guitar-pedal]
-title: "Electro-Harmonix Stereo Electric Mistress"
 type:
   - flanger
   - chorus

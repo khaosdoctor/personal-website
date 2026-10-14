@@ -11,7 +11,6 @@ state:
 tags:
   - topic/music/gear
   - type/equipment/midi-controller
-title: M-Audio EX-P Expression Pedal
 type:
   - expression-pedal
   - midi

@@ -1,16 +1,22 @@
 ---
 aliases: []
-coverUrl: "https://commons.wikimedia.org/wiki/Special:FilePath/LM2596_buck_converter_module,_MP1584_buck_converter_module,_and_SDB628_boost_converter_module.jpg"
+coverUrl: https://commons.wikimedia.org/wiki/Special:FilePath/LM2596_buck_converter_module,_MP1584_buck_converter_module,_and_SDB628_boost_converter_module.jpg
 createdAt: 2026-10-11T20:07:12Z
 lastEditedByAI: 2026-10-12T23:45:00Z
-oneliner: "Two LM2596 buck converters with added protection, in 3D-printed enclosures, powering my pedalboard."
+oneliner: Two LM2596 buck converters with added protection, in 3D-printed enclosures, powering my pedalboard.
 status: built
-tags: [topic/electronics, topic/music/gear/pedal, type/idea/project, meta/ai-assisted]
-title: "Element Audio Buck Converters"
+tags:
+  - topic/electronics
+  - topic/music/gear/pedal
+  - type/idea/project
+  - meta/ai-assisted
 updatedAt: 2026-10-12T20:36:18Z
 x-personal-site-category: pedalboard
-x-personal-site-export-type: [uses, build]
+x-personal-site-export-type:
+  - uses
+  - build
 x-personal-site-parent: "[[Lekato Pedalboard]]"
+icon: 🎸
 ---
 # Element Audio Buck Converters
 

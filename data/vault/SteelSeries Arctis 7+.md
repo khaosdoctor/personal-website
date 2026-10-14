@@ -9,7 +9,6 @@ state:
   - owned
   - actively-used
 tags: [topic/games/gear, type/equipment/headset]
-title: "SteelSeries Arctis 7+"
 type:
   - over-ear
   - wireless

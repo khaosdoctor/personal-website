@@ -11,7 +11,6 @@ state:
 tags:
   - topic/music/gear/headphones
   - type/equipment/headphones
-title: KZ ZSN Pro X
 type:
   - in-ear
   - hybrid-driver

@@ -13,7 +13,6 @@ state:
 tags:
   - topic/music/gear/microphones
   - type/equipment/microphone
-title: Blue Yeti
 type:
   - condenser
   - multi-pattern

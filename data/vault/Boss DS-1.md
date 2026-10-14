@@ -3,22 +3,19 @@ aliases: []
 coverUrl: https://static.roland.com/assets/images/products/main/ds1_main.jpg
 createdAt: 2026-06-16T00:00:00Z
 icon: 🎸
-oneliner: Classic Boss distortion pedal
+oneliner: "Classic Boss distortion pedal"
 personalRating: 8
 state:
   - owned
   - actively-used
   - second-hand
-tags:
-  - topic/music/gear/pedals
-  - type/equipment/guitar-pedal
-title: Boss DS-1 Distortion
+tags: [topic/music/gear/pedals, type/equipment/guitar-pedal]
 type:
   - distortion
   - low-gain
   - guitar-pedal
   - rock
-updatedAt: 2026-10-12T01:57:54Z
+updatedAt: 2026-10-13T01:51:06Z
 x-personal-site-category: pedalboard
 x-personal-site-export-type: uses
 x-personal-site-parent: "[[Lekato Pedalboard]]"
