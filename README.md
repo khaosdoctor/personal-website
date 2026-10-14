@@ -5,6 +5,7 @@
 ## Stack
 
 - IBM Plex Mono for all text, self-hosted in `fonts/`, plus a tiny Noto Sans Mono JP subset with only the kana used on /friends (how to rebuild it is in the comment at the top of `css/style.css`)
+- Cascadia Mono for code, also in `fonts/`, with no preload, so only pages that show code download it
 - HTML, CSS, JS... That's really it. Some native webcomponents as well (`<site-sidebar>` and `<site-footer>` in `js/components.js`)
 - A `sync.js` script that bakes the gear notes (exported from my Obsidian vault into `data/vault`), the `data/*.md` files and the latest blog posts into the HTML, so pages don't fetch anything at runtime
 
