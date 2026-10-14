@@ -83,9 +83,9 @@ class SiteSidebar extends HTMLElement {
           <div class="theme-toggle">
             <button onclick="toggleTheme()">${toggle}</button>
           </div>
-          <button class="hamburger" aria-label="Menu" onclick="this.closest('.sidebar-inner').classList.toggle('menu-open')">&#9776;</button>
+          <button class="hamburger" aria-label="Menu" aria-controls="site-nav" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.closest('.sidebar-inner').classList.toggle('menu-open'))">&#9776;</button>
         </div>
-        <nav>
+        <nav id="site-nav" aria-label="Site">
 
           <a href="/">/index</a>
           <a href="/about">/about</a>
