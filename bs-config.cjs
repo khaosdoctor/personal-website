@@ -2,7 +2,8 @@ const { existsSync } = require('fs');
 
 module.exports = {
   server: true,
-  files: ['css/*.css', 'js/*.js', '*.html', 'data/**/*'],
+  // Reload on source edits and on whatever a --watch rebake writes (note pages, feeds)
+  files: ['css/*.css', 'js/*.js', '*.html', 'gear/*.html', 'builds/*.html', '*.xml', 'data/**/*'],
   port: 3456,
   open: false,
   middleware: [

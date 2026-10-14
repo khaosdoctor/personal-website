@@ -41,7 +41,8 @@ jobs:
         with:
           bun-version: 1.4.2
 
-      - run: bun install --frozen-lockfile
+      # --production skips browser-sync, which only the local dev server needs
+      - run: bun install --frozen-lockfile --production
 
       - name: Bake the pages
         run: bun sync.js --debug --prune-images
