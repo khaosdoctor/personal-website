@@ -8,60 +8,60 @@
     <atom:link href="https://lsantos.dev/feed.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://blog.lsantos.dev/en/rss.xml" rel="related" type="application/rss+xml"/>
     <item>
-      <title>Uses: Aissom Soldering Station</title>
-      <link>https://lsantos.dev/gear/aissom-soldering-station.html</link>
-      <guid isPermaLink="false">uses:aissom-soldering-station:2026-10-13T19:03:58.000Z</guid>
-      <pubDate>Tue, 13 Oct 2026 19:03:58 GMT</pubDate>
-      <description><![CDATA[<p>Electronics soldering station Rated 6.5/10.</p>]]></description>
-    </item>
-    <item>
       <title>Project: blog.lsantos.dev updated</title>
       <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:blog.lsantos.dev:7340be6ac5992bc33a46ccbb8c4d60797665a297</guid>
-      <pubDate>Tue, 13 Oct 2026 02:04:25 GMT</pubDate>
+      <guid isPermaLink="false">project:blog.lsantos.dev:a43a6c7d91765c4ee69796be05657bd48d06b218</guid>
+      <pubDate>Wed, 14 Oct 2026 15:08:47 GMT</pubDate>
       <description><![CDATA[<p>My personal tech blog, maintained since 2015 (in-progress) <a href="https://blog.lsantos.dev">https://blog.lsantos.dev</a></p>]]></description>
     </item>
     <item>
       <title>Project: dontquotetheai updated</title>
       <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:dontquotetheai:7340be6ac5992bc33a46ccbb8c4d60797665a297</guid>
-      <pubDate>Tue, 13 Oct 2026 02:04:25 GMT</pubDate>
+      <guid isPermaLink="false">project:dontquotetheai:a43a6c7d91765c4ee69796be05657bd48d06b218</guid>
+      <pubDate>Wed, 14 Oct 2026 15:08:47 GMT</pubDate>
       <description><![CDATA[<p>Satire website that mocks the AI hype (done) <a href="https://github.com/khaosdoctor/dontquotetheai">https://github.com/khaosdoctor/dontquotetheai</a></p>]]></description>
     </item>
     <item>
       <title>Project: enigmajs updated</title>
       <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:enigmajs:7340be6ac5992bc33a46ccbb8c4d60797665a297</guid>
-      <pubDate>Tue, 13 Oct 2026 02:04:25 GMT</pubDate>
+      <guid isPermaLink="false">project:enigmajs:a43a6c7d91765c4ee69796be05657bd48d06b218</guid>
+      <pubDate>Wed, 14 Oct 2026 15:08:47 GMT</pubDate>
       <description><![CDATA[<p>Full implementation of the 1944 German cryptographic machine in TypeScript (done) <a href="https://github.com/khaosdoctor/enigmajs">https://github.com/khaosdoctor/enigmajs</a></p>]]></description>
     </item>
     <item>
       <title>Project: my-notes updated</title>
       <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:my-notes:7340be6ac5992bc33a46ccbb8c4d60797665a297</guid>
-      <pubDate>Tue, 13 Oct 2026 02:04:25 GMT</pubDate>
+      <guid isPermaLink="false">project:my-notes:a43a6c7d91765c4ee69796be05657bd48d06b218</guid>
+      <pubDate>Wed, 14 Oct 2026 15:08:47 GMT</pubDate>
       <description><![CDATA[<p>A repo with my study notes, this was my way in to OSS (done) <a href="https://github.com/khaosdoctor/my-notes">https://github.com/khaosdoctor/my-notes</a></p>]]></description>
     </item>
     <item>
       <title>Project: netkill updated</title>
       <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:netkill:7340be6ac5992bc33a46ccbb8c4d60797665a297</guid>
-      <pubDate>Tue, 13 Oct 2026 02:04:25 GMT</pubDate>
+      <guid isPermaLink="false">project:netkill:a43a6c7d91765c4ee69796be05657bd48d06b218</guid>
+      <pubDate>Wed, 14 Oct 2026 15:08:47 GMT</pubDate>
       <description><![CDATA[<p>Kills the Internet connection of LAN devices using ARP spoofing, ideal for ADHD (done) <a href="https://github.com/khaosdoctor/netkill">https://github.com/khaosdoctor/netkill</a></p>]]></description>
     </item>
     <item>
       <title>Project: node-dht updated</title>
       <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:node-dht:7340be6ac5992bc33a46ccbb8c4d60797665a297</guid>
-      <pubDate>Tue, 13 Oct 2026 02:04:25 GMT</pubDate>
+      <guid isPermaLink="false">project:node-dht:a43a6c7d91765c4ee69796be05657bd48d06b218</guid>
+      <pubDate>Wed, 14 Oct 2026 15:08:47 GMT</pubDate>
       <description><![CDATA[<p>A simple Distributed Hash Table made in Node.js (done) <a href="https://github.com/khaosdoctor/node-dht">https://github.com/khaosdoctor/node-dht</a></p>]]></description>
     </item>
     <item>
       <title>Project: sigil updated</title>
       <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:sigil:7340be6ac5992bc33a46ccbb8c4d60797665a297</guid>
-      <pubDate>Tue, 13 Oct 2026 02:04:25 GMT</pubDate>
+      <guid isPermaLink="false">project:sigil:a43a6c7d91765c4ee69796be05657bd48d06b218</guid>
+      <pubDate>Wed, 14 Oct 2026 15:08:47 GMT</pubDate>
       <description><![CDATA[<p>Compressed memory format for Claude Code (done) <a href="https://github.com/khaosdoctor/sigil">https://github.com/khaosdoctor/sigil</a></p>]]></description>
+    </item>
+    <item>
+      <title>Uses: Aissom Soldering Station</title>
+      <link>https://lsantos.dev/gear/aissom-soldering-station.html</link>
+      <guid isPermaLink="false">uses:aissom-soldering-station:2026-10-13T19:03:58.000Z</guid>
+      <pubDate>Tue, 13 Oct 2026 19:03:58 GMT</pubDate>
+      <description><![CDATA[<p>Electronics soldering station Rated 6.5/10.</p>]]></description>
     </item>
     <item>
       <title>Uses: Boss DS-1</title>
