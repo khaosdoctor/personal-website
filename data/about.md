@@ -1,28 +1,25 @@
 ## Personality
 
-The personality test version of me is on [personality.lsantos.dev](https://personality.lsantos.dev).
+If you want to check my ~scientific horoscope~ personality test you can go to [personality.lsantos.dev](https://personality.lsantos.dev).
 
 ## Ask me about
 
-Things I can talk about for an hour if you let me:
+Or don't, because I will babble forever about these topics:
 
-- Enigma and Bletchley Park, I even [built an Enigma in TypeScript](https://github.com/khaosdoctor/enigmajs)
-- ENIAC
-- Node's built-in test runner
-- GraphQL federation
-- The PT2399 chip, the delay chip inside a lot of DIY pedals
+- Enigma, I even [built an Enigma in TypeScript](https://github.com/khaosdoctor/enigmajs)
 - Isaac Asimov's books
-- Tibia, the game behind a few of my friendships
+- Audio, electronics, music, and music gear
+- Computers and programming, especially TypeScript
+- Elite Dangerous, and space games in general
+- Cats
 
-## Rules I run on
+## Things I believe
 
-Coming soon.
 
 ## How to work with me
 
+- No 9am calls, please. No calls at all is even better.
 - Async first. Write to me and I'll answer when I can, a call is rarely needed.
-- Written docs over meetings. I'd rather read a doc than join a meeting about it.
-- No 9am calls, please.
-- RFC before code. Arguing over a doc is quicker than rewriting a PR.
-- Mob programming over pairing. I'd rather have the whole team on the problem.
-- "Teams own what they build." If your team built it, your team runs it.
+- Written docs over meetings.
+- [Read your stuff before sending it to me](https://dontpastetheai.com), especially now with AI
+
