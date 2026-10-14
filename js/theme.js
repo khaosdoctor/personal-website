@@ -1,7 +1,8 @@
-// Accent color rotates daily through this palette, one set per theme
+// Accent color rotates daily through this palette, one set per theme. It is the link color, so every
+// value keeps at least 4.5:1 contrast on its theme's background (darker or lighter brand shades)
 const ACCENTS = {
-  light: ['#d50612', '#0571b3', '#ac7d00', '#39936c', '#4b15a8'],
-  dark: ['#e6242f', '#1480c2', '#f5b200', '#45b384', '#815bc2'],
+  light: ['#d50612', '#0571b3', '#8b6500', '#2e7757', '#4b15a8'],
+  dark: ['#e93c46', '#1d85c4', '#f5b200', '#45b384', '#906fc9'],
 };
 
 // Day of the year, wrapped to the palette size
