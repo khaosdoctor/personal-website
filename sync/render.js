@@ -36,7 +36,7 @@ const GONE_STATES = new Set(['previously-owned', 'broken']);
 // Build `status`, in the order of the builds list on /projects
 const BUILD_STATUS = { 'in-progress': 'tag-yellow', planned: 'tag-blue', done: 'tag-green' };
 const BUILD_ORDER = Object.keys(BUILD_STATUS);
-const ESC_MAP = {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
+const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' };
 const RE_ESC = /[&<>"]/g;
 
 export const esc = s => s.replace(RE_ESC, c => ESC_MAP[c]);

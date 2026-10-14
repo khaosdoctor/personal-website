@@ -48,7 +48,7 @@ jobs:
       - run: bun install --frozen-lockfile
 
       - name: Bake the pages
-        run: bun sync.js --debug --vault-assets=data/vault/assets
+        run: bun sync.js --debug
 
       - name: Commit the generated pages
         run: |

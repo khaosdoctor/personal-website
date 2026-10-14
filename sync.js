@@ -1,5 +1,5 @@
 import { existsSync, watch } from 'fs';
-import { flag, log, VAULT_DIR, DATA_DIR, FETCH_TIMEOUT_MS } from './sync/options.js';
+import { flag, log, DATA_DIR, FETCH_TIMEOUT_MS } from './sync/options.js';
 import { syncPosts } from './sync/posts.js';
 import { syncNotes } from './sync/notes.js';
 import { bakePages } from './sync/bake.js';
@@ -12,7 +12,8 @@ const posts = await syncPosts().catch(err => {
 await bakePages(posts, await syncNotes());
 log.step('✅ Done');
 
-// --watch: rebuild notes and pages when a vault note or data file changes (posts stay from the first fetch)
+// --watch: rebuild notes and pages when a note or data file changes (posts stay from the first fetch).
+// data/ holds data/vault too, so one watcher covers both
 if (flag('watch')) {
   let timer;
   const rebuild = (_, file) => {
@@ -27,6 +28,6 @@ if (flag('watch')) {
       }
     }, 500);
   };
-  for (const dir of [VAULT_DIR, DATA_DIR].filter(existsSync)) watch(dir, { recursive: true }, rebuild);
+  if (existsSync(DATA_DIR)) watch(DATA_DIR, { recursive: true }, rebuild);
   log.step('👀 Watching for changes');
 }

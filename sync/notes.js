@@ -2,7 +2,7 @@ import { readFile, writeFile, readdir, mkdir, copyFile, rm } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join, basename, extname } from 'path';
 import matter from 'gray-matter';
-import { debug, log, VAULT_DIR, VAULT_ASSETS, GEAR_DIR, BUILD_DIR, GEAR_IMG, VAULT_DATA, FETCH_TIMEOUT_MS } from './options.js';
+import { debug, log, VAULT_DIR, VAULT_ASSETS, GEAR_DIR, BUILD_DIR, GEAR_IMG, FETCH_TIMEOUT_MS } from './options.js';
 import { COVER_DIR, optimizeImage, fetchCover } from './images.js';
 import { pagePath, notePage, pageMarkdown, slugify } from './render.js';
 
@@ -11,9 +11,6 @@ const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
 const RE_WIKILINK = /(!?)\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
 const RE_UNRESOLVED_LI = /^[ \t]*[-*]\s*<!--unresolved:[\s\S]*?-->\s*$/gm;
 const RE_UNRESOLVED_INLINE = /<!--unresolved:([\s\S]*?)-->/g;
-// Same stripping as internal/scripts/export-notes.mjs in second-brain; repeated here because a local run reads the raw vault
-const RE_PRIVATE_CALLOUT = /^(?:>\s*)+\[!private\][^\n]*(?:\n>[^\n]*)*/gim;
-const RE_COMMENT = /%%[\s\S]*?(?:%%|$)/g;
 // "photo.JPG" -> the ".JPG" part, swapped for ".webp" once the image is converted
 const RE_EXT = /\.[^.]+$/;
 
@@ -26,16 +23,15 @@ function resolveWikilinks(content, hrefs) {
       // [[Note\|alias]] is how a wikilink escapes its pipe inside a markdown table
       const target = rawTarget.replace(/\\$/, '');
       if (bang && IMG_EXTS.has(extname(target).toLowerCase())) {
-        // The raw vault embeds journal photos by full path, the export already made it relative to assets
-        const rel = target.replace(/^internal\/assets\//, '');
-        const src = join(VAULT_ASSETS, rel);
+        // The export writes embeds relative to data/vault/assets
+        const src = join(VAULT_ASSETS, target);
         if (existsSync(src)) {
-          const dest = slugify(rel.replace(extname(rel), '')) + extname(rel).toLowerCase();
+          const dest = slugify(target.replace(extname(target), '')) + extname(target).toLowerCase();
           pendingImages.push({ src, dest });
           const webpDest = dest.replace(RE_EXT, '.webp');
           // Obsidian sizes an embed with a trailing |400 or |400x300, which is not part of the caption
           const caption = (alias || '').replace(/(?:^|\|)\d+(?:x\d+)?$/, '');
-          const alt = caption || basename(rel, extname(rel));
+          const alt = caption || basename(target, extname(target));
           return `![${alt}](/img/gear/${webpDest})`;
         }
         return '';
@@ -48,7 +44,7 @@ function resolveWikilinks(content, hrefs) {
     .replace(RE_UNRESOLVED_INLINE, '$1');
 }
 
-async function readMdFiles(dir, skip = []) {
+async function readMdFiles(dir) {
   if (!existsSync(dir)) {
     log.warn(`${dir}: not found, skipped`);
     return [];
@@ -56,7 +52,7 @@ async function readMdFiles(dir, skip = []) {
   const out = [], unreadable = [];
   // Sorted because readdir order is filesystem-dependent, and an unsorted sitemap would flip
   // on every build that ran on a different machine than the last one
-  const files = (await readdir(dir)).filter(f => f.endsWith('.md') && !skip.includes(f)).sort();
+  const files = (await readdir(dir)).filter(f => f.endsWith('.md')).sort();
   log.info(`${dir}: ${files.length} markdown files`);
   for (const f of files) {
     try {
@@ -76,7 +72,7 @@ async function readMdFiles(dir, skip = []) {
         name, slug, rating: data.personalRating ?? data.rating, isGear, isBuild, status: data.status === 'built' ? 'done' : data.status || '',
         // The note's own `type` list (overdrive, diy, ...); only diy shows up, as a tag on /uses
         diy: [data.type ?? []].flat().map(String).includes('diy'),
-        body: content.replace(RE_PRIVATE_CALLOUT, '').replace(RE_COMMENT, ''), isVault: dir === VAULT_DIR,
+        body: content,
         oneliner: data.oneliner || '', coverUrl: data.coverUrl || '',
         state: data.state || [], category,
         externalLink: data.externalLink || '',
@@ -101,10 +97,7 @@ export async function syncNotes() {
   log.step('🎛  Syncing gear and build notes');
   for (const d of [GEAR_DIR, BUILD_DIR, GEAR_IMG, COVER_DIR]) if (!existsSync(d)) await mkdir(d, { recursive: true });
 
-  const vault = await readMdFiles(VAULT_DIR);
-  const local = await readMdFiles(VAULT_DATA,['gear.template.md']);
-  const vaultSlugs = new Set(vault.map(n => n.slug));
-  const notes = [...vault, ...local.filter(n => !vaultSlugs.has(n.slug))];
+  const notes = await readMdFiles(VAULT_DIR);
   const hrefs = new Map(notes.map(n => [n.slug, pagePath(n)]));
 
   // Every page is rewritten below, so clear the old ones and a deleted note stops leaving its page
@@ -154,7 +147,5 @@ export async function syncNotes() {
   if (pendingImages.length) log.ok(`${pendingImages.length} images optimized`);
   pendingImages.length = 0;
 
-  const lc = notes.filter(n => !n.isVault).length;
-  log.ok(`${index.length} notes (${index.length - lc} vault, ${lc} manual)`);
   return index;
 }
