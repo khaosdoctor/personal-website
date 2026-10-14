@@ -19,15 +19,9 @@ self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
   if (url.origin !== location.origin) return;
   const key = url.origin + url.pathname;
-  e.respondWith(
-    fetch(e.request)
-      .then(res => {
-        // errors and partial (range) responses would replace a good copy, or can't be stored
-        if (res.status !== 200) return res;
-        const clone = res.clone();
-        e.waitUntil(caches.open(CACHE).then(c => c.put(key, clone)));
-        return res;
-      })
-      .catch(() => caches.match(key))
-  );
+  // The copy is cloned before the page reads the body; errors and partial (range) responses would
+  // replace a good copy, or can't be stored. Both lifetimes are registered while the event is live
+  const network = fetch(e.request).then(res => ({ res, copy: res.status === 200 ? res.clone() : null }));
+  e.respondWith(network.then(r => r.res).catch(() => caches.match(key)));
+  e.waitUntil(network.then(r => r.copy && caches.open(CACHE).then(c => c.put(key, r.copy))).catch(() => {}));
 });
