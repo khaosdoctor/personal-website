@@ -1,10 +1,11 @@
+// Writes the content into the root pages between their bake markers, then the sitemap and the feeds
 import { readFile, writeFile, stat } from 'fs/promises';
 import { join } from 'path';
 import { debug, log, SITE, DATA_DIR } from './options.js';
 import { pageMarkdown, postsHtml, gearHtml, buildsHtml, projectsHtml, sortLists } from './render.js';
 import { writeFeeds, lastCommitDate } from './feeds.js';
 
-// Replaces whatever sits between <!-- bake:name --> and <!-- /bake:name --> in an HTML page
+// Replaces whatever is between <!-- bake:name --> and <!-- /bake:name --> in an HTML page
 async function bake(file, blocks) {
   let html = await readFile(file, 'utf-8');
   for (const [name, content] of Object.entries(blocks)) {
@@ -19,6 +20,7 @@ async function bake(file, blocks) {
   await writeFile(file, html);
 }
 
+// posts is null when the blog feed was unreachable; notes is empty when no note could be read
 export async function bakePages(posts, notes) {
   log.step('🥐 Baking pages');
   const md = async f => pageMarkdown(await readFile(join(DATA_DIR, f), 'utf-8'));
@@ -42,7 +44,7 @@ export async function bakePages(posts, notes) {
   }
 
   await bake('uses.html', { gear: gearHtml(notes.filter(n => n.isGear)) });
-  // Software and builds share the /projects sections by status; inactive software sits with the archived
+  // Software and builds share the /projects sections by status; inactive software goes with the archived
   const builds = notes.filter(n => n.isBuild);
   const software = status => projectsHtml(projects.filter(p => status.includes(p.status)));
   const built = status => buildsHtml(builds.filter(b => status.includes(b.status)));

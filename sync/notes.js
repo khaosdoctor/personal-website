@@ -1,3 +1,5 @@
+// Reads the gear and build notes from data/vault, writes one page per note into gear/ or builds/
+// (with its cover and embedded images converted to WebP), and returns the notes for the lists and feeds
 import { readFile, writeFile, readdir, mkdir, rm } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join, basename, extname } from 'path';
@@ -58,13 +60,14 @@ function sizeImages(html, sizes) {
   });
 }
 
+// Every note in dir that the site publishes (export type `uses` or `build`, not private), as plain objects
 async function readMdFiles(dir) {
   if (!existsSync(dir)) {
     log.warn(`${dir}: not found, skipped`);
     return [];
   }
   const out = [], unreadable = [];
-  // Sorted because readdir order is filesystem-dependent, and an unsorted sitemap would flip
+  // Sorted because readdir order is filesystem-dependent, and an unsorted sitemap would change order
   // on every build that ran on a different machine than the last one
   const files = (await readdir(dir)).filter(f => f.endsWith('.md')).sort();
   log.info(`${dir}: ${files.length} markdown files`);
@@ -97,7 +100,7 @@ async function readMdFiles(dir) {
           .map(p => slugify(String(p).replace(/^\[\[|\]\]$/g, '').split('|')[0])),
       });
     } catch (err) {
-      // Most of these are ordinary vault notes with loose YAML, not site notes, so only --debug names them
+      // A note with broken front matter is skipped; --debug names it
       unreadable.push(f);
       debug.vault('%s: unreadable frontmatter (%s)', f, err.message);
     }

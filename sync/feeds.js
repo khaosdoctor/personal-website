@@ -1,3 +1,5 @@
+// The site's own RSS feeds (now.xml, uses.xml, projects.xml and feed.xml with all three), built from
+// the git history of the data files and the notes' dates; blog posts keep the blog's own feed
 import { writeFile } from 'fs/promises';
 import { join } from 'path';
 import { execFileSync } from 'child_process';
@@ -12,7 +14,9 @@ const MAX_ITEMS = 20;
 
 // "]]>" would end the CDATA early, so it is split across two sections
 const cdata = s => `<![CDATA[${s.replaceAll(']]>', ']]]]><![CDATA[>')}]]>`;
+// An old version of projects.json that doesn't parse counts as an empty list
 const parseJson = s => { try { return JSON.parse(s); } catch { return []; } };
+// Runs git and returns its output, or '' when git or the history is missing
 const git = args => { try { return execFileSync('git', args, { encoding: 'utf-8' }); } catch { return ''; } };
 // Oldest first as [hash, ISO date]; empty when there is no git or no history
 const commitsOf = file => git(['log', '--reverse', '--format=%H %cI', '--', file]).split('\n').filter(Boolean).map(l => l.split(' '));
@@ -61,6 +65,7 @@ function noteItems(notes, { prefix, fallback }) {
   });
 }
 
+// One RSS 2.0 document: the newest MAX_ITEMS items, each with its HTML in a CDATA description
 function rss({ file, title, page, description, items, related = '' }) {
   const latest = [...items].sort((a, b) => new Date(b.date) - new Date(a.date) || a.guid.localeCompare(b.guid)).slice(0, MAX_ITEMS);
   const body = latest.map(i => `    <item>

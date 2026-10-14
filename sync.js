@@ -1,3 +1,5 @@
+// Entry point of the bake: fetch the blog posts, turn the notes in data/vault into gear/build pages,
+// then write everything into the HTML pages, feeds and sitemap. `bun sync.js --help` lists the flags
 import { existsSync, watch } from 'fs';
 import { flag, log, DATA_DIR, FETCH_TIMEOUT_MS } from './sync/options.js';
 import { syncPosts } from './sync/posts.js';

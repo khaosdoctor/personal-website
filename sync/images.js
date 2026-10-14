@@ -1,3 +1,4 @@
+// Image work for the gear/build pages: WebP conversion, cover downloads and the cleanup of unused images
 import { existsSync } from 'fs';
 import { readdir, rm } from 'fs/promises';
 import { join } from 'path';
@@ -27,7 +28,9 @@ export async function optimizeImage(input, outputPath) {
   } catch { return null; }
 }
 
-// Returns { src, downloaded }: src is the local WebP, or the remote URL when the download failed
+// Returns { src, downloaded }: src is the local WebP, or the remote URL when the download failed.
+// A cover is downloaded once and kept by note name, so a changed coverUrl needs
+// img/gear/covers/<slug>.webp deleted to download the new one
 export async function fetchCover(url, slug) {
   const dest = join(COVER_DIR, `${slug}.webp`);
   const local = `/img/gear/covers/${slug}.webp`;

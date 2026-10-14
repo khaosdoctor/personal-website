@@ -1,3 +1,4 @@
+// Shared setup for every sync step: command line flags, logging, folder paths and the fetch timeout
 import chalk from 'chalk';
 import createDebug from 'debug';
 

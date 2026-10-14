@@ -1,3 +1,5 @@
+// Everything that turns data into HTML: the markdown parsers, the gear/build page template and the
+// lists baked into /, /uses and /projects. Nothing here reads or writes files
 import { Marked, Renderer } from 'marked';
 import { log, SITE } from './options.js';
 
@@ -9,7 +11,7 @@ const anchorHeading = (depth, id, html) =>
   `<h${depth} id="${id}">${html} <a class="anchor" href="#${id}" aria-label="Link to this section">#</a></h${depth}>`;
 
 // Markdown for pages: every h2 and below gets an id from its text and a # link to itself, so sections
-// can be linked, and every table sits in a box that scrolls sideways on phones. Feeds use the plain
+// can be linked, and every table goes in a box that scrolls sideways on phones. Feeds use the plain
 // parser, a #fragment means nothing inside a feed reader.
 // ponytail: two headings with the same text on one page share an id, the first one wins
 const pageMarked = new Marked({
@@ -50,8 +52,10 @@ export const esc = s => s.replace(RE_ESC, c => ESC_MAP[c]);
 
 // A note that is both gear and a build keeps its /gear page, so links to it from /uses don't break
 export const pagePath = n => `/${n.isGear ? 'gear' : 'builds'}/${n.slug}.html`;
+// The colored badge for a build status, empty for a status that has none
 const statusTag = status => BUILD_STATUS[status] ? `<span class="tag ${BUILD_STATUS[status]}">${esc(status)}</span>` : '';
 
+// The whole HTML page of one gear or build note. The <head> matches the root pages' head; keep the two in step
 export function notePage(n, body) {
   const tags = [statusTag(n.status), stateTags(n.state)].filter(Boolean).join(' ');
   const desc = n.oneliner || (n.rating != null ? `${n.name}, rated ${n.rating}/10 by Lucas Santos` : `${n.name}, a build by Lucas Santos`);
@@ -82,6 +86,7 @@ export function notePage(n, body) {
   <meta name="theme-color" content="#f4efe0" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
   <script src="/js/theme.js"></script>
   <script src="/js/components.js"></script>
 </head>
@@ -105,6 +110,7 @@ export function notePage(n, body) {
 </html>`;
 }
 
+// The homepage's latest posts list
 export function postsHtml(posts) {
   return posts.map(p => `<li><span class="post-date">${p.date}</span><a href="${esc(p.link)}">${esc(p.title)}</a></li>`).join('\n');
 }
@@ -113,6 +119,7 @@ const byRatingThenName = (a, b) => (b.rating || 0) - (a.rating || 0) || a.name.l
 
 const stateTags = states => states.map(s => `<span class="tag ${STATE_COLORS[s] || ''}">${esc(s)}</span>`).join(' ');
 
+// One /uses row; it links to the external link, else to the note's page, else to nothing
 function gearRow(g, isChild) {
   const tags = [g.diy && '<span class="tag">diy</span>', stateTags(g.state.filter(s => !LIST_HIDDEN_STATES.has(s)))].filter(Boolean).join(' ');
   const cells = `<span class="gear-name">${esc(g.name)}</span><span class="gear-desc">${esc(g.oneliner)}</span><span class="gear-states">${tags}</span><span class="gear-rating">${g.rating != null ? `${g.rating}/10` : ''}</span>`;
@@ -152,7 +159,7 @@ export function gearHtml(items) {
   for (const cat of categories) {
     const label = cat.split(/[\s-]+/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
     const rows = grouped[cat].sort(byRatingThenName).flatMap(g => rowsFor(g, false, new Set()));
-    sections.push(`<div class="gear-category">${anchorHeading(2, slugify(label), label)}<ul class="gear-list">\n${rows.join('\n')}\n</ul></div>`);
+    sections.push(`<div class="gear-category">${anchorHeading(2, slugify(label), esc(label))}<ul class="gear-list">\n${rows.join('\n')}\n</ul></div>`);
   }
   return sections.join('\n');
 }
