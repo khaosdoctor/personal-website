@@ -114,7 +114,9 @@ a { color: var(--accent); text-decoration: none; }
 /* Every hover style in this file also applies on keyboard focus (:focus-visible), so keyboard users get the same cue */
 a:is(:hover, :focus-visible) { text-decoration: underline; }
 
-a.ext::after {
+/* Links to other sites get a small arrow. The /uses gear rows are left out: their link is display: contents,
+   so the arrow would become an extra grid cell and break the row */
+a[href^="http"]:not([href^="https://lsantos.dev"]):not(.gear-link)::after {
   content: '\2197';
   font-size: 0.65em;
   vertical-align: super;
@@ -526,13 +528,15 @@ nav a:is(:hover, :focus-visible), nav a.active { color: var(--accent); }
   font-size: var(--fs-copy);
 }
 
+/* js/clock.js fills this line after the page shows; the min-height keeps its space from the start,
+   so the text below doesn't jump down */
 .intro-clock {
   color: var(--muted);
   font-size: 0.75rem;
   margin-top: 0.25rem;
+  min-height: 1lh;
 }
 
-.intro-clock:empty { display: none; }
 .clock-odds { color: var(--accent); }
 
 @media (max-width: 768px) {
@@ -852,17 +856,6 @@ nav a:is(:hover, :focus-visible), nav a.active { color: var(--accent); }
   font-weight: 600;
   font-size: 0.95rem;
 }
-
-.project-status {
-  font-size: 0.75rem;
-  padding: 0.05rem 0.35rem;
-  border-radius: 2px;
-}
-
-.project-status[data-status="active"] { color: #39936c; border: 1px solid #39936c; }
-.status-active { color: #39936c; }
-.project-status[data-status="inactive"] { color: #d50612; border: 1px solid #d50612; }
-.project-status[data-status="archived"] { color: var(--muted); border: 1px solid var(--border); opacity: 0.6; }
 
 .project-desc {
   color: var(--muted);
