@@ -1,19 +1,26 @@
-import { Marked } from 'marked';
+import { Marked, Renderer } from 'marked';
 import { log, SITE } from './options.js';
 
 // "Canon EOS 6D Mark II" -> "canon-eos-6d-mark-ii": file names, page URLs and heading ids
 export const slugify = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
+// The # link after a heading, shared by markdown headings and the /uses category headings
+const anchorHeading = (depth, id, html) =>
+  `<h${depth} id="${id}">${html} <a class="anchor" href="#${id}" aria-label="Link to this section">#</a></h${depth}>`;
+
 // Markdown for pages: every h2 and below gets an id from its text and a # link to itself, so sections
-// can be linked. Feeds use the plain parser, a #fragment means nothing inside a feed reader.
+// can be linked, and every table sits in a box that scrolls sideways on phones. Feeds use the plain
+// parser, a #fragment means nothing inside a feed reader.
 // ponytail: two headings with the same text on one page share an id, the first one wins
 const pageMarked = new Marked({
   renderer: {
     heading({ tokens, depth, text }) {
       const html = this.parser.parseInline(tokens);
       if (depth < 2) return `<h${depth}>${html}</h${depth}>\n`;
-      const id = slugify(text);
-      return `<h${depth} id="${id}">${html} <a class="anchor" href="#${id}" aria-label="Link to this section">#</a></h${depth}>\n`;
+      return `${anchorHeading(depth, slugify(text), html)}\n`;
+    },
+    table(token) {
+      return `<div class="table-scroll">${Renderer.prototype.table.call(this, token)}</div>\n`;
     },
   },
 });
@@ -22,8 +29,8 @@ export const pageMarkdown = md => pageMarked.parse(md);
 export const feedMarkdown = md => feedMarked.parse(md);
 
 const STATUS_ORDER = { active: 0, 'in-progress': 1, done: 2, inactive: 3, archived: 4 };
-// Software statuses that share a badge with the builds (BUILD_STATUS) instead of the project-status look
-const SOFTWARE_TAG = { 'in-progress': 'tag-yellow', done: 'tag-green' };
+// Badge color per software `status` in data/projects.json; archived gets the plain grey tag
+const SOFTWARE_TAG = { active: 'tag-green', 'in-progress': 'tag-yellow', done: 'tag-green', inactive: 'tag-red', archived: '' };
 
 const STATE_COLORS = {
   'broken': 'tag-red', 'actively-used': 'tag-green', 'owned': 'tag-green',
@@ -65,8 +72,10 @@ export function notePage(n, body) {
   <meta property="og:image" content="${SITE}/img/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lucas Santos, Staff Engineer">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="/fonts/plex-mono-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/plex-mono-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
   <link rel="manifest" href="/manifest.json">
@@ -77,13 +86,14 @@ export function notePage(n, body) {
   <script src="/js/components.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
     <site-sidebar class="sidebar"></site-sidebar>
-    <main class="content">
+    <main class="content" id="content">
       <div class="content-inner">
         <a href="${back.href}" class="back-link">&lt; ${back.label}</a>
         ${n.coverUrl ? `<img src="${esc(n.coverUrl)}" alt="${esc(n.name)}" class="gear-cover">` : ''}
-        <h1 class="gear-detail">${esc(n.name)}</h1>
+        <h1 class="section-label">${esc(n.name)}</h1>
         <p class="gear-meta">${n.rating != null ? `<span class="rating">${n.rating}/10</span> ` : ''}${tags}${n.updated ? ` <span class="gear-updated">updated ${n.updated}</span>` : ''}</p>
         ${n.oneliner ? `<p class="oneliner">${esc(n.oneliner)}</p>` : ''}
         <div class="gear-body">${body}</div>
@@ -142,7 +152,7 @@ export function gearHtml(items) {
   for (const cat of categories) {
     const label = cat.split(/[\s-]+/).map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
     const rows = grouped[cat].sort(byRatingThenName).flatMap(g => rowsFor(g, false, new Set()));
-    sections.push(`<div class="gear-category"><h2>${label}</h2><ul class="gear-list">\n${rows.join('\n')}\n</ul></div>`);
+    sections.push(`<div class="gear-category">${anchorHeading(2, slugify(label), label)}<ul class="gear-list">\n${rows.join('\n')}\n</ul></div>`);
   }
   return sections.join('\n');
 }
@@ -157,15 +167,14 @@ export function buildsHtml(builds) {
   }).join('\n');
 }
 
-// Sorted by STATUS_ORDER; data-status drives label color and dimming in CSS
+// Sorted by STATUS_ORDER; data-status on the row lets the CSS dim inactive and archived projects
 export function projectsHtml(projects) {
   const rank = p => STATUS_ORDER[p.status] ?? Object.keys(STATUS_ORDER).length;
   const sorted = [...projects].sort((a, b) => rank(a) - rank(b));
   return sorted.map(p => {
     const name = p.url ? `<a href="${esc(p.url)}" class="project-name">${esc(p.name)}</a>` : `<span class="project-name">${esc(p.name)}</span>`;
-    const badge = SOFTWARE_TAG[p.status]
-      ? `<span class="tag ${SOFTWARE_TAG[p.status]}">${esc(p.status)}</span>`
-      : `<span class="project-status" data-status="${esc(p.status)}">${esc(p.status)}</span>`;
+    const tagClass = ['tag', SOFTWARE_TAG[p.status]].filter(Boolean).join(' ');
+    const badge = `<span class="${tagClass}">${esc(p.status)}</span>`;
     return `<li class="project-item" data-status="${esc(p.status)}"><div class="project-header">${name}${badge}</div><div class="project-desc">${esc(p.description)}</div></li>`;
   }).join('\n');
 }
