@@ -1,7 +1,7 @@
 import { readFile, writeFile, stat } from 'fs/promises';
 import { join } from 'path';
 import { execFileSync } from 'child_process';
-import { marked } from 'marked';
+import { pageMarked as marked } from './render.js';
 import { debug, log, SITE, DATA_DIR } from './options.js';
 import { postsHtml, gearHtml, buildsHtml, projectsHtml, sortLists } from './render.js';
 import { writeFeeds } from './feeds.js';

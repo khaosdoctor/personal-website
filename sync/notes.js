@@ -2,10 +2,9 @@ import { readFile, writeFile, readdir, mkdir, copyFile, rm } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join, basename, extname } from 'path';
 import matter from 'gray-matter';
-import { marked } from 'marked';
 import { debug, log, VAULT_DIR, VAULT_ASSETS, GEAR_DIR, BUILD_DIR, GEAR_IMG, VAULT_DATA, FETCH_TIMEOUT_MS } from './options.js';
 import { COVER_DIR, optimizeImage, fetchCover } from './images.js';
-import { pagePath, notePage } from './render.js';
+import { pagePath, notePage, pageMarked as marked } from './render.js';
 
 const IMG_EXTS = new Set(['.png', '.jpg', '.jpeg', '.webp', '.gif', '.svg']);
 const RE_SLUG = /[^a-z0-9]+/g, RE_SLUG_TRIM = /^-|-$/g;

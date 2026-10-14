@@ -1,4 +1,21 @@
+import { Marked } from 'marked';
 import { log, SITE } from './options.js';
+
+// Markdown for pages: every h2 and below gets an id from its text and a # link to itself, so sections
+// can be linked. Feeds keep the plain marked, a #fragment means nothing inside a feed reader.
+// ponytail: two headings with the same text on one page share an id, the first one wins
+const headingId = text => text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const pageMarkedInstance = new Marked({
+  renderer: {
+    heading({ tokens, depth, text }) {
+      const html = this.parser.parseInline(tokens);
+      if (depth < 2) return `<h${depth}>${html}</h${depth}>\n`;
+      const id = headingId(text);
+      return `<h${depth} id="${id}">${html} <a class="anchor" href="#${id}" aria-label="Link to this section">#</a></h${depth}>\n`;
+    },
+  },
+});
+export const pageMarked = md => pageMarkedInstance.parse(md);
 
 const STATUS_ORDER = { active: 0, 'in-progress': 1, done: 2, inactive: 3, archived: 4 };
 // Software statuses that share a badge with the builds (BUILD_STATUS) instead of the project-status look
