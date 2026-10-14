@@ -195,13 +195,6 @@ a.ext::after {
   margin-left: 0.15em;
 }
 
-.gear-body a[target="_blank"]::after {
-  content: ' \2197';
-  font-size: 0.65em;
-  vertical-align: super;
-  opacity: 0.5;
-}
-
 .theme-toggle {
   margin-top: 3rem;
   margin-bottom: -2rem;

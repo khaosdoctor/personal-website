@@ -94,7 +94,7 @@ class SiteSidebar extends HTMLElement {
           <a href="/uses">/uses</a>
           <a href="/projects">/projects</a>
           <a href="https://blog.lsantos.dev">/blog</a>
-          <a href="mailto:hello@lsantos.dev?subject=Contact%20through%20your%20website" target="_blank" rel="noopener">/contact</a>
+          <a href="mailto:hello@lsantos.dev?subject=Contact%20through%20your%20website">/contact</a>
         </nav>
         <div class="theme-toggle desktop-only">
           <button onclick="toggleTheme()">${toggle}</button>
@@ -199,13 +199,10 @@ class SiteFooter extends HTMLElement {
 customElements.define('site-sidebar', SiteSidebar);
 customElements.define('site-footer', SiteFooter);
 
-// Any link to another host opens in a new tab and gets the .ext arrow. Every link is in the page
-// (baked, or rendered by the components above) by the time the DOM is ready, so one pass is enough
+// Any link to another host gets the .ext arrow (every link opens in the same tab). Every link is in the
+// page (baked, or rendered by the components above) by the time the DOM is ready, so one pass is enough
 document.addEventListener('DOMContentLoaded', () => {
   for (const a of document.querySelectorAll('a[href]')) {
-    if (!a.hostname || a.hostname === location.hostname) continue;
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.classList.add('ext');
+    if (a.hostname && a.hostname !== location.hostname) a.classList.add('ext');
   }
 });
