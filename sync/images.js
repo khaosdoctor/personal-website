@@ -19,11 +19,12 @@ export async function pruneImages(embeds, covers) {
   if (unused.length) log.info(`${unused.length} unused images removed: ${unused.join(', ')}`);
 }
 
+// Any image (file path or buffer) -> a WebP at most 600px wide. Returns its { width, height }, or null when sharp can't read it
 export async function optimizeImage(input, outputPath) {
   try {
-    await sharp(input).resize({ width: 600, withoutEnlargement: true }).webp({ quality: 80 }).toFile(outputPath);
-    return true;
-  } catch { return false; }
+    const { width, height } = await sharp(input).resize({ width: 600, withoutEnlargement: true }).webp({ quality: 80 }).toFile(outputPath);
+    return { width, height };
+  } catch { return null; }
 }
 
 // Returns { src, downloaded }: src is the local WebP, or the remote URL when the download failed

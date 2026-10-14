@@ -53,8 +53,22 @@ export async function bakePages(posts, notes) {
     'projects-done': both(built(['done']), software(['done']), software(['inactive', 'archived'])),
   });
 
-  const urls = ['/', '/about', '/now', '/projects', '/uses', '/friends', '/ai-usage', ...notes.filter(n => n.hasPage).map(n => n.href)];
-  const sitemap = urls.map(u => `  <url><loc>${SITE}${u}</loc></url>`).join('\n');
+  // lastmod comes from dates that only move when the content does (a data file's last commit, a note's
+  // updatedAt), so two bakes in a row write the same sitemap. The homepage has none: its posts change daily
+  const day = d => { const t = new Date(d); return isNaN(t) ? '' : t.toISOString().slice(0, 10); };
+  const latest = dates => dates.filter(Boolean).sort().at(-1) || '';
+  const committed = f => lastCommitDate(join(DATA_DIR, f));
+  const pages = [
+    ['/', ''],
+    ['/about', committed('about.md')],
+    ['/now', nowUpdated],
+    ['/projects', latest([committed('projects.json'), ...builds.map(b => day(b.changedAt))])],
+    ['/uses', latest(notes.filter(n => n.isGear).map(n => day(n.changedAt)))],
+    ['/friends', committed('friends.md')],
+    ['/ai-usage', committed('ai-usage.md')],
+    ...notes.filter(n => n.hasPage).map(n => [n.href, day(n.changedAt)]),
+  ];
+  const sitemap = pages.map(([url, mod]) => `  <url><loc>${SITE}${url}</loc>${mod ? `<lastmod>${mod}</lastmod>` : ''}</url>`).join('\n');
   await writeFile('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemap}\n</urlset>\n`);
   await writeFeeds(notes);
 }

@@ -12,6 +12,9 @@ const RE_WIKILINK = /(!?)\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
 const RE_UNRESOLVED_LI = /^[ \t]*[-*]\s*<!--unresolved:[\s\S]*?-->\s*$/gm;
 const RE_UNRESOLVED_INLINE = /<!--unresolved:([\s\S]*?)-->/g;
 const RE_LEADING_H1 = /^\s*<h1>[\s\S]*?<\/h1>\s*/;
+// <img src="/img/gear/x.webp" alt="..."> as marked writes it: groups are the file name and the quoted
+// attributes after src (an alt text can hold a ">", so the attributes are matched as name="value" pairs)
+const RE_GEAR_IMG = /<img src="\/img\/gear\/([^"/]+)"((?:\s+[a-z-]+="[^"]*")*)>/g;
 // gray-matter runs a `---js` front matter block as code; with these engines unset, such a note is skipped as unreadable
 const NO_CODE_ENGINES = { js: undefined, javascript: undefined };
 
@@ -43,6 +46,16 @@ function resolveWikilinks(content, hrefs) {
     .replace(RE_UNRESOLVED_LI, '')
     .replace(RE_UNRESOLVED_INLINE, '$1');
   return { markdown, images };
+}
+
+// Adds width/height (so the text below doesn't jump while the image loads) and lazy loading to each
+// embedded image marked rendered as <img src="/img/gear/x.webp" alt="...">
+function sizeImages(html, sizes) {
+  return html.replace(RE_GEAR_IMG, (tag, file, rest) => {
+    const size = sizes.get(file);
+    if (!size) return tag;
+    return `<img src="/img/gear/${file}"${rest} width="${size.width}" height="${size.height}" loading="lazy" decoding="async">`;
+  });
 }
 
 async function readMdFiles(dir) {
@@ -134,18 +147,22 @@ export async function syncNotes() {
     n.markdown = markdown;
     for (const img of images) embeds.set(img.dest, { ...img, note: n.name });
   }
-  const failed = [];
+  // file name -> { width, height } of each converted embed, so its <img> can reserve its space
+  const sizes = new Map();
   for (const img of embeds.values()) {
-    if (await optimizeImage(img.src, join(GEAR_IMG, img.dest))) continue;
+    const size = await optimizeImage(img.src, join(GEAR_IMG, img.dest));
+    if (size) {
+      sizes.set(img.dest, size);
+      continue;
+    }
     // The page still links the .webp, so the image shows broken until the source file is fixed
-    failed.push(img);
     log.warn(`${img.note}: embed ${img.src} could not be converted, its image is missing on the page`);
   }
-  if (embeds.size > failed.length) log.ok(`${embeds.size - failed.length} images optimized`);
+  if (sizes.size) log.ok(`${sizes.size} images optimized`);
 
   for (const n of withPage) {
     // The page template already shows the name as the page title, so a body that starts with its own h1 drops it
-    const html = pageMarkdown(n.markdown).replace(RE_LEADING_H1, '');
+    const html = sizeImages(pageMarkdown(n.markdown).replace(RE_LEADING_H1, ''), sizes);
     await writeFile(`.${pagePath(n)}`, notePage(n, html));
     debug.gear('%s: page written, category=%s rating=%s state=%o status=%s', n.slug, n.category, n.rating, n.state, n.status);
   }
