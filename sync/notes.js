@@ -115,10 +115,14 @@ export async function syncNotes() {
   for (const d of [GEAR_DIR, BUILD_DIR, GEAR_IMG, COVER_DIR]) if (!existsSync(d)) await mkdir(d, { recursive: true });
 
   const notes = await readMdFiles(VAULT_DIR);
-  const hrefs = new Map(notes.map(n => [n.slug, pagePath(n)]));
+  // A note with an empty body is only a row on /uses or /projects; only notes with a page get a cover,
+  // a page, and wikilinks pointing at them
+  const withPage = notes.filter(n => n.body.trim());
+  for (const n of notes) if (!n.body.trim()) debug.gear('%s: empty body, list row only', n.slug);
+  const hrefs = new Map(withPage.map(n => [n.slug, pagePath(n)]));
 
-  // Every page is rewritten below, so clear the old ones and a deleted note stops leaving its page
-  // behind. Skipped when nothing was found, so a missing vault cannot wipe the published pages.
+  // Every page is rewritten below, so clear the old ones: a deleted note, or one whose body was emptied,
+  // stops leaving its page behind. Skipped when nothing was found, so a missing vault cannot wipe the published pages.
   if (notes.length) {
     for (const dir of [GEAR_DIR, BUILD_DIR]) {
       const stale = (await readdir(dir)).filter(f => f.endsWith('.html') && hrefs.get(basename(f, '.html')) !== `/${basename(dir)}/${f}`);
@@ -126,10 +130,6 @@ export async function syncNotes() {
       if (stale.length) log.info(`${dir}: ${stale.length} pages removed for notes that no longer qualify`);
     }
   }
-
-  // A note with an empty body is only a row on /uses or /projects; only notes with a page need a cover
-  const withPage = notes.filter(n => n.body.trim());
-  for (const n of notes) if (!n.body.trim()) debug.gear('%s: empty body, list row only', n.slug);
 
   // Covers download in parallel; a cover that can't be fetched keeps its remote URL
   const withCover = withPage.filter(n => n.coverUrl);
@@ -172,8 +172,9 @@ export async function syncNotes() {
     debug.gear('%s: page written, category=%s rating=%s state=%o status=%s', n.slug, n.category, n.rating, n.state, n.status);
   }
 
-  // Only the CI bake passes --prune-images, so a local run or --watch never deletes images
-  if (flag('prune-images')) {
+  // Only the CI bake passes --prune-images, so a local run or --watch never deletes images.
+  // Skipped when no notes were found, so an unreadable vault deletes nothing
+  if (flag('prune-images') && notes.length) {
     const localCovers = withCover.filter(n => n.coverUrl.startsWith('/')).map(n => `${n.slug}.webp`);
     await pruneImages(new Set(embeds.keys()), new Set(localCovers));
   }

@@ -23,7 +23,8 @@ const pageMarked = new Marked({
       return `${anchorHeading(depth, slugify(text), html)}\n`;
     },
     table(token) {
-      return `<div class="table-scroll">${Renderer.prototype.table.call(this, token)}</div>\n`;
+      // Focusable and labelled, so keyboard users can scroll a wide table too
+      return `<div class="table-scroll" tabindex="0" role="region" aria-label="Table, scrolls sideways">${Renderer.prototype.table.call(this, token)}</div>\n`;
     },
   },
 });

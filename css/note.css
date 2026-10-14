@@ -87,6 +87,8 @@ th {
    own instead of widening the page, and stay real tables for screen readers. The div holds the table's margin */
 .table-scroll { overflow-x: auto; margin: 0.75rem 0; }
 .table-scroll > table { margin: 0; }
+/* The div is focusable so a keyboard can scroll it; the outline shows where focus is */
+.table-scroll:focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
 
 hr { border: none; border-top: 1px solid var(--border); margin: var(--space-para) 0; }
 
