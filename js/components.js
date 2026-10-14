@@ -178,7 +178,7 @@ if (favicon) {
   setInterval(updateFavicon, 60000);
 }
 
-// <site-footer>: social links and copyright (the external-link pass below opens them in a new tab)
+// <site-footer>: social links and copyright. The arrow on outside links comes from style.css
 class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -198,34 +198,3 @@ class SiteFooter extends HTMLElement {
 
 customElements.define('site-sidebar', SiteSidebar);
 customElements.define('site-footer', SiteFooter);
-
-// Any link to another host gets the .ext arrow (every link opens in the same tab). Every link is in the
-// page (baked, or rendered by the components above) by the time the DOM is ready, so one pass is enough
-document.addEventListener('DOMContentLoaded', () => {
-  for (const a of document.querySelectorAll('a[href]')) {
-    if (a.hostname && a.hostname !== location.hostname) a.classList.add('ext');
-  }
-  anchorHeadings();
-});
-
-// Headings from markdown come baked with an id and a # link (sync/render.js). The other h2/h3 (the
-// /projects sections, the /uses categories) get the same here, from their text ("// ACTIVE" -> #active).
-// The homepage's // INDEX, // LATEST and // WORK are divs, so they stay without one
-function anchorHeadings() {
-  const used = new Set();
-  for (const h of document.querySelectorAll('.content h2, .content h3')) {
-    if (h.querySelector('.anchor')) {
-      used.add(h.id);
-      continue;
-    }
-    const base = h.id || h.textContent.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-    if (!base) continue;
-    let id = base;
-    for (let n = 2; used.has(id); n++) id = `${base}-${n}`;
-    used.add(id);
-    h.id = id;
-    h.insertAdjacentHTML('beforeend', ` <a class="anchor" href="#${id}" aria-label="Link to this section">#</a>`);
-  }
-  // The ids did not exist while the page parsed, so a shared #link needs this scroll
-  if (location.hash) document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView();
-}
