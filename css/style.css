@@ -13,6 +13,8 @@
    Light is the default; js/theme.js always sets data-theme, the media query covers no-JS visits.
    404.html loads no stylesheet and keeps its own copy of the main colors */
 :root {
+  /* Tells the browser which theme is on, so scrollbars and form controls match it */
+  color-scheme: light;
   --bg: #f4efe0;
   --title: #2b2622;
   --text: #4f493f;
@@ -44,13 +46,14 @@
    what js/theme.js sets. Keep both blocks the same */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    color-scheme: dark;
     --bg: #131313;
     --title: #fff;
     --text: #d6d2c9;
     --body: #bdb8ae;
     --muted: #a8a29a;
     --border: #6b627b;
-    --accent: #1480c2;
+    --accent: #1d85c4;
     --cat-black: #4a4540;
     --red: #ef5350;
     --green: #66bb6a;
@@ -61,13 +64,14 @@
 }
 
 :root[data-theme="dark"] {
+  color-scheme: dark;
   --bg: #131313;
   --title: #fff;
   --text: #d6d2c9;
   --body: #bdb8ae;
   --muted: #a8a29a;
   --border: #6b627b;
-  --accent: #1480c2;
+  --accent: #1d85c4;
   --cat-black: #4a4540;
   --red: #ef5350;
   --green: #66bb6a;
