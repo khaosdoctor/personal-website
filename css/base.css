@@ -34,7 +34,7 @@
   --row-stripe: color-mix(in srgb, var(--border) 6%, transparent);
   /* js/theme.js replaces --accent with a daily color from its palette; this value is for no-JS visits */
   --accent: #0571b3;
-  /* The black pixels of the sidebar cat (CAT_COLORS in js/components.js); lighter in dark mode so it shows */
+  /* The black pixels of the sidebar cat (CAT_COLORS in sync/layout.js); lighter in dark mode so it shows */
   --cat-black: #2b2622;
   /* State colors for tags and badges */
   --red: #b71c1c;
@@ -116,6 +116,8 @@ body {
   body { padding-top: 0; }
 }
 
+/* Plain wrapper tags around the baked sidebar and footer (sync/layout.js); nothing defines them in JS,
+   so they would be inline without this */
 site-sidebar, site-footer { display: block; }
 
 a { color: var(--accent); text-decoration: none; }
@@ -207,7 +209,7 @@ code, pre { font-family: 'Cascadia Mono', ui-monospace, monospace; }
   .layout { flex-direction: column; }
 }
 
-/* ═══ Sidebar (every page, <site-sidebar> in js/components.js) ═══ */
+/* ═══ Sidebar (every page, <site-sidebar> baked from sync/layout.js) ═══ */
 
 .sidebar {
   width: var(--sidebar-w);
@@ -500,7 +502,7 @@ nav a:is(:hover, :focus-visible), nav a.active { color: var(--accent); }
   .section-label { font-size: 1.3rem; }
 }
 
-/* ═══ Socials (every page, <site-footer> in js/components.js) ═══ */
+/* ═══ Socials (every page, <site-footer> baked from sync/layout.js) ═══ */
 
 /* margin-top: auto pins the footer to the bottom of .content-inner; the gap above it is padding,
    since an auto margin can't also hold a minimum */

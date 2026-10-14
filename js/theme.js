@@ -21,12 +21,18 @@ function getTheme() {
   return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-// Sets the theme and accent, and relabels both toggle buttons (mobile + desktop)
+// Each theme button (mobile + desktop) offers the other theme
+function labelThemeButtons(theme) {
+  for (const btn of document.querySelectorAll('.theme-toggle button'))
+    btn.textContent = theme === 'dark' ? '[light]' : '[dark]';
+}
+
+// Sets the theme and accent, and relabels the theme buttons. On the first run in <head> the buttons
+// are not parsed yet, so js/components.js labels them once the page is there
 function applyTheme(theme) {
   document.documentElement.setAttribute('data-theme', theme);
   document.documentElement.style.setProperty('--accent', ACCENTS[theme][getDayIndex()]);
-  for (const btn of document.querySelectorAll('.theme-toggle button'))
-    btn.textContent = theme === 'dark' ? '[light]' : '[dark]';
+  labelThemeButtons(theme);
 }
 
 // Switches to the other theme from the one the page shows, so it still works when storage is blocked

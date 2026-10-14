@@ -4,6 +4,19 @@ import { join } from 'path';
 import { debug, log, SITE, DATA_DIR } from './options.js';
 import { pageMarkdown, postsHtml, gearHtml, buildsHtml, projectsHtml, sortLists } from './render.js';
 import { writeFeeds, lastCommitDate } from './feeds.js';
+import { sidebarHtml, footerHtml } from './layout.js';
+
+// Every root page that has the sidebar and footer, with its own path for the active nav link.
+// 404.html is not here: it is a self-contained redirect page
+const ROOT_PAGES = {
+  'index.html': '/',
+  'about.html': '/about',
+  'now.html': '/now',
+  'friends.html': '/friends',
+  'uses.html': '/uses',
+  'projects.html': '/projects',
+  'ai-usage.html': '/ai-usage',
+};
 
 // Replaces whatever is between <!-- bake:name --> and <!-- /bake:name --> in an HTML page
 async function bake(file, blocks) {
@@ -27,6 +40,11 @@ export async function bakePages(posts, notes) {
   // A fresh CI checkout stamps every file with the checkout time, so the last commit dates /now, mtime is the fallback
   const nowUpdated = lastCommitDate(join(DATA_DIR, 'now.md')) || (await stat(join(DATA_DIR, 'now.md'))).mtime.toISOString().slice(0, 10);
   const projects = JSON.parse(await readFile(join(DATA_DIR, 'projects.json'), 'utf-8'));
+
+  // The shared sidebar and footer (sync/layout.js) go into every root page on every bake, notes or not
+  for (const [file, href] of Object.entries(ROOT_PAGES)) {
+    await bake(file, { sidebar: sidebarHtml(href), footer: footerHtml() });
+  }
 
   // No posts means the feed was unreachable; leaving the block out keeps whatever was baked last time
   await bake('index.html', { bio: await md('bio.md'), ...(posts && { posts: postsHtml(posts) }) });

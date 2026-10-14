@@ -2,6 +2,7 @@
 // lists baked into /, /uses and /projects. Nothing here reads or writes files
 import { Marked, Renderer } from 'marked';
 import { log, SITE } from './options.js';
+import { sidebarHtml, footerHtml } from './layout.js';
 
 // "Canon EOS 6D Mark II" -> "canon-eos-6d-mark-ii": file names, page URLs and heading ids
 export const slugify = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -86,14 +87,16 @@ export function notePage(n, body) {
   <meta name="theme-color" content="#131313" media="(prefers-color-scheme: dark)">
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/note.css">
-  <!-- Both block on purpose: theme.js sets the theme before the first paint, components.js defines the sidebar and footer so they draw with the page -->
+  <!-- theme.js blocks on purpose so the theme is set before the first paint; components.js only adds behaviour, so it waits for the page -->
   <script src="/js/theme.js"></script>
-  <script src="/js/components.js"></script>
+  <script src="/js/components.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="layout">
-    <site-sidebar class="sidebar"></site-sidebar>
+    <site-sidebar class="sidebar"><!-- bake:sidebar -->
+${sidebarHtml()}
+<!-- /bake:sidebar --></site-sidebar>
     <main class="content" id="content">
       <div class="content-inner">
         <a href="${back.href}" class="back-link">&lt; ${back.label}</a>
@@ -102,7 +105,9 @@ export function notePage(n, body) {
         <p class="gear-meta">${n.rating != null ? `<span class="rating">${n.rating}/10</span> ` : ''}${tags}${n.updated ? ` <span class="gear-updated">updated ${n.updated}</span>` : ''}</p>
         ${n.oneliner ? `<p class="oneliner">${esc(n.oneliner)}</p>` : ''}
         <div class="gear-body">${body}</div>
-        <site-footer class="socials"></site-footer>
+        <site-footer class="socials"><!-- bake:footer -->
+${footerHtml()}
+<!-- /bake:footer --></site-footer>
       </div>
     </main>
   </div>

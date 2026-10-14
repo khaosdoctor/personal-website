@@ -7,7 +7,7 @@
     "sync:quiet": "bun sync.js",
     "sync:watch": "bun sync.js --watch",
     "check": "bun test",
-    "dev": "bun sync.js --watch & browser-sync start --config bs-config.cjs"
+    "dev": "bun --watch sync.js --watch & browser-sync start --config bs-config.cjs"
   },
   "dependencies": {
     "chalk": "^6.0.1",
