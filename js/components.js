@@ -1,3 +1,10 @@
+// Site-wide parts every page shares: the sidebar, the footer and the favicon swap.
+// Loaded in <head> without defer, after theme.js, so the custom elements exist before the parser
+// reaches <site-sidebar> and the sidebar draws with the page instead of popping in (no layout shift).
+// Code that only one page needs goes in its own deferred file instead (clock.js, gear.js).
+
+// ═══ Sidebar (<site-sidebar>, every page) ═══
+
 // Under the theme toggle on desktop, under the copyright on phones (style.css shows one of the two)
 const AI_POLICY = '<a href="/ai-usage" class="ai-policy">[AI usage policy]</a>';
 
@@ -113,6 +120,8 @@ class SiteSidebar extends HTMLElement {
   }
 }
 
+// ═══ Name cat (sidebar) ═══
+
 // A random one of these takes the place of the $ before the name, on every page load.
 // Each row is a line of 10x10 pixels: letters are fur colors, E the eyes, dots are empty
 const CAT_COLORS = { K: 'var(--cat-black)', W: '#f4f1ea', O: '#e8913a', D: '#b5611c', E: '#9fd356' };
@@ -137,6 +146,8 @@ function catSvg() {
   }
   return `<svg class="name-cat" viewBox="0 0 10 10" width="18" height="18" shape-rendering="crispEdges" aria-hidden="true">${rects}</svg>`;
 }
+
+// ═══ ASCII avatar shimmer (sidebar, desktop with a mouse) ═══
 
 // Every tick a few chars of the ASCII avatar move one step along the ramp, and the next tick
 // puts them back, so the art looks alive. One timer drives both arts; the hidden one (other
@@ -166,6 +177,8 @@ function shimmer(pres) {
   }, 150);
 }
 
+// ═══ Favicon (every page) ═══
+
 // From midnight to noon in Stockholm the favicon is the sleeping cat. Checked every minute so an open tab swaps too
 const favicon = document.querySelector('link[rel="icon"]');
 const stockholmHour = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Stockholm', hour: 'numeric', hourCycle: 'h23' });
@@ -178,7 +191,9 @@ if (favicon) {
   setInterval(updateFavicon, 60000);
 }
 
-// <site-footer>: social links and copyright. The arrow on outside links comes from style.css
+// ═══ Footer (<site-footer>, every page) ═══
+
+// Social links and copyright. The arrow on outside links comes from style.css
 class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
@@ -196,5 +211,8 @@ class SiteFooter extends HTMLElement {
   }
 }
 
+// ═══ Registration ═══
+
+// From here on the parser builds each <site-sidebar> and <site-footer> as soon as it reads the tag
 customElements.define('site-sidebar', SiteSidebar);
 customElements.define('site-footer', SiteFooter);
