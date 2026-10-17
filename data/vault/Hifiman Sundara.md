@@ -20,7 +20,7 @@ type:
   - over-ear
   - planar-magnetic
   - hifi
-updatedAt: 2026-10-17T21:22:21Z
+updatedAt: 2026-10-17T21:41:02Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 ---
@@ -48,6 +48,23 @@ I mainly bought this to test a planar magnetic headphone which was a new thing t
 ![[Pasted image 20261017230557.png]]
 
 Soundguys says it _"follows our studio curve exceptionally well"_ and that they _"may even add its frequency response to the corpus of benchmark products for our next iteration of the curve. It’s just that good."_, so I guess it has some quite interesting sound.
+
+I found some EQs on AutoEQ which is actually making it sound quite better, but quieter:
+
+```txt
+Preamp: -6.2 dB
+Filter 1: ON LSC Fc 105 Hz Gain 6.8 dB Q 0.70
+Filter 2: ON PK Fc 86 Hz Gain -2.3 dB Q 0.34
+Filter 3: ON PK Fc 2110 Hz Gain 3.9 dB Q 1.99
+Filter 4: ON PK Fc 3045 Hz Gain -2.9 dB Q 2.31
+Filter 5: ON PK Fc 35 Hz Gain 1.1 dB Q 4.35
+Filter 6: ON HSC Fc 10000 Hz Gain -1.8 dB Q 0.70
+Filter 7: ON PK Fc 834 Hz Gain -1.2 dB Q 3.35
+Filter 8: ON PK Fc 149 Hz Gain 0.5 dB Q 1.93
+Filter 9: ON PK Fc 280 Hz Gain -0.8 dB Q 2.02
+Filter 10: ON PK Fc 487 Hz Gain 0.9 dB Q 2.40
+```
+
 ## Impressions
 
 Initially, the box was super well packed, and quite fancy, with some clothing there to make it luxury. But the overall construction of the headphone is pretty solid. The whole thing is metal, even the cups, only the cushions are not.
@@ -59,7 +76,13 @@ There's a leather strip inside to make a suspension band, which I like a lot for
 
 The headphone itself is quite heavy. I think it weights like 400g, but it's surprisingly comfortable to use, the only thing that I notice is that my ears are a bit large to fit the cups, so maybe getting different cups would be the solution?
 
-Over all, it's a __very solid__ headphone. The drivers do have some interesting quirks. Planar magnetic drives are usually bigger because, different from their dynamic driver counterparts, 
+Over all, it's a __very solid__ headphone. The drivers do have some interesting quirks. Planar magnetic drives are usually bigger because, different from their dynamic driver counterparts, they need quite big magnets, so the whole thing is bigger (the cups are huge) but they're, in theory, brighter and more defined as the diaphragm can move faster and stop faster as well.
+
+This is quite true, I can clearly notice that [[Middle frequencies (sound)|Mids]] are more defined, especially on the voice level and the high mids close to the "attack" range. So snares and cymbals usually also sound better.
+
+A good thing is that the cable is detachable, and each cup has one 3.5mm jack, which is a good thing because I can just replace the cable, which is, by far, the worst part of this headphone. It is _super_ wonky and looks cheap. Other than that it's all good.
+
+The fact that it also doesn't fold is a bit annoying. But on the sound, compared to other open backs like the [[Beyerdynamics DT 990 Pro]] and the [[Zaylli Lyrö|Lyrö]], I noticed it is brighter, the sound is more "filled", even though I did [[Equalizer (audio effect)|EQ]] it
 
 ## Final thoughts
 
