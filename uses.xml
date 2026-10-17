@@ -7,6 +7,20 @@
     <language>en</language>
     <atom:link href="https://lsantos.dev/uses.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Uses: Hifiman Sundara</title>
+      <link>https://lsantos.dev/gear/hifiman-sundara.html</link>
+      <guid isPermaLink="false">uses:hifiman-sundara:2026-10-17T20:08:03.000Z</guid>
+      <pubDate>Sat, 17 Oct 2026 20:08:03 GMT</pubDate>
+      <description><![CDATA[<p>HIFIMAN's open-back planar magnetic headphones</p>]]></description>
+    </item>
+    <item>
+      <title>Uses: Hifiman HE400SE</title>
+      <link>https://lsantos.dev/gear/hifiman-he400se.html</link>
+      <guid isPermaLink="false">uses:hifiman-he400se:2026-10-17T20:04:53.000Z</guid>
+      <pubDate>Sat, 17 Oct 2026 20:04:53 GMT</pubDate>
+      <description><![CDATA[<p>HIFIMAN's entry-level open-back planar magnetic headphones</p>]]></description>
+    </item>
+    <item>
       <title>Uses: Aissom Soldering Station</title>
       <link>https://lsantos.dev/gear/aissom-soldering-station.html</link>
       <guid isPermaLink="false">uses:aissom-soldering-station:2026-10-13T19:03:58.000Z</guid>
@@ -131,20 +145,6 @@
       <guid isPermaLink="false">uses:bambu-lab-a1-mini:2026-10-03T00:00:00.000Z</guid>
       <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[<p>Compact 180 mm bed-slinger FDM printer with the 4-slot AMS lite for multi-color prints. My first 3D printer Rated 9/10.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Behringer Xenyx 802</title>
-      <link>https://lsantos.dev/gear/behringer-xenyx-802.html</link>
-      <guid isPermaLink="false">uses:behringer-xenyx-802:2026-10-03T00:00:00.000Z</guid>
-      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
-      <description><![CDATA[<p>Compact 8-input analog mixer with 3-band EQ. Keeps my mic and guitar on separate channels next to the Scarlett Rated 8/10.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Beyerdynamics DT 990 Pro</title>
-      <link>https://lsantos.dev/gear/beyerdynamics-dt-990-pro.html</link>
-      <guid isPermaLink="false">uses:beyerdynamics-dt-990-pro:2026-10-03T00:00:00.000Z</guid>
-      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
-      <description><![CDATA[<p>One of the best headphones I ever had Rated 9.7/10.</p>]]></description>
     </item>
   </channel>
 </rss>
