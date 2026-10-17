@@ -1,20 +1,26 @@
 ---
-aliases: [HIFIMAN Sundara, Sundara]
+aliases:
+  - HIFIMAN Sundara
+  - Sundara
 coverUrl: https://eu.hifiman.com/cdn/shop/files/sundara-1_b5a5a71c-2b29-4687-b070-a50102311809.jpg?v=1758524917&width=1946
 createdAt: 2026-10-17T00:00:00Z
 icon: 🎧
 lastEditedByAI: 2026-10-17T00:00:00Z
-oneliner: "HIFIMAN's open-back planar magnetic headphones"
+oneliner: HIFIMAN's open-back planar magnetic headphones
 personalRating:
 state:
   - owned
-tags: [topic/music/gear/headphones, type/equipment/headphones, meta/ai-assisted]
+  - second-hand
+tags:
+  - topic/music/gear/headphones
+  - type/equipment/headphones
+  - meta/ai-assisted
 type:
   - open-back
   - over-ear
   - planar-magnetic
   - hifi
-updatedAt: 2026-10-17T20:08:03Z
+updatedAt: 2026-10-17T21:07:15Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 ---
@@ -35,9 +41,23 @@ x-personal-site-export-type: uses
 
 ## Description
 
-Open-back planar magnetic headphones from HIFIMAN, launched in February [[2018]] with a diaphragm HIFIMAN says is 80% thinner than the one in the HE400 series ([SoundGuys](https://www.soundguys.com/hifiman-releases-their-newest-planar-magnetic-headphones-the-sundara-16037)).
+Open-back planar magnetic headphones from HIFIMAN, launched in February [[2018]] with a diaphragm HIFIMAN says is 80% thinner than the one in the HE400 series ([SoundGuys](https://www.soundguys.com/hifiman-sundara-review-73267/)). In practice, I haven't really noticed anything different, the Sundara is quieter, I think it's harder to drive than the HE400SE
 
+I mainly bought this to test a planar magnetic headphone which was a new thing to me. For what I have been seeing, it's has quite remarkable [[Frequency Response Chart|Frequency Response]] chart:
+
+![[Pasted image 20261017230557.png]]
+
+Soundguys says it _"follows our studio curve exceptionally well"_ and that they _"may even add its frequency response to the corpus of benchmark products for our next iteration of the curve. It’s just that good."_, so I guess it has some quite interesting sound.
 ## Impressions
+
+Initially, the box was super well packed, and quite fancy, with some clothing there to make it luxury. But the overall construction of the headphone is pretty solid. The whole thing is metal, even the cups, only the cushions are not.
+
+There's a leather strip inside to make a suspension band, which I like a lot for two reasons:
+
+1. It's easier to store the headphone without bending it
+2. It's more comfortable
+
+
 
 ## Final thoughts
 
