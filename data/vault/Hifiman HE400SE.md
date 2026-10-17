@@ -21,7 +21,7 @@ type:
   - over-ear
   - planar-magnetic
   - hifi
-updatedAt: 2026-10-17T22:26:56Z
+updatedAt: 2026-10-17T22:42:03Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 ---
@@ -70,7 +70,7 @@ This is the poor cousing of [[Hifiman Sundara|Sundara]]. It delivers, like, 70% 
 
 So, the good parts. The sound is really something, it's lighter than the Sundara (definitely because it's all plastic), it's quite comfortable, the cups are bigger and it's nice because my ears actually fit on it.
 
-The bad parts are quite a few. First, it's all plastic, which I really don't like. The band is fixed, differently from the Sundara that has a headband on the top which lowers the weight of the headphone 
+The bad parts are quite a few. First, it's all plastic, which I really don't like. The band is fixed, differently from the Sundara that has a headband on the top which lowers the weight of the headphone, but it's also less maleable so it's a bit less comfortable. It also not easy to adjust the size, I had to use some WD-40 to make it easier, but it didn't work.
 
 ## Final thoughts
 
