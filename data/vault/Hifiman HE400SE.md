@@ -1,27 +1,22 @@
 ---
-aliases:
-  - HIFIMAN HE400se
-  - HE400se
+aliases: [HIFIMAN HE400se, HE400se]
 coverUrl: https://audiokauppa.fi/cdn/shop/products/hifiman-he400se-kuulokkeet-5348171.jpg?v=1772488766
 createdAt: 2026-10-17T00:00:00Z
 icon: 🎧
 lastEditedByAI: 2026-10-17T00:00:00Z
-oneliner: HIFIMAN's entry-level open-back planar magnetic headphones
-personalRating: 6
+oneliner: "HIFIMAN's entry-level open-back planar magnetic headphones"
+personalRating: 7
 state:
   - owned
   - second-hand
   - not-actively-used
-tags:
-  - topic/music/gear/headphones
-  - type/equipment/headphones
-  - meta/ai-assisted
+tags: [topic/music/gear/headphones, type/equipment/headphones, meta/ai-assisted]
 type:
   - open-back
   - over-ear
   - planar-magnetic
   - hifi
-updatedAt: 2026-10-17T22:42:03Z
+updatedAt: 2026-10-17T22:45:38Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 ---
@@ -66,13 +61,17 @@ Filter 10: ON PK Fc 6782 Hz Gain -1.2 dB Q 5.20
 
 ## Impressions
 
-This is the poor cousing of [[Hifiman Sundara|Sundara]]. It delivers, like, 70% of what Sundara delivers, but it looks really cheap... So basically the problem here is a bunch of design choices that I, personally, wouldn't have done.
+This is the poor cousing of [[Hifiman Sundara|Sundara]]. It delivers, like, 70% of what Sundara delivers, but it looks really cheap… So basically the problem here is a bunch of design choices that I, personally, wouldn't have done.
 
 So, the good parts. The sound is really something, it's lighter than the Sundara (definitely because it's all plastic), it's quite comfortable, the cups are bigger and it's nice because my ears actually fit on it.
 
-The bad parts are quite a few. First, it's all plastic, which I really don't like. The band is fixed, differently from the Sundara that has a headband on the top which lowers the weight of the headphone, but it's also less maleable so it's a bit less comfortable. It also not easy to adjust the size, I had to use some WD-40 to make it easier, but it didn't work.
+There are some bad parts. First, it's all plastic, which I really don't like. The band is fixed, differently from the Sundara that has a headband on the top which lowers the weight of the headphone, but it's also less maleable so it's a bit less comfortable. It also not easy to adjust the size, I had to use some WD-40 to make it easier, but it didn't work.
+
+Other than that, it's basically something close to the Sundara at a third of the price, but I think it doesn't deliver the same thing as the other.
 
 ## Final thoughts
+
+If I hadn't bought it second hand for a good price, I would probably buy this one over the [[Hifiman Sundara|Sundara]], but also, it's not a very pretty headphone, so there's that too.
 
 ## Related
 

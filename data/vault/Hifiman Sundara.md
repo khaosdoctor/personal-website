@@ -16,7 +16,7 @@ type:
   - over-ear
   - planar-magnetic
   - hifi
-updatedAt: 2026-10-17T21:49:02Z
+updatedAt: 2026-10-17T22:49:01Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 ---
