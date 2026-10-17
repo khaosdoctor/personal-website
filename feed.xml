@@ -8,18 +8,18 @@
     <atom:link href="https://lsantos.dev/feed.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://blog.lsantos.dev/en/rss.xml" rel="related" type="application/rss+xml"/>
     <item>
-      <title>Uses: Hifiman HE400SE</title>
-      <link>https://lsantos.dev/gear/hifiman-he400se.html</link>
-      <guid isPermaLink="false">uses:hifiman-he400se:2026-10-17T22:42:03.000Z</guid>
-      <pubDate>Sat, 17 Oct 2026 22:42:03 GMT</pubDate>
-      <description><![CDATA[<p>HIFIMAN's entry-level open-back planar magnetic headphones Rated 6/10.</p>]]></description>
-    </item>
-    <item>
       <title>Uses: Hifiman Sundara</title>
       <link>https://lsantos.dev/gear/hifiman-sundara.html</link>
-      <guid isPermaLink="false">uses:hifiman-sundara:2026-10-17T21:49:02.000Z</guid>
-      <pubDate>Sat, 17 Oct 2026 21:49:02 GMT</pubDate>
+      <guid isPermaLink="false">uses:hifiman-sundara:2026-10-17T22:49:01.000Z</guid>
+      <pubDate>Sat, 17 Oct 2026 22:49:01 GMT</pubDate>
       <description><![CDATA[<p>HIFIMAN's open-back planar magnetic headphones Rated 8/10.</p>]]></description>
+    </item>
+    <item>
+      <title>Uses: Hifiman HE400SE</title>
+      <link>https://lsantos.dev/gear/hifiman-he400se.html</link>
+      <guid isPermaLink="false">uses:hifiman-he400se:2026-10-17T22:45:38.000Z</guid>
+      <pubDate>Sat, 17 Oct 2026 22:45:38 GMT</pubDate>
+      <description><![CDATA[<p>HIFIMAN's entry-level open-back planar magnetic headphones Rated 7/10.</p>]]></description>
     </item>
     <item>
       <title>Project: blog.lsantos.dev updated</title>
