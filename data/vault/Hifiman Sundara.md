@@ -20,7 +20,7 @@ type:
   - over-ear
   - planar-magnetic
   - hifi
-updatedAt: 2026-10-17T21:07:15Z
+updatedAt: 2026-10-17T21:22:21Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 ---
@@ -57,7 +57,9 @@ There's a leather strip inside to make a suspension band, which I like a lot for
 1. It's easier to store the headphone without bending it
 2. It's more comfortable
 
+The headphone itself is quite heavy. I think it weights like 400g, but it's surprisingly comfortable to use, the only thing that I notice is that my ears are a bit large to fit the cups, so maybe getting different cups would be the solution?
 
+Over all, it's a __very solid__ headphone. The drivers do have some interesting quirks. Planar magnetic drives are usually bigger because, different from their dynamic driver counterparts, 
 
 ## Final thoughts
 
