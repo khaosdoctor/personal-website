@@ -21,7 +21,7 @@ type:
   - over-ear
   - planar-magnetic
   - hifi
-updatedAt: 2026-10-17T21:50:17Z
+updatedAt: 2026-10-17T22:10:46Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 ---
@@ -43,6 +43,10 @@ x-personal-site-export-type: uses
 ## Description
 
 HIFIMAN's entry-level open-back planar magnetic headphones. The international version came out in [[2021]] with HIFIMAN's "stealth magnets", shaped so sound passes through them with less interference, and at launch it was the most affordable headphone HIFIMAN had made.
+
+I couldn't find a [[Frequency Response Chart|Frequency Response]] chart from SoundGuys to make it standard, but I got one from Bad Guy:
+
+![[graph 1.png]]
 
 ## Impressions
 
