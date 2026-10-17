@@ -1,26 +1,22 @@
 ---
-aliases:
-  - HIFIMAN Sundara
-  - Sundara
+aliases: [HIFIMAN Sundara, Sundara]
 coverUrl: https://eu.hifiman.com/cdn/shop/files/sundara-1_b5a5a71c-2b29-4687-b070-a50102311809.jpg?v=1758524917&width=1946
 createdAt: 2026-10-17T00:00:00Z
 icon: 🎧
 lastEditedByAI: 2026-10-17T00:00:00Z
-oneliner: HIFIMAN's open-back planar magnetic headphones
-personalRating:
+oneliner: "HIFIMAN's open-back planar magnetic headphones"
+personalRating: 8
 state:
   - owned
   - second-hand
-tags:
-  - topic/music/gear/headphones
-  - type/equipment/headphones
-  - meta/ai-assisted
+  - actively-used
+tags: [topic/music/gear/headphones, type/equipment/headphones, meta/ai-assisted]
 type:
   - open-back
   - over-ear
   - planar-magnetic
   - hifi
-updatedAt: 2026-10-17T21:41:02Z
+updatedAt: 2026-10-17T21:49:02Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 ---
@@ -76,7 +72,7 @@ There's a leather strip inside to make a suspension band, which I like a lot for
 
 The headphone itself is quite heavy. I think it weights like 400g, but it's surprisingly comfortable to use, the only thing that I notice is that my ears are a bit large to fit the cups, so maybe getting different cups would be the solution?
 
-Over all, it's a __very solid__ headphone. The drivers do have some interesting quirks. Planar magnetic drives are usually bigger because, different from their dynamic driver counterparts, they need quite big magnets, so the whole thing is bigger (the cups are huge) but they're, in theory, brighter and more defined as the diaphragm can move faster and stop faster as well.
+Over all, it's a **very solid** headphone. The drivers do have some interesting quirks. Planar magnetic drives are usually bigger because, different from their dynamic driver counterparts, they need quite big magnets, so the whole thing is bigger (the cups are huge) but they're, in theory, brighter and more defined as the diaphragm can move faster and stop faster as well.
 
 This is quite true, I can clearly notice that [[Middle frequencies (sound)|Mids]] are more defined, especially on the voice level and the high mids close to the "attack" range. So snares and cymbals usually also sound better.
 
@@ -85,6 +81,8 @@ A good thing is that the cable is detachable, and each cup has one 3.5mm jack, w
 The fact that it also doesn't fold is a bit annoying. But on the sound, compared to other open backs like the [[Beyerdynamics DT 990 Pro]] and the [[Zaylli Lyrö|Lyrö]], I noticed it is brighter, the sound is more "filled", even though I did [[Equalizer (audio effect)|EQ]] it
 
 ## Final thoughts
+
+It's a very good headphone, probably the sturdiest I have. But I don't think the price is justified. I got this a second hand with a very good price, so it was ok, but I wouldn't buy a new one for the full price, I would probably get the [[Hifiman HE400SE|HE400se]] even though it looks more "plastic".
 
 ## Related
 

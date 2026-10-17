@@ -1,20 +1,27 @@
 ---
-aliases: [HIFIMAN HE400se, HE400se]
+aliases:
+  - HIFIMAN HE400se
+  - HE400se
 coverUrl: https://audiokauppa.fi/cdn/shop/products/hifiman-he400se-kuulokkeet-5348171.jpg?v=1772488766
 createdAt: 2026-10-17T00:00:00Z
 icon: 🎧
 lastEditedByAI: 2026-10-17T00:00:00Z
-oneliner: "HIFIMAN's entry-level open-back planar magnetic headphones"
+oneliner: HIFIMAN's entry-level open-back planar magnetic headphones
 personalRating:
 state:
   - owned
-tags: [topic/music/gear/headphones, type/equipment/headphones, meta/ai-assisted]
+  - second-hand
+  - not-actively-used
+tags:
+  - topic/music/gear/headphones
+  - type/equipment/headphones
+  - meta/ai-assisted
 type:
   - open-back
   - over-ear
   - planar-magnetic
   - hifi
-updatedAt: 2026-10-17T20:04:53Z
+updatedAt: 2026-10-17T21:50:17Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 ---
@@ -35,9 +42,11 @@ x-personal-site-export-type: uses
 
 ## Description
 
-HIFIMAN's entry-level open-back planar magnetic headphones. The international version came out in [[2021]] with HIFIMAN's "stealth magnets", shaped so sound passes through them with less interference ([Bloom Audio](https://bloomaudio.com/products/hifiman-he-400se)), and at launch it was the most affordable headphone HIFIMAN had made ([Secrets of Home Theater and High Fidelity](https://hometheaterhifi.com/news/product-previews/hifiman-he400se-planar-magnetic-headphone-preview/)).
+HIFIMAN's entry-level open-back planar magnetic headphones. The international version came out in [[2021]] with HIFIMAN's "stealth magnets", shaped so sound passes through them with less interference, and at launch it was the most affordable headphone HIFIMAN had made.
 
 ## Impressions
+
+
 
 ## Final thoughts
 
