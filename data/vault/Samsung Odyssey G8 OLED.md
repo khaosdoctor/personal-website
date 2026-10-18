@@ -8,7 +8,7 @@ personalRating: 9.2
 state:
   - owned
   - actively-used
-tags: [topic/computing/hardware/monitors, type/equipment/monitor]
+tags: [topic/computing/hardware/monitors, type/equipment/display]
 type:
   - oled
   - 4k

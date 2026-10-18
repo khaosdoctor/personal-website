@@ -8,7 +8,7 @@ personalRating: 9
 state:
   - owned
   - actively-used
-tags: [topic/3d-printing/printers, type/equipment/3d-printer]
+tags: [type/equipment/3d-printer, topic/3d-printing/gear]
 type:
   - fdm
   - bed-slinger

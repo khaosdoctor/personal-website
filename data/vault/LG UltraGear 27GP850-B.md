@@ -12,7 +12,7 @@ state:
   - second-hand
 tags:
   - topic/computing/hardware/monitors
-  - type/equipment/monitor
+  - type/equipment/display
 type:
   - ips
   - 1440p
