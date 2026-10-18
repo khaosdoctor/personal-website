@@ -9,7 +9,7 @@ state:
   - owned
   - actively-used
   - second-hand
-tags: [topic/music/gear/pedal, type/equipment/guitar-pedal, meta/ai-assisted]
+tags: [topic/music/gear/pedals, type/equipment/guitar-pedal, meta/ai-assisted]
 type:
   - compressor
   - sustainer

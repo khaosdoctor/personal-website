@@ -7,7 +7,7 @@ oneliner: Two LM2596 buck converters with added protection, in 3D-printed enclos
 status: built
 tags:
   - topic/electronics
-  - topic/music/gear/pedal
+  - topic/music/gear/pedals
   - type/idea/project
   - meta/ai-assisted
 updatedAt: 2026-10-12T20:36:18Z
