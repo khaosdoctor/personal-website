@@ -21,7 +21,7 @@ type:
   - over-ear
   - planar-magnetic
   - hifi
-updatedAt: 2026-10-19T22:22:23Z
+updatedAt: 2026-10-19T22:23:53Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 ---
@@ -105,7 +105,7 @@ The headphone itself is quite heavy. I think it weights like 400g, but it's surp
 
 Over all, it's a **very solid** headphone. The drivers do have some interesting quirks. Planar magnetic drives are usually bigger because, different from their dynamic driver counterparts, they need quite big magnets, so the whole thing is bigger (the cups are huge) but they're, in theory, brighter and more defined as the diaphragm can move faster and stop faster as well.
 
-This is quite true, I can clearly notice that [[Middle frequencies (sound)|Mids]] are more defined, especially on the voice level and the high mids close to the "attack" range. So snares and cymbals usually also sound better.
+This is quite true, I can clearly notice that [[Middle frequencies (sound)|Mids]] are more defined, especially on the voice level and the high mids close to the "attack" range. So snares and cymbals usually also sound better. And the most amazing thing is that some songs I couldn't tell what the artist was singing are now super clear, this was my "aha!" moment.
 
 A good thing is that the cable is detachable, and each cup has one 3.5mm jack, which is a good thing because I can just replace the cable, which is, by far, the worst part of this headphone. It is _super_ wonky and looks cheap. Other than that it's all good.
 
