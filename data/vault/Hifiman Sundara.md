@@ -7,7 +7,7 @@ createdAt: 2026-10-17T00:00:00Z
 icon: 🎧
 lastEditedByAI: 2026-10-17T00:00:00Z
 oneliner: HIFIMAN's open-back planar magnetic headphones
-personalRating: 8
+personalRating: 9.4
 state:
   - owned
   - second-hand
@@ -21,7 +21,7 @@ type:
   - over-ear
   - planar-magnetic
   - hifi
-updatedAt: 2026-10-17T22:49:01Z
+updatedAt: 2026-10-19T22:22:23Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 ---
@@ -42,7 +42,7 @@ x-personal-site-export-type: uses
 
 ## Description
 
-Open-back planar magnetic headphones from HIFIMAN, launched in February [[2018]] with a diaphragm HIFIMAN says is 80% thinner than the one in the HE400 series ([SoundGuys](https://www.soundguys.com/hifiman-sundara-review-73267/)). In practice, I haven't really noticed anything different, the Sundara is quieter, I think it's harder to drive than the HE400SE
+Open-back [[Planar Magnetic Drives (headphone)|planar magnetic]] headphones from HIFIMAN, launched in February [[2018]] with a diaphragm HIFIMAN says is 80% thinner than the one in the HE400 series. In practice, I haven't really noticed anything different, the Sundara is quieter, but people say it's not because it's harder to drive, but because the initial response is below the average input volume.
 
 I mainly bought this to test a planar magnetic headphone which was a new thing to me. For what I have been seeing, it's has quite remarkable [[Frequency Response Chart|Frequency Response]] chart:
 
@@ -66,6 +66,32 @@ Filter 9: ON PK Fc 280 Hz Gain -0.8 dB Q 2.02
 Filter 10: ON PK Fc 487 Hz Gain 0.9 dB Q 2.40
 ```
 
+There's also the SoundGuys curves for studio:
+
+```txt
+Preamp: 0 db
+Filter 1: ON PK Fc 1582 Hz Gain -0.3 dB Q 1.01
+Filter 2: ON PK Fc 3471 Hz Gain -0.8 dB Q 4.55
+Filter 3: ON PK Fc 4517 Hz Gain -2 dB Q 4.42
+Filter 4: ON PK Fc 6733 Hz Gain -1.6 dB Q 3.71
+Filter 5: ON PK Fc 6757 Hz Gain -2.8 dB Q 3.7
+Filter 6: ON PK Fc 8782 Hz Gain -2.6 dB Q 3.24
+```
+
+And a standard curve, which I prefer:
+
+```txt
+Preamp: 0 db
+Filter 1: ON PK Fc 1582 Hz Gain -0.3 dB Q 1.01
+Filter 2: ON PK Fc 2278 Hz Gain 0.6 dB Q 1
+Filter 3: ON PK Fc 3471 Hz Gain -0.8 dB Q 4.55
+Filter 4: ON PK Fc 4517 Hz Gain -2 dB Q 4.42
+Filter 5: ON PK Fc 6733 Hz Gain -1.6 dB Q 3.71
+Filter 6: ON PK Fc 6757 Hz Gain -2.8 dB Q 3.7
+Filter 7: ON PK Fc 8782 Hz Gain -2.6 dB Q 3.24
+Filter 8: ON LSC Fc 50 Hz Gain 7 dB Q 1
+```
+
 ## Impressions
 
 Initially, the box was super well packed, and quite fancy, with some clothing there to make it luxury. But the overall construction of the headphone is pretty solid. The whole thing is metal, even the cups, only the cushions are not.
@@ -87,7 +113,7 @@ The fact that it also doesn't fold is a bit annoying. But on the sound, compared
 
 ## Final thoughts
 
-It's a very good headphone, probably the sturdiest I have. But I don't think the price is justified. I got this a second hand with a very good price, so it was ok, but I wouldn't buy a new one for the full price, I would probably get the [[Hifiman HE400SE|HE400se]] even though it looks more "plastic".
+It's a very good headphone, probably the sturdiest I have. But I don't think the price is justified, the planar drives are really good and they really showcase interesting things in the music, but at this price I think there are better ones with [[Dynamic Drives (headphone)|dynamic drives]]. I got this a second hand with a very good price, so it was ok, but I wouldn't buy a new one for the full price, I would probably get the [[Hifiman HE400SE|HE400se]] even though it looks more "plastic".
 
 ## Related
 
