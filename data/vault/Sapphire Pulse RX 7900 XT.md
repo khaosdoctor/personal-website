@@ -12,6 +12,7 @@ state:
   - second-hand
 tags:
   - type/equipment/gpu
+  - topic/computing/hardware
 type:
   - gpu
 updatedAt: 2026-10-07T01:08:13Z

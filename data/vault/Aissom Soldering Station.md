@@ -8,7 +8,7 @@ personalRating: 6.5
 state:
   - owned
   - actively-used
-tags: [topic/electronics/tools, type/equipment/hand-tool]
+tags: [topic/electronics/tools, type/equipment/tool]
 type:
   - soldering
 updatedAt: 2026-10-13T19:03:58Z

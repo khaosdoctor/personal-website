@@ -10,6 +10,7 @@ state:
   - actively-used
 tags:
   - type/equipment/case
+  - topic/computing/hardware
 type:
   - pc-case
 updatedAt: 2026-09-27T02:37:40Z

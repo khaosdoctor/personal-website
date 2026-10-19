@@ -8,7 +8,7 @@ personalRating: 9.8
 state:
   - owned
   - actively-used
-tags: [type/equipment/cpu-cooler]
+tags: [type/equipment/cpu-cooler, topic/computing/hardware]
 type:
   - air-cooler
   - dual-tower

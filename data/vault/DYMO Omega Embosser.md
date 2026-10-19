@@ -10,7 +10,7 @@ state:
   - previously-owned
 tags:
   - topic/electronics/tools
-  - type/equipment/hand-tool
+  - type/equipment/tool
 type:
   - labelling
   - embosser

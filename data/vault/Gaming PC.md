@@ -8,7 +8,7 @@ personalRating: 9.6
 state:
   - owned
   - actively-used
-tags: [type/equipment/computer, topic/games/gear]
+tags: [type/equipment/computer, topic/games/gear, topic/computing/hardware]
 type:
   - desktop
   - gaming

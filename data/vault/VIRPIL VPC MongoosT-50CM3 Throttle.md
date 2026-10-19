@@ -11,8 +11,8 @@ state:
   - owned
   - actively-used
 tags:
-  - topic/games/flight-sim/gear
   - type/equipment/flight-controls
+  - topic/games/gear
 type:
   - throttle
   - hotas
