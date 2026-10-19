@@ -1,16 +1,21 @@
 ---
-aliases: [HIFIMAN HE400se, HE400se]
+aliases:
+  - HIFIMAN HE400se
+  - HE400se
 coverUrl: https://audiokauppa.fi/cdn/shop/products/hifiman-he400se-kuulokkeet-5348171.jpg?v=1772488766
 createdAt: 2026-10-17T00:00:00Z
 icon: 🎧
 lastEditedByAI: 2026-10-17T00:00:00Z
-oneliner: "HIFIMAN's entry-level open-back planar magnetic headphones"
+oneliner: HIFIMAN's entry-level open-back planar magnetic headphones
 personalRating: 7
 state:
   - owned
   - second-hand
   - not-actively-used
-tags: [topic/music/gear/headphones, type/equipment/headphones, meta/ai-assisted]
+tags:
+  - topic/music/gear/headphones
+  - type/equipment/headphones
+  - meta/ai-assisted
 type:
   - open-back
   - over-ear
