@@ -78,6 +78,13 @@
       <description><![CDATA[<p>Compressed memory format for Claude Code (done) <a href="https://github.com/khaosdoctor/sigil">https://github.com/khaosdoctor/sigil</a></p>]]></description>
     </item>
     <item>
+      <title>Uses: Aissom Soldering Station (Conflicted copy Maxwell 202610191757)</title>
+      <link>https://lsantos.dev/gear/aissom-soldering-station-conflicted-copy-maxwell-202610191757.html</link>
+      <guid isPermaLink="false">uses:aissom-soldering-station-conflicted-copy-maxwell-202610191757:2026-10-13T19:03:58.000Z</guid>
+      <pubDate>Tue, 13 Oct 2026 19:03:58 GMT</pubDate>
+      <description><![CDATA[<p>Electronics soldering station Rated 6.5/10.</p>]]></description>
+    </item>
+    <item>
       <title>Uses: Aissom Soldering Station</title>
       <link>https://lsantos.dev/gear/aissom-soldering-station.html</link>
       <guid isPermaLink="false">uses:aissom-soldering-station:2026-10-13T19:03:58.000Z</guid>
@@ -139,13 +146,6 @@
       <guid isPermaLink="false">build:ibanez-tube-screamer-diy:2026-10-12T00:41:10.000Z</guid>
       <pubDate>Mon, 12 Oct 2026 00:41:10 GMT</pubDate>
       <description><![CDATA[<p>DIY build of the Ibanez TS808 Tube Screamer, one of the most iconic overdrive pedals ever made.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Klon Centaur Clone</title>
-      <link>https://lsantos.dev/gear/klon-centaur-clone.html</link>
-      <guid isPermaLink="false">uses:klon-centaur-clone:2026-10-12T00:41:00.000Z</guid>
-      <pubDate>Mon, 12 Oct 2026 00:41:00 GMT</pubDate>
-      <description><![CDATA[<p>Handbuilt Klon Centaur clone, my first DIY pedal build Rated 8.8/10.</p>]]></description>
     </item>
   </channel>
 </rss>
