@@ -38,7 +38,7 @@ This is the grip of the HOTAS, the original Constellation Alpha on a VPC WarBRD 
 
 It's a space-sim oriented grip with a dual-stage trigger, a hinged second trigger, three 4-way hats and a 2-way hat, a brake lever, a scroll encoder and an analogue ministick, all on top of a lockable twist axis, there are a **lot** of buttons in this thing.
 
-It's quite versatile because I use it to play [[Elite Dangerous (game)|Elite Dangerous]] and [[Euro Truck Simulator 2]], which are wildly different games, as you can imagine.
+It's quite versatile because I use it to play [[Elite - Dangerous (2014)|Elite Dangerous]] and [[Euro Truck Simulator 2]], which are wildly different games, as you can imagine.
 
 Before this I had a Thrustmaster, a T.16000M I think. It was very good and I liked it a lot, but it was a bit bulky. You can swap the springs and the cams in the base to suit the kind of game you play. Mine came from the factory with flight sim springs, and I still need to swap them for space sim ones, which is simple, VIRPIL has a tutorial for it on their site along with a lot of other good stuff.
 
