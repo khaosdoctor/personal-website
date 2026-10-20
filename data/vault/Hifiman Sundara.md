@@ -1,27 +1,22 @@
 ---
-aliases:
-  - HIFIMAN Sundara
-  - Sundara
+aliases: [HIFIMAN Sundara, Sundara]
 coverUrl: https://eu.hifiman.com/cdn/shop/files/sundara-1_b5a5a71c-2b29-4687-b070-a50102311809.jpg?v=1758524917&width=1946
 createdAt: 2026-10-17T00:00:00Z
 icon: 🎧
 lastEditedByAI: 2026-10-17T00:00:00Z
-oneliner: HIFIMAN's open-back planar magnetic headphones
+oneliner: "HIFIMAN's open-back planar magnetic headphones"
 personalRating: 9.4
 state:
   - owned
   - second-hand
   - actively-used
-tags:
-  - topic/music/gear/headphones
-  - type/equipment/headphones
-  - meta/ai-assisted
+tags: [topic/music/gear/headphones, type/equipment/headphones, meta/ai-assisted]
 type:
   - open-back
   - over-ear
   - planar-magnetic
   - hifi
-updatedAt: 2026-10-19T22:23:53Z
+updatedAt: 2026-10-20T18:25:54Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 ---
