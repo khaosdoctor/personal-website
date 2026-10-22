@@ -3,12 +3,14 @@ aliases: []
 coverUrl: https://m.media-amazon.com/images/I/71bftLf00jL._AC_SX679_.jpg
 createdAt: 2026-06-16T00:00:00Z
 icon: 🛠️
-oneliner: "Electronics soldering station"
+oneliner: Electronics soldering station
 personalRating: 6.5
 state:
   - owned
   - actively-used
-tags: [topic/electronics/tools, type/equipment/tool]
+tags:
+  - topic/electronics/tools
+  - type/equipment/tool
 type:
   - soldering
 updatedAt: 2026-10-13T19:03:58Z
