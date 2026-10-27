@@ -8,6 +8,13 @@
     <atom:link href="https://lsantos.dev/feed.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://blog.lsantos.dev/en/rss.xml" rel="related" type="application/rss+xml"/>
     <item>
+      <title>Uses: Fosi Audio SK02</title>
+      <link>https://lsantos.dev/gear/fosi-audio-sk02.html</link>
+      <guid isPermaLink="false">uses:fosi-audio-sk02:2026-10-27T21:45:03.000Z</guid>
+      <pubDate>Tue, 27 Oct 2026 21:45:03 GMT</pubDate>
+      <description><![CDATA[<p>Fosi Audio's desktop USB / optical DAC and headphone amp with 3.5 mm and 4.4 mm balanced outputs</p>]]></description>
+    </item>
+    <item>
       <title>Uses: Hifiman Sundara</title>
       <link>https://lsantos.dev/gear/hifiman-sundara.html</link>
       <guid isPermaLink="false">uses:hifiman-sundara:2026-10-20T18:25:54.000Z</guid>
@@ -139,13 +146,6 @@
       <guid isPermaLink="false">build:ibanez-tube-screamer-diy:2026-10-12T00:41:10.000Z</guid>
       <pubDate>Mon, 12 Oct 2026 00:41:10 GMT</pubDate>
       <description><![CDATA[<p>DIY build of the Ibanez TS808 Tube Screamer, one of the most iconic overdrive pedals ever made.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Klon Centaur Clone</title>
-      <link>https://lsantos.dev/gear/klon-centaur-clone.html</link>
-      <guid isPermaLink="false">uses:klon-centaur-clone:2026-10-12T00:41:00.000Z</guid>
-      <pubDate>Mon, 12 Oct 2026 00:41:00 GMT</pubDate>
-      <description><![CDATA[<p>Handbuilt Klon Centaur clone, my first DIY pedal build Rated 8.8/10.</p>]]></description>
     </item>
   </channel>
 </rss>

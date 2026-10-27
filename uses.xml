@@ -7,6 +7,13 @@
     <language>en</language>
     <atom:link href="https://lsantos.dev/uses.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Uses: Fosi Audio SK02</title>
+      <link>https://lsantos.dev/gear/fosi-audio-sk02.html</link>
+      <guid isPermaLink="false">uses:fosi-audio-sk02:2026-10-27T21:45:03.000Z</guid>
+      <pubDate>Tue, 27 Oct 2026 21:45:03 GMT</pubDate>
+      <description><![CDATA[<p>Fosi Audio's desktop USB / optical DAC and headphone amp with 3.5 mm and 4.4 mm balanced outputs</p>]]></description>
+    </item>
+    <item>
       <title>Uses: Hifiman Sundara</title>
       <link>https://lsantos.dev/gear/hifiman-sundara.html</link>
       <guid isPermaLink="false">uses:hifiman-sundara:2026-10-20T18:25:54.000Z</guid>
@@ -138,13 +145,6 @@
       <guid isPermaLink="false">uses:argon-audio-7350a:2026-10-03T00:00:00.000Z</guid>
       <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[<p>Danish active bookshelf speakers with a 30 W class AB amp in the left unit. I use it mainly to drive the Fluance Turntable and sometimes with cellphones in my &quot;audio room&quot; Rated 8/10.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Bambu Lab A1 Mini</title>
-      <link>https://lsantos.dev/gear/bambu-lab-a1-mini.html</link>
-      <guid isPermaLink="false">uses:bambu-lab-a1-mini:2026-10-03T00:00:00.000Z</guid>
-      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
-      <description><![CDATA[<p>Compact 180 mm bed-slinger FDM printer with the 4-slot AMS lite for multi-color prints. My first 3D printer Rated 9/10.</p>]]></description>
     </item>
   </channel>
 </rss>
