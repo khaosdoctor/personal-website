@@ -1,22 +1,27 @@
 ---
-aliases: [SK02, SK-02]
+aliases:
+  - SK02
+  - SK-02
 coverUrl: https://cdn.shopify.com/s/files/1/0818/9706/2618/files/SK02_b05d080d-15a5-4d58-9637-4ef3ed0df291.jpg?v=1776428562
 createdAt: 2026-10-27T00:00:00Z
 icon: 🏹
 lastEditedByAI: 2026-10-27T00:00:00Z
-oneliner: "Fosi Audio's desktop USB / optical DAC and headphone amp with 3.5 mm and 4.4 mm balanced outputs"
-personalRating:
+oneliner: Fosi Audio's desktop USB / optical DAC and headphone amp with 3.5 mm and 4.4 mm balanced outputs
+personalRating: 8
 state:
   - owned
   - actively-used
-tags: [topic/music/gear/headphones, type/equipment/headphone-amp, meta/ai-assisted]
+tags:
+  - topic/music/gear/headphones
+  - type/equipment/headphone-amp
+  - meta/ai-assisted
 type:
   - dac
   - headphone-amp
   - preamp
   - usb
   - balanced
-updatedAt: 2026-10-27T21:45:03Z
+updatedAt: 2026-10-28T22:49:44Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 x-personal-site-parent: "[[Gaming PC]]"
@@ -59,6 +64,9 @@ The headphone amp on the [[Gaming PC]]. It's basically a glorified volume contro
 It's a single CNC-machined aluminium body with one big knob that handles power, play/pause and volume, plus buttons for the gain and input modes. It's driverless over USB, and the line out lets it work as a preamp for active speakers or a power amp too.
 
 ## Impressions
+Needed to get one of those just because I didn't want to have my [[Hifiman Sundara|Sundara]] connected to the [[Blue Yeti|Yeti]] monitor, because the monitor also relays all the audio from the microphone (after all, it's a _monitor_).
+
+I tried to input this into the [[DeepCool CH560 Digital]] audio output, but I think I did 
 
 ## Final thoughts
 
