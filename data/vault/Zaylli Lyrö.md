@@ -1,14 +1,18 @@
 ---
-aliases: [Lyrö]
+aliases:
+  - Lyrö
 coverUrl: https://raw.githubusercontent.com/khaosdoctor/blog-assets/master/images/gear/zaylli-lyr.webp
 createdAt: 2026-06-16T17:21:00Z
 icon: 🎧
-oneliner: "My first proper hifi gear with detachable cables and on-ear."
+oneliner: My first proper hifi gear with detachable cables and on-ear.
 personalRating: 8.8
 state:
   - owned
   - not-actively-used
-tags: [type/equipment/headphones, topic/music/gear/headphones, meta/ai-assisted]
+tags:
+  - type/equipment/headphones
+  - topic/music/gear/headphones
+  - meta/ai-assisted
 type:
   - hi-fi
   - semi-open-back
