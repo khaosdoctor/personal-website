@@ -7,6 +7,27 @@
     <language>en</language>
     <atom:link href="https://lsantos.dev/projects.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Project: my-notes updated</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:my-notes:ee0d198307e9ed0a73d7ab436b4d1fb72caa2f86</guid>
+      <pubDate>Fri, 13 Nov 2026 22:22:50 GMT</pubDate>
+      <description><![CDATA[<p>A repo with my study notes, this was my way in to OSS (archived) <a href="https://github.com/khaosdoctor/my-notes">https://github.com/khaosdoctor/my-notes</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: OpenSynapse added</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:OpenSynapse:ee0d198307e9ed0a73d7ab436b4d1fb72caa2f86</guid>
+      <pubDate>Fri, 13 Nov 2026 22:22:50 GMT</pubDate>
+      <description><![CDATA[<p>Synapse from Razer, but for Linux (active) <a href="https://github.com/khaosdoctor/opensynapse">https://github.com/khaosdoctor/opensynapse</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: proton-drive-linux-fs updated</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:proton-drive-linux-fs:ee0d198307e9ed0a73d7ab436b4d1fb72caa2f86</guid>
+      <pubDate>Fri, 13 Nov 2026 22:22:50 GMT</pubDate>
+      <description><![CDATA[<p>FUSE virtual filesystem for Proton Drive on Linux (done) <a href="https://github.com/khaosdoctor/proton-drive-linux-fs">https://github.com/khaosdoctor/proton-drive-linux-fs</a></p>]]></description>
+    </item>
+    <item>
       <title>Project: blog.lsantos.dev updated</title>
       <link>https://lsantos.dev/projects</link>
       <guid isPermaLink="false">project:blog.lsantos.dev:9058f11fbad4dabfbd09f6d37f04d5c18b01a987</guid>
@@ -124,27 +145,6 @@
       <guid isPermaLink="false">project:netkill:91b4119e14f67cbd639c95882bf4e6ba2f4cde86</guid>
       <pubDate>Tue, 22 Sep 2026 00:56:12 GMT</pubDate>
       <description><![CDATA[<p>Kills the Internet connection of LAN devices using ARP spoofing, ideal for ADHD (archived) <a href="https://github.com/khaosdoctor/netkill">https://github.com/khaosdoctor/netkill</a></p>]]></description>
-    </item>
-    <item>
-      <title>Project: dontquotetheai added</title>
-      <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:dontquotetheai:66dff9dc5f30bd1b362cfac0e993c7372661bec1</guid>
-      <pubDate>Tue, 22 Sep 2026 00:48:55 GMT</pubDate>
-      <description><![CDATA[<p>Don't paste the AI response at me, please (active) <a href="https://github.com/khaosdoctor/dontquotetheai">https://github.com/khaosdoctor/dontquotetheai</a></p>]]></description>
-    </item>
-    <item>
-      <title>Project: dotfiles added</title>
-      <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:dotfiles:66dff9dc5f30bd1b362cfac0e993c7372661bec1</guid>
-      <pubDate>Tue, 22 Sep 2026 00:48:55 GMT</pubDate>
-      <description><![CDATA[<p>My dotfiles (active) <a href="https://github.com/khaosdoctor/dotfiles">https://github.com/khaosdoctor/dotfiles</a></p>]]></description>
-    </item>
-    <item>
-      <title>Project: enigmajs added</title>
-      <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:enigmajs:66dff9dc5f30bd1b362cfac0e993c7372661bec1</guid>
-      <pubDate>Tue, 22 Sep 2026 00:48:55 GMT</pubDate>
-      <description><![CDATA[<p>Full implementation of the 1944 German cryptographic machine in TypeScript (archived) <a href="https://github.com/khaosdoctor/enigmajs">https://github.com/khaosdoctor/enigmajs</a></p>]]></description>
     </item>
   </channel>
 </rss>

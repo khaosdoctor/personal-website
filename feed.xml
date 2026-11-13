@@ -8,6 +8,27 @@
     <atom:link href="https://lsantos.dev/feed.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://blog.lsantos.dev/en/rss.xml" rel="related" type="application/rss+xml"/>
     <item>
+      <title>Project: my-notes updated</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:my-notes:ee0d198307e9ed0a73d7ab436b4d1fb72caa2f86</guid>
+      <pubDate>Fri, 13 Nov 2026 22:22:50 GMT</pubDate>
+      <description><![CDATA[<p>A repo with my study notes, this was my way in to OSS (archived) <a href="https://github.com/khaosdoctor/my-notes">https://github.com/khaosdoctor/my-notes</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: OpenSynapse added</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:OpenSynapse:ee0d198307e9ed0a73d7ab436b4d1fb72caa2f86</guid>
+      <pubDate>Fri, 13 Nov 2026 22:22:50 GMT</pubDate>
+      <description><![CDATA[<p>Synapse from Razer, but for Linux (active) <a href="https://github.com/khaosdoctor/opensynapse">https://github.com/khaosdoctor/opensynapse</a></p>]]></description>
+    </item>
+    <item>
+      <title>Project: proton-drive-linux-fs updated</title>
+      <link>https://lsantos.dev/projects</link>
+      <guid isPermaLink="false">project:proton-drive-linux-fs:ee0d198307e9ed0a73d7ab436b4d1fb72caa2f86</guid>
+      <pubDate>Fri, 13 Nov 2026 22:22:50 GMT</pubDate>
+      <description><![CDATA[<p>FUSE virtual filesystem for Proton Drive on Linux (done) <a href="https://github.com/khaosdoctor/proton-drive-linux-fs">https://github.com/khaosdoctor/proton-drive-linux-fs</a></p>]]></description>
+    </item>
+    <item>
       <title>Uses: Fosi Audio SK02</title>
       <link>https://lsantos.dev/gear/fosi-audio-sk02.html</link>
       <guid isPermaLink="false">uses:fosi-audio-sk02:2026-10-28T23:04:57.000Z</guid>
@@ -125,27 +146,6 @@
       <guid isPermaLink="false">uses:boss-pw-3-wah:2026-10-12T01:44:36.000Z</guid>
       <pubDate>Mon, 12 Oct 2026 01:44:36 GMT</pubDate>
       <description><![CDATA[<p>Boss wah pedal Rated 6/10.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Behringer EQ700 Graphic Equalizer</title>
-      <link>https://lsantos.dev/gear/behringer-eq700-graphic-equalizer.html</link>
-      <guid isPermaLink="false">uses:behringer-eq700-graphic-equalizer:2026-10-12T01:40:44.000Z</guid>
-      <pubDate>Mon, 12 Oct 2026 01:40:44 GMT</pubDate>
-      <description><![CDATA[<p>7-band graphic EQ pedal, Behringer's take on the Boss GE-7 Rated 8/10.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: DIY Digital Tape Delay</title>
-      <link>https://lsantos.dev/gear/diy-digital-tape-delay.html</link>
-      <guid isPermaLink="false">uses:diy-digital-tape-delay:2026-10-12T01:32:04.000Z</guid>
-      <pubDate>Mon, 12 Oct 2026 01:32:04 GMT</pubDate>
-      <description><![CDATA[<p>Handbuilt PT2399-based delay pedal kit from DIY Music Gear Rated 8/10.</p>]]></description>
-    </item>
-    <item>
-      <title>Build: Ibanez Tube Screamer DIY (planned)</title>
-      <link>https://lsantos.dev/builds/ibanez-tube-screamer-diy.html</link>
-      <guid isPermaLink="false">build:ibanez-tube-screamer-diy:2026-10-12T00:41:10.000Z</guid>
-      <pubDate>Mon, 12 Oct 2026 00:41:10 GMT</pubDate>
-      <description><![CDATA[<p>DIY build of the Ibanez TS808 Tube Screamer, one of the most iconic overdrive pedals ever made.</p>]]></description>
     </item>
   </channel>
 </rss>
