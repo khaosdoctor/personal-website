@@ -1,9 +1,15 @@
 [
   {
+    "name": "OpenSynapse",
+    "url": "https://github.com/khaosdoctor/opensynapse",
+    "description": "Synapse from Razer, but for Linux",
+    "status": "active"
+  },
+  {
     "name": "proton-drive-linux-fs",
     "url": "https://github.com/khaosdoctor/proton-drive-linux-fs",
     "description": "FUSE virtual filesystem for Proton Drive on Linux",
-    "status": "active"
+    "status": "done"
   },
   {
     "name": "sigil",
@@ -33,7 +39,7 @@
     "name": "my-notes",
     "url": "https://github.com/khaosdoctor/my-notes",
     "description": "A repo with my study notes, this was my way in to OSS",
-    "status": "done"
+    "status": "archived"
   },
   {
     "name": "zaqar",
