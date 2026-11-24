@@ -8,6 +8,20 @@
     <atom:link href="https://lsantos.dev/feed.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://blog.lsantos.dev/en/rss.xml" rel="related" type="application/rss+xml"/>
     <item>
+      <title>Uses: Kuba Auri</title>
+      <link>https://lsantos.dev/gear/kuba-auri.html</link>
+      <guid isPermaLink="false">uses:kuba-auri:2026-11-24T02:21:16.000Z</guid>
+      <pubDate>Tue, 24 Nov 2026 02:21:16 GMT</pubDate>
+      <description><![CDATA[<p>Kuba's wired USB-C in-ear with the DAC and EQ built into the plug Rated 9/10.</p>]]></description>
+    </item>
+    <item>
+      <title>Uses: DIY Classic 68 Tremolo</title>
+      <link>https://lsantos.dev/gear/diy-classic-68-tremolo.html</link>
+      <guid isPermaLink="false">uses:diy-classic-68-tremolo:2026-11-24T02:09:45.000Z</guid>
+      <pubDate>Tue, 24 Nov 2026 02:09:45 GMT</pubDate>
+      <description><![CDATA[<p>Handbuilt analog tremolo kit from DIY Music Gear, based on the EA 68 circuit Rated 5/10.</p>]]></description>
+    </item>
+    <item>
       <title>Project: my-notes updated</title>
       <link>https://lsantos.dev/projects</link>
       <guid isPermaLink="false">project:my-notes:ee0d198307e9ed0a73d7ab436b4d1fb72caa2f86</guid>
@@ -132,20 +146,6 @@
       <guid isPermaLink="false">build:fume-extractor:2026-10-12T22:58:01.000Z</guid>
       <pubDate>Mon, 12 Oct 2026 22:58:01 GMT</pubDate>
       <description><![CDATA[<p>Small project I made to test my knowledge in electronics. It's a mini 5V fume extractor made to be used when soldering.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Element Audio Buck Converters</title>
-      <link>https://lsantos.dev/gear/element-audio-buck-converters.html</link>
-      <guid isPermaLink="false">uses:element-audio-buck-converters:2026-10-12T20:36:18.000Z</guid>
-      <pubDate>Mon, 12 Oct 2026 20:36:18 GMT</pubDate>
-      <description><![CDATA[<p>Two LM2596 buck converters with added protection, in 3D-printed enclosures, powering my pedalboard.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Boss PW-3 Wah</title>
-      <link>https://lsantos.dev/gear/boss-pw-3-wah.html</link>
-      <guid isPermaLink="false">uses:boss-pw-3-wah:2026-10-12T01:44:36.000Z</guid>
-      <pubDate>Mon, 12 Oct 2026 01:44:36 GMT</pubDate>
-      <description><![CDATA[<p>Boss wah pedal Rated 6/10.</p>]]></description>
     </item>
   </channel>
 </rss>

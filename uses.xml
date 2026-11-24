@@ -7,6 +7,20 @@
     <language>en</language>
     <atom:link href="https://lsantos.dev/uses.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Uses: Kuba Auri</title>
+      <link>https://lsantos.dev/gear/kuba-auri.html</link>
+      <guid isPermaLink="false">uses:kuba-auri:2026-11-24T02:21:16.000Z</guid>
+      <pubDate>Tue, 24 Nov 2026 02:21:16 GMT</pubDate>
+      <description><![CDATA[<p>Kuba's wired USB-C in-ear with the DAC and EQ built into the plug Rated 9/10.</p>]]></description>
+    </item>
+    <item>
+      <title>Uses: DIY Classic 68 Tremolo</title>
+      <link>https://lsantos.dev/gear/diy-classic-68-tremolo.html</link>
+      <guid isPermaLink="false">uses:diy-classic-68-tremolo:2026-11-24T02:09:45.000Z</guid>
+      <pubDate>Tue, 24 Nov 2026 02:09:45 GMT</pubDate>
+      <description><![CDATA[<p>Handbuilt analog tremolo kit from DIY Music Gear, based on the EA 68 circuit Rated 5/10.</p>]]></description>
+    </item>
+    <item>
       <title>Uses: Fosi Audio SK02</title>
       <link>https://lsantos.dev/gear/fosi-audio-sk02.html</link>
       <guid isPermaLink="false">uses:fosi-audio-sk02:2026-10-28T23:04:57.000Z</guid>
@@ -131,20 +145,6 @@
       <guid isPermaLink="false">uses:apple-magic-mouse-2:2026-10-03T00:00:00.000Z</guid>
       <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[<p>Apple's infamous Bluetooth mouse with a Lightning charging port. Probably one of the worst UX's I ever had. I still use it when I travel though, hard to find something so small Rated 4/10.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Apple Watch Series 7</title>
-      <link>https://lsantos.dev/gear/apple-watch-series-7.html</link>
-      <guid isPermaLink="false">uses:apple-watch-series-7:2026-10-03T00:00:00.000Z</guid>
-      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
-      <description><![CDATA[<p>Good watch, not much to say. I've had it for over 5 years, don't really use it the way it should be used Rated 7/10.</p>]]></description>
-    </item>
-    <item>
-      <title>Uses: Argon Audio 7350A</title>
-      <link>https://lsantos.dev/gear/argon-audio-7350a.html</link>
-      <guid isPermaLink="false">uses:argon-audio-7350a:2026-10-03T00:00:00.000Z</guid>
-      <pubDate>Sat, 03 Oct 2026 00:00:00 GMT</pubDate>
-      <description><![CDATA[<p>Danish active bookshelf speakers with a 30 W class AB amp in the left unit. I use it mainly to drive the Fluance Turntable and sometimes with cellphones in my &quot;audio room&quot; Rated 8/10.</p>]]></description>
     </item>
   </channel>
 </rss>

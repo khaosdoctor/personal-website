@@ -7,6 +7,13 @@
     <language>en</language>
     <atom:link href="https://lsantos.dev/projects.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Build: DIY Classic 68 Tremolo (done)</title>
+      <link>https://lsantos.dev/gear/diy-classic-68-tremolo.html</link>
+      <guid isPermaLink="false">build:diy-classic-68-tremolo:2026-11-24T02:09:45.000Z</guid>
+      <pubDate>Tue, 24 Nov 2026 02:09:45 GMT</pubDate>
+      <description><![CDATA[<p>Handbuilt analog tremolo kit from DIY Music Gear, based on the EA 68 circuit Rated 5/10.</p>]]></description>
+    </item>
+    <item>
       <title>Project: my-notes updated</title>
       <link>https://lsantos.dev/projects</link>
       <guid isPermaLink="false">project:my-notes:ee0d198307e9ed0a73d7ab436b4d1fb72caa2f86</guid>
@@ -138,13 +145,6 @@
       <guid isPermaLink="false">project:my-notes:91b4119e14f67cbd639c95882bf4e6ba2f4cde86</guid>
       <pubDate>Tue, 22 Sep 2026 00:56:12 GMT</pubDate>
       <description><![CDATA[<p>A repo with my study notes, this was my way in to OSS (archived) <a href="https://github.com/khaosdoctor/my-notes">https://github.com/khaosdoctor/my-notes</a></p>]]></description>
-    </item>
-    <item>
-      <title>Project: netkill updated</title>
-      <link>https://lsantos.dev/projects</link>
-      <guid isPermaLink="false">project:netkill:91b4119e14f67cbd639c95882bf4e6ba2f4cde86</guid>
-      <pubDate>Tue, 22 Sep 2026 00:56:12 GMT</pubDate>
-      <description><![CDATA[<p>Kills the Internet connection of LAN devices using ARP spoofing, ideal for ADHD (archived) <a href="https://github.com/khaosdoctor/netkill">https://github.com/khaosdoctor/netkill</a></p>]]></description>
     </item>
   </channel>
 </rss>
