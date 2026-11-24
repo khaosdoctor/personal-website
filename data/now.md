@@ -5,12 +5,12 @@ This is a [now](https://nownownow.com/) page, a snapshot of what I'm up to and w
 ## Focus
 
 - Electronics, learning how to design and build guitar pedals and other small electronics
-- My Node.js book, I am currently finishing it and will be publishing it soon
-- My [blog](https://blog.lsantos.dev), I am trying to post more often, but I have been busy with other things
+- Setting up another personal homelab with local AI
+- My upcoming postgrad course where I am teaching software architecture with AI
 
 ## Philosophy
 
-- Pondering about my relationship with technology and AI recently. And rethinking my entire career and what I really liked to do since I was a kid.
+- More contemplative about the relation I have with myself and expanding my horizons, I have been reading a lot of philosophy and trying to understand how I can improve myself and my life
 
 ## Hobbies
 
@@ -28,11 +28,8 @@ This is a [now](https://nownownow.com/) page, a snapshot of what I'm up to and w
 ## Music
 
 - Learning
-  - Pride and Joy, __by Steve Ray Vaughan__, on the Bass.
-  - Square Hammer, __by Ghost__, on the Guitar
-- Currently looping _Stela Cole_ on Spotify
+  - _Sultans of Swing_ by __Dire Straits__ on the Guitar
 
 ## Games
 
-- [No Man's Sky](https://www.nomanssky.com/)
-- [Elite Dangerous](https://www.elitedangerous.com/)
+- Borderlands 4
