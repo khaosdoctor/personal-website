@@ -15,7 +15,7 @@ type:
   - dynamic-driver
   - wired
   - hifi
-updatedAt: 2026-11-24T02:21:16Z
+updatedAt: 2026-11-26T02:46:16Z
 x-personal-site-category: audio
 x-personal-site-export-type: uses
 ---
