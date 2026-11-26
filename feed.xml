@@ -8,6 +8,13 @@
     <atom:link href="https://lsantos.dev/feed.xml" rel="self" type="application/rss+xml"/>
     <atom:link href="https://blog.lsantos.dev/en/rss.xml" rel="related" type="application/rss+xml"/>
     <item>
+      <title>Uses: Kuba Auri</title>
+      <link>https://lsantos.dev/gear/kuba-auri.html</link>
+      <guid isPermaLink="false">uses:kuba-auri:2026-11-26T02:46:16.000Z</guid>
+      <pubDate>Thu, 26 Nov 2026 02:46:16 GMT</pubDate>
+      <description><![CDATA[<p>Kuba's wired USB-C in-ear with the DAC and EQ built into the plug Rated 9/10.</p>]]></description>
+    </item>
+    <item>
       <title>Now: updated 2026-11-24</title>
       <link>https://lsantos.dev/now</link>
       <guid isPermaLink="false">now:97663d679d618d6fb506b9225dcb34efa7647248</guid>
@@ -51,13 +58,6 @@
 <li>Borderlands 4</li>
 </ul>
 ]]></description>
-    </item>
-    <item>
-      <title>Uses: Kuba Auri</title>
-      <link>https://lsantos.dev/gear/kuba-auri.html</link>
-      <guid isPermaLink="false">uses:kuba-auri:2026-11-24T02:21:16.000Z</guid>
-      <pubDate>Tue, 24 Nov 2026 02:21:16 GMT</pubDate>
-      <description><![CDATA[<p>Kuba's wired USB-C in-ear with the DAC and EQ built into the plug Rated 9/10.</p>]]></description>
     </item>
     <item>
       <title>Uses: DIY Classic 68 Tremolo</title>
